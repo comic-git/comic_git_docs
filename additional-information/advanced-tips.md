@@ -4,7 +4,7 @@
 2. [Viewing your Website on your own PC](advanced-tips.md#viewing-your-website-on-your-own-pc)
 3. [Changing your Website URL](advanced-tips.md#changing-your-website-url)
 4. [Moving to a Custom Domain](advanced-tips.md#moving-to-a-custom-domain)
-5. [Hosting comic\_git Outside of GitHub Pages](advanced-tips.md#hosting-comic\_git-outside-of-github-pages)
+5. [Hosting comic\_git Outside of GitHub Pages](advanced-tips.md#hosting-comic_git-outside-of-github-pages)
 6. [Switching from a Public to a Private Repo](advanced-tips.md#switching-from-a-public-to-a-private-repo)
 7. [Changing Archive Headers to Banner Images](advanced-tips.md#changing-archive-headers-to-banner-images)
 8. [Scheduled Posts](advanced-tips.md#scheduled-posts)
@@ -129,13 +129,13 @@ Pushing these files to GitHub isn't a problem, as they'll be deleted and regener
 
 You've learned how to build your website on your local PC. However, you also need to be able to view your website, and that also takes a little bit of work.
 
-Unfortunately, modern web browsers have mechanisms in place to prevent what's called [Cross-site Scripting attacks](https://www.owasp.org/index.php/Cross-site\_Scripting\_\(XSS\)), so you can't just double-click on your index.html file for example and have it work in your web browser. You will need to run an HTTP server on your local machine to serve your website for it to work properly.
+Unfortunately, modern web browsers have mechanisms in place to prevent what's called [Cross-site Scripting attacks](https://www.owasp.org/index.php/Cross-site_Scripting_\(XSS\)), so you can't just double-click on your index.html file for example and have it work in your web browser. You will need to run an HTTP server on your local machine to serve your website for it to work properly.
 
 Fortunately, there are many ways to do this. One of the easiest ways is to install the [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/related?hl=en) extension.
 
 Once it's installed, click the `Launch App` button, and a dialog window should come up.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/web\_server\_dialog.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/web_server_dialog.png)
 
 Take note of the **CHOOSE FOLDER** button, the switch underneath it, and the hyperlink under **Web Server URL(s)**. You do not need to worry about any of the other settings.
 
@@ -157,21 +157,21 @@ There are two ways to change the URL for your web page: Change your username/rep
 
 Changing your username will change the part of the URL right before `.github.io`. It will also change the username you will have to use to login to GitHub, and you will have to relogin to GitHub Desktop. To change it, click your icon in the top right corner of any GitHub page, and then click **Settings**.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/change-username-01.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/change-username-01.png)
 
 In the list of options on the left, click **Account**. On the right, there will be a "Change Username" button. Click this and follow the steps GitHub gives you.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/change-username-02.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/change-username-02.png)
 
 ### Changing your Repo Name
 
 Changing the name of your webcomic's repository will change the last part of your URL. To change it, go to the main page of your repository and click the Settings link near the top.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/change-reponame-01.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/change-reponame-01.png)
 
 The very first option on the right will show your repo name. Click in the text box, make your desired changes, then click **Rename**.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/change-reponame-02.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/change-reponame-02.png)
 
 ## Moving to a Custom Domain
 
@@ -181,21 +181,21 @@ At some point, you will likely want to host your comic from a custom domain, so 
 
 First, go to the Settings page of your repository.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/settings.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/settings.png)
 
 Scroll down to the GitHub Pages section on this page, and find the Custom Domain option.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/custom\_domain.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/custom_domain.png)
 
 Fill out the text field for the Custom Domain to match whatever custom domain you want to assign to your website, then click Save.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/set\_custom\_domain.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/set_custom_domain.png)
 
 The page will reload with a blue banner that says `Custom domain "<domain name>" saved.`
 
 Scroll down to the GitHub Pages section. You may see a yellow banner with an informational message about your domain like below:
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/custom\_domain\_is\_set.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/custom_domain_is_set.png)
 
 Do whatever you need to do with your registrar to resolve any issues listed here. GitHub provides support articles for this process here: https://docs.github.com/en/github/working-with-github-pages/configuring-a-custom-domain-for-your-github-pages-site
 
@@ -237,15 +237,15 @@ The main reason someone would want to make their comic\_git repository private w
 
 After that, go to your **Settings** page, and scroll all the way to the bottom to the section marked **Danger Zone**, and click the **Change Visibility** button.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/change\_visibility.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/change_visibility.png)
 
 This will pop up a dialog asking you to select Public or Private.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/change\_visibility\_dialog.png)
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/change_visibility_dialog.png)
 
 When you select Private, many scary warnings will pop up underneath, the most disturbing of which is "You will permanently lose all pages published from this repository." This just means that the copy of your website that's currently uploaded to GitHub Pages will be deleted, and you'll just need to reenable Publishing to GitHub Pages afterwards. However, this means you should go through this process when you're unlikely to have many people trying to read your comic.
 
-To finish converting your repo to a private one, type your username and repo name into the text box at the bottom of the dialog and click the "I understand, change repository visibility." button to confirm. Then [reenable GitHub Pages on your repository](https://github.com/ryanvilbrandt/comic\_git/wiki/Publishing-to-GitHub-Pages), and you're done!
+To finish converting your repo to a private one, type your username and repo name into the text box at the bottom of the dialog and click the "I understand, change repository visibility." button to confirm. Then [reenable GitHub Pages on your repository](https://github.com/ryanvilbrandt/comic_git/wiki/Publishing-to-GitHub-Pages), and you're done!
 
 ## Changing Archive Headers to Banner Images
 
@@ -331,7 +331,7 @@ In addition to the above information, the information for the most recent comic 
 * **page\_name**: The unique identifier for the given comic page. This matches the name of the folder the comic is in, and the value in the URL for that comic page, e.g. `001` in `https://ryanvilbrandt.github.io/comic_git/comic/001/`
 * **filename**: The filename for the comic image file, as defined in the comic's `info.ini` file.
 * **comic\_path**: The path of the comic image file, of the format `your_content/comics/<page_name>/<filename>`.
-* **thumbnail\_path**: The path to find the thumbnail of the comic image, if it exists. See [this page](https://github.com/ryanvilbrandt/comic\_git/wiki/Editing-your-Comic-Info#use-thumbnails) for more information.
+* **thumbnail\_path**: The path to find the thumbnail of the comic image, if it exists. See [this page](https://github.com/ryanvilbrandt/comic_git/wiki/Editing-your-Comic-Info#use-thumbnails) for more information.
 * **alt\_text**: The alt text of the comic, as defined in the comic's `info.ini` file.
 * **first\_id**: The page\_name of the first comic on your site, sorted chronologically.
 * **previous\_id**: The page\_name of the previous comic.
@@ -394,7 +394,7 @@ Runs at the very end of the comic\_git build process. Can be used to do any misc
 {% hint style="info" %}
 **Additional hooks**
 
-Do you have ideas for other code hooks you'd like to see added to comic\_git? Please let me know by leaving your suggestion in the [comic\_git issues page](https://github.com/ryanvilbrandt/comic\_git/issues)!
+Do you have ideas for other code hooks you'd like to see added to comic\_git? Please let me know by leaving your suggestion in the [comic\_git issues page](https://github.com/ryanvilbrandt/comic_git/issues)!
 {% endhint %}
 
 ### Third-Party library support

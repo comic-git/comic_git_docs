@@ -2,31 +2,31 @@
 
 Uploading comic pages to your website is as simple as copying the comic image file to a folder and editing a text file!
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/uploading\_your\_comic/your\_content\_dir.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/your_content_dir.png)\
 
 
 Open the `comics` directory. When you created your own comic\_git repository in Getting Started, you created a copy of the original repository. This includes some example comic pages to help you get started.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/adding\_comic\_pages/comic\_dir.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/comic_dir.png)\
 
 
 The easiest way to upload a new comic page is to first make a copy of an existing directory in `your_content/comics`. After you've done that, you can delete the remaining example directories.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/adding\_comic\_pages/new\_dir.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/new_dir.png)\
 
 
 You can name the directory whatever you want, but be aware that it will show up in the URL for that page. E.g. **https://\[username].github.io/\[repo name]/comic/Page 1/**
 
 Open the new directory you've created, and you should see a few files: `info.ini`, `post.txt`, and an image file.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/adding\_comic\_pages/comic\_files.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/comic_files.png)\
 
 
 ## Comic File
 
 First things first, delete the existing image file and copy whatever image file you want to use for your comic in its place. The name of your comic image file can be anything you want, even the same name as other comic image files in other folders.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/adding\_comic\_pages/new\_comic\_file.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/new_comic_file.png)\
 
 
 ## Page Info

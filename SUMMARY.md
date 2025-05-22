@@ -1,6 +1,7 @@
 # Table of contents
 
 * [Home](README.md)
+* [What is comic\_git?](what-is-comic_git.md)
 
 ## Getting Started
 

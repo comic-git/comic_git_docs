@@ -10,10 +10,10 @@ description: Frequently Asked Questions
 2. [I pushed my comic update to GitHub, but it's not showing up on my GitHub Page.](faq.md#i-pushed-my-comic-update-to-github-but-its-not-showing-up-on-my-github-page.)
 3. [How do I test my website before publishing it on GitHub Pages?](faq.md#how-do-i-test-my-website-before-publishing-it-on-github-pages)
 4. [How do I change my comic URL/my GitHub username/the name of my webcomic repository?](faq.md#how-do-i-change-my-comic-url-my-github-username-the-name-of-my-webcomic-repository)
-5. [I'm reading through comic\_git's template files trying to understand how it works, but these files are too confusing!](faq.md#im-reading-through-comic\_gits-template-files-trying-to-understand-how-it-works-but-these-files-are-t)
+5. [I'm reading through comic\_git's template files trying to understand how it works, but these files are too confusing!](faq.md#im-reading-through-comic_gits-template-files-trying-to-understand-how-it-works-but-these-files-are-t)
 6. [I want my webcomic's home page to point to the latest comic. How do I change that?](faq.md#i-want-my-webcomics-home-page-to-point-to-the-latest-comic.-how-do-i-change-that)
-7. [Are there any size/traffic limits on comic\_git?](faq.md#are-there-any-size-traffic-limits-on-comic\_git)
-8. [Can I host smut/classy erotica/get-rich-quick scheme/something illegal with comic\_git?](faq.md#can-i-host-smut-classy-erotica-get-rich-quick-schemes-something-illegal-with-comic\_git)
+7. [Are there any size/traffic limits on comic\_git?](faq.md#are-there-any-size-traffic-limits-on-comic_git)
+8. [Can I host smut/classy erotica/get-rich-quick scheme/something illegal with comic\_git?](faq.md#can-i-host-smut-classy-erotica-get-rich-quick-schemes-something-illegal-with-comic_git)
 9. [I just realized that people can see pages before they are posted to my website by going to my GitHub repository! Can I make my GitHub repository private and still publish my website to GitHub Pages?](faq.md#i-just-realized-that-people-can-see-pages-before-they-are-posted-to-my-website-by-going-to-my-github)
 
 ## I've installed GitHub Desktop. How do I use it to organize my comic files?

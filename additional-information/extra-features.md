@@ -80,7 +80,7 @@ Set `Build RSS Feed` to `True`. Fill out all the other fields as needed:
 
 To let other websites access your feed.xml file, you need to set a Theme for your GitHub Page, in your GitHub repository settings, just beneath where you first enabled publishing your repository to GitHub Pages.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/advanced\_tips/choose\_a\_theme.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/choose_a_theme.png)\
 
 
 This choice is unrelated to the Theme you chose in the comic\_info.ini file, if any. It doesn't matter what theme you choose, as it is not used by comic\_git, but for some weird reason GitHub Pages requires it anyways to properly serve your feed.xml file.
@@ -117,27 +117,27 @@ One frequently requested feature is the ability to support multiple comics on on
 
 To create an extra comic, the first thing you'll want to do is create the folder for your extra comic in the `your_content` directory. You can name this folder whatever you want, but keep in mind that the name will define what the URL for your extra comic will be.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/add\_sidestory.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory.png)\
 
 
 Then, create a `comics` folder within that directory.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/add\_sidestory\_comics\_folder.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory_comics_folder.png)\
 
 
 Then, create the individual comics folders within `comics` as described in Adding Comic Pages
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/add\_sidestory\_individual\_comics.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory_individual_comics.png)\
 
 
 Last, open up the `your_content/comic_info.ini` file and add the "Extra comics" option under \[Comic Settings]. Set the value to the name of the folder you created in the first step. This is case-sensitive, so be sure not to add random capital letters.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/add\_sidestory\_to\_comic\_info.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory_to_comic_info.png)\
 
 
 You may also want to add a link to your extra comic from the links bar.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/add\_sidestory\_link.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory_link.png)\
 
 
 And you're done! Push your changes to GitHub, and your extra comic will be available to browse!
@@ -148,24 +148,24 @@ To start with, the only pages published for your extra comic are the comic pages
 
 One of the first things you'll probably want to do is add a home page to your extra comic, and possibly an archive page as well, so people can browse it just like your main comic. To do that, you'll need to add a comic\_info.ini file to your extra comics folder. If you like, you can copy the comic\_info.ini file from your main comic into this folder to start.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/sidestory\_comic\_info.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/sidestory_comic_info.png)\
 
 
 Next, open up the comic\_info.ini file in a text editor and add a \[Pages] section, along with the pages you want your extra comic to support. See the Pages section of Editing your Comic Info for more information on this section.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/sidestory\_comic\_info\_pages.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/sidestory_comic_info_pages.png)\
 
 
 If you're adding an index page, like in the above example, and you're still using the default index.tpl that comes with comic\_git, you'll need to put a `home page.txt` file in your extra comic folder as well, just like your main comic.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/sidestory\_home\_page.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/sidestory_home_page.png)\
 
 
 ### Changing the Links Bar for your Extra Comic
 
 You may have noticed at this point that the Links Bar above your comic but below the comic banner is the same as on your main website. You may want a links bar that's unique for your extra comic. If you do, setting that up is easy. Just edit the `comic_info.ini` file for your extra comic to have its own Links Bar section.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/sidestory\_comic\_info\_links\_bar.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/sidestory_comic_info_links_bar.png)\
 
 
 All links are relative to your whole website, so to link to pages in your extra comic, you will need to start the link using the extra comic's directory name.
@@ -176,14 +176,14 @@ By default, your extra comics inherit all the settings from your main comic. Thi
 
 If you want to change any of these values for your extra comic, you just need to add that change to your extra comic's `comic_info.ini` file.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/sidestory\_comic\_info\_archive\_setting.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/sidestory_comic_info_archive_setting.png)\
 
 
 ### Changing your Extra Comic's Theme
 
 In addition to changing the comic\_git specific settings of your extra comic, you may want to change things like the colors or font of your extra comic, to differentiate it from your main comic. To do so, you'll want to create a new Theme, and then assign that theme to your extra comic in the `comic_info.ini` file.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/extra\_features/sidestory\_comic\_info\_theme.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/sidestory_comic_info_theme.png)\
 
 
 ### Multiple Extra Comics

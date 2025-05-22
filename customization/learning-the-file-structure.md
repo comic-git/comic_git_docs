@@ -2,12 +2,12 @@
 
 When uploading comic pages or making basic changes to your website in comic\_git, you only need to worry about the files in one directory of your repository: the `your_content` directory.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/uploading\_your\_comic/main\_dir\_highlighted.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/main_dir_highlighted.png)\
 
 
 In this directory, you will see a few files and folders.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/uploading\_your\_comic/your\_content\_dir.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/your_content_dir.png)\
 
 
 The **comic\_info.ini** file contains some site-wide info for your website, as well as controls some extra functions available to comic\_git. This is described more in [Editing your Comic Info](editing-your-comic-info.md)

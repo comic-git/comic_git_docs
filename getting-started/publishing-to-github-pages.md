@@ -4,34 +4,34 @@ Now that your repository is created, you can publish your repository to GitHub P
 
 First, go to the **Settings** tab on the GitHub page for your newly created repository.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/getting\_started/select\_settings\_new.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/select_settings_new.png)\
 
 
 Click on the **Pages** option in the sidebar.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/getting\_started/go\_to\_pages.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/go_to_pages.png)\
 
 
 Under the "Branch" section, select `master` from the dropdown and click Save. It takes a minute for the `master` branch to be created in a new repository, so if `master` isn't available in the dropdown, try refreshing the page.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/getting\_started/set\_deploy\_branch.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/set_deploy_branch.png)\
 
 
 Once you have that setting enabled, your repository will be automatically published to GitHub Pages!
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/getting\_started/set\_deploy\_branch\_done.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/set_deploy_branch_done.png)\
 
 
 The publishing doesn't happen immediately, as GitHub needs to do some work in the background to make it happen. For this first time, the publishing process could take a few minutes. Go get a coffee, hit the can, call your mother... and when you come back, refresh your Settings page, and you should see the a new text box appear telling you that your site is now live!
 
 (You can also view the progress of your GitHub Pages deployments by looking in the Environments section of the sidebar on your main repository page.)
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/getting\_started/published\_to\_github\_pages\_new.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/published_to_github_pages_new.png)\
 
 
 Click on the "Visit site" button to go to your website, hosted from your very own GitHub account! WOO HOO! It looks exactly like the sample webcomic for now. You will learn how to update your website in a later section.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/getting\_started/viewing\_website\_new.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/viewing_website_new.png)\
 
 
 {% hint style="info" %}

@@ -8,10 +8,10 @@ If you're setting up comic\_git for the first time, and you just want to get sta
 
 When setting up your web comic, there are some important things you need to do to identify your comic, like give it a name or define what links go in the Links Bar. comic\_git also supports a few extra features that can be enabled for your project, like automatically generating thumbnails for your comic pages. All these settings can be adjusted in the `your_content/comic_info.ini` file.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/editing\_your\_website/comic\_info.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/editing_your_website/comic_info.png)\
 
 
-This file is a standard [INI file](https://en.wikipedia.org/wiki/INI\_file) that you may have seen elsewhere, if you've ever edited config files for other programs. Its format is very simple: it consists of pairs of options and their values (e.g. `Title = Sample Comic`), and these options are separated into sections (e.g. `[Comic Info]`).
+This file is a standard [INI file](https://en.wikipedia.org/wiki/INI_file) that you may have seen elsewhere, if you've ever edited config files for other programs. Its format is very simple: it consists of pairs of options and their values (e.g. `Title = Sample Comic`), and these options are separated into sections (e.g. `[Comic Info]`).
 
 Each of the sections and their options are described in more detail below.
 
@@ -85,7 +85,7 @@ You can also build your own format strings. See https://docs.python.org/3/librar
 
 The timezone for all the dates in your comic. This is important for when comic\_git is determining when scheduled posts should be published. For example, if you push out an update at 9pm your time just before the midnight deadline, you don't want comic\_git to publish the page right away just because it's past midnight in some other timezone!
 
-All timezones found in the "TZ database name" column on [this page](https://en.wikipedia.org/wiki/List\_of\_tz\_database\_time\_zones) are allowed.
+All timezones found in the "TZ database name" column on [this page](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) are allowed.
 
 #### Use images in navigation bar
 

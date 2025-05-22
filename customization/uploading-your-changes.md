@@ -10,7 +10,7 @@ The examples on this page assume all you've done is change the name of your comi
 
 Open GitHub Desktop. You should notice that the main screen looks a little different now that you've made changes to one of the files in your repository. The left column on GitHub Desktop displays which files have been added, changed, or deleted. When you select a file (in this case, there's only one), it will show you what changes were made to that file.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/uploading\_your\_comic/ready\_to\_commit.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/ready_to_commit.png)\
 
 
 The next step is to "commit" your changes. This converts your file changes into a little packet of data called a "commit" that will be uploaded to the server.
@@ -27,19 +27,19 @@ Type the name of the commit you're about to make in the lower left. You may name
 
 Once named, you may also add a description if you like (but it is not required).
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/uploading\_your\_comic/named\_commit.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/named_commit.png)\
 
 
 When you are satisfied, click **Commit to working**. You can go to the History tab to see all your past commits, including the one you just created. The up arrow next to it means it hasn't been uploaded to GitHub yet.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/uploading\_your\_comic/committed.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/committed.png)\
 
 
 Click **Push origin**. This is the action that actually uploads your changes to GitHub.
 
 Once this is complete, your website should now be updated! Go to **https://\[username].github.io/\[repo-name]/** to view your updated comic, and see that the title has been updated!
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic\_git/docs/docs/img/uploading\_your\_comic/checking\_website.png)\
+![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/checking_website.png)\
 
 
 Sometimes it takes a few minutes for the changes to appear, so just be patient.
