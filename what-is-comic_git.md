@@ -4,13 +4,13 @@
 
 There are many options on the internet these days for hosting webcomics. They range anywhere from old school solutions like Smack Jeeves and ComicPress to more new-fangled services like Tapas and WebToons.&#x20;
 
-One major fault of all these solutions, however, is that you are not in control of the content you publish on them. The worst offenders have language in their Terms of Service that allow them to use your creative work to make money for themselves. Even for self-hosted solutions like ComicPress, which give the user full legal ownership of the content, you are still relying on the hosting service to take good care of your comic. If the service shuts down or is hit by hackers, if you didn't make a backup of your comic, it's completely gone. All your artwork, your design work, everything is kaput.
+One major fault of all these solutions, however, is that you are not in control of the content you publish on them. The worst offenders have language in their Terms of Service that allow them to use your creative work to make money for themselves. Even for self-hosted solutions like ComicPress, which give the user full legal ownership of the content, you are still relying on the hosting service to take good care of your comic. If the service shuts down or is hit by hackers and you didn't make a backup of your comic, it's completely gone. All your artwork, your design work, everything is kaput.
 
-comic\_git is different from these other services because it is designed primarily to give you full ownership of not just your comic, but your entire website at all times.&#x20;
+comic\_git is different from these other services because it is designed to give you full ownership at all times of not just your comic, but your entire website.&#x20;
 
 ## Your Computer, Your Comic, Your Way
 
-Every other webcomic solution has a web-based UI. That is, to manage your comic in any way, whether that's uploading new pages, changing the layout of your website, or even just tweaking text post somewhere, you need to login to their website and make your changes there.&#x20;
+Every other webcomic solution has a web-based UI. That is, to manage your comic in any way, whether that's uploading new pages, changing the layout of your website, or even just tweaking text post somewhere, you need to log in to their website and make your changes there.&#x20;
 
 comic\_git was written from the ground up so that every change you want to make to your comic is done on your own computer. No logging in required, no buggy UIs to deal with, no risk of losing your work because you had to refresh your browser or your computer bluescreened before you could hit upload. You can do all your designing and updating completely on your own machine, and only when you're ready to update the live version of your webpage do you need to even be connected to the internet. And even then, if you follow our setup steps properly, uploading your changes will be as simple as clicking a button.
 

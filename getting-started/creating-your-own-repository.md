@@ -1,25 +1,30 @@
 # Creating your own Repository
 
-In the last section, you created your own GitHub account. In this section, you'll create a copy of comic\_git in your GitHub account that you will use to make your own webcomic.
+In this section, you'll create a copy of comic\_git in your GitHub account that you will use to make your own webcomic.
 
-First, visit the comic\_git repository at [https://github.com/ryanvilbrandt/comic\_git](https://github.com/ryanvilbrandt/comic_git).
+{% hint style="warning" %}
+If you don't have a GitHub account, follow the instructions in [Signing Up for GitHub](signing-up-for-github.md) before proceeding.
+{% endhint %}
 
-Click **Use This Template**. This creates a brand new, completely independent copy of the comic\_git repository that you can use to create your own webcomic.
+1. Visit the comic\_git repository at [https://github.com/ryanvilbrandt/comic\_git](https://github.com/ryanvilbrandt/comic_git).
+2.  Click **Use This Template**, then **Create a new repository**. This creates a new, independent copy of the comic\_git repository that you own. You'll use this new repository to create your webcomic.
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/use_this_template.png)\
+    <figure><img src="../.gitbook/assets/create01_use_this_template.jpg" alt="An image of the comic_git repository on GitHub. Numbered markers are pointing to 1. Use this template, 2. Create a new repository."><figcaption><p>The comic_git repository.</p></figcaption></figure>
+3. GitHub will ask you some questions about the repository you're creating. Set the requested fields as follows:
+   1. Repository template: This should already be set to `ryanvilbrandt/comic_git`
+   2. Include all branches: Leave this unchecked.
+   3. Owner: This should be the username you created when signing up. If it shows something different, look into that first.
+   4. Repository name: Choose any name you like, but we recommend the name of your comic.
+   5. Description: This shows when viewing the GitHub repository directly, as opposed to the site you build with it. This is optional and you may leave it blank.
+   6. Public / Private: This should be set to Public, GitHub requires a [GitHub Pro](https://github.com/account/upgrade) membership to use GitHub Pages with a private repository.
 
+{% hint style="info" %}
+As with your username, the name of your repository will show up as part of your website URL. For example, if you name the repository **bestcomic**, the GitHub Pages URL would be https://comicgitdemo.github.io/**bestcomic**/
+{% endhint %}
 
-After clicking **Use This Template**, GitHub asks you to name your new repository. You can select any name you desire; it may be easiest to use the name of your comic. Note that this is the name that will show up in the URL of your website later. (In the example in the picture below, the GitHub Pages URL would be http://marco262.github.io/sample-comic/)
+<figure><img src="../.gitbook/assets/create02_create_new_repo.jpg" alt="An image of GitHub&#x27;s Create a New Repository page, with sample information filled in."><figcaption><p>GitHub's New Repository page.</p></figcaption></figure>
 
-You may add a description if desired, but it is not required.
+4. Once you are satisfied with the settings, click **Create repository**.
+5.  GitHub takes a moment to generate the new repository, then displays it. You now have your own comic playground to build how you want!&#x20;
 
-Make sure the repository is set to **Public**. (You can publish a private repository to GitHub Pages, but it requires a [GitHub Pro](https://github.com/account/upgrade) membership.)
-
-Once you are satisfied with the settings, click **Create repository from template**.
-
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/create_sample_repository_new.png)\
-
-
-GitHub takes a moment to generate the new repository, then displays it. You now have your own comic playground to build how you want!
-
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/getting_started/sample_repository_new.png)
+    <figure><img src="../.gitbook/assets/create03_new_repo.jpg" alt="Image of a newly created GitHub repository cloned from comic_git_dev."><figcaption><p>The new repository!</p></figcaption></figure>
