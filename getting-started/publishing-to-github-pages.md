@@ -14,7 +14,7 @@ Even if you've only just created your repository from the previous page, the rep
     <figure><img src="../.gitbook/assets/publish02_go_to_pages.jpg" alt="An image of the GitHub repository Settings page, with a red box around the Pages option."><figcaption><p>The Pages option.</p></figcaption></figure>
 3.  Under **Branch**, select `working`from the dropdown.&#x20;
 
-    <figure><img src="../.gitbook/assets/publish03_select_branch.jpg" alt="An image of the GitHub Pages page, with a red box around the Branch setting."><figcaption><p>Select the working branch.</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/publish03_select_branch.png" alt="An image of the GitHub Pages page, with a red box around the Branch setting."><figcaption><p>Select the working branch.</p></figcaption></figure>
 
 {% hint style="info" %}
 It takes a minute for the `working` branch to be created in a new repository, so if `working` isn't available in the dropdown, try refreshing the page.
@@ -22,10 +22,10 @@ It takes a minute for the `working` branch to be created in a new repository, so
 
 4.  Click **Save**. Once you do, GitHub will automatically publish your repository to GitHub Pages!&#x20;
 
-    <div align="center" data-full-width="false"><figure><img src="../.gitbook/assets/publish04_save_branch.jpg" alt="An image of the GitHub Pages page, with a red box around the Save button."><figcaption><p>Click Save.</p></figcaption></figure> <figure><img src="../.gitbook/assets/publish05_page_success.jpg" alt="An image of the GitHub Pages page, with a red box around the text &#x22;Your GitHub Pages site is currently being built from the working branch.&#x22;."><figcaption><p>Success!</p></figcaption></figure></div>
+    <div align="center" data-full-width="false"><figure><img src="../.gitbook/assets/publish04_save_branch.png" alt="An image of the GitHub Pages page, with a red box around the Save button."><figcaption><p>Click Save.</p></figcaption></figure> <figure><img src="../.gitbook/assets/publish05_page_success.png" alt="An image of the GitHub Pages page, with a red box around the text &#x22;Your GitHub Pages site is currently being built from the working branch.&#x22;."><figcaption><p>Success!</p></figcaption></figure></div>
 5.  Publishing isn't immediate; GitHub needs to do some work in the background to do so. For this first time, the publishing process could take a few minutes. Go get a coffee, hit the can, call your mother... and when you come back, refresh your Settings page, and you should see a new text box appear telling you that your site is now live!&#x20;
 
-    <figure><img src="../.gitbook/assets/publish06_page_built.jpg" alt="An image of the GitHub Pages page, with a red box around the text &#x22;Your site is live&#x22; and the Visit Site button."><figcaption><p>It's ready!</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/publish06_page_built.png" alt="An image of the GitHub Pages page, with a red box around the text &#x22;Your site is live&#x22; and the Visit Site button."><figcaption><p>It's ready!</p></figcaption></figure>
 
 {% hint style="info" %}
 You can also view the progress of your GitHub Pages deployments by looking in the Environments section of the sidebar on your main repository page.
