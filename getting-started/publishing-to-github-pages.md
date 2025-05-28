@@ -9,15 +9,21 @@ Even if you've only just created your repository from the previous page, the rep
 1.  In your repository, go to the **Settings** tab.&#x20;
 
     <figure><img src="../.gitbook/assets/publish01_go_to_settings.jpg" alt="An image of the GitHub repository site, with a red box around the Settings option."><figcaption><p>The Settings option.</p></figcaption></figure>
-2.  In the sidebar on the left, click **Pages**.&#x20;
+2.  In the sidebar on the left, click **Actions** > **General**.
 
-    <figure><img src="../.gitbook/assets/publish02_go_to_pages.jpg" alt="An image of the GitHub repository Settings page, with a red box around the Pages option."><figcaption><p>The Pages option.</p></figcaption></figure>
-3.  Under **Branch**, select `working`from the dropdown.&#x20;
+    <figure><img src="../.gitbook/assets/publish01a_actions.png" alt="Image of GitHub Settings page, with a red indicator around the Actions General item in the sidebar."><figcaption><p>Go to Actions > General.</p></figcaption></figure>
+3.  In **Workflow Permissions** at the bottom of the page, select **Read and write permissions**, then click **Save** below it.
+
+    <figure><img src="../.gitbook/assets/publish01b_permissions.png" alt="Image of the GitHub Action General settings page. Two indicators instruct you to click Read and write permissions, then Save."><figcaption><p>Set read and write permissions.</p></figcaption></figure>
+4.  In the sidebar, click **Pages**.&#x20;
+
+    <figure><img src="../.gitbook/assets/publish01c_pages.png" alt="Image of GitHub Actions General page, with a red indicator around the Pages item in the sidebar."><figcaption><p>Go to Pages.</p></figcaption></figure>
+5.  Under **Branch**, select `working`from the dropdown.&#x20;
 
     <figure><img src="../.gitbook/assets/publish03_select_branch.png" alt="An image of the GitHub Pages page, with a red box around the Branch setting."><figcaption><p>Select the working branch.</p></figcaption></figure>
 
 {% hint style="info" %}
-It takes a minute for the `working` branch to be created in a new repository, so if `working` isn't available in the dropdown, try refreshing the page.
+It takes a minute for the `master` branch to be created in a new repository, so if `master` isn't available in the dropdown, try refreshing the page.
 {% endhint %}
 
 4.  Click **Save**. Once you do, GitHub will automatically publish your repository to GitHub Pages!&#x20;
