@@ -1,19 +1,23 @@
 # Learning the File Structure
 
-When uploading comic pages or making basic changes to your website in comic\_git, you only need to worry about the files in one directory of your repository: the `your_content` directory.
+When uploading comic pages or making basic changes to your website in comic\_git, you only need to worry about the files in one directory of your repository: the `your_content` directory. Everything you need to do will be located in `your_content`, with the exception of [the favicon](customizing-your-website.md#adding-a-favicon-to-your-website).
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/main_dir_highlighted.png)\
+<figure><img src="../.gitbook/assets/file_structure01.png" alt=""><figcaption></figcaption></figure>
 
+In `your_content`, you will see the files and folders you'll need to become acquainted with to create your website.
 
-In this directory, you will see a few files and folders.
+<figure><img src="../.gitbook/assets/file_structure02.png" alt=""><figcaption></figcaption></figure>
 
-![](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/your_content_dir.png)\
+## Directories
 
+* **comics**: This is where your comic pages live, as well as the information specific to those pages. [Adding Comic Pages](adding-comic-pages.md) goes into this folder in detail.
+* **images**: This is where website images that aren't tied to a specific comic page live. This includes things like a banner image, navigation link images, and whatever else you may want to use. [Customizing Your Website](customizing-your-website.md) talks about this folder in more detail.
+* **themes**: This is where the actual design of your website lives. comic\_git comes with a preset theme in the default folder, but you can edit the default theme, add your own, or even add multiple that you can switch between.&#x20;
+  * Editing the default theme, which is the easiest way to get started, is covered in [Customizing Your Website](customizing-your-website.md).
+  * Adding your own theme is covered in [Extra Features](../additional-information/extra-features.md).
+  * Changing which theme is used is covered in [Editing Your Comic Info](editing-your-comic-info.md).
 
-The **comic\_info.ini** file contains some site-wide info for your website, as well as controls some extra functions available to comic\_git. This is described more in [Editing your Comic Info](editing-your-comic-info.md)
+## Files
 
-The **comics** directory is where you will put your comic pages. This is described more in Adding Comic Pages.
-
-The **colors\_and\_layouts** and **images** folders are described in [Customizing your Website](customizing-your-website.md).
-
-For guidance on more advanced changes available to you, see [Extra Features](../additional-information/extra-features.md) and [Advanced Tips](../additional-information/advanced-tips.md).
+* **comic\_info.ini**: This is your settings file for the website. Nearly everything that controls the behavior or configuration of your site lives in this file. [Editing Your Comic Info](editing-your-comic-info.md) covers comic\_info.ini in detail.
+* **home page.txt**: This is the HTML for your comic's front page. It's in a text file to make it easier to edit, and will be converted to a proper HTML file when GitHub Pages builds your website. [Customizing Your Website](customizing-your-website.md#editing-your-comics-homepage) talks about this file more.
