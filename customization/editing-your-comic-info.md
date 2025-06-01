@@ -10,7 +10,7 @@ When setting up comic\_git, there are some critical things you need to do to ide
 
 <figure><img src="../.gitbook/assets/editing01_comic_info.png" alt=""><figcaption></figcaption></figure>
 
-This is a standard [INI file](https://en.wikipedia.org/wiki/INI_file) that may be familiar to you if you've ever edited config files for other programs. If you haven't seen one before, it's just a text file with a special purpose, and you can edit it in Notepad or whichever text editor you're comfortable with.
+This is a standard [.ini file](https://en.wikipedia.org/wiki/INI_file) that may be familiar to you if you've ever edited config files for other programs. If you haven't seen one before, it's just a text file with a special purpose, and you can edit it in Notepad or whichever text editor you're comfortable with.
 
 Inside the file, the options format is very simple: The name of the option and its value, separated by an equals sign (for example, `Title = Sample Comic`). These options are also separated into sections (for example, `[Comic Info]`).
 
@@ -138,7 +138,7 @@ All timezones found in the TZ Identifier column on the [TZ database time zones W
 
 <details>
 
-<summary><strong>Use images in navigation bar</strong></summary>
+<summary>Use images in navigation bar</summary>
 
 * Required
 * Value: `boolean`: `True` or `False`
@@ -306,7 +306,7 @@ You can either create your own thumbnails or use comic\_git's built-in thumbnail
 * Value: `string`: date format using [Python %-substitutions](https://docs.python.org/3/library/time.html#time.strftime)
 * Default: `%m/%d/%Y`
 
-This is the format that post dates are displayed in when `Use thumbnails` is set to True. This is defined separately from page date formats because longer post dates can screw up the spacing of the thumbnails in the grid. It accepts the same inputs as the `Date format` in the [\[Comic Settings\]](editing-your-comic-info.md#date-format) section.
+This is the format that post dates are displayed in when `Use thumbnails` is set to `True`. This is defined separately from page date formats because longer post dates can screw up the spacing of the thumbnails in the grid. It accepts the same inputs as the `Date format` in the [\[Comic Settings\]](editing-your-comic-info.md#date-format) section.
 
 </details>
 
@@ -374,7 +374,7 @@ When set to `True`, comic\_git will attempt to create a Transcripts section belo
 * Value: `string`: name of a transcript file
 * Default: `English`
 
-The transcript TXT file with the specified name is placed at the top of the list of transcripts. Whenever the comic page is loaded, this transcript is the one that's automatically loaded.
+The transcript .txt file with the specified name is placed at the top of the list of transcripts. Whenever the comic page is loaded, this transcript is the one that's automatically loaded.
 
 </details>
 
@@ -386,7 +386,7 @@ The transcript TXT file with the specified name is placed at the top of the list
 * Value: `boolean`: `True` or `False`
 * Default: `True`
 
-When set to `True`, comic\_git will search in each comic page's folder for any TXT files (except for `post.txt`). Any it finds is added to the list of available transcripts for that comic page.&#x20;
+When set to `True`, comic\_git will search in each comic page's folder for any .txt files (except for `post.txt`). Any it finds is added to the list of available transcripts for that comic page.&#x20;
 
 When set to `False`, comic\_git will not look in the comic folders. If **Transcripts folder** (see next option) is defined, comic\_git will still look in that folder for any transcripts regardless of this option's setting.
 
