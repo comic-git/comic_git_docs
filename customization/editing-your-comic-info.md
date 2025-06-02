@@ -46,7 +46,7 @@ Each of the sections and their options are described in more detail below.
 * Value: `string`: your comic name
 * Default: `comic_git Example`
 
-This is the name of your comic. The comic name shows up in the tab every time a page from your website is loaded. (for example, Page 202 - comic\_git Example). It **does not** need to match the name you gave your repository.
+This is the name of your comic. The comic name shows up in the tab every time a page from your website is loaded (for example, Page 202 - **comic\_git Example**). It **does not** need to match the name you gave your repository.
 
 </details>
 
@@ -186,7 +186,7 @@ Examples: `comic_git`, `tamberlane`
 
 * Optional
 * Value: `boolean`: `True` or `False`
-* Default: none
+* Default: `False`
 
 If you are building your website locally, or you've set up a custom domain, setting this to `True` will force any URLs pointing to your website to use `https://` instead of `http://`.
 
