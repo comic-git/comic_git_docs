@@ -10,13 +10,13 @@ layout: landing
 
 comic\_git is a simple webcomic hosting solution that's designed to allow people with NO coding expertise to quickly and easily create a webcomic of their own, host it for FREE, and maintain it with minimal work. [Learn more about Comic Git!](what-is-comic_git.md)
 
-Want to just jump in and try it out? [Getting Started](getting-started/getting-started.md) walks you through creating your own comic\_git repository in GitHub and publishing it to GitHub Pages where readers can see it.
+Want to just jump in and try it out? [Getting Started](getting-started/getting-started.md) walks you through creating your own comic\_git repository in GitHub, working on it from your computer, and publishing it to GitHub Pages where readers can see it.
 
-[Editing your Website](customization/editing-your-website.md) instructs you on how to personalize the site, add comic pages and other content, and upload your work to GitHub.
+[Basic Editing](broken-reference) goes over the fundamental settings for comic\_git and adding your comics to it. This section is designed to be simple enough for anyone to follow, regardless of your comfort level with code and technical things. The features here are the core to any webcomic site.
 
-[Extra Features](additional-information/extra-features.md) expands on the features of comic\_git beyond the basic functionality, like creating an RSS Feed.
+[Advanced Editing](broken-reference) goes over some features that take a bit more work to set up, but are still quite doable. These features aren't necessary for the core webcomic functionality, but may be helpful if you have a larger web presence.
 
-[Advanced Tips](additional-information/advanced-tips.md) provides suggestions and tips for uncommon tasks like building comic\_git locally.
+[Expert Editing](broken-reference) lifts the hood of comic\_git and goes over how to use it in contexts other than GitHub and GitHub Pages. These features are more uncommon and recommended only if you really need them. It's best if you're comfortable working with technical concepts like web hosting and custom domains.
 
 If you have questions, comments, or difficulties with comic\_git, please join our discord at [https://discord.gg/zmdHGXB](https://discord.gg/zmdHGXB) and we'll be happy to help you out!
 

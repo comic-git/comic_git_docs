@@ -69,7 +69,7 @@ If you're using the default date format, don't forget the comma after the day!
 {% hint style="info" %}
 **Scheduled Posts**
 
-Any comic with a Post Date set in the future (according to the Timezone you have set in your comic\_info.ini file) will be "scheduled" for later, meaning it will not be published at that point in time. By default, comic\_git automatically reruns every morning at 8am UTC to publish any scheduled posts that might need to be created. See the [Scheduled Posts](../additional-information/advanced-tips.md#scheduled-posts) section for more information, including how to change when comic\_git rechecks the scheduled posts.
+Any comic with a Post Date set in the future (according to the Timezone you have set in your comic\_info.ini file) will be "scheduled" for later, meaning it will not be published at that point in time. By default, comic\_git automatically reruns every morning at 8am UTC to publish any scheduled posts that might need to be created. See the [Scheduled Posts](../other-expert-tips.md#scheduled-posts) section for more information, including how to change when comic\_git rechecks the scheduled posts.
 {% endhint %}
 
 </details>

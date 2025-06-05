@@ -56,5 +56,5 @@ GitHub Pages URL: https://**comicgitdemo**.github.io/**bestcomic**
 
 Your **GitHub Pages URL** is what you need to give to anyone who wants to read your comic.
 
-If you like, you can even set a [custom domain](../additional-information/advanced-tips.md#moving-to-a-custom-domain) rather than using the default one.
+If you like, you can even set a [custom domain](../other-expert-tips.md#moving-to-a-custom-domain) rather than using the default one.
 {% endhint %}

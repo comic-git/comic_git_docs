@@ -18,7 +18,7 @@ To change the colors of your website, edit the file `your_content/themes/default
 
 Basic (and hopefully easy to understand) settings are pre-defined here, with comments describing what each one does. It is very difficult to actually break your website by changing this file, so feel free to change these values to your heart's content. In the worst case, deleting this file will cause your browser to use its default colors for everything, which won't look too horrible.
 
-If you wish to change more complex things like the spacing between different elements in your website, you can look at [advanced\_stylesheet.css](https://github.com/ryanvilbrandt/comic_git_engine/blob/master/css/advanced_stylesheet.css) in the main comic\_git\_engine repository for guidance. This contains all the style definitions that are less clear-cut or changing them and making them look good takes a lot of trial and error. If you wish to change any of these values, copy them into `stylesheet.css` first, then make changes there. Any values defined in your `stylesheet.css` take precedence over the values in `advanced_stylesheet.css`.&#x20;
+If you wish to change more complex things like the spacing between different elements in your website, you can look at [advanced\_stylesheet.css](https://github.com/ryanvilbrandt/comic_git_engine/blob/master/css/advanced_stylesheet.css) in the main [comic\_git\_engine](../advanced-editing/advanced-editing-and-the-comic_git-engine.md#what-is-comic_git_engine) repository for guidance. This contains all the style definitions that are less clear-cut or changing them and making them look good takes a lot of trial and error. If you wish to change any of these values, copy them into `stylesheet.css` first, then make changes there. Any values defined in your `stylesheet.css` take precedence over the values in `advanced_stylesheet.css`.&#x20;
 
 If you are comfortable with CSS, you do not need to limit yourself to only what's in `stylesheet.css` or `advanced_stylesheet.css`. Feel free to add whatever CSS settings you need!
 
@@ -103,4 +103,4 @@ Just replace any of the images in `your_content/images/navigation_icons/` with o
 
 ## Other Changes
 
-To make further changes to your website, like adding your own pages or changing the HTML of existing pages, see [Themes](../additional-information/extra-features.md#themes).
+To make further changes to your website, like adding your own pages or changing the HTML of existing pages, see [Themes](../advanced-editing/extra-features.md#themes).

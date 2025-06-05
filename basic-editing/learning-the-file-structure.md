@@ -14,7 +14,7 @@ In `your_content`, you will see the files and folders you'll need to become acqu
 * :file\_folder:**images**: This is where website images that aren't tied to a specific comic page live. This includes things like a banner image, navigation link images, and whatever else you may want to use. [Customizing Your Website](customizing-your-website.md) talks about this folder in more detail.
 * :file\_folder:**themes**: This is where the actual design of your website lives. comic\_git comes with a preset theme in the default folder, but you can edit the default theme, add your own, or even add multiple that you can switch between.&#x20;
   * Editing the default theme, which is the easiest way to get started, is covered in [Customizing Your Website](customizing-your-website.md).
-  * Adding your own theme is covered in [Extra Features](../additional-information/extra-features.md).
+  * Adding your own theme is covered in [Extra Features](../advanced-editing/extra-features.md).
   * Changing which theme is used is covered in [Editing Your Comic Info](editing-your-comic-info.md).
 
 ## Files

@@ -15,7 +15,7 @@ Keep in mind your username will be displayed in the URL of your webcomic. For ex
 {% endhint %}
 
 {% hint style="warning" %}
-At some point after signing up, GitHub will send you a verification email. Make sure to verify your email address before you get to the [Uploading Your Comic](../customization/uploading-your-changes.md) section.
+At some point after signing up, GitHub will send you a verification email. Make sure to verify your email address before you get to the [Uploading Your Comic](uploading-your-changes.md) section.
 
 Due to security restrictions in GitHub, if you do not verify your email address, comic\_git will not be able to generate your website.
 {% endhint %}

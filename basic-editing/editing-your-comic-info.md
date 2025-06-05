@@ -58,7 +58,7 @@ This is the name of your comic. The comic name shows up in the tab every time a 
 * Value: `string`: your authorial name
 * Default: `Ryan Vilbrandt`
 
-Whatever name or credit you wish to give for the creation of your comic. It can be a single name, a list of names, a sentence, whatever you want. It's currently only used when generating your [RSS Feed](../additional-information/extra-features.md#adding-an-rss-feed).
+Whatever name or credit you wish to give for the creation of your comic. It can be a single name, a list of names, a sentence, whatever you want. It's currently only used when generating your [RSS Feed](../advanced-editing/extra-features.md#adding-an-rss-feed).
 
 </details>
 
@@ -70,7 +70,7 @@ Whatever name or credit you wish to give for the creation of your comic. It can 
 * Value: `string`: your description
 * Default: `Explore a free webcomic-based static site generator delivered through GitHub!`
 
-A short, one-sentence description of your web comic. This will show up in your [RSS feed](../additional-information/extra-features.md#adding-an-rss-feed) and [social media previews](../additional-information/extra-features.md#adding-social-media-previews).
+A short, one-sentence description of your web comic. This will show up in your [RSS feed](../advanced-editing/extra-features.md#adding-an-rss-feed) and [social media previews](../advanced-editing/extra-features.md#adding-social-media-previews).
 
 </details>
 
@@ -156,7 +156,7 @@ When set to `true`, this will replace the First, Previous, Next, and Latest navi
 * Value: `string`: URL of domain
 * Default: none
 
-If you are building your website locally, and you haven't configured a custom domain, you must set this so that comic\_git knows what domain to use to build the URL to link to your comic, for the purposes of things like your RSS feed and your social media preview links. For more details, see [Building your Website on your own PC](../additional-information/advanced-tips.md#building-your-website-on-your-own-pc).
+If you are building your website locally, and you haven't configured a custom domain, you must set this so that comic\_git knows what domain to use to build the URL to link to your comic, for the purposes of things like your RSS feed and your social media preview links. For more details, see [Building your Website on your own PC](../other-expert-tips.md#building-your-website-on-your-own-pc).
 
 This option should include your website's entire domain, subdomain, and top-level domain. Do not include the slash at the end. You may include the "http://" or "https://" if you wish.
 
@@ -172,7 +172,7 @@ Examples: `http://ryanvilbrandt.github.io`, `www.tamberlanecomic.com`
 * Value: `string`: name of GitHub repo
 * Default: none
 
-If you're building your website locally and you have not set a custom domain, you must set this to the name of your GitHub repository. This allows most of the links on your website to function properly. For more details, see [Building your Website on your own PC](../additional-information/advanced-tips.md#building-your-website-on-your-own-pc).
+If you're building your website locally and you have not set a custom domain, you must set this to the name of your GitHub repository. This allows most of the links on your website to function properly. For more details, see [Building your Website on your own PC](../other-expert-tips.md#building-your-website-on-your-own-pc).
 
 This option should not include leading or trailing slashes.
 
@@ -212,7 +212,7 @@ The name of the theme folder to use for your site. The theme folder must be loca
 * Value: `string`: see blow
 * Default: none
 
-A comma-separated list of any extra comics hosted on your site. For more information, see [Extra Comics](../additional-information/extra-features.md#extra-comics).
+A comma-separated list of any extra comics hosted on your site. For more information, see [Extra Comics](../advanced-editing/extra-features.md#extra-comics).
 
 </details>
 
@@ -270,7 +270,7 @@ This is a special section without pre-defined options. This section tells comic\
 
 The section has been pre-populated with common webcomic pages. If you wish to remove a default web page like tagged pages or the Latest page, delete that line from this section.
 
-For more info on adding pages to your website, see [Themes](../additional-information/extra-features.md#themes).
+For more info on adding pages to your website, see [Themes](../advanced-editing/extra-features.md#themes).
 
 ### \[Links Bar]
 
@@ -350,7 +350,7 @@ When set to `False` and a thumbnail already exists in the comic page's folder, c
 
 ### \[RSS Feed]
 
-This section is covered in [Adding an RSS Feed](../additional-information/extra-features.md#adding-an-rss-feed). If you don't need to create an RSS feed, you can leave this section alone.
+This section is covered in [Adding an RSS Feed](../advanced-editing/extra-features.md#adding-an-rss-feed). If you don't need to create an RSS feed, you can leave this section alone.
 
 ### \[Transcripts]
 

@@ -11,19 +11,36 @@
 * [Publishing to GitHub Pages](getting-started/publishing-to-github-pages.md)
 * [Installing GitHub Desktop](getting-started/installing-github-desktop.md)
 * [Downloading your Files](getting-started/downloading-your-files.md)
+* [Uploading your Changes](getting-started/uploading-your-changes.md)
 
-## Customization
+## Basic Editing
 
-* [Editing your Website](customization/editing-your-website.md)
-* [Learning the File Structure](customization/learning-the-file-structure.md)
-* [Editing your Comic Info](customization/editing-your-comic-info.md)
-* [Adding Comic Pages](customization/adding-comic-pages.md)
-* [Customizing Your Website](customization/customizing-your-website.md)
-* [Uploading your Changes](customization/uploading-your-changes.md)
+* [Editing your Website](basic-editing/editing-your-website.md)
+* [Learning the File Structure](basic-editing/learning-the-file-structure.md)
+* [Editing your Comic Info](basic-editing/editing-your-comic-info.md)
+* [Adding Comic Pages](basic-editing/adding-comic-pages.md)
+* [Customizing Your Website](basic-editing/customizing-your-website.md)
+
+## Advanced Editing
+
+* [Advanced Editing and the comic\_git Engine](advanced-editing/advanced-editing-and-the-comic_git-engine.md)
+* [Themes](advanced-editing/themes.md)
+* [Extra Comics](advanced-editing/extra-comics.md)
+* [Adding An RSS Feed](advanced-editing/adding-an-rss-feed.md)
+* [Extra Features](advanced-editing/extra-features.md)
+
+## Expert Editing
+
+* [Expert Editing](expert-editing/expert-editing.md)
+* [Building Your Website On Your Own PC](expert-editing/building-your-website-on-your-own-pc.md)
+
+***
+
+* [Changing Your Website URL](changing-your-website-url.md)
+* [Hosting comic\_git Elsewhere](hosting-comic_git-elsewhere.md)
+* [Other Expert Tips](other-expert-tips.md)
 
 ## Additional Information
 
-* [Extra Features](additional-information/extra-features.md)
-* [Advanced Tips](additional-information/advanced-tips.md)
 * [FAQ](additional-information/faq.md)
 * [Troubleshooting](additional-information/troubleshooting.md)

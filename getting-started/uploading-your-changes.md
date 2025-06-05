@@ -1,12 +1,12 @@
 # Uploading your Changes
 
-So you've made some changes to some files in your comic. Maybe you changed the comic name, or uploaded some comic files. You are ready to publish your changes to the web! This page will walk you through uploading any changes you've made to GitHub.
+So you've gone through [Basic Setup](broken-reference) and made some changes to some files in your comic. Maybe you changed the comic name, or uploaded some comic files. You are ready to publish your changes to the web! This page walks you through uploading any changes you've made to GitHub.
 
 {% hint style="info" %}
 The examples on this page assume all you've done is change the name of your comic in your `comic_info.ini`. Your files will look slightly different depending on which changes you've made.
 {% endhint %}
 
-1.  Open [GitHub Desktop](../getting-started/installing-github-desktop.md). You should notice that the main screen looks a little different now that you've made changes to one of the files in your repository. The left column on GitHub Desktop displays which files have been added, changed, or deleted. When you select a file (in this case, there's only one), it will show you what changes were made to that file.\
+1.  Open [GitHub Desktop](installing-github-desktop.md). You should notice that the main screen looks a little different now that you've made changes to one of the files in your repository. The left column on GitHub Desktop displays which files have been added, changed, or deleted. When you select a file (in this case, there's only one), it will show you what changes were made to that file.\
 
 
     <figure><img src="../.gitbook/assets/upload01_view_changed_files.png" alt="Image of GitHub Desktop showing changed files."><figcaption></figcaption></figure>
@@ -40,5 +40,5 @@ You can check the progress of your deployment to GitHub Pages. If the page still
 {% hint style="info" %}
 **Publishing Changes**
 
-Every time comic\_git runs, it regenerates your website. It runs automatically whenever you upload changes to GitHub, but it also runs every morning at 8am UTC. See [Scheduled Posts](../additional-information/advanced-tips.md#scheduled-posts) for more information.
+Every time comic\_git runs, it regenerates your website. It runs automatically whenever you upload changes to GitHub, but it also runs every morning at 8am UTC. See [Scheduled Posts](../other-expert-tips.md#scheduled-posts) for more information.
 {% endhint %}
