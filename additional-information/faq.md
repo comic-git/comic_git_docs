@@ -32,7 +32,7 @@ The easiest way is to [build your website on your own computer](../expert-editin
 
 <summary>How do I change my comic URL/my GitHub username/the name of my webcomic repository?</summary>
 
-[Changing your Website URL](../changing-your-website-url.md) has you covered.
+[Changing your Website URL](../expert-editing/changing-your-website-url.md) has you covered.
 
 </details>
 

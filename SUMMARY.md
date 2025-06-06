@@ -32,11 +32,11 @@
 ## Expert Editing
 
 * [Expert Editing](expert-editing/expert-editing.md)
+* [Changing Your Website URL](expert-editing/changing-your-website-url.md)
 * [Building Your Website On Your Own PC](expert-editing/building-your-website-on-your-own-pc.md)
 
 ***
 
-* [Changing Your Website URL](changing-your-website-url.md)
 * [Hosting comic\_git Elsewhere](hosting-comic_git-elsewhere.md)
 * [Other Expert Tips](other-expert-tips.md)
 
@@ -44,3 +44,4 @@
 
 * [FAQ](additional-information/faq.md)
 * [Troubleshooting](additional-information/troubleshooting.md)
+* [Migrating to 1.0](additional-information/migrating-to-1.0.md)

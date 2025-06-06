@@ -97,7 +97,7 @@ Assuming you want to create your own Jinja2 templates (see Customizing Your Webs
 * **comic\_description**: The comic description, as defined in the `[Comic Info]` section of the `comic_info.ini` file.
 * **banner\_image**: The web path of the banner image at the top of your website, as defined in the `[Comic Settings]` section of the `comic_info.ini` file.
 * **theme**: The name of the current theme that's in use.
-* **comic\_url**: The URL of the homepage of your website, e.g. `https://ryanvilbrandt.github.io/comic_git/`. See [Changing Your Website URL](changing-your-website-url.md) for information about changing this value, or you can host your webcomic from a custom domain.
+* **comic\_url**: The URL of the homepage of your website, e.g. `https://ryanvilbrandt.github.io/comic_git/`. See [Changing Your Website URL](expert-editing/changing-your-website-url.md) for information about changing this value, or you can host your webcomic from a custom domain.
 * **base\_dir**: The base directory for your comic, aka your repository name while you're hosting from a GitHub Pages URL. It is important that all URLs that reference the root directory of your website use this variable, or have the correct root directory hardcoded in the template file.
 * **comic\_base\_dir**: The web path for the current comic being built. For the main comic, this will always be the same as `base_dir`, but for extra comics, the extra comic name will be added. e.g. `/base_dir/extra_comic`
 * **content\_base\_dir**: The web path where the `your_content` files are stored for the current comic being built. For the main comic, this will always be the `/{base_dir}/your_content`, but for extra comics, the extra comic name will be added. e.g. `/base_dir/your_content/extra_comic`

@@ -6,11 +6,15 @@ While it's very convenient that GitHub can build and deploy your website itself 
 
 Fortunately, it's possible to build your website locally without pushing to GitHub! This is very useful for testing changes to your website quickly and efficiently. This section will walk you through that.
 
-### Install Python 3.8
+### Install Python
 
 The main brain of the comic\_git workflow is a Python script that is run whenever you push a change to GitHub, so to build your website locally, you will need to run that script.
 
-First, [download the most recent version of Python](https://www.python.org/downloads/) from the Python website. comic\_git requires Python 3.8 or greater.
+First, [download the most recent version of Python](https://www.python.org/downloads/) from the Python website.&#x20;
+
+{% hint style="warning" %}
+comic\_git requires Python 3.12 or greater.
+{% endhint %}
 
 Install Python on your computer, and follow the instructions. If there are options to add Python to your PATH, enable it.
 
@@ -21,19 +25,19 @@ Next, verify that Python is installed and working on your machine.
 Open the Command Prompt. Type in the following command, and you should get back the version of Python currently installed on your PC.
 
 ```
-C:\Users\JohnSmith>python --version
-Python 3.8.2
+C:\Users\JohnSmith> python --version
+Python 3.13.4
 ```
 
 If you're on Windows 7 or lower and the install didn't work properly, you'll see something like below. If you are on Windows 10, Windows may automatically open up the Windows Store to download Python. If it does, close it and move on.
 
 ```
-C:\Users\JohnSmith>python --version
+C:\Users\JohnSmith> python --version
 'python' is not recognized as an internal or external command,
 operable program or batch file.
 ```
 
-In this case, check that Python was installed by finding the python.exe file, which will usually be found at `C:\Users\<username>\AppData\Local\Programs\Python\Python38\python.exe`. If you cannot find this file, try reinstalling Python.
+In this case, check that Python was installed by finding the `python.exe` file, which will usually be found at `C:\Users\<username>\AppData\Local\Programs\Python\Python38\python.exe`. If you cannot find this file, try reinstalling Python.
 
 Otherwise, Python was not added to your PATH properly. You can do so yourself by following [these instructions](https://geek-university.com/python/add-python-to-the-windows-path/). You may need to restart your PC afterwards.
 
@@ -45,14 +49,34 @@ Otherwise, Python was not added to your PATH properly. You can do so yourself by
 
 [Python has full documentation on installing Python on different flavors of Linux](https://docs.python.org/3/using/unix.html).
 
+### Add comic\_git\_engine to your repo
+
+To work on GitHub, comic\_git is split into two repositories: your personal content repo and comic\_git\_engine, which hosts all the necessary scripts to build the site. When running locally, you won't be able to access the engine repo. These instructions will install the engine into your local repository so you can make use of it.
+
+In a terminal window, navigate to your base repo directory. This is the directory which contains `your_content`, `favicon.ico`, and so on. We'll assume it's `D:\GitHub\comic_git` for these instructions.
+
+Type the following command:&#x20;
+
+```
+D:\GitHub\comic_git> git submodule add -b "[engine version]" -f https://github.com/ryanvilbrandt/comic_git_engine
+```
+
+&#x20;In that command line, replace `[engine version]` with the same value as the engine version listed in `comic_info.ini`.
+
+This installs comic\_git\_engine as a **submodule** of your personal repo.
+
+{% hint style="info" %}
+When building your site locally, you'll use the local version of comic\_git\_engine, which may not update when the live repo updates. You can manually update it to the newest version with the command `git submodule update --remote`.
+{% endhint %}
+
 ### Install the required libraries
 
 Your next step is to install the libraries needed for comic\_git to build your website. Fortunately, Python comes with a tool that can automatically do this for you called _pip_.
 
-Open up your Command Prompt/Terminal in your `comic_git` directory and type the following command.
+Open up your Command Prompt/Terminal in your base repo directory and type the following command:
 
 ```
-D:\Github\comic_git>python -m pip install -r src\scripts\requirements.txt
+D:\GitHub\comic_git> python -m pip install -r comic_git_engine\scripts\requirements.txt
 ```
 
 pip will then install a number of Python packages on your computer. Once it's done, you'll see something like below:
@@ -63,9 +87,9 @@ Successfully installed Jinja2-2.11.2 MarkupSafe-1.1.1 Pillow-7.2.0 markdown2-2.3
 
 ### Update your comic\_info.ini
 
-There is some information that GitHub provides to comic\_git that it needs to run that is not available on your local machine. You will need to provide this info in the comic\_info.ini file.
+There is some necessary information GitHub provides to comic\_git that is not available on your local machine. You will need to provide this info in the `comic_info.ini` file.
 
-Edit your comic\_info.ini file to add two new options at the bottom of the \[Comic Info] section.
+Edit your `comic_info.ini` file to add two new options at the bottom of the \[Comic Settings] section.
 
 ```
 [Comic Settings]
@@ -81,7 +105,7 @@ Comic subdirectory = repo_name
 Once this is done, you can call the Python script that builds your website directly on your own PC using the following command.
 
 ```
-D:\Github\comic_git>python src\scripts\build_site.py
+D:\Github\comic_git> python comic_git_engine\scripts\build_site.py
 ```
 
 comic\_git will then take over and build your site for you.
@@ -94,14 +118,16 @@ Write HTML files: 143.65 ms
 Total time: 1444.15 ms
 ```
 
-And now you're ready to build your website locally! Any time you make a change to comic\_info.ini, any of the info.ini files, any of the \*.tpl files, any of the Python scripts, or if you add or delete a comic page folder, you will need to run Python script again.
+And you're done! The script will create the necessary HTML files, which you can then view on your computer.
+
+Any time you make a change to `comic_info.ini`, any of the `info.ini` files, any of the .tpl files, any of the Python scripts, or if you add or delete a comic page folder, you'll need to run the `build_site` script again.
 
 You do NOT need to run the script again if you update any of the CSS or Javascript files. These can be reloaded just by refreshing your web browser.
 
 {% hint style="danger" %}
 **Do NOT edit any of the HTML files that are generated**
 
-If you do, any of your changes will be overwritten the next time the Python script is run. If you wish to edit the HTML of any of the pages, edit the appropriate \*.TPL file in src\views.
+If you do, any of your changes will be overwritten the next time the Python script is run. If you wish to edit the HTML of any of the pages, edit the appropriate .tpl file in comic\_git\_engine\templates.
 {% endhint %}
 
 {% hint style="info" %}
@@ -109,27 +135,18 @@ If you do, any of your changes will be overwritten the next time the Python scri
 
 If you test your website locally, you may notice that when you go to make a commit to GitHub, there are a LOT more files than usual, particularly a bunch of index.html files. These are the files that are generated by GitHub whenever you push an update, and basically run your website.
 
-Pushing these files to GitHub isn't a problem, as they'll be deleted and regenerated anyways. However, if you want to keep your commits small and clean (a good idea if you ever need to go back and see what changes you've made), then you can run `python src\scripts\delete_autogenerated_files.py` to clear these out beforehand.
+Pushing these files to GitHub isn't a problem, as they'll be deleted and regenerated anyways. However, if you want to keep your commits small and clean (a good idea if you ever need to go back and see what changes you've made), then you can run `python comic_git_engine\scripts\delete_autogenerated_files.py` to clear these out beforehand.
 {% endhint %}
 
 ## Viewing your Website on your own PC
 
-You've learned how to build your website on your local PC. However, you also need to be able to view your website, and that also takes a little bit of work.
+You've learned how to build your website on your local PC. However, you also need to be able to view your website. While you can open the individual HTML files, this doesn't replicate a full server environment. These instructions walk you through creating a simple webserver on your PC, so you can view your site as if you were looking at it on GitHub Pages.
 
-Unfortunately, modern web browsers have mechanisms in place to prevent what's called [Cross-site Scripting attacks](https://www.owasp.org/index.php/Cross-site_Scripting_\(XSS\)), so you can't just double-click on your index.html file for example and have it work in your web browser. You will need to run an HTTP server on your local machine to serve your website for it to work properly.
+Navigate to your base repo directory and run the following command:
 
-Fortunately, there are many ways to do this. One of the easiest ways is to install the [Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb/related?hl=en) extension.
+```
+D:\GitHub\comic_git> python -m http.server 8000
+Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+```
 
-Once it's installed, click the `Launch App` button, and a dialog window should come up.
-
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/advanced_tips/web_server_dialog.png" alt=""><figcaption></figcaption></figure>
-
-Take note of the **CHOOSE FOLDER** button, the switch underneath it, and the hyperlink under **Web Server URL(s)**. You do not need to worry about any of the other settings.
-
-When the app launches, the switch is blue, meaning that the app is currently serving the default folder as a web page. This is not going to be the folder you want, so click the blue switch so it turns gray. This will disable the web server.
-
-Click the **CHOOSE FOLDER** button, and navigate to where you have your comic repository saved. Select the directory your comic repository folder is in (NOT the folder of the comic repository itself). For example, if you have your comic repository at `C:\Users\username\Documents\GitHub\sample-comic`, you should select the folder `C:\Users\username\Documents\GitHub`. This is because on github.io, your comic repository is not at the "root directory" of your server space, but rather in its own directory. This will give your local web server a similar setup, and keeping your development space as similar to your production space as possible is good practice.
-
-Once you've selected your folder, click the switch to turn it blue again. Then click the hyperlink under **Web Server URL(s)**. This will open up a web browser pointing to http://127.0.0.1:8887/. Add your comic name on the end (e.g. http://127.0.0.1:8887/sample-comic/) and you should see your web comic appear.
-
-Voila! Now as soon as you save changes to any of your website files, you should be able to refresh that web page and see them without having to upload to GitHub. If you make changes to any CSS or Javascript files, you may need to **force refresh** the page to force your browser to load those files again. This is usually done with Ctrl-F5.
+Once this appears, open your web browser and go to either [http://localhost:8000](http://localhost:8000/) or [http://127.0.0.1:8000](http://127.0.0.1:8000/). You should see your site pop up exactly as if it's been published to the web!

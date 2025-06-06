@@ -17,13 +17,13 @@ To change it:
 
 1.  Click your icon in the top right corner of any GitHub page, then click **Settings**.&#x20;
 
-    <figure><img src=".gitbook/assets/change_username01_account.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/change_username01_account.png" alt=""><figcaption></figcaption></figure>
 
-    <figure><img src=".gitbook/assets/change_username02_settings.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/change_username02_settings.png" alt=""><figcaption></figcaption></figure>
 2. In the list of options on the left, click **Account**.&#x20;
 3.  Click **Change Username**. Follow the steps GitHub gives you to complete the process.&#x20;
 
-    <figure><img src=".gitbook/assets/change_username03_change.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/change_username03_change.png" alt=""><figcaption></figcaption></figure>
 
 ### Changing your Repo Name
 
@@ -33,10 +33,10 @@ To change it:
 
 1.  From the main page of your repository, click **Settings**.&#x20;
 
-    <figure><img src=".gitbook/assets/change_repo01_settings.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/change_repo01_settings.png" alt=""><figcaption></figcaption></figure>
 2.  The first option in General Settings shows your repo name. Click in the text box, make your desired changes, then click **Rename**.&#x20;
 
-    <figure><img src=".gitbook/assets/change_repo02_rename.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/change_repo02_rename.png" alt=""><figcaption></figcaption></figure>
 
 ## Moving to a Custom Domain
 
@@ -46,13 +46,13 @@ At some point, you will likely want to host your comic from a custom domain, so 
 
 1.  From the main page of your repository, click **Settings**.&#x20;
 
-    <figure><img src=".gitbook/assets/change_repo01_settings.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/change_repo01_settings.png" alt=""><figcaption></figcaption></figure>
 2.  In the list of options on the left, click **Pages**. Find the **Custom domain** entry in the Pages settings.&#x20;
 
-    <figure><img src=".gitbook/assets/custom_domain02_pages.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/custom_domain02_pages.png" alt=""><figcaption></figcaption></figure>
 3.  Fill out the text field for the Custom Domain to match whatever custom domain you want to assign to your website, then click **Save**.&#x20;
 
-    <figure><img src=".gitbook/assets/custom_domain03_set_domain.png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/custom_domain03_set_domain.png" alt=""><figcaption></figcaption></figure>
 
 The page will reload with a blue banner that says `Custom domain "<domain name>" saved.`
 

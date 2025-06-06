@@ -8,21 +8,21 @@ If your website doesn't update after you push a change, there's a chance somethi
 
 First, go to the **Actions** tab on the main page of your GitHub repo.
 
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/troubleshooting/repo-actions.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting01.png" alt=""><figcaption></figcaption></figure>
 
 Here, you will see all the times that GitHub attempted to build your website, each as an individual "Action". Successful Actions will have a green checkmark next to them. Actions that encountered an error will have a red X. If an Action is currently being performed, it will have a yellow, spinning circle.
 
 To check the output logs of the most recent Action, click on its name. This will take you landing page for that particular Action.
 
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/troubleshooting/actions-latest-build.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting02.png" alt=""><figcaption></figcaption></figure>
 
 Then click on **build (3.8)** to view the logs for that Action.
 
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/troubleshooting/actions-build-38.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting03.png" alt=""><figcaption></figcaption></figure>
 
 Each GitHub Action is broken into many different steps, each of which can succeed or fail, as marked by the green checkmark or red X next to each one.
 
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/troubleshooting/build-38-check-pipeline.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting04.png" alt=""><figcaption></figcaption></figure>
 
 The most common step that breaks is the _Run python build script_ step, and you can view the logs for that step by clicking on it. A failed step will have an error in it like this:
 
@@ -55,11 +55,11 @@ Every time you push a change to GitHub, a new deployment to GitHub Pages is crea
 
 To check on the progress of your GitHub Pages deployment, go to the main page of your GitHub repo, and scroll down until you see the **Environments** section in the right sidebar. Click **github-pages**.
 
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/troubleshooting/repo-environments.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting05.png" alt=""><figcaption></figcaption></figure>
 
 Here you will see a list of all the times your repo has been deployed to GitHub Pages. If your website has just updated, the top deployment in the activity log should say "now" or "a few seconds ago" or "X minutes ago". If the top deployment is older than when you last pushed a change to your repo, give it a few more minutes. Sometimes it just takes a while.
 
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/troubleshooting/deployments.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/troubleshooting06.png" alt=""><figcaption></figcaption></figure>
 
 ### Force Refresh your Browser
 
