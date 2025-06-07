@@ -6,7 +6,7 @@ comic\_git has a default theme, which can be found at `/your_content/themes/defa
 
 ### Editing Existing Pages
 
-Let's say you wanted to edit the layout of your comic pages. Perhaps to do something like... I don't know... put a Hypno Toad gif between the Previous and Next links. Whatever, man, it's your web comic. Do what you want.
+Let's say you wanted to edit the layout of your comic pages, perhaps to do something like add an image between the Previous and Next links.
 
 To do this, first create a templates folder in `/your_content/themes/default/`.
 
@@ -30,23 +30,27 @@ Go to [comic\_git\_engine's templates folder](https://github.com/ryanvilbrandt/c
 
 Copy the file(s) you want to change into `/your_content/themes/default/templates/`. You can then freely edit the template file, and it will override the file in comic\_git\_engine. You can use any text editor to edit templates.
 
+For our example, you would first place the image in your `your_content/images` folder, then copy the comic.tpl file into your repo and open it in your favorite text editor. You'll notice it sort of looks like HTML but has a lot of extra stuff, primarily a lot of if, else, and words in double curly braces `{{}}`. This is Jinja markup, as described in the next section.
+
+You'll look for any place that has the Previous and Next links — there may be multiple, as different HTML will be used based on if/else conditions — then add `<img alt="My Image" src="{{base_dir}}/your_content/images/my-image.jpg">` (or whatever the filename might be). Save the template file, and next time you push the commit to your repo, the comic page will be built with your image in that place!
+
 ### Jinja Template Format
 
 Template files are written in a format called [Jinja](https://jinja.palletsprojects.com/en/2.11.x/templates/). Jinja is an incredibly powerful tool that lets you create files that can be converted into HTML files using code like for loops, if/else blocks, and variables acting as placeholders for values passed in by the comic\_git script. I've done my best to comment the existing template files in the comic\_git\_engine templates directory to help clarify how to use Jinja for anyone curious enough to go poking around.
 
-I recommend using Jinja templates whenever you're making pages for your website, as they provide a lot of flexibility and power that you won't get from normal HTML pages. For more information on the details of Jinja and the variables available to your templates when they're built, see Advanced Tips.
+I recommend using Jinja templates whenever you're making pages for your website, as they provide a lot of flexibility and power that you won't get from normal HTML pages. For more information on the details of Jinja and the variables available to your templates when they're built, see [Other Expert Tips](../other-expert-tips.md#the-power-of-jinja2).
 
 ### Alternative HTML Format
 
 If you prefer to not mess with Jinja templates for your first attempt at editing your website, that's fine, too! comic\_git also allows plain HTML files. Instead of creating a \*.tpl file in the `/your_content/themes/default/templates/` directory, make a .html file instead. The easiest way to start is to go to the page you want to edit in your web browser, right click on the page, go to **View Source**, and just copy all that text into the \*.html file.
 
-Creating HTML files is **NOT** recommended for most pages that have content that will change as you update the rest of your website, like comic pages, the archive page, and tagged pages. Jinja template files are required to keep these pages up to date whenever the website is built. However, using HTML files will usually be just fine when adding new pages to your website that don't come pre=packaged by default in comic\_git.
+Creating HTML files is **NOT** recommended for most pages that have content that will change as you update the rest of your website, like comic pages, the archive page, and tagged pages. Jinja template files are required to keep these pages up to date whenever the website is built. However, using HTML files will usually be just fine when adding new pages to your website that don't come pre-packaged by default in comic\_git.
 
 ### Adding New Pages
 
-Adding new pages to your website beyond what's already provided by comic\_git is very similar to editing existing pages, with a few small changes. You'll usually want to start with copying an existing template or HTML file to use as a starting point, but give it its own unique name. You will also want to put it in the `/your_content/themes/default/templates/` directory. Then, you will need to add the file name to the \[Pages] section of your [comic\_info.ini](../basic-editing/editing-your-comic-info.md#pages) file. For example, if you're creating a `cast.html` file, you should add the line `cast = Cast Page`.
+Adding new pages to your website beyond what's already provided by comic\_git is very similar to editing existing pages, with a few small changes. You'll usually want to start with copying an existing template or HTML file to use as a starting point, but give it its own unique name. You will also want to put it in the `/your_content/themes/default/templates/` directory. Then, you'll need to add the file name to the \[Pages] section of your [comic\_info.ini](../basic-editing/editing-your-comic-info.md#pages) file. For example, if you're creating a `cast.html` file, you should add the line `cast = Cast Page`.
 
-If you need to create a large number of pages that can change every time the website is built, like a cast page for each character, you may want to make use of the `build_other_pages` code hook. See Code Hooks in Expert Editing for more information.
+If you need to create a large number of pages that can change every time the website is built, like a cast page for each character, you may want to make use of the `build_other_pages` code hook. See [Other Expert Tips](../other-expert-tips.md#code-hooks) for more information.
 
 ### Creating Your Own Themes
 

@@ -15,3 +15,4 @@ In this section, you'll learn how to:
 * Enable GitHub Pages for your new repository so you can publish your comic
 * Install GitHub Desktop, which will help you add content and other changes to your repository
 * Download your newly made repository to your personal computer so you can start making it your own
+* Upload your changed files back to GitHub to be published to the site

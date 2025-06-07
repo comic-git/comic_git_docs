@@ -12,9 +12,9 @@ If you're substantially changing the front page, we recommend at least providing
 
 ## Editing the Colors and Layout of your Website
 
-The default color scheme of comic\_git is designed to be as appealing to as many people as possible, but you will most likely want to change the color scheme to suit your own tastes and better reflect the art of the comic you're creating.
+The default color scheme of comic\_git is designed to be as appealing to as many people as possible, but you'll most likely want to change the color scheme to suit your own tastes and better reflect the art of the comic you're creating.
 
-To change the colors of your website, edit the file `your_content/themes/default/css/stylesheet.css`. This is a [CSS file](https://www.codecademy.com/learn/learn-css), and it is where things like text color, background color, font type, font style, and general layout of a website are defined. You can even define the width/height of your comic images here (by default, the comic images grow to fit the site width automatically while keeping their aspect ratio).
+To change the colors of your website, edit the file `your_content/themes/default/css/stylesheet.css`. This is a [CSS file](https://www.codecademy.com/learn/learn-css), and it's where things like text color, background color, font type, font style, and general layout of a website are defined. You can even define the width/height of your comic images here (by default, the comic images grow to fit the site width automatically while keeping their aspect ratio).
 
 Basic (and hopefully easy to understand) settings are pre-defined here, with comments describing what each one does. It is very difficult to actually break your website by changing this file, so feel free to change these values to your heart's content. In the worst case, deleting this file will cause your browser to use its default colors for everything, which won't look too horrible.
 

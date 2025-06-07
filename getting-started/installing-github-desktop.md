@@ -5,7 +5,7 @@ Now that you have your own GitHub repository, how are you supposed to get to you
 {% hint style="info" %}
 **Git clients**
 
-GitHub Desktop is not strictly required for comic\_git to work. If you have another git client you prefer to use, or if you want to run git from the command line, you can use that instead. The only requirement is that GitHub is used as your central repository, as many of the features comic\_git uses to function are GitHub specific. (See Technical Notes section for more information)
+GitHub Desktop is not strictly required for comic\_git to work. If you have another git client you prefer to use, or if you want to run git from the command line, you can use that instead. The only requirement is that GitHub is used as your central repository, as many of the features comic\_git uses to function are GitHub specific.
 {% endhint %}
 
 1.  Go to the [GitHub Desktop](https://desktop.github.com/download/) website. Click the **Download** link to download the app.\

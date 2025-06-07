@@ -6,7 +6,7 @@ When you create your GitHub Pages website for the first time, its URL is decided
 
 There are two ways to change the URL for your web page:&#x20;
 
-* Change your username/repo name
+* Change your username or repo name
 * Assign a custom domain to your website
 
 ### Changing your Username
@@ -60,7 +60,7 @@ The page will reload with a blue banner that says `Custom domain "<domain name>"
 
 You'll need to set up a CNAME record in the DNS settings of your domain registrar's management page. The exact instructions depend on which registrar you've registered your domain with and is beyond the scope of this article. Most registrars will have their own help documentation telling you how to do this.
 
-GitHub provides more detail on CNAME and other DNS records and what values to enter for them. See [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+GitHub provides more detail on CNAME and other DNS records and what values to enter for them. See [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain).
 
 ### Create a CNAME file in your Repository
 

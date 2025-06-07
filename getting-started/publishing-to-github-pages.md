@@ -1,6 +1,6 @@
 # Publishing to GitHub Pages
 
-Once your repository is created, you can publish your comic website to GitHub Pages.
+The repository you created on the previous page is where the files for your comic are kept. In order to actually display those files as a proper website, you'll need to publish to GitHub Pages. This page walks you through those steps.
 
 {% hint style="info" %}
 Even if you've only just created your repository from the previous page, the repo comes with some default text and images as a demonstration. Feel free to publish after creating to see how it works!
@@ -18,7 +18,7 @@ Even if you've only just created your repository from the previous page, the rep
 4.  In the sidebar, click **Pages**.&#x20;
 
     <figure><img src="../.gitbook/assets/publish01c_pages.png" alt="Image of GitHub Actions General page, with a red indicator around the Pages item in the sidebar."><figcaption><p>Go to Pages.</p></figcaption></figure>
-5.  Under **Branch**, select `working`from the dropdown.&#x20;
+5.  Under **Branch**, select `master` from the dropdown.&#x20;
 
     <figure><img src="../.gitbook/assets/publish03_select_branch.png" alt="An image of the GitHub Pages page, with a red box around the Branch setting."><figcaption><p>Select the working branch.</p></figcaption></figure>
 
@@ -34,7 +34,7 @@ It takes a minute for the `master` branch to be created in a new repository, so 
     <figure><img src="../.gitbook/assets/publish06_page_built.png" alt="An image of the GitHub Pages page, with a red box around the text &#x22;Your site is live&#x22; and the Visit Site button."><figcaption><p>It's ready!</p></figcaption></figure>
 
 {% hint style="info" %}
-You can also view the progress of your GitHub Pages deployments by looking in the Environments section of the sidebar on your main repository page.
+You can also view the progress of your GitHub Pages deployments by looking in the Deployments section of the sidebar on your main repository page. [Troubleshooting](../additional-information/troubleshooting.md) goes into more detail about this.
 {% endhint %}
 
 6.  Click **Visit site** to go to your website, hosted from your very own GitHub account! WOO HOO!&#x20;
@@ -50,9 +50,10 @@ You now have two different URLs to keep track of: Your GitHub repository URL and
 
 **Example:**
 
-GitHub account name: **comicgitdemo** Repository name: **bestcomic**\
-GitHub repository URL: https://github.com/**comicgitdemo**/**bestcomic**\
-GitHub Pages URL: https://**comicgitdemo**.github.io/**bestcomic**
+* GitHub account name: **comicgitdemo**&#x20;
+* Repository name: **bestcomic**
+* GitHub repository URL: https://github.com/**comicgitdemo**/**bestcomic**
+* GitHub Pages URL: https://**comicgitdemo**.github.io/**bestcomic**
 
 Your **GitHub Pages URL** is what you need to give to anyone who wants to read your comic.
 

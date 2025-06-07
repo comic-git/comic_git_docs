@@ -20,7 +20,7 @@ Once the comic is set up, open up the `comic_info.ini` file. Under [\[Comic Sett
 
 <figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory_to_comic_info.png" alt=""><figcaption></figcaption></figure>
 
-You may also want to add a link to your extra comic from the links bar. Under \[Links Bar], add a line `<Name of comic> = <name of comic folder>`. The below image shows the example `My Side Story = sidestory`.
+You may also want to add a link to your extra comic from the links bar. Under [\[Links Bar\]](../basic-editing/editing-your-comic-info.md#links-bar), add a line `<Name of comic> = <name of comic folder>`. The below image shows the example `My Side Story = sidestory`.
 
 <figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory_link.png" alt=""><figcaption></figcaption></figure>
 

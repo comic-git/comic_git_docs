@@ -6,7 +6,7 @@
 If you're setting up comic\_git for the first time and you just want to get started quickly without delving into all comic\_git's features, you only need to edit the [\[Comic Info\]](editing-your-comic-info.md#comic-info) and [\[Links Bar\]](editing-your-comic-info.md#links-bar) sections.
 {% endhint %}
 
-When setting up comic\_git, there are some critical things you need to do to identify your comic, like give it a name or set up what links go in the Links Bar. comic\_git also supports a few extra features that can be enabled for your project, like automatically generating thumbnails for your comic pages. All these settings can be adjusted in the :page\_facing\_up:**comic\_info.ini** file in the :file\_folder:**your\_content** folder.
+When setting up comic\_git, there are some critical things you need to do to identify your comic, like give it a name or set up what links go in the Links Bar. comic\_git also supports a few extra features that can be enabled for your project, like automatically generating thumbnails for your comic pages. All these settings can be adjusted in the `comic_info.ini` file in the `your_content` folder.
 
 <figure><img src="../.gitbook/assets/editing01_comic_info.png" alt=""><figcaption></figcaption></figure>
 
@@ -82,12 +82,17 @@ A short, one-sentence description of your web comic. This will show up in your [
 
 * Required
 * Value: `string`
-* Default: `master`
+* Default: `1.0`
 
-This is used with the comic\_git\_engine to build the site.
+This is used to determine which version of comic\_git is used to build your site. The possible values are:
 
-{% hint style="danger" %}
-DO NOT CHANGE THIS UNLESS YOU ARE 100% SURE YOU KNOW WHAT YOU'RE DOING. Changing this unnecessarily **will** break your site.
+* **Version**: By default, this value is set to version `1.0`. Every time your site builds, this pulls the latest iteration of 1.0, such as 1.0.1, 1.0.2, and so on. This is the **recommended** setting to use if you want to get bug fixes automatically without future updates breaking your site. If and when comic\_git is updated to 1.1, you'll need to change this to get the features that may be included with that.
+* **Exact version**: If you have a need to use one particular version, specify it by using the full version number; for example, `1.0.3`. Your site will stay on that version and not receive any future bug fixes or version updates until you edit this again.
+* `latest`: Your site will always get the latest released version of comic\_git, even if it's an update that could potentially break your site. If you want to automatically keep up with updates as they come out and don't mind fixing your site to adjust for new versions, this is a good option.
+* `master`: Keep up with every single new change to comic\_git, no matter how minor or untested. Only recommended for troubleshooting.
+
+{% hint style="success" %}
+Version releases are tracked on [comic\_git\_engine's Releases](https://github.com/ryanvilbrandt/comic_git_engine/releases) page along with any necessary instructions for upgrading version (such as moving from 1.0 to 1.1). Announcements are also made on our [Discord server](https://discord.gg/zmdHGXB).
 {% endhint %}
 
 </details>
@@ -265,7 +270,7 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 This is a special section without pre-defined options. This section tells comic\_git what extra web pages beyond the standard comic pages to build.&#x20;
 
 * Format: `option = value`
-* The option on the left of the equals sign is the **template file name** to use.&#x20;
+* The option on the left of the equals sign is the **template file name** to use. Do not include the extension; if you have a `cast.html` page, you'd only put `cast` here.
 * The value on the right of the equals sign is the **title of the page** once it's built.
 
 The section has been pre-populated with common webcomic pages. If you wish to remove a default web page like tagged pages or the Latest page, delete that line from this section.
