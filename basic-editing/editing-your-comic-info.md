@@ -24,19 +24,7 @@ Some options listed here may not be present in your comic\_info.ini file. These 
 
 Each of the sections and their options are described in more detail below.
 
-## **Quick Links**
-
-* [\[Comic Info\]](editing-your-comic-info.md#comic-info)
-* [\[Comic Settings\]](editing-your-comic-info.md#comic-settings)
-* [\[Pages\]](editing-your-comic-info.md#pages)
-* [\[Links Bar\]](editing-your-comic-info.md#links-bar)
-* [\[Archive\]](editing-your-comic-info.md#archive)
-* [\[Image Reprocessing\]](editing-your-comic-info.md#image-reprocessing)
-* [\[RSS Feed\]](editing-your-comic-info.md#rss-feed)
-* [\[Transcripts\]](editing-your-comic-info.md#transcripts)
-* [\[Google Analytics\]](editing-your-comic-info.md#google-analytics)
-
-### \[Comic Info]
+## \[Comic Info]
 
 <details>
 
@@ -74,7 +62,7 @@ A short, one-sentence description of your web comic. This will show up in your [
 
 </details>
 
-### \[Comic Settings]
+## \[Comic Settings]
 
 <details>
 
@@ -265,7 +253,7 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 
 </details>
 
-### \[Pages]
+## \[Pages]
 
 This is a special section without pre-defined options. This section tells comic\_git what extra web pages beyond the standard comic pages to build.&#x20;
 
@@ -277,7 +265,7 @@ The section has been pre-populated with common webcomic pages. If you wish to re
 
 For more info on adding pages to your website, see [Themes](../advanced-editing/extra-features.md#themes).
 
-### \[Links Bar]
+## \[Links Bar]
 
 This is another special section without pre-defined options. This section tells comic\_git how to build out the Links Bar.&#x20;
 
@@ -287,7 +275,7 @@ This is another special section without pre-defined options. This section tells 
 
 This section has been pre-populated with common links. Feel free to change the URLs to existing links, delete any lines you don't want to use, and add lines you want to use as links.
 
-### \[Archive]
+## \[Archive]
 
 <details>
 
@@ -315,7 +303,7 @@ This is the format that post dates are displayed in when `Use thumbnails` is set
 
 </details>
 
-### \[Image Reprocessing]
+## \[Image Reprocessing]
 
 <details>
 
@@ -353,11 +341,11 @@ When set to `False` and a thumbnail already exists in the comic page's folder, c
 
 </details>
 
-### \[RSS Feed]
+## \[RSS Feed]
 
 This section is covered in [Adding an RSS Feed](../advanced-editing/extra-features.md#adding-an-rss-feed). If you don't need to create an RSS feed, you can leave this section alone.
 
-### \[Transcripts]
+## \[Transcripts]
 
 <details>
 
@@ -411,7 +399,7 @@ Both this option and **Load transcripts from comic folder** (see previous option
 
 </details>
 
-### \[Google Analytics]
+## \[Google Analytics]
 
 <details>
 
