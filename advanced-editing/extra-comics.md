@@ -28,7 +28,7 @@ And you're done! Push your changes to GitHub, and your extra comic will be avail
 
 To start with, the only pages published for your extra comic are the comic pages themselves. No home page, no archive page, etc. That means when you link to your extra comic, you'll want to link directly to the comic pages. So, for example, linking to the first page in the extra comic in the images above would be `/sidestory/comic/001` or `http://<your username>.github.io/<your repo name>/sidestory/comic/001/#comic-page`.
 
-### Adding More Pages to your Extra Comic
+### Adding More Web Pages to your Extra Comic
 
 One of the first things you'll probably want to do is add a home page to your extra comic, and possibly an archive page as well, so people can browse it just like your main comic. To do that, you'll need to add a `comic_info.ini` file to your extra comics folder. If you like, you can copy the `comic_info.ini` file from your main comic into this folder to start.
 
@@ -48,7 +48,7 @@ You may have noticed at this point that the Links Bar above your comic but below
 
 <figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/sidestory_comic_info_links_bar.png" alt=""><figcaption></figcaption></figure>
 
-All links are relative to your `your_content folder`, so to link to pages in your extra comic, you will need to start the link with the extra comic's directory name. Using the `sidestory` example, your main comic's archive would be `/archive/` while your extra comic's archive would be `/sidestory/archive/`.
+All links are relative to your `your_content` folder, so to link to pages in your extra comic, you will need to start the link with the extra comic's directory name. Using the `sidestory` example, your main comic's archive would be `/archive/` while your extra comic's archive would be `/sidestory/archive/`.
 
 ### Changing your Extra Comic's Settings
 
