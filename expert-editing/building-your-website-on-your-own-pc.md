@@ -120,14 +120,14 @@ Total time: 1444.15 ms
 
 And you're done! The script will create the necessary HTML files, which you can then view on your computer.
 
-Any time you make a change to `comic_info.ini`, any of the `info.ini` files, any of the .tpl files, any of the Python scripts, or if you add or delete a comic page folder, you'll need to run the `build_site` script again.
+Any time you make a change to `comic_info.ini`, any of the `info.ini` files, any of the `.tpl` files, any of the Python scripts, or if you add or delete a comic page folder, you'll need to run the `build_site` script again.
 
 You do NOT need to run the script again if you update any of the CSS or Javascript files. These can be reloaded just by refreshing your web browser.
 
 {% hint style="danger" %}
 **Do NOT edit any of the HTML files that are generated**
 
-If you do, any of your changes will be overwritten the next time the Python script is run. If you wish to edit the HTML of any of the pages, edit the appropriate .tpl file in comic\_git\_engine\templates.
+If you do, any of your changes will be overwritten the next time the Python script is run. If you wish to edit the HTML of any of the pages, you will want to edit your existing [Theme](../advanced-editing/themes.md).
 {% endhint %}
 
 {% hint style="info" %}
@@ -140,7 +140,7 @@ Pushing these files to GitHub isn't a problem, as they'll be deleted and regener
 
 ## Viewing your Website on your own PC
 
-You've learned how to build your website on your local PC. However, you also need to be able to view your website. While you can open the individual HTML files, this doesn't replicate a full server environment. These instructions walk you through creating a simple webserver on your PC, so you can view your site as if you were looking at it on GitHub Pages.
+You've learned how to build your website on your local PC. However, you also need to be able to view your website. While you can open the individual HTML files, this doesn't replicate a full server environment. These instructions walk you through how to start a simple web server on your PC, so you can view your site as if you were looking at it on GitHub Pages.
 
 Navigate to your base repo directory and run the following command:
 
@@ -150,3 +150,5 @@ Serving HTTP on :: port 8000 (http://[::]:8000/) ...
 ```
 
 Once this appears, open your web browser and go to either [http://localhost:8000](http://localhost:8000/) or [http://127.0.0.1:8000](http://127.0.0.1:8000/). You should see your site pop up exactly as if it's been published to the web!
+
+To stop the web server, go into the command prompt window where you ran the command above and hit Ctrl+C.
