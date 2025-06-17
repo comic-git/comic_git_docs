@@ -24,6 +24,12 @@ First things first, delete the existing image file and copy whatever image file 
 
 <figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/new_comic_file.png" alt=""><figcaption></figcaption></figure>
 
+When building your website, comic\_git will search through your comic folders for any image files in the same folder and add them to the web page for that folder. The images will be shown vertically in alphabetical order, according to their filenames.
+
+Files with any of the following extensions are considered image files: `jpg`, `jpeg`, `png`, `tif`, `tiff`, `gif`, `bmp`, `webp`, `webv`, `svg`, `eps`
+
+You can override this behavior by adding a `Filenames` option to your `info.ini` file, as described in the next section.
+
 ## Page Info
 
 Next, open `info.ini`. The file will look something like this:
@@ -31,7 +37,6 @@ Next, open `info.ini`. The file will look something like this:
 ```
 Title = Page 197
 Post date = November 27, 2019
-Filename = Page_197.png
 Alt text = Tamberlane, can you sign "ongoing trauma"?
 Storyline = Chapter 4a
 Characters = Avery, Belfry, Cur, Piper, Tamberlane
@@ -46,7 +51,7 @@ Edit the values in this file to match the comic you are uploading.
 
 * Required
 * Value: `string`: page title
-* Default: `Page 197`
+* Example: `Page 197`
 
 The title of this particular comic page.  The page title shows up in the tab every time a page from your website is loaded along with the comic name (for example, **Page 197** - comic\_git Example). It also appears in the info box below the comic on the page itself.
 
@@ -58,7 +63,7 @@ The title of this particular comic page.  The page title shows up in the tab eve
 
 * Required
 * Value: `string`: date comic is posted, matching date format
-* Default: `November 27, 2019`
+* Example: `November 27, 2019`
 
 The date and/or time your comic is posted. This should match the format defined in your `comic_info.ini` file, as described in [Editing your Comic Info](editing-your-comic-info.md#date-format). If you have not changed that option in your `comic_info.ini`, just use the same format already in the file.
 
@@ -76,16 +81,16 @@ Any comic with a Post Date set in the future (according to the Timezone you have
 
 <details>
 
-<summary>Filename</summary>
+<summary>Filenames</summary>
 
-* Required
-* Value: `string`: filename of the comic page
-* Default: `Page_197.png`
+* Optional
+* Value: `string`: list of filenames for the comic images separated by commas
+* Example: `Page 197a.png, Page_197b.png`
 
-The filename of the comic image in this folder, without any of the directory path, but with the file extension.
+If this option is present in the info.ini file, comic\_git will not auto-collect images from the folder but will instead use the files defined here. This is useful if you want the images displayed not in alphabetical order, or you want to display only some of the images in this folder.
 
 {% hint style="warning" %}
-The filename is case sensitive, so be sure to write it in exactly as the file is named!
+The filenames are case sensitive, so be sure to write them in exactly as the files are named!
 {% endhint %}
 
 </details>
@@ -96,7 +101,7 @@ The filename is case sensitive, so be sure to write it in exactly as the file is
 
 * Optional (but recommended)
 * Value: `string`: alt text
-* Default: `Tamberlane, can you sign "ongoing trauma"?`
+* Example: `Tamberlane, can you sign "ongoing trauma"?`
 
 The text that should show up when the user hovers their mouse over the comic image. This is generally recommended for accessibility purposes, but is not required.
 
@@ -108,7 +113,7 @@ The text that should show up when the user hovers their mouse over the comic ima
 
 * Optional
 * Value: `string`: storyline to attach this page to
-* Default: `Chapter 4a`
+* Example: `Chapter 4a`
 
 The name of the current chapter, book, section, or whatever else you use to separate out different parts of your webcomic. This is used when building the Archive page and Infinite Scroll page. If this option is blank, this page will count as not having a storyline and won't show up on the Archive page.
 
@@ -120,7 +125,7 @@ The name of the current chapter, book, section, or whatever else you use to sepa
 
 * Optional
 * Value: `string`: list of comic characters separated by commas
-* Default: `Avery, Belfry, Cur, Piper, Tamberlane`
+* Example: `Avery, Belfry, Cur, Piper, Tamberlane`
 
 A comma-separated list of characters on this page. Any character names here will turn into a hyperlink which links to a list of pages with that character in them.
 
@@ -132,7 +137,7 @@ A comma-separated list of characters on this page. Any character names here will
 
 * Optional
 * Value: `string`: list of tags separated by commas
-* Default: `Tag 1, Tag 2, Tag 3`
+* Example: `Tag 1, Tag 2, Tag 3`
 
 A comma-separated list of non-character tags. Any tags here will turn into a hyperlink which links to a list of pages with that tag attached to them.
 
