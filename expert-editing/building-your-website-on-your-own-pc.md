@@ -142,13 +142,24 @@ Pushing these files to GitHub isn't a problem, as they'll be deleted and regener
 
 You've learned how to build your website on your local PC. However, you also need to be able to view your website. While you can open the individual HTML files, this doesn't replicate a full server environment. These instructions walk you through how to start a simple web server on your PC, so you can view your site as if you were looking at it on GitHub Pages.
 
-Navigate to your base repo directory and run the following command:
+Navigate to your base repo directory and run the following commands:
 
 ```
-D:\GitHub\comic_git> python -m http.server 8000
+D:\GitHub\comic_git> cd ..
+D:\GitHub> python -m http.server 8000
 Serving HTTP on :: port 8000 (http://[::]:8000/) ...
 ```
 
-Once this appears, open your web browser and go to either [http://localhost:8000](http://localhost:8000/) or [http://127.0.0.1:8000](http://127.0.0.1:8000/). You should see your site pop up exactly as if it's been published to the web!
+Once this appears, open your web browser and go to either [http://localhost:8000/comic\_git](http://localhost:8000/comic_git) or [http://127.0.0.1:8000/comic\_git](http://127.0.0.1:8000/comic_git) (Replace `comic_git` in the URL with the name of the folder your repository is in). You should see your site pop up exactly as if it's been published to the web!
 
 To stop the web server, go into the command prompt window where you ran the command above and hit Ctrl+C.
+
+{% hint style="info" %}
+**Why the URL needs to include your repo's folder name**
+
+Putting `comic_git` at the end of the URL above is necessary because the web server will use the directory that you launch it from as the URL root. Meaning, it will serve all the folders and files it finds in that directory when you go to `http://localhost:8000`. To have it display your website, you need to navigate into the directory where your website was built.
+
+As for why it's necessary to run the web server from the directory above your repo's folder, rather than the repo's folder itself, has to do with the weirdness of how GitHub Pages are served. The default setup for GitHub Pages is to serve your website from `https://<username>.github.io/<repo_name>`, rather than from `https://<username>.github.io/` . Because of that, comic\_git builds all its links in your website (including the ones to CSS and Javascript files necessary to run the site) by prepending whatever value you put in your "Comic subdirectory" config option above to all links. If it didn't, then your website wouldn't load any CSS properly, and all links to pages within the site would be broken!
+
+If you're hosting directly from the root of your domain (e.g., `https://www.tamberlanecomic.com`), and your "Comic subdirectory" config option is blank, then you can skip the `cd ..` above and your web server will host your website directly from [http://localhost:8000](http://localhost:8000/).
+{% endhint %}
