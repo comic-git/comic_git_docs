@@ -223,26 +223,6 @@ This option tells comic\_git where to go to find the banner image for the comic,
 
 <details>
 
-<summary>Auto-detect comic images</summary>
-
-* Optional
-* Value: `boolean`: `True` or `False`
-* Default: `False`
-
-By default, comic\_git relies on the `Filename` option provided in each comic's `info.ini` file to know what image file to use for the comic page (see [Adding Comic Pages](adding-comic-pages.md)). If the `Filename` is not provided in this case, comic\_git will raise an error and fail to build your website.
-
-If this option is set to `True`, and `Filename` is missing from the comic's `info.ini` file, comic\_git will look in the comic page's directory for any image files. If it finds only one image file (aside from `thumbnail.jpg`), it will assume that is the image file it should use for the comic page. If there are no image files in the directory, or more than one image file in the directory, comic\_git will raise an error.
-
-If you never store more than one image in a comic page's directory, this is a useful option to set, because it will save you the trouble of updating the `Filename` of your `info.ini` file every time you upload a new comic page.
-
-If you wish to store multiple image files in a particular comic page's directory, you can define `Filename` in just that comic's `info.ini` file, and comic\_git will use that value instead of attempting to auto-detect the image.
-
-Image files are any files with the following extensions: jpg, jpeg, png, tif, tiff, gif, bmp, webp, webv, svg, eps.
-
-</details>
-
-<details>
-
 <summary>Show Uncategorized comics</summary>
 
 * Optional
@@ -261,7 +241,7 @@ This is a special section without pre-defined options. This section tells comic\
 * The option on the left of the equals sign is the **template file name** to use. Do not include the extension; if you have a `cast.html` page, you'd only put `cast` here.
 * The value on the right of the equals sign is the **title of the page** once it's built.
 
-The section has been pre-populated with common webcomic pages. If you wish to remove a default web page like tagged pages or the Latest page, delete that line from this section.
+The section has been pre-populated with pages that are commonly included in webcomics. If you wish to remove a default web page like tagged pages or the Latest page, delete that line from this section.
 
 For more info on adding pages to your website, see [Themes](../advanced-editing/extra-features.md#themes).
 
@@ -285,7 +265,7 @@ This section has been pre-populated with common links. Feel free to change the U
 * Value: `boolean`: `True` or `False`
 * Default: `True`
 
-When this value is `False`, the Archive page will display all the comics in your archive in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When this value is `True`, the Archive page will display all the comics in your archive in a grid of comic thumbnails. When looking for thumbnails, the Archive page look in each comic directory for a thumbnail image by the name of `thumbnail.jpg`
+When this value is `False`, the Archive page will display all the comics in your archive in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When this value is `True`, the Archive page will display all the comics in your archive in a grid of comic thumbnails. When looking for thumbnails, the Archive page looks in each comic directory for a thumbnail image by the name of `_thumbnail.jpg`
 
 You can either create your own thumbnails or use comic\_git's built-in thumbnail generation as described in the [\[Image Reprocessing\]](editing-your-comic-info.md#image-reprocessing) section below.
 
@@ -313,7 +293,7 @@ This is the format that post dates are displayed in when `Use thumbnails` is set
 * Value: `boolean`: `True` or `False`
 * Default: `True`
 
-If set to `True`, thumbnails will be generated for each comic page. The files will be located in each page directory named `thumbnail.jpg`.
+If set to `True`, thumbnails will be generated for each comic page. The files will be located in each page directory named `_thumbnail.jpg`.
 
 </details>
 
