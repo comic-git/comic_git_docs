@@ -64,5 +64,22 @@ GitHub provides more detail on CNAME and other DNS records and what values to en
 
 ### Create a CNAME file in your Repository
 
-In your repository, create a new file called `CNAME` with no extension. In the file, add only a single line with your new domain, e.g. `www.bestcomic.com`
+In your repository, create a new file called `CNAME` with no extension. In the file, add only a single line with your new domain, e.g. `www.bestcomic.com`&#x20;
 
+#### How do I make a file with no file extension?
+
+Windows by default makes it difficult to create files with no file extension, so you may need to enable file extensions to make it work. For example, if your CNAME file after you create it looks like the screenshot below, with "Text Document" as its type, it has a hidden file extension that needs to be removed.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+To do that, go to the View tab and uncheck the "File name extensions" checkbox.
+
+<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+After that, you should see the file extension pop up on the CNAME file.&#x20;
+
+<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+
+Remove that extension (`.txt` in this example) and the file icon and type description will change to look like below:
+
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
