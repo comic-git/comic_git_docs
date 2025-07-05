@@ -66,14 +66,3 @@ GitHub provides more detail on CNAME and other DNS records and what values to en
 
 In your repository, create a new file called `CNAME` with no extension. In the file, add only a single line with your new domain, e.g. `www.bestcomic.com`
 
-### Edit Your comic\_info.ini
-
-Open `comic_info.ini` and add the `Comic domain` option to the `[Comic Settings]` section with your new domain as its value. Add `Comic subdirectory` as well but leave the value blank. Example below:
-
-```
-[Comic Settings]
-Comic domain = www.bestcomic.com
-Comic subdirectory = 
-...
-```
-
