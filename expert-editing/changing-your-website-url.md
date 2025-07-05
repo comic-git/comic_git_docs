@@ -68,18 +68,34 @@ In your repository, create a new file called `CNAME` with no extension. In the f
 
 #### How do I make a file with no file extension?
 
-Windows by default makes it difficult to create files with no file extension, so you may need to enable file extensions to make it work. For example, if your CNAME file after you create it looks like the screenshot below in File Explorer, with "Text Document" as its type, it has a hidden file extension that needs to be removed.
+Windows by default makes it difficult to create files with no file extension. This section will walk you through a simple method to do so, but any method will work.
 
-<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
-To show the extension so that you can remove it, go to the View tab in File Explorer and check the "File name extensions" checkbox.
+First, open File Explorer and go to the View tab, and check the box "File name extensions".
 
 <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
-After that, you should see the file extension pop up on the CNAME file.&#x20;
+Then, go to your repository. Right-click anywhere in the background of the folder, and go to New > Text Document.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure>
 
-Remove that extension (`.txt` in this example) and the file icon and type description will change to look like below:
+This will create a new text document in your folder and highlight the name to let you change it.
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+
+Select the whole filename, including the `.txt` extension, and replace it with `CNAME` and hit enter. A dialog will pop up warning you that the file "might become unusable". This is normal, and you can finish renaming the file by clicking **Yes**.
+
+The CNAME file has now been created, and it should look like below.
+
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+
+Now, open the file so you can add your domain by right-clicking the file and clicking **Open with.**
+
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+
+In the new dialog that pops up, select **Notepad** and click **OK**.
+
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+This will open the file in Notepad. Add only a single line with your new domain, e.g. `www.bestcomic.com`&#x20;
+
+Save and close Notepad, then commit and push your new CNAME file up to your repo. Your website will rebuild and deploy, and should now be accessible from your custom domain!
