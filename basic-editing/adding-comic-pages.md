@@ -35,7 +35,6 @@ You can override this behavior by adding a `Filenames` option to your `info.ini`
 Next, open `info.ini`. The file will look something like this:
 
 ```
-Title = Page 197
 Post date = November 27, 2019
 Alt text = Tamberlane, can you sign "ongoing trauma"?
 Storyline = Chapter 4a
@@ -49,11 +48,13 @@ Edit the values in this file to match the comic you are uploading.
 
 <summary>Title</summary>
 
-* Required
+* Optional
 * Value: `string`: page title
 * Example: `Page 197`
 
 The title of this particular comic page.  The page title shows up in the tab every time a page from your website is loaded along with the comic name (for example, **Page 197** - comic\_git Example). It also appears in the info box below the comic on the page itself.
+
+If this option isn't present in the info.ini file, comic\_git will use the filename (minus the extension) of the first image in the list of image files for this comic. See `Filenames` below.
 
 </details>
 
@@ -85,7 +86,7 @@ Any comic with a Post Date set in the future (according to the Timezone you have
 
 * Optional
 * Value: `string`: list of filenames for the comic images separated by commas
-* Example: `Page 197a.png, Page_197b.png`
+* Example: `Page 197a.png, Page 197b.png`
 
 If this option is present in the info.ini file, comic\_git will not auto-collect images from the folder but will instead use the files defined here. This is useful if you want the images displayed not in alphabetical order, or you want to display only some of the images in this folder.
 
@@ -99,11 +100,11 @@ The filenames are case sensitive, so be sure to write them in exactly as the fil
 
 <summary>Alt text</summary>
 
-* Optional (but recommended)
+* Optional
 * Value: `string`: alt text
 * Example: `Tamberlane, can you sign "ongoing trauma"?`
 
-The text that should show up when the user hovers their mouse over the comic image. This is generally recommended for accessibility purposes, but is not required.
+The text that should show up when the user hovers their mouse over the comic image. This is typically a place used to put fun little comments from the author, or additional jokes. It can also be useful to accessibility tools, like screen readers.
 
 </details>
 
@@ -146,7 +147,7 @@ A comma-separated list of non-character tags. Any tags here will turn into a hyp
 
 Due to the way comic\_git generates pages for tags and characters, there are some limitations on what characters you can use in your tags and character lists in the info.ini file. Please avoid using any of the following: `\ / : * ? " < > |`
 
-As of comic\_git 0.3.6, you can however include unicode in your info.ini files. If you look around, you can find some good unicode options to take the place of those characters if you need them.
+You can however include unicode in your info.ini files. If you look around, you can find some good unicode options to take the place of those characters if you need them. For example, `?` is a unicode version of the standard question mark which won't have the same issues as the standard question mark in a tag name.
 {% endhint %}
 
 </details>
