@@ -4,10 +4,12 @@
 
 By default, comic\_git comes with a landing page that is more useful for people visiting comic\_git itself rather than your personal webcomic. One of the first things you'll want to do is edit this page to your preferred message for new visitors.
 
-To do so, open up `your_content/home page.txt` in any text editor. This is an HTML file, but is labeled .txt for ease of use; comic\_git will properly convert it to `index.html` when building the site. Feel free to change the text and add or delete any HTML you want.&#x20;
+To do so, open up `your_content/home page.txt` in any text editor. This is an HTML file, but is labeled .txt for ease of use; comic\_git will properly convert it to `index.html` when building the site. Feel free to change the text and add or delete any HTML you want. The default content gives some ideas, and I've filled the file with plenty of comments that help explain the different parts of the HTML layout for you.
 
 {% hint style="info" %}
 If you're substantially changing the front page, we recommend at least providing links to both the first and last pages of your comic.
+
+Also, if you're the type of person who uses an IDE, and editing HTML files gives you snazzy syntax highlighting, this file can be renamed to `home page.html`  and comic\_git will still pick it up.
 {% endhint %}
 
 ## Editing the Colors and Layout of your Website
