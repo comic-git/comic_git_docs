@@ -6,11 +6,11 @@ Have you ever shared a link on Facebook, Twitter, Discord, etc. and a preview of
 
 The method of doing this is defined by the [Open Graph Protocol](https://ogp.me/). comic\_git provides some OGP data for every one of your pages by default. However, the one thing it can't automatically create for you is a preview image.
 
-A preview image is the small image that shows up alongside the title and description of a link that shows up as part of the link preview, usually 100px wide and 100px high. To create your own preview image, create a file named `preview_image.png` and put it in the `your_content/images/` directory. If your preview image's dimensions are different than 100px by 100px, you must edit the following lines in the `base.tpl` file (follow [the instructions in the Themes section](themes.md#editing-existing-pages) on putting `base.tpl` in your theme directory):
+A preview image is the small image that shows up alongside the title and description of a link that shows up as part of the link preview, usually 200px wide and 200px high. To create your own preview image, create a file named `preview_image.png` and put it in the `your_content/images/` directory. If your preview image's dimensions are different than 200px by 200px, you must edit the following lines in the `base.tpl` file (follow [the instructions in the Themes section](themes.md#editing-existing-pages) on putting `base.tpl` in your theme directory):
 
 ```
-    <meta property="og:image:width" content="100px" />
-    <meta property="og:image:height" content="100px" />
+    <meta property="og:image:width" content="200" />
+    <meta property="og:image:height" content="200" />
 ```
 
 You can see an example of how the preview of your comic will be presented by plugging your URL into [Facebook's Sharing Debugger](https://developers.facebook.com/tools/debug/sharing/).
