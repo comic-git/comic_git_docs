@@ -32,7 +32,6 @@ Each of the sections and their options are described in more detail below.
 
 * Required
 * Value: `string`: your comic name
-* Default: `comic_git Example`
 
 This is the name of your comic. The comic name shows up in the tab every time a page from your website is loaded (for example, Page 202 - **comic\_git Example**). It **does not** need to match the name you gave your repository.
 
@@ -44,7 +43,6 @@ This is the name of your comic. The comic name shows up in the tab every time a 
 
 * Required
 * Value: `string`: your authorial name
-* Default: `Ryan Vilbrandt`
 
 Whatever name or credit you wish to give for the creation of your comic. It can be a single name, a list of names, a sentence, whatever you want. It's currently only used when generating your [RSS Feed](../advanced-editing/extra-features.md#adding-an-rss-feed).
 
@@ -56,7 +54,6 @@ Whatever name or credit you wish to give for the creation of your comic. It can 
 
 * Required
 * Value: `string`: your description
-* Default: `Explore a free webcomic-based static site generator delivered through GitHub!`
 
 A short, one-sentence description of your web comic. This will show up in your [RSS feed](../advanced-editing/extra-features.md#adding-an-rss-feed) and [social media previews](../advanced-editing/extra-features.md#adding-social-media-previews).
 
@@ -70,7 +67,6 @@ A short, one-sentence description of your web comic. This will show up in your [
 
 * Required
 * Value: `string`
-* Default: `1.0`
 
 This is used to determine which version of comic\_git is used to build your site. The possible values are:
 
@@ -87,11 +83,10 @@ Version releases are tracked on [comic\_git\_engine's Releases](https://github.c
 
 <details>
 
-<summary>Date Format</summary>
+<summary>Date format</summary>
 
 * Required
 * Value: `string`: date format using [Python %-substitutions](https://docs.python.org/3/library/time.html#time.strftime)
-* Default: `%B %d, %Y`
 
 This is the date format that all your comic Post dates will be in. The default format accepts dates written like `July 20, 1969`. You can change the format to any you prefer.
 
@@ -121,7 +116,6 @@ You can also build your own format strings if you feel comfortable doing so. Use
 
 * Required
 * Value: `string`: timezone in [TZ Identifier format](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)
-* Default: `US/Pacific`
 
 The timezone for all the dates in your comic. This is important for when comic\_git is determining when scheduled posts should be published. For example, if you push out an update at 9pm your time just before the midnight deadline, you don't want comic\_git to publish the page right away just because it's past midnight in some other timezone!
 
@@ -133,11 +127,11 @@ All timezones found in the TZ Identifier column on the [TZ database time zones W
 
 <summary>Use images in navigation bar</summary>
 
-* Required
+* Optional
 * Value: `boolean`: `True` or `False`
 * Default: `False`
 
-When set to `true`, this will replace the First, Previous, Next, and Latest navigation links on the comic pages with the icons found in`your_content/images/navigation_icons/`. You can change which icons are used by replacing these files with your own, or keep this setting on `false` to just use text links.
+When set to `true`, this will replace the First, Previous, Next, and Latest navigation links on the comic pages with the icons found in `your_content/images/navigation_icons/`. You can change which icons are used by replacing these files with your own, or keep this setting on `false` to just use text links.
 
 </details>
 
@@ -153,7 +147,7 @@ If you are building your website locally, and you haven't configured a custom do
 
 This option should include your website's entire domain, subdomain, and top-level domain. Do not include the slash at the end. You may include the "http://" or "https://" if you wish.
 
-Examples: `http://ryanvilbrandt.github.io`, `www.tamberlanecomic.com`
+Examples: `https://ryanvilbrandt.github.io`, `www.tamberlanecomic.com`
 
 </details>
 
@@ -175,18 +169,6 @@ Examples: `comic_git`, `tamberlane`
 
 <details>
 
-<summary>Use https when building comic URL</summary>
-
-* Optional
-* Value: `boolean`: `True` or `False`
-* Default: `False`
-
-If you are building your website locally, or you've set up a custom domain, setting this to `True` will force any URLs pointing to your website to use `https://` instead of `http://`.
-
-</details>
-
-<details>
-
 <summary>Theme</summary>
 
 * Optional
@@ -199,7 +181,7 @@ The name of the theme folder to use for your site. The theme folder must be loca
 
 <details>
 
-<summary>Extra Comics</summary>
+<summary>Extra comics</summary>
 
 * Optional
 * Value: `string`: see blow
@@ -218,18 +200,6 @@ A comma-separated list of any extra comics hosted on your site. For more informa
 * Default: `/your_content/images/banner.png`
 
 This option tells comic\_git where to go to find the banner image for the comic, that big image that goes at the top of every page in the default comic\_git website layout.
-
-</details>
-
-<details>
-
-<summary>Show Uncategorized comics</summary>
-
-* Optional
-* Value: `boolean`: `True` or `False`
-* Default: `True`
-
-By default, if you don't give a comic page a `Storyline` value in its `info.ini` file, it will be placed in an "Uncategorized" section in your Archive page below all your other comic pages. If you wish for these uncategorized pages to just not show up on your Archive page, set this value to `False`.
 
 </details>
 
@@ -263,7 +233,6 @@ This section has been pre-populated with common links. Feel free to change the U
 
 * Required
 * Value: `boolean`: `True` or `False`
-* Default: `True`
 
 When this value is `False`, the Archive page will display all the comics in your archive in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When this value is `True`, the Archive page will display all the comics in your archive in a grid of comic thumbnails. When looking for thumbnails, the Archive page looks in each comic directory for a thumbnail image by the name of `_thumbnail.jpg`
 
@@ -275,11 +244,23 @@ You can either create your own thumbnails or use comic\_git's built-in thumbnail
 
 <summary>Date format</summary>
 
-* Required
+* Optional
 * Value: `string`: date format using [Python %-substitutions](https://docs.python.org/3/library/time.html#time.strftime)
-* Default: `%m/%d/%Y`
+* Default: The value you provided for the `Date format`  option in `Comic Settings`
 
 This is the format that post dates are displayed in when `Use thumbnails` is set to `True`. This is defined separately from page date formats because longer post dates can screw up the spacing of the thumbnails in the grid. It accepts the same inputs as the `Date format` in the [\[Comic Settings\]](editing-your-comic-info.md#date-format) section.
+
+</details>
+
+<details>
+
+<summary>Show Uncategorized comics</summary>
+
+* Optional
+* Value: `boolean`: `True` or `False`
+* Default: `True`
+
+By default, if you don't give a comic page a `Storyline` value in its `info.ini` file, it will be placed in an "Uncategorized" section in your Archive page below all your other comic pages. If you wish for these uncategorized pages to just not show up on your Archive page, set this value to `False`.
 
 </details>
 
@@ -291,9 +272,8 @@ This is the format that post dates are displayed in when `Use thumbnails` is set
 
 * Required
 * Value: `boolean`: `True` or `False`
-* Default: `True`
 
-If set to `True`, thumbnails will be generated for each comic page. The files will be located in each page directory named `_thumbnail.jpg`.
+If set to `True`, thumbnails will be generated for each comic page. The files will be located in each page directory in `/your_content/comics` named `_thumbnail.jpg`.
 
 </details>
 
@@ -303,7 +283,6 @@ If set to `True`, thumbnails will be generated for each comic page. The files wi
 
 * Required
 * Value: `string`: see below
-* Default: `10%`
 
 The size of the thumbnail to be generated. This can be a width/height pair in pixels like `100, 36`, a percentage of the size of the original image like `10%`, a set height in pixels (`100h`), or a set width in pixels (`100w`). For the latter two options, comic\_git will keep the aspect ratio of the original image the same, adjusting to fit just your defined height or width.
 
@@ -315,7 +294,6 @@ The size of the thumbnail to be generated. This can be a width/height pair in pi
 
 * Required
 * Value: `boolean`: `True` or `False`
-* Default: `False`
 
 When set to `False` and a thumbnail already exists in the comic page's folder, comic\_git will not attempt to recreate the thumbnail. When set to `True`, comic\_git will always attempt to generate a thumbnail, assuming creating these files is enabled via one of the options above.
 
@@ -333,7 +311,6 @@ This section is covered in [Adding an RSS Feed](../advanced-editing/extra-featur
 
 * Required
 * Value: `boolean`: `True` or `False`
-* Default: `True`
 
 When set to `True`, comic\_git will attempt to create a Transcripts section below every comic that has transcripts files provided for it. A transcript file is a text file with the name of the language as its filename, e.g. `English.txt`. The transcript file can contain plain text, unicode (for those fancy accents and non-roman alphabets), HTML tags, and Markdown.
 
@@ -343,7 +320,7 @@ When set to `True`, comic\_git will attempt to create a Transcripts section belo
 
 <summary>Default language</summary>
 
-* Required
+* Optional
 * Value: `string`: name of a transcript file
 * Default: `English`
 
@@ -375,7 +352,7 @@ When set to `False`, comic\_git will not look in the comic folders. If **Transcr
 
 If you wish to move the transcripts to their own folder, you can define that folder here. Each page must have a separate folder that matches the comic folder name. For example, if you set the transcripts folder to be `your_content/transcripts`, then the transcript files for `Page 197` should be found at `your_content/transcripts/Page 197/`. This path is always relative to the root of the repository.
 
-Both this option and **Load transcripts from comic folder** (see previous option) can be set, so you can have transcripts in both places. Files in your transcripts folder take precedence over transcript files in your comic folder with the same name.
+Both this option and **Load transcripts from comic folder** can be set, so you can have transcripts in both places. Files in your transcripts folder take precedence over transcript files in your comic folder with the same name.
 
 </details>
 
@@ -387,7 +364,7 @@ Both this option and **Load transcripts from comic folder** (see previous option
 
 * Optional
 * Value: `string`: your Google Analytics tracking ID
-* Default:
+* Default: none
 
 If you have set up a [Google Analytics](https://analytics.google.com) for your comic, you can put the Tracking ID here (for example, UA-123456789-0) and comic\_git will automatically insert the analytics tracking code on all pages of your website.
 
