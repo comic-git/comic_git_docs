@@ -64,6 +64,16 @@ This is a list of changes to your [comic\_info.ini file](../basic-editing/editin
 
 1. [Engine Version](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#engine-version) is a required value.
 
+### Code Hooks
+
+Some [code hooks](https://comic-git.gitbook.io/documentation/other-expert-tips#code-hooks) will require an update if you have them defined in your hooks.py file.
+
+1.  `postprocess` now takes three arguments:&#x20;
+
+    ```
+    comic_info, comic_data_dicts, global_values
+    ```
+
 ### Other Changes
 
 This section describes changes that don't fall into any of the other sections describes above.
