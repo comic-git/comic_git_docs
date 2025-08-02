@@ -184,7 +184,7 @@ The name of the theme folder to use for your site. The theme folder must be loca
 <summary>Extra comics</summary>
 
 * Optional
-* Value: `string`: see blow
+* Value: `string`: see below
 * Default: none
 
 A comma-separated list of any extra comics hosted on your site. For more information, see [Extra Comics](../advanced-editing/extra-features.md#extra-comics).
@@ -200,6 +200,52 @@ A comma-separated list of any extra comics hosted on your site. For more informa
 * Default: `/your_content/images/banner.png`
 
 This option tells comic\_git where to go to find the banner image for the comic, that big image that goes at the top of every page in the default comic\_git website layout.
+
+</details>
+
+<details>
+
+<summary>On comic click</summary>
+
+* Optional
+* Value: `string`: see below
+* Default: Next comic
+
+This option defines the behavior of your site when a user clicks on your comic image when looking at the page for a specific comic. The available options are below:
+
+* **Open image**: Opens the image file in the current tab.
+* **Open image window**: Opens the image in a new tab or window.
+* **Overlay**: Opens the image in an overlay that appears in the same tab over your current comic page. Clicking the image will dismiss it.
+
+All other options will default to navigating to the next comic, as if the user has clicked the "Next" navigation button.
+
+</details>
+
+<details>
+
+<summary>Allow missing variables in templates</summary>
+
+* Optional
+* Value: `boolean`: `True` or `False`&#x20;
+* Default: `False`&#x20;
+
+By default, if a Jinja template is expecting a variable that it did not receive while the site is building, the template will raise an error and the build will fail.
+
+If you wish to allow for missing variables in your templates, you can set this value to `True`, and the template will treat any missing variables as empty strings. Note: If you are making custom templates that expect certain variables to be present, setting this to `True` can cause your templates to not render properly.
+
+</details>
+
+<details>
+
+<summary>Markdown extras</summary>
+
+* Optional
+* Value `string`: see below
+* Default: none
+
+A comma-separated list of extra settings that are passed into the Markdown parser to change its behavior. See [this page](https://github.com/trentm/python-markdown2/wiki/Extras) for a list of many valid settings.&#x20;
+
+Note that not all settings are currently supported. For example, settings that require extra configuration alongside the setting name (e.g. [breaks](https://github.com/trentm/python-markdown2/wiki/breaks)).
 
 </details>
 
