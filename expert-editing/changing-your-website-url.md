@@ -73,7 +73,9 @@ The page will reload with a blue banner that says `Custom domain "<domain name>"
 
 In your repository, create a new file called `CNAME` with no extension. In the file, add only a single line with your new domain, e.g. `www.bestcomic.com`&#x20;
 
-#### How do I make a file with no file extension?
+<details>
+
+<summary>How do I make a file with no file extension?</summary>
 
 Windows by default makes it difficult to create files with no file extension. This section will walk you through a simple method to do so, but any method will work.
 
@@ -87,9 +89,9 @@ Then, go to your repository. Right-click anywhere in the background of the folde
 
 This will create a new text document in your folder and highlight the name to let you change it.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
-
 Select the whole filename, including the `.txt` extension, and replace it with `CNAME` and hit enter. A dialog will pop up warning you that the file "might become unusable". This is normal, and you can finish renaming the file by clicking **Yes**.
+
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 The CNAME file has now been created, and it should look like below.
 
@@ -106,3 +108,5 @@ In the new dialog that pops up, select **Notepad** and click **OK**.
 This will open the file in Notepad. Add only a single line with your new domain, e.g. `www.bestcomic.com`&#x20;
 
 Save and close Notepad, then commit and push your new CNAME file up to your repo. Your website will rebuild and deploy, and should now be accessible from your custom domain!
+
+</details>
