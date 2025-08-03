@@ -125,18 +125,6 @@ All timezones found in the TZ Identifier column on the [TZ database time zones W
 
 <details>
 
-<summary>Use images in navigation bar</summary>
-
-* Optional
-* Value: `boolean`: `True` or `False`
-* Default: `False`
-
-When set to `true`, this will replace the First, Previous, Next, and Latest navigation links on the comic pages with the icons found in `your_content/images/navigation_icons/`. You can change which icons are used by replacing these files with your own, or keep this setting on `false` to just use text links.
-
-</details>
-
-<details>
-
 <summary>Comic domain</summary>
 
 * Optional
@@ -270,6 +258,60 @@ This is another special section without pre-defined options. This section tells 
 * The value on the right of the equals sign is the **URL the link should go to**. Any values that start with `/` will link to a page on your website. All other links will be treated as external links to other websites.
 
 This section has been pre-populated with common links. Feel free to change the URLs to existing links, delete any lines you don't want to use, and add lines you want to use as links.
+
+## \[Navigation Bar]
+
+<details>
+
+<summary>Use images</summary>
+
+* Optional
+* Value: `boolean`: `True` or `False`
+* Default: `False`
+
+When set to `true`, this will replace the First, Previous, Next, and Latest navigation links on the comic pages with the icons found in `your_content/images/navigation_icons/`. You can change which icons are used by replacing these files with your own, or keep this setting on `false` to just use text links.
+
+</details>
+
+<details>
+
+<summary>Above comic</summary>
+
+* Optional
+* Value: `boolean`: `True` or `False`
+* Default: `False`
+
+When set to `true`, this will place a navigation bar above the comic.
+
+</details>
+
+<details>
+
+<summary>Below comic</summary>
+
+* Optional
+
+- Value: `boolean`: `True` or `False`
+
+* Default: `True`
+
+When set to `true`, this will place a navigation bar below the comic but above the blurb containing the comic title, post date, post text, etc.
+
+</details>
+
+<details>
+
+<summary>Below blurb</summary>
+
+* Optional
+
+- Value: `boolean`: `True` or `False`
+
+* Default: `False`
+
+When set to `true`, this will place a navigation bar below the blurb containing the comic title, post date, post text, etc.
+
+</details>
 
 ## \[Archive]
 

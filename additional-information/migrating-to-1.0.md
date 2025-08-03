@@ -56,7 +56,8 @@ This is the list of changes to the names of HTML elements and Jinja variables. U
    5. `alt_text` -> `escaped_alt_text`
       1. This one is not strictly required, but this way nonstandard characters in your alt text will render properly.
 3. Comic pages now support a list of comic images, arranged in alphabetical order. `comic_path`  as a single filepath has been replaced by `comic_paths` as a list of filepaths. If you plan to only ever have one comic image per page, you can replace any use of `comic_path` in your templates with `comic_path[0]`. Otherwise, you should use a for loop to iterate through all the images properly. See the [comic.tpl file in comic\_git\_engine](https://github.com/ryanvilbrandt/comic_git_engine/blob/1.0/templates/comic.tpl#L19) for an example of how to do that.
-4. All references to files in your `src` directory should now either point to files in `comic_git_engine` or you should move those files to your [Theme](../advanced-editing/themes.md) directory.
+4. `navigation-bar` is now a class rather than an ID.
+5. All references to files in your `src` directory should now either point to files in `comic_git_engine` or you should move those files to your [Theme](../advanced-editing/themes.md) directory.
    1. For example, script elements that load the module `/src/js/infinite_scroll.js` should instead load `/comic_git_engine/js/infinite_scroll.js`&#x20;
 
 ### Comic Info Changes
@@ -64,6 +65,7 @@ This is the list of changes to the names of HTML elements and Jinja variables. U
 This is a list of changes to your [comic\_info.ini file](../basic-editing/editing-your-comic-info.md) that are required for the 1.0 version of comic\_git to work properly.
 
 1. [Engine Version](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#engine-version) is a required value.
+2. "Use images in navigation bar" has been moved to "Use images" in the [Navigation Bar](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#navigation-bar) section.
 
 ### Code Hooks
 
