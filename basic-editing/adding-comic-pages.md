@@ -4,25 +4,19 @@ Uploading comic pages to your website is as simple as copying the comic image fi
 
 <figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/uploading_your_comic/your_content_dir.png" alt=""><figcaption></figcaption></figure>
 
-Open the `comics` directory. When you created your own comic\_git repository in [Getting Started](../getting-started/getting-started.md), you created a copy of the original repository. This includes some example comic pages to help you get started.
+Open the `comics` directory. When you created your own comic\_git repository in [Getting Started](../getting-started/getting-started.md), you created a copy of the original repository. This includes an example comic page to help you get started.
 
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/comic_dir.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
-The easiest way to upload a new comic page is to first make a copy of an existing directory in `your_content/comics`. After you've done that, you can delete the remaining example directories.
+You can rename this page's folder to whatever you want, but be aware that it will show up in the URL for that page. E.g. **https://\[username].github.io/\[repo name]/comic/Page 1/**
 
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/new_dir.png" alt=""><figcaption></figcaption></figure>
+Open the new directory you've created, and you should see a few files: `English.txt`,  `info.ini`, `post.txt`, and an image file.
 
-You can name the directory whatever you want, but be aware that it will show up in the URL for that page. E.g. **https://\[username].github.io/\[repo name]/comic/Page 1/**
-
-Open the new directory you've created, and you should see a few files: `info.ini`, `post.txt`, and an image file.
-
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/comic_files.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 ## Comic File
 
-First things first, delete the existing image file and copy whatever image file you want to use for your comic in its place. The name of your comic image file can be anything you want, even the same name as other comic image files in other folders.
-
-<figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/adding_comic_pages/new_comic_file.png" alt=""><figcaption></figcaption></figure>
+First things first, delete the existing image file and copy whatever image file you want to use for your comic in its place. The name of your comic image file can be anything you want, even the same name as other comic image files in other folders. However, keep in mind that comic\_git will use the name of your comic image as the title for that page, unless you specify otherwise (see the **Page Info** section for more info).
 
 When building your website, comic\_git will search through your comic folders for any image files in the same folder and add them to the web page for that folder. The images will be shown vertically in alphabetical order, according to their filenames.
 
@@ -30,15 +24,22 @@ Files with any of the following extensions are considered image files: `jpg`, `j
 
 You can override this behavior by adding a `Filenames` option to your `info.ini` file, as described in the next section.
 
+{% hint style="info" %}
+If you want to make a comic page with no images in it, you can! In that case, the comic image elements will be hidden, and only the blurb and navigation bars will be present. This is useful if you want to have a page that's more of a news post than a comic page.
+{% endhint %}
+
 ## Page Info
 
 Next, open `info.ini`. The file will look something like this:
 
 ```
-Post date = November 27, 2019
-Alt text = Tamberlane, can you sign "ongoing trauma"?
-Storyline = Chapter 4a
-Characters = Avery, Belfry, Cur, Piper, Tamberlane
+# Uncomment the line below to give your comic page a specific title, otherwise comic_git will use the name of the image file
+# Title = My First Comic Page!!
+Post date = August 1, 2025
+# You can delete any of the lines below if you don't want to use them.
+Alt text = This is where your first comic page will go!
+Storyline = Chapter 1
+Characters = Alice, Bob, Eve
 Tags = Tag 1, Tag 2, Tag 3
 ```
 
@@ -50,9 +51,9 @@ Edit the values in this file to match the comic you are uploading.
 
 * Optional
 * Value: `string`: page title
-* Example: `Page 197`
+* Example: `Page 1`
 
-The title of this particular comic page.  The page title shows up in the tab every time a page from your website is loaded along with the comic name (for example, **Page 197** - comic\_git Example). It also appears in the info box below the comic on the page itself.
+The title of this particular comic page.  The page title shows up in the tab every time a page from your website is loaded along with the comic name (for example, **Page 1** - comic\_git Example). It also appears in the info box below the comic on the page itself.
 
 If this option isn't present in the info.ini file, comic\_git will use the filename (minus the extension) of the first image in the list of image files for this comic. See `Filenames` below.
 
@@ -86,7 +87,7 @@ Any comic with a Post Date set in the future (according to the Timezone you have
 
 * Optional
 * Value: `string`: list of filenames for the comic images separated by commas
-* Example: `Page 197a.png, Page 197b.png`
+* Example: `Page 1a.png, Page 1b.png`
 
 If this option is present in the info.ini file, comic\_git will not auto-collect images from the folder but will instead use the files defined here. This is useful if you want the images displayed not in alphabetical order, or you want to display only some of the images in this folder.
 
@@ -114,7 +115,7 @@ The text that should show up when the user hovers their mouse over the comic ima
 
 * Optional
 * Value: `string`: storyline to attach this page to
-* Example: `Chapter 4a`
+* Example: `Chapter 1`
 
 The name of the current chapter, book, section, or whatever else you use to separate out different parts of your webcomic. This is used when building the Archive page and Infinite Scroll page. If this option is blank, this page will count as not having a storyline and won't show up on the Archive page.
 
@@ -126,7 +127,7 @@ The name of the current chapter, book, section, or whatever else you use to sepa
 
 * Optional
 * Value: `string`: list of comic characters separated by commas
-* Example: `Avery, Belfry, Cur, Piper, Tamberlane`
+* Example: `Alice, Bob, Eve`
 
 A comma-separated list of characters on this page. Any character names here will turn into a hyperlink which links to a list of pages with that character in them.
 
@@ -159,9 +160,11 @@ When you're done, save and close `info.ini`.
 Open `post.txt` in a text editor like Notepad. The file will look something like this:
 
 ```
-WHOOPS! Caught red-pawed! ...and poor Tamberlane is having a heck of a time today, isn’t she? 🙁
+If you'd like some ideas on what you can do next with comic_git...
 
-Thanks again to Chaon for letting me use Cur in his Patreon cameo!
+* Replace the image on this page with your own comic image by replacing the `Page 1.png` file at `your_content/comics/001/`
+* Update this page's Post Date, Tags, or other details by updating the `info.ini` file at `your_content/comics/001/`
+...
 ```
 
 This is the file where you put any text that accompanies your comic upload, such as a news post update or a few snarky comments. This file supports both [Markdown](https://daringfireball.net/projects/markdown/syntax) and HTML formatting, including CSS or JavaScript.
@@ -177,6 +180,14 @@ Sorry, guys, I'm sick so no comic today. Please enjoy a sad panda instead.
 
 <img src="../../your_content/images/sad_panda.png">
 ```
+
+## Transcript Files
+
+comic\_git comes with an example of a "transcript file" in this folder: `English.txt`. You can safely delete this file if you don't want to use transcripts in your comic.
+
+See the documentation for [Transcripts](https://comic-git.gitbook.io/documentation/advanced-editing/extra-features#transcripts) for more information.
+
+***
 
 And you're done! You've now created your first comic page! If you like, you can upload your changes now and see them on the web. Or if you prefer, you can first spend some time changing the colors, images, and other layout of your website.
 
