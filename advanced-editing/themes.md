@@ -56,8 +56,12 @@ If you need to create a large number of pages that can change every time the web
 
 You may eventually want to create your own theme from scratch, rather than editing the default one. comic\_git is designed so that you can easily switch between themes without having to delete or edit existing files.
 
-To do so, make a copy of the `default` theme directory, change the name to whatever you like, and edit the contents in there as described in the previous two sections.
+To do so, make a copy of the `default` theme directory, change the name to whatever you like, and edit the contents in there as described in the previous two sections. Then, in `comic_info.ini`, add a line under [\[Comic Settings\]](../basic-editing/editing-your-comic-info.md#comic-settings) that says `Theme =` followed by the folder name for your desired theme.
 
-In comic\_info.ini, add a line under [\[Comic Settings\]](../basic-editing/editing-your-comic-info.md#comic-settings) that says `Theme =` followed by the folder name for your desired theme. An example `geocities` theme has already been created, and you can check it out by adding the line `Theme = geocities` to \[Comic Settings] and rebuilding your webpage.
+### Using Existing Themes
 
-Themes can also be shared between different comic\_git powered websites! As long as all the files required for a theme to work are somewhere in the theme directory, you can just send the whole theme directory to a friend who's also using comic\_git, and they can try out your theme on their own site!
+You don't have to make your own Theme from scratch, either. comic\_git comes with a few themes for you to play around with. The `geocities` theme is just a fun way to show off how flexible comic\_git can be, and `homepage_is_latest_comic` makes the home page for your comic mirror the latest comic page.
+
+To choose either of these existing themes, in `comic_info.ini`, add a line under [\[Comic Settings\]](../basic-editing/editing-your-comic-info.md#comic-settings) that says `Theme =` followed by the folder name for your desired theme. E.g., `Theme = geocities`. Then, just rebuild your website and comic\_git will use this new theme!
+
+Themes can also be shared between different comic\_git powered websites! As long as all the files required for a theme to work are somewhere in the theme directory, you can just send the whole theme directory to a friend who's also using comic\_git, and they can try out your theme on his own site!
