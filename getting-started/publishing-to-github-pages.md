@@ -9,19 +9,13 @@ Even if you've only just created your repository from the previous page, the rep
 1.  In your repository, go to the **Settings** tab.&#x20;
 
     <figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption><p>Click the Settings option</p></figcaption></figure>
-2.  In the sidebar on the left, click **Actions** > **General**.
-
-    <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>Go to Actions > General</p></figcaption></figure>
-3.  In **Workflow Permissions** at the bottom of the page, select **Read and write permissions**, then click **Save** below it.
-
-    <figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption><p>Set read and write permissions</p></figcaption></figure>
-4.  In the sidebar, click **Pages**.&#x20;
+2.  In the sidebar, click **Pages**.&#x20;
 
     <figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption><p>Go to Pages</p></figcaption></figure>
-5.  Under **Source**, select **GitHub Actions** from the dropdown.&#x20;
+3.  Under **Source**, select **GitHub Actions** from the dropdown.&#x20;
 
     <figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption><p>Select GitHub Actions</p></figcaption></figure>
-6.  Click **Save**. Once you do, GitHub will automatically publish your repository to GitHub Pages!&#x20;
+4.  Click **Save**. Once you do, GitHub will automatically publish your repository to GitHub Pages!&#x20;
 
     <figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption><p>Success!</p></figcaption></figure>
 
