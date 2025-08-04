@@ -38,11 +38,13 @@ This method takes a bit more finesse, but allows you to update your repo to 1.0 
 
 You're done! This is the least destructive method, as it does not delete any repo settings, but does require that you keep track of customized files outside of `your_content`.
 
-However, for any customized files you may have, you will need to update per the instructions in the next section.
+***
+
+Regardless of what option you choose above, you may need to do more work. If you have any customized files (e.g. changes in your `src` directory, custom templates), you may need to do more updates per the instructions in the next section.
 
 ## What Has Changed in 1.0?
 
-While the above options describe different ways to upgrade to 1.0, but if you have heavily customized your website (e.g., by making a [Theme](../advanced-editing/themes.md) with custom templates), you will need to be aware of the changes to some of the under-the-hood behavior of comic\_git to make sure your templates all work with the new version of the engine.
+If you have heavily customized your website (e.g., by making a [Theme](../advanced-editing/themes.md) with custom templates), you will need to be aware of the changes to some of the under-the-hood behavior of comic\_git to make sure your changes all work with the new version of the engine.
 
 ### Template File Changes
 
@@ -66,7 +68,7 @@ This is the list of changes to the names of HTML elements and Jinja variables. U
 This is a list of changes to your [comic\_info.ini file](../basic-editing/editing-your-comic-info.md) that are required for the 1.0 version of comic\_git to work properly.
 
 1. [Engine Version](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#engine-version) is a required value.
-2. "Use images in navigation bar" has been moved to "Use images" in the [Navigation Bar](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#navigation-bar) section.
+2. "Use images in navigation bar" has been moved to [Use images](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#use-images) in the \[Navigation Bar] section.
 
 ### Code Hooks
 
@@ -82,5 +84,5 @@ Some [code hooks](https://comic-git.gitbook.io/documentation/other-expert-tips#c
 
 This section describes changes that don't fall into any of the other sections describes above.
 
-1. Your social media preview image is defined by default to be 200px by 200px. If you've changed these values in your own custom templates, you can ignore this.
-2. Various changes and fixes have been made to the Javascript and CSS files that were in `src`, and are now in `comic_git_engine`. If you have made changes to any of these files, I recommend checking out their [current version in comic\_git\_engine](https://github.com/ryanvilbrandt/comic_git_engine/tree/1.0) and recreate those files with your changes in your [Theme](../advanced-editing/themes.md) directory.
+1. Your social media preview image is now required by default to be 200px by 200px. If you've changed these values in your own custom templates, you can ignore this.
+2. Various changes and fixes have been made to the Javascript and CSS files that were in `src`, and are now in `comic_git_engine`. If you have made changes to any of these files, I recommend checking out their [current version in comic\_git\_engine](https://github.com/ryanvilbrandt/comic_git_engine/tree/1.0) and recreating those files with your changes in your [Theme](../advanced-editing/themes.md) directory.
