@@ -175,7 +175,7 @@ The name of the theme folder to use for your site. The theme folder must be loca
 * Value: `string`: see below
 * Default: none
 
-A comma-separated list of any extra comics hosted on your site. For more information, see [Extra Comics](../advanced-editing/extra-features.md#extra-comics).
+A comma-separated list of any extra comics hosted on your site. For more information, see [Extra Comics](../advanced-editing/extra-comics.md).
 
 </details>
 
