@@ -25,6 +25,4 @@ Even if you've only just created your repository from the previous page, the rep
 
     <figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption><p>Success!</p></figcaption></figure>
 
-Now you're ready to make changes to your website! As soon as you do and push your changes up to GitHub, it will automatically build and deploy your website for you!
-
-Next, we need to set up the app that will let you move your own files into the repository.
+Now you're ready to make changes to your website! As soon as you do and push your changes up to GitHub, it will automatically build and deploy your website for you! Please move onto the next section so we can set up the application that will let you move your own files into the repository.
