@@ -34,6 +34,7 @@ This method takes a bit more finesse, but allows you to update your repo to 1.0 
 3. Open the `.github/workflows/main.yaml` file in your own repo and replace all the text in that with the text you copied from comic\_git. Save and close the file.
 4. Delete your `/src` folder.
 5. Add a `.nojekyll` file to the root of your repo (i.e., alongside `favicon.ico`).
+6. Go to your GitHub Pages settings and change your "Build and deployment" source to "GitHub Actions".
 
 You're done! This is the least destructive method, as it does not delete any repo settings, but does require that you keep track of customized files outside of `your_content`.
 
