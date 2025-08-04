@@ -42,18 +42,33 @@ To change it:
 
 At some point, you will likely want to host your comic from a custom domain, so your readers don't have to keep going to your github.io URL. Fortunately, GitHub Pages supports this!
 
-### Create a CNAME Record for your Domain
+### Create an A and CNAME Record for your Domain
 
-The first thing you'll need to do is set up a CNAME record in the DNS settings of your domain registrar's management page. The exact instructions depend on which registrar you've registered your domain with and is beyond the scope of this article. Most registrars will have their own help documentation telling you how to do this.
+The first thing you'll need to do is set an A and CNAME record in the DNS settings of your domain registrar's management page. The exact instructions depend on which registrar you've registered your domain with and is beyond the scope of this article. Most registrars will have their own help documentation telling you how to do this.
 
-You will want to set the following values on your CNAME record. This is offered as a convenient reference, and is **not** definitive; the field names below may not match what you see on your registrar's website:
+You will want to set the following values on your records. This is offered as a convenient reference, and is **not** definitive; the field names below may not match what you see on your registrar's website:
+
+#### A
+
+This record points your apex domain (e.g. `bestcomic.com`) directly at the GitHub Pages servers. This record is technically optional, but recommended.
+
+* **DNS name:** empty string (it may look like `bestcomic.com.` in your settings)
+* **Values:**
+  * 185.199.108.153
+  * 185.199.109.153
+  * 185.199.110.153
+  * 185.199.111.153
+
+#### CNAME
+
+This record points the `www` subdomain (e.g., `www.bestcomic.com`) to your GitHub Pages site. This record is required.
 
 * **DNS name:** www (it may look like `www.bestcomic.com.` in your settings)
 * **Canonical name:** \<username>.github.io. (e.g. `ryanvilbrandt.github.io.`)
 
 You can leave fields like "TTL" as their default values.
 
-GitHub provides more detail on CNAME and other DNS records and what values to enter for them. See [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain).&#x20;
+GitHub provides more detail on DNS records and what values to enter for them. See [Managing a custom domain for your GitHub Pages site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#dns-records-for-your-custom-domain).&#x20;
 
 ### Change your GitHub Pages Settings
 
