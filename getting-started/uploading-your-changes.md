@@ -35,10 +35,27 @@ You can choose to discard any changes you didn't intend by right-clicking the ch
 
 Sometimes it can take a few minutes for the changes to appear, as comic\_git is rebuilding your site with the new changes, so be patient.
 
-If you're not sure if GitHub is doing anything, you can check the Deployments section of your repo (the [Troubleshooting](../additional-information/troubleshooting.md) section goes into more detail on this). If the page still doesn't update once the deployment finishes, you may need to clear your browser cache to see the change. The easiest way to do this is with a force refresh (Ctrl+F5), or you may need to clear the cache in your browser's settings, or even just wait a minute for the cache to expire and your browser decides to pull the new changes down.
+If you're not sure if GitHub is doing anything, you can check the Deployments section of your repo (the [Troubleshooting](../additional-information/troubleshooting.md) section goes into more detail on this). If the page still doesn't update once the deployment finishes, you may need to clear your browser cache to see the change. The easiest way to do this is with a force refresh (Ctrl+Shift+R), or you may need to clear the cache in your browser's settings, or even just wait a minute for the cache to expire and your browser decides to pull the new changes down.
+
+{% hint style="success" %}
+## **A Tale of Two GitHub URLs**
+
+You now have two different URLs to keep track of: Your GitHub repository URL and your GitHub Pages URL. Both of these URLs are automatically generated based on your GitHub account name and your webcomic repository name.
+
+**Example:**
+
+* GitHub account name: **comicgitdemo**&#x20;
+* Repository name: **bestcomic**
+* GitHub repository URL: https://github.com/**comicgitdemo**/**bestcomic**
+* GitHub Pages URL: https://**comicgitdemo**.github.io/**bestcomic**
+
+Your **GitHub Pages URL** is what you need to give to anyone who wants to read your comic.
+
+If you like, you can even set a [custom domain](../other-expert-tips.md#moving-to-a-custom-domain) rather than using the default one.
+{% endhint %}
 
 {% hint style="info" %}
-**Publishing Changes**
+#### **Publishing Changes**
 
 Every time comic\_git runs, it regenerates your website. It runs automatically whenever you upload changes to GitHub, but it also runs every morning at 8am UTC. See [Scheduled Posts](../other-expert-tips.md#scheduled-posts) for more information.
 {% endhint %}
