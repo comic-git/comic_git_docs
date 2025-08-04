@@ -54,10 +54,10 @@ This record points your apex domain (e.g. `bestcomic.com`) directly at the GitHu
 
 * **DNS name:** empty string (it may look like `bestcomic.com.` in your settings)
 * **Values:**
-  * 185.199.108.153
-  * 185.199.109.153
-  * 185.199.110.153
-  * 185.199.111.153
+  * `185.199.108.153`
+  * `185.199.109.153`
+  * `185.199.110.153`
+  * `185.199.111.153`
 
 #### CNAME
 
