@@ -6,13 +6,13 @@ In this section, you'll create a copy of comic\_git in your GitHub account that 
 If you don't have a GitHub account, follow the instructions in [Signing Up for GitHub](signing-up-for-github.md) before proceeding.
 {% endhint %}
 
-1. Visit the comic\_git repository at [https://github.com/ryanvilbrandt/comic\_git](https://github.com/ryanvilbrandt/comic_git)
+1. Visit the comic\_git repository at [https://github.com/comic-git/comic\_git](https://github.com/comic-git/comic_git)
 2.  Click **Use This Template**, then **Create a new repository**. This creates a new, independent copy of the comic\_git repository that you own. You'll use this new repository to create your webcomic.\
 
 
     <div data-full-width="true"><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Create a repository from the comic_git template</p></figcaption></figure></div>
 3. GitHub will ask you some questions about the repository you're creating. Set the requested fields as follows:
-   1. **Repository template**: This should already be set to `ryanvilbrandt/comic_git`
+   1. **Repository template**: This should already be set to `comic-git/comic_git`
    2. **Include all branches**: You can leave this box unchecked.
    3. **Owner**: This should be the username you created when signing up. If it shows something different, look into that first.
    4. **Repository name**: Choose any name you like, but we recommend the name of your comic.
