@@ -96,29 +96,29 @@ Windows by default makes it difficult to create files with no file extension. Th
 
 First, open File Explorer and go to the View tab, and check the box "File name extensions".
 
-<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
 Then, go to your repository. Right-click anywhere in the background of the folder, and go to New > Text Document.
 
-<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
 This will create a new text document in your folder and highlight the name to let you change it.
 
 Select the whole filename, including the `.txt` extension, and replace it with `CNAME` and hit enter. A dialog will pop up warning you that the file "might become unusable". This is normal, and you can finish renaming the file by clicking **Yes**.
 
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 The CNAME file has now been created, and it should look like below.
 
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 Now, open the file so you can add your domain by right-clicking the file and clicking **Open with.**
 
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption></figcaption></figure>
 
 In the new dialog that pops up, select **Notepad** and click **OK**.
 
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 This will open the file in Notepad. Add only a single line with your new domain, e.g. `www.bestcomic.com`&#x20;
 

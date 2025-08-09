@@ -8,15 +8,15 @@ Even if you've only just created your repository from the previous page, the rep
 
 1.  In your repository, go to the **Settings** tab.&#x20;
 
-    <figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption><p>Click the Settings option</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption><p>Click the Settings option</p></figcaption></figure>
 2.  In the sidebar, click **Pages**.&#x20;
 
-    <figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption><p>Go to Pages</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption><p>Go to Pages</p></figcaption></figure>
 3.  Under **Source**, select **GitHub Actions** from the dropdown.&#x20;
 
-    <figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption><p>Select GitHub Actions</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>Select GitHub Actions</p></figcaption></figure>
 4.  Click **Save**. Once you do, GitHub will automatically publish your repository to GitHub Pages!&#x20;
 
-    <figure><img src="../.gitbook/assets/image (19).png" alt=""><figcaption><p>Success!</p></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption><p>Success!</p></figcaption></figure>
 
 Now you're ready to make changes to your website! As soon as you do and push your changes up to GitHub, it will automatically build and deploy your website for you! Please move onto the next section so we can set up the application that will let you move your own files into the repository.

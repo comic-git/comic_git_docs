@@ -6,13 +6,13 @@ Uploading comic pages to your website is as simple as copying the comic image fi
 
 Open the `comics` directory. When you created your own comic\_git repository in [Getting Started](../getting-started/getting-started.md), you created a copy of the original repository. This includes an example comic page to help you get started.
 
-<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption></figcaption></figure>
 
 You can rename this page's folder to whatever you want, but be aware that it will show up in the URL for that page. E.g. **https://\[username].github.io/\[repo name]/comic/Page 1/**
 
 Open the new directory you've created, and you should see a few files: `English.txt`,  `info.ini`, `post.txt`, and an image file.
 
-<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 ## Comic File
 
