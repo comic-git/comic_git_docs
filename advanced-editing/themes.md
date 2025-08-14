@@ -19,7 +19,7 @@ Go to [comic\_git\_engine's templates folder](https://github.com/comic-git/comic
 * [404.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/404.tpl) is the layout of the "404 Not Found" page that appears if someone tries to access a page on your site that doesn't exist.
 * [archive.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/archive.tpl) is the layout of the Archives page.
 * [base.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/base.tpl) is the base template which all the other templates use. If something you want to change is present across the entire site, it's probably in here.
-* [comic.tp](https://github.com/comic-git/comic_git_engine/blob/master/templates/comic.tpl)l is the layout of the individual comic pages.
+* [comic.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/comic.tpl) is the layout of the individual comic pages.
 * [index.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/index.tpl) is the layout of the home page. If you want to change the layout of this page, use the `home page.txt` file in `your_content` instead.&#x20;
 * [infinite\_scroll.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/infinite_scroll.tpl) is the layout for the infinite scroll comics page.
 * [latest.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/latest.tpl) is the layout for the latest comic page. This differs slightly from the individual comic pages in that comic\_git will always update this one to show the most recent (by post date) comic.
