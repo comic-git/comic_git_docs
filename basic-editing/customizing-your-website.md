@@ -105,4 +105,4 @@ Just replace any of the images in `your_content/images/navigation_icons/` with o
 
 ## Other Changes
 
-To make further changes to your website, like adding your own pages or changing the HTML of existing pages, see [Themes](../advanced-editing/extra-features.md#themes).
+To make further changes to your website, like adding your own pages or changing the HTML of existing pages, see [Themes](../advanced-editing/themes.md).
