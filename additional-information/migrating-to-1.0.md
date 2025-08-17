@@ -32,9 +32,12 @@ This method takes a bit more finesse, but allows you to update your repo to 1.0 
    1. For example, move any edited templates from `/src/templates` to `/your_content/themes/default` .
 2. Copy the text in the `.github/workflows/main.yaml` [file from the comic\_git repo](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/refs/heads/master/.github/workflows/main.yaml).
 3. Open the `.github/workflows/main.yaml` file in your own repo and replace all the text in that with the text you copied from comic\_git. Save and close the file.
+   1. Change the `- master` line to `- working`.
+   2. You can also choose to just move all your changes into the `master` branch if you like, in which case leave the line above alone.
 4. Delete your `/src` folder.
 5. Add a `.nojekyll` file to the root of your repo (i.e., alongside `favicon.ico`).
 6. Go to your GitHub Pages settings and change your "Build and deployment" source to "GitHub Actions".
+7. Add the line `Engine version = 1.0` in the `[Comic Settings]` section of your comic\_info.ini file.
 
 You're done! This is the least destructive method, as it does not delete any repo settings, but does require that you keep track of customized files outside of `your_content`.
 
