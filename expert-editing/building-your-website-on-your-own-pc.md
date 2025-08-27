@@ -58,7 +58,7 @@ In a terminal window, navigate to your base repo directory. This is the director
 Type the following command:&#x20;
 
 ```
-D:\GitHub\comic_git> git submodule add -b "[engine version]" -f https://github.com/ryanvilbrandt/comic_git_engine
+D:\GitHub\comic_git> git submodule add -b "[engine version]" -f https://github.com/comic-git/comic_git_engine
 ```
 
 &#x20;In that command line, replace `[engine version]` with the same value as the engine version listed in `comic_info.ini`.
