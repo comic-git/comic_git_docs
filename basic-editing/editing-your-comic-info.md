@@ -147,7 +147,7 @@ Examples: `https://ryanvilbrandt.github.io`, `www.tamberlanecomic.com`
 * Value: `string`: name of GitHub repo
 * Default: none
 
-If you're building your website locally and you have not set a custom domain, you must set this to the name of your GitHub repository. This allows most of the links on your website to function properly. For more details, see [Building your Website on your own PC](../other-expert-tips.md#building-your-website-on-your-own-pc).
+If you're building your website locally and you have not set a custom domain, you must set this to the name of your GitHub repository. This allows most of the links on your website to function properly. For more details, see [Building your Website on your own PC](../expert-editing/building-your-website-on-your-own-pc.md).
 
 This option should not include leading or trailing slashes.
 
