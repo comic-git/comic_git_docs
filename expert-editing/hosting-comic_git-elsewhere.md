@@ -4,7 +4,7 @@
 
 It is possible, and in fact quite easy, to use comic\_git outside of GitHub. You may prefer this if you have your own hosting you're already paying for, or if you've [exceeded GitHub Pages' usage limits](https://docs.github.com/en/github/working-with-github-pages/about-github-pages#usage-limits).
 
-Moving GitHub Pages to another website is as simple as running the [website building script locally on your own PC](expert-editing/building-your-website-on-your-own-pc.md) and then uploading those files to your web host via whatever method they prefer. The most common method will be SFTP, which your web host's documentation will hopefully help you get set up.
+Moving GitHub Pages to another website is as simple as running the [website building script locally on your own PC](building-your-website-on-your-own-pc.md) and then uploading those files to your web host via whatever method they prefer. The most common method will be SFTP, which your web host's documentation will hopefully help you get set up.
 
 The recommended steps for building and deploying comic\_git to another web service are as follows. This process will not upload any content for unpublished comic pages, while also not losing any of your work on your local machine.
 

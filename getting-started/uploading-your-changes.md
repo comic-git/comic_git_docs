@@ -51,11 +51,11 @@ You now have two different URLs to keep track of: Your GitHub repository URL and
 
 Your **GitHub Pages URL** is what you need to give to anyone who wants to read your comic.
 
-If you like, you can even set a [custom domain](../other-expert-tips.md#moving-to-a-custom-domain) rather than using the default one.
+If you like, you can even set a [custom domain](../expert-editing/other-expert-tips.md#moving-to-a-custom-domain) rather than using the default one.
 {% endhint %}
 
 {% hint style="info" %}
 #### **Publishing Changes**
 
-Every time comic\_git runs, it regenerates your website. It runs automatically whenever you upload changes to GitHub, but it also runs every morning at 8am UTC. See [Scheduled Posts](../other-expert-tips.md#scheduled-posts) for more information.
+Every time comic\_git runs, it regenerates your website. It runs automatically whenever you upload changes to GitHub, but it also runs every morning at 8am UTC. See [Scheduled Posts](../expert-editing/other-expert-tips.md#scheduled-posts) for more information.
 {% endhint %}

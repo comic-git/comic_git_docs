@@ -44,7 +44,7 @@ To use this file, just copy it into your `templates` folder as described above a
 
 Template files are written in a format called [Jinja](https://jinja.palletsprojects.com/en/2.11.x/templates/). Jinja is an incredibly powerful tool that lets you create files that can be converted into HTML files using code like for loops, if/else blocks, and variables acting as placeholders for values passed in by the comic\_git script. I've done my best to comment the existing template files in the comic\_git\_engine templates directory to help clarify how to use Jinja for anyone curious enough to go poking around.
 
-I recommend using Jinja templates whenever you're making pages for your website, as they provide a lot of flexibility and power that you won't get from normal HTML pages. For more information on the details of Jinja and the variables available to your templates when they're built, see [Other Expert Tips](../other-expert-tips.md#the-power-of-jinja2).
+I recommend using Jinja templates whenever you're making pages for your website, as they provide a lot of flexibility and power that you won't get from normal HTML pages. For more information on the details of Jinja and the variables available to your templates when they're built, see [Other Expert Tips](../expert-editing/other-expert-tips.md#the-power-of-jinja2).
 
 ### Alternative HTML Format
 
@@ -56,7 +56,7 @@ Creating HTML files is **NOT** recommended for most pages that have content that
 
 Adding new pages to your website beyond what's already provided by comic\_git is very similar to editing existing pages, with a few small changes. You'll usually want to start with copying an existing template or HTML file to use as a starting point, but give it its own unique name. You will also want to put it in the `/your_content/themes/default/templates/` directory. Then, you'll need to add the file name to the \[Pages] section of your [comic\_info.ini](../basic-editing/editing-your-comic-info.md#pages) file. For example, if you're creating a `cast.html` file, you should add the line `cast = Cast Page`.
 
-If you need to create a large number of pages that can change every time the website is built, like a cast page for each character, you may want to make use of the `build_other_pages` code hook. See [Other Expert Tips](../other-expert-tips.md#code-hooks) for more information.
+If you need to create a large number of pages that can change every time the website is built, like a cast page for each character, you may want to make use of the `build_other_pages` code hook. See [Other Expert Tips](../expert-editing/other-expert-tips.md#code-hooks) for more information.
 
 ### Creating Your Own Themes
 

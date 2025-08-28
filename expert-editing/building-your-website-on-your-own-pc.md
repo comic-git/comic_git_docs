@@ -58,15 +58,17 @@ In a terminal window, navigate to your base repo directory. This is the director
 Type the following command:&#x20;
 
 ```
-D:\GitHub\comic_git> git submodule add -b "[engine version]" -f https://github.com/comic-git/comic_git_engine
+git submodule add -b "[engine version]" -f https://github.com/comic-git/comic_git_engine
 ```
 
-&#x20;In that command line, replace `[engine version]` with the same value as the engine version listed in `comic_info.ini`.
+&#x20;In that command line, replace `[engine version]` with the same value as the [Engine version](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#engine-version) listed in `comic_info.ini`.
 
 This installs comic\_git\_engine as a **submodule** of your personal repo.
 
 {% hint style="info" %}
 When building your site locally, you'll use the local version of comic\_git\_engine, which may not update when the live repo updates. You can manually update it to the newest version with the command `git submodule update --remote`.
+
+If you ever want to use a different version of the engine, you can switch it by going into your `comic_git_engine` directory and running the command `git checkout version` where `version` is something like `master` or `1.0`.&#x20;
 {% endhint %}
 
 ### Install the required libraries
@@ -76,7 +78,7 @@ Your next step is to install the libraries needed for comic\_git to build your w
 Open up your Command Prompt/Terminal in your base repo directory and type the following command:
 
 ```
-D:\GitHub\comic_git> python -m pip install -r comic_git_engine\scripts\requirements.txt
+python -m pip install -r comic_git_engine\scripts\requirements.txt
 ```
 
 pip will then install a number of Python packages on your computer. Once it's done, you'll see something like below:
@@ -105,7 +107,7 @@ Comic subdirectory = repo_name
 Once this is done, you can call the Python script that builds your website directly on your own PC using the following command.
 
 ```
-D:\Github\comic_git> python comic_git_engine\scripts\build_site.py
+python comic_git_engine\scripts\build_site.py
 ```
 
 comic\_git will then take over and build your site for you.

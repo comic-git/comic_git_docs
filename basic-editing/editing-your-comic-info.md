@@ -131,7 +131,7 @@ All timezones found in the TZ Identifier column on the [TZ database time zones W
 * Value: `string`: URL of domain
 * Default: none
 
-If you are building your website locally, and you haven't configured a custom domain, you must set this so that comic\_git knows what domain to use to build the URL to link to your comic, for the purposes of things like your RSS feed and your social media preview links. For more details, see [Building your Website on your own PC](../other-expert-tips.md#building-your-website-on-your-own-pc).
+If you are building your website locally, and you haven't configured a custom domain, you must set this so that comic\_git knows what domain to use to build the URL to link to your comic, for the purposes of things like your RSS feed and your social media preview links. For more details, see [Building your Website on your own PC](../expert-editing/other-expert-tips.md#building-your-website-on-your-own-pc).
 
 This option should include your website's entire domain, subdomain, and top-level domain. Do not include the slash at the end. You may include the "http://" or "https://" if you wish.
 
@@ -389,7 +389,7 @@ When set to `False` and a thumbnail already exists in the comic page's folder, c
 
 ## \[RSS Feed]
 
-This section is covered in [Adding an RSS Feed](../advanced-editing/extra-features.md#adding-an-rss-feed). If you don't need to create an RSS feed, you can leave this section alone.
+This section is covered in [Adding an RSS Feed](../advanced-editing/adding-an-rss-feed.md). If you don't need to create an RSS feed, you can leave this section alone.
 
 ## \[Transcripts]
 

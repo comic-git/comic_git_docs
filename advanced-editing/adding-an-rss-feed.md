@@ -26,7 +26,9 @@ Set `Build RSS Feed` to `True`. Fill out all the other fields as needed:
 
 ### Add a way for users to subscribe to your feed
 
-The most common way is to add a link in your Links Bar to the feed.xml file. The text can be simply `RSS` or a [RSS feed symbol](https://www.google.com/search?q=rss+feed+symbol).
+The most common way is to add a link in your Links Bar to the feed.xml file, e.g. `RSS = /feed.xml`&#x20;
+
+Another good option in place of the `RSS`  text for the link is a [RSS feed symbol](https://www.google.com/search?q=rss+feed+symbol).
 
 ### Publish your comic
 

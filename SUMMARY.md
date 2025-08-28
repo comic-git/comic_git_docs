@@ -34,11 +34,8 @@
 * [Expert Editing](expert-editing/expert-editing.md)
 * [Changing Your Website URL](expert-editing/changing-your-website-url.md)
 * [Building Your Website On Your Own PC](expert-editing/building-your-website-on-your-own-pc.md)
-
-***
-
-* [Hosting comic\_git Elsewhere](hosting-comic_git-elsewhere.md)
-* [Other Expert Tips](other-expert-tips.md)
+* [Hosting comic\_git Elsewhere](expert-editing/hosting-comic_git-elsewhere.md)
+* [Other Expert Tips](expert-editing/other-expert-tips.md)
 
 ## Additional Information
 

@@ -80,8 +80,8 @@ However, if you host your site on GitHub Pages, you must abide by [GitHub's Acce
 
 You absolutely can! However, publishing a private GitHub repo is not an option available on a free GitHub account. To do this, you will need to update your account to a [GitHub Pro](https://github.com/account/upgrade) account. This only costs $4 per month, and if you compare this to equivalent services you'd be using otherwise, like Squarespace at $12 per month, it's very affordable.
 
-[Follow these instructions to switch your repository from Public to Private. ](../other-expert-tips.md#switching-from-a-public-to-a-private-repo)
+[Follow these instructions to switch your repository from Public to Private. ](../expert-editing/other-expert-tips.md#switching-from-a-public-to-a-private-repo)
 
-[You can also use a hosting service other than GitHub Pages if you prefer](../hosting-comic_git-elsewhere.md), to avoid having to upgrade to GitHub Pro.
+[You can also use a hosting service other than GitHub Pages if you prefer](../expert-editing/hosting-comic_git-elsewhere.md), to avoid having to upgrade to GitHub Pro.
 
 </details>
