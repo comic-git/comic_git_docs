@@ -1,5 +1,9 @@
 # Webring
 
+{% hint style="success" %}
+**Coming Soon!**
+{% endhint %}
+
 Do you remember [webrings](https://fanlore.org/wiki/Webring)? It seemed like every Geocities page had one, back in the day. Do you want some of that nostalgia back? Well, good news, comic\_git supports them!
 
 To set up a webring, you'll be working with a JSON file. Don't worry if that sounds intimidating, JSON files are just text files with a specific format, like the INI files you've already been working with.
