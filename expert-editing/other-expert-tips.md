@@ -117,7 +117,7 @@ A small list of Code Hooks are supported. All of them are present in the example
 {% hint style="info" %}
 **Additional hooks**
 
-Do you have ideas for other code hooks you'd like to see added to comic\_git? Please let me know by leaving your suggestion in the [comic\_git issues page](https://github.com/ryanvilbrandt/comic_git/issues)!
+Do you have ideas for other code hooks you'd like to see added to comic\_git? Please let me know by leaving your suggestion in the [comic\_git issues page](https://github.com/comic-git/comic_git/issues)!
 {% endhint %}
 
 ### Third-Party library support
