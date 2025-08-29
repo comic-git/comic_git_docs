@@ -4,7 +4,7 @@ The default layout and features of comic\_git are intended to appeal to as many 
 
 comic\_git has a default theme, which can be found at `/your_content/themes/default/`. Initially, this folder contains just the `stylesheet.css` and `fonts.css` files in the `css` directory, which defines things like the colors and fonts of your website. However, this folder can be used to make even bigger changes to your website.
 
-### Editing Existing Pages
+## Editing Existing Pages
 
 Let's say you wanted to edit the layout of your comic pages, perhaps to do something like add an image between the Previous and Next links.
 
@@ -46,25 +46,39 @@ Template files are written in a format called [Jinja](https://jinja.palletsproje
 
 I recommend using Jinja templates whenever you're making pages for your website, as they provide a lot of flexibility and power that you won't get from normal HTML pages. For more information on the details of Jinja and the variables available to your templates when they're built, see [Other Expert Tips](../expert-editing/other-expert-tips.md#the-power-of-jinja2).
 
-### Alternative HTML Format
+### HTML Format
 
 If you prefer to not mess with Jinja templates for your first attempt at editing your website, that's fine, too! comic\_git also allows plain HTML files. Instead of creating a \*.tpl file in the `/your_content/themes/default/templates/` directory, make a .html file instead. The easiest way to start is to go to the page you want to edit in your web browser, right click on the page, go to **View Source**, and just copy all that text into the \*.html file.
 
 Creating HTML files is **NOT** recommended for most pages that have content that will change as you update the rest of your website, like comic pages, the archive page, and tagged pages. Jinja template files are required to keep these pages up to date whenever the website is built. However, using HTML files will usually be just fine when adding new pages to your website that don't come pre-packaged by default in comic\_git.
 
-### Adding New Pages
+### Markdown Format
+
+If you want to create very simple page, like an "About Me" page, and are familiar with [Markdown](https://www.markdownguide.org/), you can create files with that instead of HTML or Jinja!
+
+Just create a `pages` folder in your theme folder (e.g., `/your_content/themes/default/pages/` ), and create your Markdown files there. Make sure to name it with an `.md` extension, like `about.md`.
+
+{% hint style="info" %}
+If multiple template files exist with the same name (e.g., `about.tpl`, `about.html`, and `about.md`), the files will be loaded in the following order. The first file loaded is the one that will be rendered for the website.
+
+* Markdown
+* HTML
+* Jinja
+{% endhint %}
+
+## Adding New Pages
 
 Adding new pages to your website beyond what's already provided by comic\_git is very similar to editing existing pages, with a few small changes. You'll usually want to start with copying an existing template or HTML file to use as a starting point, but give it its own unique name. You will also want to put it in the `/your_content/themes/default/templates/` directory. Then, you'll need to add the file name to the \[Pages] section of your [comic\_info.ini](../basic-editing/editing-your-comic-info.md#pages) file. For example, if you're creating a `cast.html` file, you should add the line `cast = Cast Page`.
 
 If you need to create a large number of pages that can change every time the website is built, like a cast page for each character, you may want to make use of the `build_other_pages` code hook. See [Other Expert Tips](../expert-editing/other-expert-tips.md#code-hooks) for more information.
 
-### Creating Your Own Themes
+## Creating Your Own Themes
 
 You may eventually want to create your own theme from scratch, rather than editing the default one. comic\_git is designed so that you can easily switch between themes without having to delete or edit existing files.
 
 To do so, make a copy of the `default` theme directory, change the name to whatever you like, and edit the contents in there as described in the previous two sections. Then, in `comic_info.ini`, add a line under [\[Comic Settings\]](../basic-editing/editing-your-comic-info.md#comic-settings) that says `Theme =` followed by the folder name for your desired theme.
 
-### Using Existing Themes
+## Using Existing Themes
 
 You don't have to make your own Theme from scratch, either. comic\_git comes with a few themes for you to play around with. The `geocities` theme is just a fun way to show off how flexible comic\_git can be, and `homepage_is_latest_comic` makes the home page for your comic mirror the latest comic page.
 

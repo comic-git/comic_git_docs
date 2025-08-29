@@ -20,9 +20,26 @@ To change the colors of your website, edit the file `your_content/themes/default
 
 Basic (and hopefully easy to understand) settings are pre-defined here, with comments describing what each one does. It is very difficult to actually break your website by changing this file, so feel free to change these values to your heart's content. In the worst case, deleting this file will cause your browser to use its default colors for everything, which won't look too horrible.
 
-If you wish to change more complex things like the spacing between different elements in your website, you can look at [advanced\_stylesheet.css](https://github.com/ryanvilbrandt/comic_git_engine/blob/master/css/advanced_stylesheet.css) in the main [comic\_git\_engine](../advanced-editing/advanced-editing-and-the-comic_git-engine.md#what-is-comic_git_engine) repository for guidance. This contains all the style definitions that are less clear-cut or changing them and making them look good takes a lot of trial and error. If you wish to change any of these values, copy them into `stylesheet.css` first, then make changes there. Any values defined in your `stylesheet.css` take precedence over the values in `advanced_stylesheet.css`.&#x20;
+If you wish to change more complex things like the spacing between different elements in your website, you can look at the list of CSS files provided by the [comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/master/css). This contains all the style definitions that are less clear-cut or changing them and making them look good takes a lot of trial and error. If you wish to change any of these values, copy them into `stylesheet.css` first, then make changes there. Any values defined in your `stylesheet.css` take precedence over the values in `comic_git_engine`.
 
-If you are comfortable with CSS, you do not need to limit yourself to only what's in `stylesheet.css` or `advanced_stylesheet.css`. Feel free to add whatever CSS settings you need!
+If you are comfortable with CSS, you do not need to limit yourself to only what's in `stylesheet.css` or the CSS files in comic\_git\_engine. Feel free to add whatever CSS settings you need!
+
+{% hint style="info" %}
+**Adding a lot of new CSS rules?** You can make your life a lot easier by creating files in the `your_content/themes/default/css/` folder named after the template you want to affect, and then adding new CSS rules there. These will automatically be picked up by the correct template when it's rendered.&#x20;
+
+For example, if you create a file named `comic.css`, then all comic pages that are rendered will load the CSS in that file. Also, if you create a file named `base.css`, all rendered pages that use the `base.tpl` file provided by comic\_git\_engine will load CSS from that file as well.
+
+If you're rendering a page from a Markdown file, the CSS file named the same as the Markdown file will be loaded.
+
+This is the priority of CSS files that are loaded. CSS rules in files lower down the list will override rules from files higher up:
+
+* `/your_content/themes/{{ theme }}/css/fonts.css`
+* `/comic_git_engine/css/base.css`
+* `/comic_git_engine/css/{{ template_name }}.css`
+* `/your_content/themes/{{ theme }}/css/stylesheet.css`
+* `/your_content/themes/{{ theme }}/css/base.css`
+* `/your_content/themes/{{ theme }}/css/{{ template_name }}.css`
+{% endhint %}
 
 ## Adding a New Font
 
