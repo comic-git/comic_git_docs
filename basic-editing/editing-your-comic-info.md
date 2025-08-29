@@ -259,6 +259,12 @@ This is another special section without pre-defined options. This section tells 
 
 This section has been pre-populated with common links. Feel free to change the URLs to existing links, delete any lines you don't want to use, and add lines you want to use as links.
 
+#### Use Images instead of Link Text
+
+If you want to use an image in place of text for the link, just replace the link text with a URL for an image file (determined by the extension at the end of the URL). comic\_git recognizes the following image file extensions: jpg, jpeg, png, tif, tiff, gif, bmp, webp, webv, svg, eps.&#x20;
+
+This URL must **not** include `https://` at the beginning (or any other protocol identifier). Just exclude the `https://` (e.g., `comic-git.github.io/comic_git/your_content/images/logo.png` ), or if you want to reference a file from your own site, you can just use a URL that starts with `/` (e.g., `/your_content/images/logo.png`).
+
 ## \[Navigation Bar]
 
 <details>
