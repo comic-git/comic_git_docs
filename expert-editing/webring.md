@@ -1,9 +1,5 @@
 # Webring
 
-{% hint style="success" %}
-**Coming Soon!**
-{% endhint %}
-
 Do you remember [webrings](https://fanlore.org/wiki/Webring)? It seemed like every Geocities page had one, back in the day. Do you want some of that nostalgia back? Well, good news, comic\_git supports them!
 
 To set up a webring, you'll be working with a JSON file. Don't worry if that sounds intimidating, JSON files are just text files with a specific format, like the INI files you've already been working with.
@@ -14,7 +10,7 @@ Then, you'll need to add a `[Webring]`  section to your `comic_info.ini` file, a
 
 After that, just build your website and you should see your webring showing up at the bottom of each page on your website!
 
-_Example image demonstrating the webring goes here_
+<div><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Default layout with Home</p></figcaption></figure> <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>"Show all members" with Home</p></figcaption></figure> <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Default layout without Home</p></figcaption></figure> <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>"Show all members" without Home</p></figcaption></figure></div>
 
 ## JSON File
 
@@ -33,7 +29,7 @@ The JSON file will contain all the information needed for a site to build its ow
 
 <details>
 
-<summary>name</summary>
+<summary>label</summary>
 
 * Optional
 * Value: `string`&#x20;
@@ -123,7 +119,7 @@ If defined, the given image will be displayed as a link to the given comic.
 ```json
 {
     "version": 1,
-    "name": "Our Comics Webring!",
+    "label": "Our Comics Webring!",
     "home": {
         "name": "Home",
         "url": "https://my.webring.com/",
@@ -203,6 +199,18 @@ If True, instead of the webring displaying a Previous and Next link, it will dis
 
 </details>
 
+<details>
+
+<summary>Exclude own comic from members</summary>
+
+* Optional
+* Value: `boolean`&#x20;
+* Default: `False`
+
+By default, the "Show all members" option will include your own comic in that list. If you set this option to True, your comic won't show up in the list of webring members.
+
+</details>
+
 ### Example
 
 ```
@@ -210,6 +218,7 @@ If True, instead of the webring displaying a Previous and Next link, it will dis
 Enable webring = True
 Endpoint = https://my.webring.com/webring.json
 Webring ID = comic_b
-Show all members = False
+Show all members = True
+Exclude own comic from members = True
 ```
 

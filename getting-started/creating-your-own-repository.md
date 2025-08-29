@@ -10,7 +10,7 @@ If you don't have a GitHub account, follow the instructions in [Signing Up for G
 2.  Click **Use This Template**, then **Create a new repository**. This creates a new, independent copy of the comic\_git repository that you own. You'll use this new repository to create your webcomic.\
 
 
-    <div data-full-width="true"><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Create a repository from the comic_git template</p></figcaption></figure></div>
+    <div data-full-width="true"><figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Create a repository from the comic_git template</p></figcaption></figure></div>
 3. GitHub will ask you some questions about the repository you're creating. Set the requested fields as follows:
    1. **Repository template**: This should already be set to `comic-git/comic_git`
    2. **Include all branches**: You can leave this box unchecked.
@@ -23,9 +23,9 @@ If you don't have a GitHub account, follow the instructions in [Signing Up for G
 As with your username, the name of your repository will show up as part of your website URL. For example, if you name the repository **bestcomic**, the GitHub Pages URL would be https://comicgitdemo.github.io/**bestcomic**/
 {% endhint %}
 
-<figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>Making a new repository</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Making a new repository</p></figcaption></figure>
 
 4. Once you are satisfied with the settings, click **Create repository**.
 5. GitHub takes a moment to generate the new repository, then displays it. You now have your own comic playground to build how you want!&#x20;
 
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Your new repository!</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Your new repository!</p></figcaption></figure>
