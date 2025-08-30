@@ -30,7 +30,7 @@ This method takes a bit more finesse, but allows you to update your repo to 1.0 
 
 1. Move any edited files in `/src` into `/your_content/themes/default` .
    1. For example, move any edited templates from `/src/templates` to `/your_content/themes/default` .
-2. Copy the text in the `.github/workflows/main.yaml` [file from the comic\_git repo](https://raw.githubusercontent.com/ryanvilbrandt/comic_git/refs/heads/master/.github/workflows/main.yaml).
+2. Copy the text in the `.github/workflows/main.yaml` [file from the comic\_git repo](https://raw.githubusercontent.com/comic-git/comic_git/refs/heads/master/.github/workflows/main.yaml).
 3. Open the `.github/workflows/main.yaml` file in your own repo and replace all the text in that with the text you copied from comic\_git. Save and close the file.
    1. Change the `- master` line to `- working`.
    2. You can also choose to just move all your changes into the `master` branch if you like, in which case leave the line above alone.
@@ -61,7 +61,7 @@ This is the list of changes to the names of HTML elements and Jinja variables. U
    4. `characters` -> `_characters`&#x20;
    5. `alt_text` -> `escaped_alt_text`
       1. This one is not strictly required, but this way nonstandard characters in your alt text will render properly.
-3. Comic pages now support a list of comic images, arranged in alphabetical order. `comic_path`  as a single filepath has been replaced by `comic_paths` as a list of filepaths. If you plan to only ever have one comic image per page, you can replace any use of `comic_path` in your templates with `comic_path[0]`. Otherwise, you should use a for loop to iterate through all the images properly. See the [comic.tpl file in comic\_git\_engine](https://github.com/ryanvilbrandt/comic_git_engine/blob/1.0/templates/comic.tpl#L19) for an example of how to do that.
+3. Comic pages now support a list of comic images, arranged in alphabetical order. `comic_path`  as a single filepath has been replaced by `comic_paths` as a list of filepaths. If you plan to only ever have one comic image per page, you can replace any use of `comic_path` in your templates with `comic_path[0]`. Otherwise, you should use a for loop to iterate through all the images properly. See the [comic.tpl file in comic\_git\_engine](https://github.com/comic-git/comic_git_engine/blob/master/templates/comic.tpl#L26) for an example of how to do that.
 4. The following IDs have become classes:
    1. `comic-image`
    2. `navigation-bar`&#x20;
@@ -91,4 +91,4 @@ Some [code hooks](https://comic-git.gitbook.io/documentation/other-expert-tips#c
 This section describes changes that don't fall into any of the other sections describes above.
 
 1. Your social media preview image is now required by default to be 200px by 200px. If you've changed these values in your own custom templates, you can ignore this.
-2. Various changes and fixes have been made to the Javascript and CSS files that were in `src`, and are now in `comic_git_engine`. If you have made changes to any of these files, I recommend checking out their [current version in comic\_git\_engine](https://github.com/ryanvilbrandt/comic_git_engine/tree/1.0) and recreating those files with your changes in your [Theme](../advanced-editing/themes.md) directory.
+2. Various changes and fixes have been made to the Javascript and CSS files that were in `src`, and are now in `comic_git_engine`. If you have made changes to any of these files, I recommend checking out the [current version in comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/1.0) and recreating those files with your changes in your [Theme](../advanced-editing/themes.md) directory.

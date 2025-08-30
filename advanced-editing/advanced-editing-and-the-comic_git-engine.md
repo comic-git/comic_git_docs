@@ -6,7 +6,7 @@ If you're comfortable digging deeper into the guts of comic\_git, it is possible
 
 ## What is comic\_git\_engine?
 
-[comic\_git\_engine](https://github.com/ryanvilbrandt/comic_git_engine) is where the actual work gets done that turns the files in your\_content into a fully-fledged website. The setup you did in [Getting Started](../getting-started/getting-started.md) allows your comic repo to call comic\_git\_engine, and allows comic\_git\_engine in turn to make the necessary changes to your repo.
+[comic\_git\_engine](https://github.com/comic-git/comic_git_engine) is where the actual work gets done that turns the files in your\_content into a fully-fledged website. The setup you did in [Getting Started](../getting-started/getting-started.md) allows your comic repo to call comic\_git\_engine, and allows comic\_git\_engine in turn to make the necessary changes to your repo.
 
 Because comic\_git\_engine needs to be able to work for all comic\_git users, you can't modify it directly. We also don't recommend trying to clone it or add files from it to your own repo unnecessarily. If you run your own version of comic\_git\_engine, then as it gets updated with new features and bugfixes, your copy will not receive those.
 

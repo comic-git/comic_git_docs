@@ -78,7 +78,7 @@ One of the main components of the architecture of comic\_git that allows it to w
 
 When the Python script that builds all the web pages runs, it passes a variable called `page_title` to the template, which gets added where `{{ page_title }}` is in that template. Same with `post_date`.
 
-There are many other features of Jinja2 templates that make them an incredibly powerful tool for automatically building a website that I won't go into here, but if you're interested in learning about them, I highly recommend reading through the [Jinja2 documentation](https://jinja.palletsprojects.com/en/2.11.x/templates/). I have also put a lot of effort into properly commenting and describing the existing template files in the [comic\_git\_engine](https://github.com/ryanvilbrandt/comic_git_engine/tree/master/templates) `/templates/` directory to help anyone who wants look through them to figure out how comic\_git works.
+There are many other features of Jinja2 templates that make them an incredibly powerful tool for automatically building a website that I won't go into here, but if you're interested in learning about them, I highly recommend reading through the [Jinja2 documentation](https://jinja.palletsprojects.com/en/stable/templates/). I have also put a lot of effort into properly commenting and describing the existing template files in the [comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/master/templates) `/templates/` directory to help anyone who wants look through them to figure out how comic\_git works.
 
 ### List of Values Available to Jinja2 Templates
 
@@ -111,7 +111,7 @@ Some parts of comic\_git can be customized simply by editing config files or cre
 
 In short, Code Hooks are Python functions that you can write yourself that, if present when comic\_git builds your site, will be run in the middle of site building logic. They can affect how that script runs, what values are provided to templates when they build, and more.
 
-To add Code Hooks to your build, create a `scripts` folder inside your theme directory (if you're not using a theme, put it in the `default` theme directory). Then, copy the example file from [comic\_git\_engine](https://github.com/ryanvilbrandt/comic_git_engine/tree/master/extras), `/extras/hooks.py`, into that folder. You can edit the functions in this file to do anything you want, including calling other Python scripts elsewhere in your repository.
+To add Code Hooks to your build, create a `scripts` folder inside your theme directory (if you're not using a theme, put it in the `default` theme directory). Then, copy the example file from [comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/master/extras), `/extras/hooks.py`, into that folder. You can edit the functions in this file to do anything you want, including calling other Python scripts elsewhere in your repository.
 
 {% hint style="danger" %}
 **Do Not Change The Working Directory**
@@ -135,12 +135,12 @@ Do you have ideas for other code hooks you'd like to see added to comic\_git? Pl
 
 If you're writing additional code for comic\_git, you will likely want to make use of Python's extensive third-party library options. And you can do that! But you will need to do a little more setup.
 
-For any `hooks.py` script that makes use of additional third-party libraries above and beyond what comic\_git already uses, you'll need to create a `requirements.txt` file in the same folder. The package name for each third-party library you need should be added on a separate line in this file. For example, you can see the packages included in the base requirements file at [comic\_git\_engine's](https://github.com/ryanvilbrandt/comic_git_engine/blob/master/scripts/requirements.txt) `/scripts/requirements.txt`:
+For any `hooks.py` script that makes use of additional third-party libraries above and beyond what comic\_git already uses, you'll need to create a `requirements.txt` file in the same folder. The package name for each third-party library you need should be added on a separate line in this file. For example, you can see the packages included in the base requirements file at [comic\_git\_engine's](https://github.com/comic-git/comic_git_engine/blob/master/scripts/requirements.txt) `/scripts/requirements.txt`:
 
 ```
 Jinja2
-Pillow
 markdown2
+Pillow
 pytz
 ```
 

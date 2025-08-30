@@ -76,7 +76,7 @@ This is used to determine which version of comic\_git is used to build your site
 * `master`: Keep up with every single new change to comic\_git, no matter how minor or untested. Only recommended for troubleshooting.
 
 {% hint style="success" %}
-Version releases are tracked on [comic\_git\_engine's Releases](https://github.com/ryanvilbrandt/comic_git_engine/releases) page along with any necessary instructions for upgrading version (such as moving from 1.0 to 1.1). Announcements are also made on our [Discord server](https://discord.gg/zmdHGXB).
+Version releases are tracked on [comic\_git\_engine's Releases](https://github.com/comic-git/comic_git_engine/releases) page along with any necessary instructions for upgrading version (such as moving from 1.0 to 1.1). Announcements are also made on our [Discord server](https://discord.gg/zmdHGXB).
 {% endhint %}
 
 </details>
