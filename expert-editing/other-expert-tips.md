@@ -2,24 +2,24 @@
 
 ## Switching from a Public to a Private Repo
 
-The main reason someone would want to make their comic\_git repository private would be to be able to schedule posts while still publishing their website to GitHub Pages. If you wish to do so, you'll need to first upgrade your account to a [GitHub Pro](https://github.com/account/upgrade) account for $4 per month.&#x20;
+The main reason someone would want to make their comic\_git repository private would be to be able to schedule posts while still publishing their website to GitHub Pages. If you wish to do so, you'll need to first upgrade your account to a [GitHub Pro](https://github.com/account/upgrade) account for $4 per month.
 
 Once you have GitHub Pro:
 
-1. Go to your repo's **Settings** page.&#x20;
-2.  Scroll all the way to the bottom to the section marked **Danger Zone**, and click the **Change Visibility** button.&#x20;
+1. Go to your repo's **Settings** page.
+2.  Scroll all the way to the bottom to the section marked **Danger Zone**, and click the **Change Visibility** button.
 
     <figure><img src="../.gitbook/assets/private01_change_visibility.png" alt=""><figcaption></figcaption></figure>
-3.  Click **Change to private**.&#x20;
+3.  Click **Change to private**.
 
     <figure><img src="../.gitbook/assets/private02_set_private.png" alt=""><figcaption></figcaption></figure>
-4.  A pop-up appears asking you to confirm that you want to make the repo private. Click **I want to make this repository private**.&#x20;
+4.  A pop-up appears asking you to confirm that you want to make the repo private. Click **I want to make this repository private**.
 
     <figure><img src="../.gitbook/assets/private03_warn01.png" alt=""><figcaption></figcaption></figure>
-5.  A second pop-up appears advising you of the effects of making the repo private. Click **I have read and understand these effects**.&#x20;
+5.  A second pop-up appears advising you of the effects of making the repo private. Click **I have read and understand these effects**.
 
     <figure><img src="../.gitbook/assets/private04_warn02.png" alt=""><figcaption></figcaption></figure>
-6.  The first pop-up appears again. This time, **I want to make this repository private** highlights as red. Click a final time to complete the process.&#x20;
+6.  The first pop-up appears again. This time, **I want to make this repository private** highlights as red. Click a final time to complete the process.
 
     <figure><img src="../.gitbook/assets/private05_warn03.png" alt=""><figcaption></figcaption></figure>
 
@@ -84,9 +84,9 @@ There are many other features of Jinja2 templates that make them an incredibly p
 
 Assuming you want to create your own Jinja2 templates (see [Customizing Your Website](../advanced-editing/themes.md#jinja-template-format) for guidance on how to do that), it will be helpful for you to know what data the comic\_git Python script makes available to the template whenever it builds a web page. The following is a list of all variables passed to the templates as they're being built, as well as a short description of each variable. The descriptions below assume you have basic knowledge of HTML, Jinja2, and Python data structures.
 
-<table><thead><tr><th valign="top">Variable</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>template_name</code></td><td valign="top">The name of the template being loaded. E.g., <code>comic</code></td></tr><tr><td valign="top"><code>_title</code></td><td valign="top">The title of the page, as defined in the [Pages] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>autogenerate_warning</code></td><td valign="top">A bit of text added to the top of every file when it's created to warn comic creators against trying to edit the HTML files directly. Not very useful for any other purpose.</td></tr><tr><td valign="top"><code>version</code></td><td valign="top">The comic_git version, e.g. 0.2.1</td></tr><tr><td valign="top"><code>comic_title</code></td><td valign="top">The comic name, as defined in the [Comic Info] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>comic_author</code></td><td valign="top">The comic author name, as defined in the [Comic Info] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>comic_description</code></td><td valign="top">The comic description, as defined in the [Comic Info] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>banner_image</code></td><td valign="top">The web path of the banner image at the top of your website, as defined in the [Comic Settings] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>theme</code></td><td valign="top">The name of the current theme that's in use.</td></tr><tr><td valign="top"><code>comic_url</code></td><td valign="top">The URL of the homepage of your website, e.g. <code>https://ryanvilbrandt.github.io/comic_git/</code>. See <a href="changing-your-website-url.md">Changing Your Website URL</a> for information about changing this value, or you can host your webcomic from a custom domain.</td></tr><tr><td valign="top"><code>base_dir</code></td><td valign="top">The base directory for your comic, aka your repository name while you're hosting from a GitHub Pages URL. It is important that all URLs that reference the root directory of your website use this variable, or have the correct root directory hardcoded in the template file.</td></tr><tr><td valign="top"><code>comic_base_dir</code></td><td valign="top">The web path for the current comic being built. For the main comic, this will always be the same as <code>{{base_dir}}</code>, but for extra comics, the extra comic name will be added. <br>e.g. <code>/{{base_dir}}/extra_comic</code></td></tr><tr><td valign="top"><code>content_base_dir</code></td><td valign="top">The web path where the your_content files are stored for the current comic being built. For the main comic, this will always be <code>/{(base_dir)}/your_content</code>, but for extra comics, the extra comic name will be added.<br>e.g. <code>/base_dir/your_content/extra_comic</code></td></tr><tr><td valign="top"><code>links</code></td><td valign="top">The list of links that make up the Links Bar on your website, partially defined by the [Links Bar] section of the comic_info.ini file. This is a list of dictionaries, each with the format <code>{"name": "&#x3C;link name>", "url": "&#x3C;link url>"}</code></td></tr><tr><td valign="top"><code>use_thumbnails</code></td><td valign="top">The boolean value of the Use thumbnails option, as defined in the [Archive] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>storylines</code></td><td valign="top">A dictionary of all the comics in the archive, grouped by their Storyline value as defined in their <code>info.ini</code> files. Any comics without a Storyline value are put into the "Uncategorized" storyline. The dictionary has the format <code>{"&#x3C;storyline>": [&#x3C;comic_dict>, &#x3C;comic_dict>, &#x3C;comic_dict>, ...]}</code>, and each comic is a dictionary of all the values comic_git needs to build a comic page, and then some. See the next table for a description of that.</td></tr><tr><td valign="top"><code>home_page_text</code></td><td valign="top">The text contained in the <code>/your_content/home_page.txt</code> file. It is used by the default <code>index.tpl</code> file provided with comic_git.</td></tr><tr><td valign="top"><code>google_analytics_id</code></td><td valign="top">Your Google Analytics Tracking ID, as defined in the [Google Analytics] section of the <code>comic_info.ini</code> file. If it's not defined, this value will be an empty string.</td></tr><tr><td valign="top"><code>scheduled_post_count</code></td><td valign="top">The number of comic pages you have uploaded that have Post Dates set in the future, so web pages for those comics have not been built yet. Useful for teasing your audience with extra pages. This number will always be 0 if you have the <code>publish_all_comics</code> command line argument set to <code>True</code>.</td></tr><tr><td valign="top"><code>extra_comics</code></td><td valign="top">A dictionary of all the extra comics defined for your site. The keys are the extra comic names, and the values are lists of the comic_data_dicts for that particular extra comic.</td></tr><tr><td valign="top"><code>use_images_in_navigation_bar</code></td><td valign="top">The boolean value of the "Use images" option, as defined in the [Navigation] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>navigation_bar_above_comic</code></td><td valign="top">The boolean value of the "Above comic" option, as defined in the [Navigation] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>navigation_bar_below_comic</code></td><td valign="top">The boolean value of the "Below comic" option, as defined in the [Navigation] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>navigation_bar_below_blurb</code></td><td valign="top">The boolean value of the "Below blurb" option, as defined in the [Navigation] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>enable_webring</code></td><td valign="top">True if the <a href="webring.md">Webring</a> feature is enabled. False otherwise. See below for more variables related to the Webring feature.</td></tr></tbody></table>
+<table><thead><tr><th valign="top">Variable</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top"><code>template_name</code></td><td valign="top">The name of the template being loaded. E.g., <code>comic</code></td></tr><tr><td valign="top"><code>_title</code></td><td valign="top">The title of the page, as defined in the [Pages] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>autogenerate_warning</code></td><td valign="top">A bit of text added to the top of every file when it's created to warn comic creators against trying to edit the HTML files directly. Not very useful for any other purpose.</td></tr><tr><td valign="top"><code>version</code></td><td valign="top">The comic_git version, e.g. 0.2.1</td></tr><tr><td valign="top"><code>comic_title</code></td><td valign="top">The comic name, as defined in the [Comic Info] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>comic_author</code></td><td valign="top">The comic author name, as defined in the [Comic Info] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>comic_description</code></td><td valign="top">The comic description, as defined in the [Comic Info] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>banner_image</code></td><td valign="top">The web path of the banner image at the top of your website, as defined in the [Comic Settings] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>theme</code></td><td valign="top">The name of the current theme that's in use.</td></tr><tr><td valign="top"><code>comic_url</code></td><td valign="top">The URL of the homepage of your website, e.g. <code>https://ryanvilbrandt.github.io/comic_git/</code>. See <a href="changing-your-website-url.md">Changing Your Website URL</a> for information about changing this value, or you can host your webcomic from a custom domain.</td></tr><tr><td valign="top"><code>base_dir</code></td><td valign="top">The base directory for your comic, aka your repository name while you're hosting from a GitHub Pages URL. It is important that all URLs that reference the root directory of your website use this variable, or have the correct root directory hardcoded in the template file.</td></tr><tr><td valign="top"><code>comic_base_dir</code></td><td valign="top">The web path for the current comic being built. For the main comic, this will always be the same as <code>{{base_dir}}</code>, but for extra comics, the extra comic name will be added.<br>e.g. <code>/{{base_dir}}/extra_comic</code></td></tr><tr><td valign="top"><code>content_base_dir</code></td><td valign="top">The web path where the your_content files are stored for the current comic being built. For the main comic, this will always be <code>/{(base_dir)}/your_content</code>, but for extra comics, the extra comic name will be added.<br>e.g. <code>/base_dir/your_content/extra_comic</code></td></tr><tr><td valign="top"><code>links</code></td><td valign="top">The list of links that make up the Links Bar on your website, partially defined by the [Links Bar] section of the comic_info.ini file. This is a list of dictionaries, each with the format <code>{"name": "&#x3C;link name>", "url": "&#x3C;link url>"}</code></td></tr><tr><td valign="top"><code>use_thumbnails</code></td><td valign="top">The boolean value of the Use thumbnails option, as defined in the [Archive] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>storylines</code></td><td valign="top">A dictionary of all the comics in the archive, grouped by their Storyline value as defined in their <code>info.ini</code> files. Any comics without a Storyline value are put into the "Uncategorized" storyline. The dictionary has the format <code>{"&#x3C;storyline>": [&#x3C;comic_dict>, &#x3C;comic_dict>, &#x3C;comic_dict>, ...]}</code>, and each comic is a dictionary of all the values comic_git needs to build a comic page, and then some. See the next table for a description of that.</td></tr><tr><td valign="top"><code>home_page_text</code></td><td valign="top">The text contained in the <code>/your_content/home_page.txt</code> file. It is used by the default <code>index.tpl</code> file provided with comic_git.</td></tr><tr><td valign="top"><code>google_analytics_id</code></td><td valign="top">Your Google Analytics Tracking ID, as defined in the [Google Analytics] section of the <code>comic_info.ini</code> file. If it's not defined, this value will be an empty string.</td></tr><tr><td valign="top"><code>scheduled_post_count</code></td><td valign="top">The number of comic pages you have uploaded that have Post Dates set in the future, so web pages for those comics have not been built yet. Useful for teasing your audience with extra pages. This number will always be 0 if you have the <code>publish_all_comics</code> command line argument set to <code>True</code>.</td></tr><tr><td valign="top"><code>extra_comics</code></td><td valign="top">A dictionary of all the extra comics defined for your site. The keys are the extra comic names, and the values are lists of the comic_data_dicts for that particular extra comic.</td></tr><tr><td valign="top"><code>use_images_in_navigation_bar</code></td><td valign="top">The boolean value of the "Use images" option, as defined in the [Navigation] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>navigation_bar_above_comic</code></td><td valign="top">The boolean value of the "Above comic" option, as defined in the [Navigation] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>navigation_bar_below_comic</code></td><td valign="top">The boolean value of the "Below comic" option, as defined in the [Navigation] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>navigation_bar_below_blurb</code></td><td valign="top">The boolean value of the "Below blurb" option, as defined in the [Navigation] section of the <code>comic_info.ini</code> file.</td></tr><tr><td valign="top"><code>enable_webring</code></td><td valign="top">True if the <a href="webring.md">Webring</a> feature is enabled. False otherwise. See below for more variables related to the Webring feature.</td></tr></tbody></table>
 
-If the [Webring](webring.md) feature is enabled, the following variables may also be made available, depending on your chosen config options. See the feature description for more information about&#x20;
+If the [Webring](webring.md) feature is enabled, the following variables may also be made available, depending on your chosen config options. See the feature description for more information about
 
 | Variable           | Description                                                                                                                                                                    |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -145,3 +145,63 @@ pytz
 ```
 
 Any requirements you provide in any themes used by your main comic or extra comics will be auto-magically loaded and installed when the GitHub action is run, before the site is built. If you are not using a theme that contains a `requirements.txt` file, that file will not be loaded and the packages within it will not be installed.
+
+## Adding Collaborators to your Repository
+
+When you create your own comic\_git site for the first time, you will be the only one who can edit it at first. And if you make a private repository, you'll be the only one who will even be able to see it. If you want someone else to help you with your site, or even just to look at your GitHub Actions to help figure out why your build might have broken, you will likely need to add them as a "collaborator".
+
+To do this, go to your Settings tab in your repository
+
+<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+Then click on Collaborators in the sidebar
+
+<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+
+GitHub may ask you to sign back in. After that's done, you'll be taken to the Collaborators page. To add a collaborator, click the Add People button.
+
+<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+
+A dialog will pop up that will let you search for a user by username, full name, or email.
+
+<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+
+Use any of those to find the person you want to add, and they'll show up in the list of possible users.
+
+<figure><img src="../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+
+Click the name of the person you want to invite as a collaborator, then click the green "Add \<name>" button.
+
+**WARNING:** The list of people that show up in this dropdown are pulled from the list of ALL GitHub users. Adding someone as collaborator gives them the ability to make changes to your website! **Make sure** the person you select is who you actually think they are!
+
+If you accidentally add the wrong person as a collaborator, don't worry, it's easy to remove them later.
+
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+
+After clicking the "Add" button, the person you selected will show up in the list of collaborators with "Pending invite" next to their name.
+
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+
+This means GitHub has sent them an email inviting them to be a collaborator on your repo. The email will look like below:
+
+<figure><img src="../.gitbook/assets/image (31).png" alt="" width="317"><figcaption></figcaption></figure>
+
+That user will now need to click the "View Invitation" button, which will take them to the GitHub website, which will prompt them Accept or Decline the invitation.
+
+<figure><img src="../.gitbook/assets/image (32).png" alt="" width="344"><figcaption></figcaption></figure>
+
+Once they click "Accept Invitation", they'll show up as a collaborator in your Collaborators list.
+
+<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+
+Collaborators have full access to change and modify any code in your repository! And they'll be able to view your repository if it's set to Private. However, collaborators can **not** view or change any Settings on your repository, so you're not at risk of them deleting your repo or locking you out.
+
+### Removing Collaborators
+
+To remove a collaborator, simply go to the list of collaborators on your repository and click the red trashcan beside the collaborator's name.
+
+<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+
+GitHub will pop up a dialog asking you to confirm you want to remove this collaborator. Click the "Remove" button, and the collaborator will be removed.
+
+<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
