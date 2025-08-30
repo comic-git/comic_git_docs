@@ -483,3 +483,7 @@ Both this option and **Load transcripts from comic folder** can be set, so you c
 If you have set up a [Google Analytics](https://analytics.google.com) for your comic, you can put the Tracking ID here (for example, UA-123456789-0) and comic\_git will automatically insert the analytics tracking code on all pages of your website.
 
 </details>
+
+## \[Webring]
+
+This section is covered in [Webring](../expert-editing/webring.md), and decides how to add a webring to your website. This is an optional section.
