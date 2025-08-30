@@ -214,8 +214,8 @@ All other options will default to navigating to the next comic, as if the user h
 <summary>Allow missing variables in templates</summary>
 
 * Optional
-* Value: `boolean`: `True` or `False`&#x20;
-* Default: `False`&#x20;
+* Value: `boolean`: `True` or `False`
+* Default: `False`
 
 By default, if a Jinja template is expecting a variable that it did not receive while the site is building, the template will raise an error and the build will fail.
 
@@ -231,7 +231,7 @@ If you wish to allow for missing variables in your templates, you can set this v
 * Value `string`: see below
 * Default: none
 
-A comma-separated list of extra settings that are passed into the Markdown parser to change its behavior. See [this page](https://github.com/trentm/python-markdown2/wiki/Extras) for a list of many valid settings.&#x20;
+A comma-separated list of extra settings that are passed into the Markdown parser to change its behavior. See [this page](https://github.com/trentm/python-markdown2/wiki/Extras) for a list of many valid settings.
 
 Note that not all settings are currently supported. For example, settings that require extra configuration alongside the setting name (e.g. [breaks](https://github.com/trentm/python-markdown2/wiki/breaks)).
 
@@ -239,7 +239,7 @@ Note that not all settings are currently supported. For example, settings that r
 
 ## \[Pages]
 
-This is a special section without pre-defined options. This section tells comic\_git what extra web pages beyond the standard comic pages to build.&#x20;
+This is a special section without pre-defined options. This section tells comic\_git what extra web pages beyond the standard comic pages to build.
 
 * Format: `option = value`
 * The option on the left of the equals sign is the **template file name** to use. Do not include the extension; if you have a `cast.html` page, you'd only put `cast` here.
@@ -251,19 +251,39 @@ For more info on adding pages to your website, see [Themes](../advanced-editing/
 
 ## \[Links Bar]
 
-This is another special section without pre-defined options. This section tells comic\_git how to build out the Links Bar.&#x20;
+This is another special section without pre-defined options. This section tells comic\_git how to build out the Links Bar.
 
-* Format: `option = value`
-* The option on the left of the equals sign is the **text displayed on the link**.
-* The value on the right of the equals sign is the **URL the link should go to**. Any values that start with `/` will link to a page on your website. All other links will be treated as external links to other websites.
+* Format: `text = url`
+* The `text` on the left of the equals sign is the **text displayed on the link**.
+* The `url` on the right of the equals sign is the **URL the link should go to**. Any URLs that start with `/` will link to a page on your website. All other links will be treated as external links to other websites.
 
 This section has been pre-populated with common links. Feel free to change the URLs to existing links, delete any lines you don't want to use, and add lines you want to use as links.
 
+#### Open Links in a New Tab
+
+By default, all links in the links bar will open in the current tab. This is good for when the user is navigating around the website, like going to the Archive or Infinite Scroll. But if you're linking to external sites like a Shop or Patreon, you'll want the links to open in a new tab.
+
+To set a link to open in a new tab, you just need to put a `^` at the start of the `url` value. This works both for links to pages on your site or to external links.
+
+**Example**
+
+```
+Infinite Scroll = ^/infinite_scroll/
+Shop = ^https://www.youtube.com/watch?v=dQw4w9WgXcQ
+```
+
 #### Use Images instead of Link Text
 
-If you want to use an image in place of text for the link, just replace the link text with a URL for an image file (determined by the extension at the end of the URL). comic\_git recognizes the following image file extensions: jpg, jpeg, png, tif, tiff, gif, bmp, webp, webv, svg, eps.&#x20;
+If you want to use an image in place of text for the link, just replace the link text with a URL for an image file (determined by the extension at the end of the URL). comic\_git recognizes the following image file extensions: jpg, jpeg, png, tif, tiff, gif, bmp, webp, webv, svg, eps.
 
-This URL must **not** include `https://` at the beginning (or any other protocol identifier). Just exclude the `https://` (e.g., `comic-git.github.io/comic_git/your_content/images/logo.png` ), or if you want to reference a file from your own site, you can just use a URL that starts with `/` (e.g., `/your_content/images/logo.png`).
+This URL must **not** include `https://` at the beginning (or any other protocol identifier). Just exclude the `https://` (e.g., `c10.patreonusercontent.com/path/to/patreon_logo.png`), or if you want to reference a file from your own site, you can just use a URL that starts with `/` (e.g., `/your_content/images/logo.png`).
+
+**Example**
+
+```
+/your_content/images/shop_logo.png = https://www.youtube.com/watch?v=dQw4w9WgXcQ
+c10.patreonusercontent.com/path/to/patreon_logo.png = https://www.patreon.com/comic_git
+```
 
 ## \[Navigation Bar]
 
@@ -340,7 +360,7 @@ You can either create your own thumbnails or use comic\_git's built-in thumbnail
 
 * Optional
 * Value: `string`: date format using [Python %-substitutions](https://docs.python.org/3/library/time.html#time.strftime)
-* Default: The value you provided for the `Date format`  option in `Comic Settings`
+* Default: The value you provided for the `Date format` option in `Comic Settings`
 
 This is the format that post dates are displayed in when `Use thumbnails` is set to `True`. This is defined separately from page date formats because longer post dates can screw up the spacing of the thumbnails in the grid. It accepts the same inputs as the `Date format` in the [\[Comic Settings\]](editing-your-comic-info.md#date-format) section.
 
@@ -430,7 +450,7 @@ The transcript .txt file with the specified name is placed at the top of the lis
 * Value: `boolean`: `True` or `False`
 * Default: `True`
 
-When set to `True`, comic\_git will search in each comic page's folder for any .txt files (except for `post.txt`). Any it finds is added to the list of available transcripts for that comic page.&#x20;
+When set to `True`, comic\_git will search in each comic page's folder for any .txt files (except for `post.txt`). Any it finds is added to the list of available transcripts for that comic page.
 
 When set to `False`, comic\_git will not look in the comic folders. If **Transcripts folder** (see next option) is defined, comic\_git will still look in that folder for any transcripts regardless of this option's setting.
 
