@@ -146,6 +146,71 @@ pytz
 
 Any requirements you provide in any themes used by your main comic or extra comics will be auto-magically loaded and installed when the GitHub action is run, before the site is built. If you are not using a theme that contains a `requirements.txt` file, that file will not be loaded and the packages within it will not be installed.
 
+### Passing Input Data to Code Hooks
+
+You will sometimes have configuration data that you want to pass to your code hooks that doesn't make sense to include in the code itself. The most common use case is sensitive data that shouldn't be present in code in plain text, like API keys or Discord webhooks. comic\_git provides a way to pass this kind of data into your code hook code easily and securely.
+
+The comic\_git `build_site` GitHub Action recognizes two input parameters: `INPUTS` and `SECRETS`. `INPUTS` is for any data that can be stored in plaintext but makes more sense to pass in as an input to your code. `SECRETS` is for sensitive information that can't be added safely in plaintext, and is the real purpose for this feature. Both these inputs let you provide data to be turned into "environment variables", which are data that can be used easily from anywhere within your code hook.
+
+To use this feature, you will want to update your `.github/workflows/main.yaml` file so the `call-build-site` job section at the bottom looks something like this:
+
+```
+jobs:
+  call-build-site:
+    uses: comic-git/comic_git_engine/.github/workflows/build_site.yaml@v1
+    with:
+      INPUTS: |
+        TZ: PST8PDT
+        GOOGLE_SPREADSHEET: abcde12345
+    secrets:
+      SECRETS: |
+        PATREON_API_KEY: ${{ secrets.PATREON_API_KEY }}
+        AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+```
+
+When the `build_site.py` Python script runs, this will cause four new environment variables to be created: `TZ`, `GOOGLE_SPREADSHEET`, `PATREON_API_KEY`, and `AIRTABLE_API_KEY`. `TZ` and `GOOGLE_SPREADSHEET` will both have the values shown after the `:` in the YAML file. `PATREON_API_KEY` and `AIRTABLE_API_KEY` will have the values defined in the GitHub Secrets of the same name that you have defined in your repository. (See the next section for how to do that.)
+
+Each variable must be on its own line, and the "key" (e.g. `GOOGLE_SPREADSHEET`) must be separated from the "value" (e.g., `abcde12345`) by a colon (`:`). Any leading or trailing whitespace will be stripped from both the key and the value when they're parsed into environment variables.
+
+To reference these environment variables in your code, you just need to use the `os.getenv()` function, like so:
+
+```
+api_key = os.getenv("PATREON_API_KEY")
+... (use the API key for something)
+```
+
+{% hint style="warning" %}
+**Do NOT put sensitive data in plain text! Use Secrets!**
+
+If you have any data that gives you access to a service or personal space, like an API key or a Discord webhook, it is **HIGHLY RECOMMENDED** that you use secrets to save this data. While it may be less convenient to use than saving that data in plain text, it is MUCH more secure and will protect you against people that want to steal your information, impersonate you, blackmail you for access to your data, or worse.
+{% endhint %}
+
+#### Adding GitHub Secrets
+
+To add data to GitHub Secrets so that it can be used by comic\_git, go to Settings in your repository.
+
+<figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption></figcaption></figure>
+
+In the sidebar, click Secrets and Variables, and then click Actions.
+
+<figure><img src="../.gitbook/assets/image (38).png" alt="" width="402"><figcaption></figcaption></figure>
+
+In the new window that opens up, you'll see a list of all Secrets that have been created for your repository. This list starts out empty. To add a secret, click the green New Repository Secret button.
+
+<figure><img src="../.gitbook/assets/image (40).png" alt="" width="563"><figcaption></figcaption></figure>
+
+This will take you to a new page where you will add your secret. Give it a name (the standard practice is to give it a name IN\_THIS\_FORMAT), then put the actual secret value in the "Secret" section. If you're saving an API key, this is where that key goes.
+
+<figure><img src="../.gitbook/assets/image (41).png" alt="" width="563"><figcaption></figcaption></figure>
+
+When you're done, click the "Add secret" button, and the secret will be added to your list of Repository Secrets, and will be available to your repository to pass on to the `build_site` GitHub Action via the `SECRETS` input as described above.
+
+<figure><img src="../.gitbook/assets/image (42).png" alt=""><figcaption></figcaption></figure>
+
+You can now add more secrets if you want. From this page, you can also edit or delete existing secrets. Note that you can **not** view secrets that you've saved here. If you need those secrets for anything else, make sure to save a copy separately.
+
+This page also lets you set up Environment Secrets or Variables that can be used in a similar way. How do use those is beyond the scope of this document.
+
 ## Adding Collaborators to your Repository
 
 When you create your own comic\_git site for the first time, you will be the only one who can edit it at first. And if you make a private repository, you'll be the only one who will even be able to see it. If you want someone else to help you with your site, or even just to look at your GitHub Actions to help figure out why your build might have broken, you will likely need to add them as a "collaborator".
