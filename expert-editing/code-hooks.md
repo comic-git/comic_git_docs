@@ -21,9 +21,7 @@ In comic\_git, the working directory is the repository root. Please don't change
 | extra_comic_dict_processing   | Runs on every comic data dict that's processed, allowing you to do further custom processing to the dict. If you return any non-null value, it will use that in place of the comic data dict that was passed into this hook. |
 | extra_get_storylines_processing | Use this hook to do further processing on the `storylines` variable, which is used primarily to build the Archive page. This is useful if you wanted to make your archive more complex, like breaking your comic up into Volumes and Chapters instead of just Storylines. |
 | extra_global_values           | Returns a dictionary that will be added to the global values sent to all templates when they're built. For example, if you've created a new template which programmatically displays a list of your patrons, you'll need to hook in a new variable. This is where you'd add that variable in. |
-| build_other_pages             | This function is called after all other HTML files are built. You can use this function to build whatever additional HTML files you may want, using the `utils.write_to_template()` function.
-
-It's generally recommended that you use the Pages section of your `comic_info.ini` file to add new pages to your site. However, if you're building pages dynamically, such as separate cast pages for each character, this is where you will do it. |
+| build_other_pages             | This function is called after all other HTML files are built. You can use this function to build whatever additional HTML files you may want, using the `utils.write_to_template()` function. It's generally recommended that you use the Pages section of your `comic_info.ini` file to add new pages to your site. However, if you're building pages dynamically, such as separate cast pages for each character, this is where you will do it. |
 | postprocess                   | Runs at the very end of the comic_git build process. Can be used to do any miscellaneous cleanup you might need. |
 
 {% hint style="info" %}
