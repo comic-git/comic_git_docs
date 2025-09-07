@@ -36,6 +36,7 @@
 * [Building Your Website On Your Own PC](expert-editing/building-your-website-on-your-own-pc.md)
 * [Hosting comic\_git Elsewhere](expert-editing/hosting-comic_git-elsewhere.md)
 * [Webring](expert-editing/webring.md)
+* [Code Hooks](expert-editing/code-hooks.md)
 * [Other Expert Tips](expert-editing/other-expert-tips.md)
 
 ## Additional Information
