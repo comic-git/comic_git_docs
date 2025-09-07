@@ -14,46 +14,15 @@ In comic\_git, the working directory is the repository root. Please don't change
 
 ### List of available hooks
 
-A small list of Code Hooks are supported. All of them are present in the example `hooks.py` file as well as listed below:
-
-<table>
-    <thead>
-        <tr>
-            <th valign="top">Hook</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td valign="top">preprocess</td>
-            <td>Runs immediately after the main comic's <code>comic_info.ini</code> file is loaded. Can be used to do any setup before the comic starts to build.</td>
-        </tr>
-        <tr>
-            <td valign="top">extra_page_info_processing</td>
-            <td>Runs on every <code>info.ini</code> file that's processed, allowing you to do further custom processing to the page info. If you return any non-null value, it will use that in place of the page info that was passed into this hook.</td>
-        </tr>
-        <tr>
-            <td valign="top">extra_comic_dict_processing</td>
-            <td>Runs on every comic data dict that's processed, allowing you to do further custom processing to the dict. If you return any non-null value, it will use that in place of the comic data dict that was passed into this hook.</td>
-        </tr>
-        <tr>
-            <td valign="top">extra_get_storylines_processing</td>
-            <td>Use this hook to do further processing on the <code>storylines</code> variable, which is used primarily to build the Archive page. This is useful if you wanted to make your archive more complex, like breaking your comic up into Volumes and Chapters instead of just Storylines.</td>
-        </tr>
-        <tr>
-            <td valign="top">extra_global_values</td>
-            <td>Returns a dictionary that will be added to the global values sent to all templates when they're built. For example, if you've created a new template which programmatically displays a list of your patrons, you'll need to hook in a new variable. This is where you'd add that variable in.</td>
-        </tr>
-        <tr>
-            <td valign="top">build_other_pages</td>
-            <td><p>This function is called after all other HTML files are built. You can use this function to build whatever additional HTML files you may want, using the <code>utils.write_to_template()</code> function.</p><p>It's generally recommended that you use the Pages section of your <code>comic_info.ini</code> file to add new pages to your site. However, if you're building pages dynamically, such as separate cast pages for each character, this is where you will do it.</p></td>
-        </tr>
-        <tr>
-            <td valign="top">postprocess</td>
-            <td>Runs at the very end of the comic_git build process. Can be used to do any miscellaneous cleanup you might need.</td>
-        </tr>
-    </tbody>
-</table>
+| Hook                          | Description |
+|-------------------------------|-------------|
+| preprocess                    | Runs immediately after the main comic's `comic_info.ini` file is loaded. Can be used to do any setup before the comic starts to build. |
+| extra_page_info_processing    | Runs on every `info.ini` file that's processed, allowing you to do further custom processing to the page info. If you return any non-null value, it will use that in place of the page info that was passed into this hook. |
+| extra_comic_dict_processing   | Runs on every comic data dict that's processed, allowing you to do further custom processing to the dict. If you return any non-null value, it will use that in place of the comic data dict that was passed into this hook. |
+| extra_get_storylines_processing | Use this hook to do further processing on the `storylines` variable, which is used primarily to build the Archive page. This is useful if you wanted to make your archive more complex, like breaking your comic up into Volumes and Chapters instead of just Storylines. |
+| extra_global_values           | Returns a dictionary that will be added to the global values sent to all templates when they're built. For example, if you've created a new template which programmatically displays a list of your patrons, you'll need to hook in a new variable. This is where you'd add that variable in. |
+| build_other_pages             | This function is called after all other HTML files are built. You can use this function to build whatever additional HTML files you may want, using the `utils.write_to_template()` function. It's generally recommended that you use the Pages section of your `comic_info.ini` file to add new pages to your site. However, if you're building pages dynamically, such as separate cast pages for each character, this is where you will do it. |
+| postprocess                   | Runs at the very end of the comic_git build process. Can be used to do any miscellaneous cleanup you might need. |
 
 {% hint style="info" %}
 **Additional hooks**
@@ -199,10 +168,4 @@ To remove a collaborator, simply go to the list of collaborators on your reposit
 
 GitHub will pop up a dialog asking you to confirm you want to remove this collaborator. Click the "Remove" button, and the collaborator will be removed.
 
-<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>      
-
-
-
-
-
-
+<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
