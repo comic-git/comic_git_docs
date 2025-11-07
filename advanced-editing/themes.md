@@ -70,7 +70,7 @@ If multiple template files exist with the same name (e.g., `about.tpl`, `about.h
 
 Adding new pages to your website beyond what's already provided by comic\_git is very similar to editing existing pages, with a few small changes. You'll usually want to start with copying an existing template or HTML file to use as a starting point, but give it its own unique name. You will also want to put it in the `/your_content/themes/default/templates/` directory. Then, you'll need to add the file name to the \[Pages] section of your [comic\_info.ini](../basic-editing/editing-your-comic-info.md#pages) file. For example, if you're creating a `cast.html` file, you should add the line `cast = Cast Page`.
 
-If you need to create a large number of pages that can change every time the website is built, like a cast page for each character, you may want to make use of the `build_other_pages` code hook. See [Other Expert Tips](../expert-editing/other-expert-tips.md#code-hooks) for more information.
+If you need to create a large number of pages that can change every time the website is built, like a cast page for each character, you may want to make use of the `build_other_pages` code hook. See [Code Hooks](../expert-editing/code-hooks.md) for more information.
 
 ## Creating Your Own Themes
 
