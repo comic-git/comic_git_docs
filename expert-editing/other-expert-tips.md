@@ -104,3 +104,63 @@ In addition to the above information, the information for the most recent comic 
 Any additional values found in the info.ini file for a particular comic will also be included in the Jinja variables. The names of these values will have all punctuation and spaces replaces with underscores, and an underscore will be prepended to the name of the value. E.g., `Inker's Home Address` will become `_inker_s_home_address`
 
 If you want to add your own custom variables to the list of global variables, you can! See `extra_global_values` in [Code Hooks](code-hooks.md) for instructions. 
+
+## Adding Collaborators to your Repository
+
+When you create your own comic\_git site for the first time, you will be the only one who can edit it at first. And if you make a private repository, you'll be the only one who will even be able to see it. If you want someone else to help you with your site, or even just to look at your GitHub Actions to help figure out why your build might have broken, you will likely need to add them as a "collaborator".
+
+To do this, go to your Settings tab in your repository
+
+<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
+
+Then click on Collaborators in the sidebar
+
+<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption></figcaption></figure>
+
+GitHub may ask you to sign back in. After that's done, you'll be taken to the Collaborators page. To add a collaborator, click the Add People button.
+
+<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption></figcaption></figure>
+
+A dialog will pop up that will let you search for a user by username, full name, or email.
+
+<figure><img src="../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+
+Use any of those to find the person you want to add, and they'll show up in the list of possible users.
+
+<figure><img src="../.gitbook/assets/image (28).png" alt=""><figcaption></figcaption></figure>
+
+Click the name of the person you want to invite as a collaborator, then click the green "Add \<name>" button.
+
+**WARNING:** The list of people that show up in this dropdown are pulled from the list of **ALL** GitHub users. Adding someone as collaborator gives them the ability to make changes to your website! **Make sure** the person you select is who you actually think they are!
+
+If you accidentally add the wrong person as a collaborator, don't worry, it's easy to remove them later.
+
+<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption></figcaption></figure>
+
+After clicking the "Add" button, the person you selected will show up in the list of collaborators with "Pending invite" next to their name.
+
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
+
+This means GitHub has sent them an email inviting them to be a collaborator on your repo. The email will look like below:
+
+<figure><img src="../.gitbook/assets/image (31).png" alt="" width="317"><figcaption></figcaption></figure>
+
+That user will now need to click the "View Invitation" button, which will take them to the GitHub website, which will prompt them Accept or Decline the invitation.
+
+<figure><img src="../.gitbook/assets/image (32).png" alt="" width="344"><figcaption></figcaption></figure>
+
+Once they click "Accept Invitation", they'll show up as a collaborator in your Collaborators list.
+
+<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+
+Collaborators have full access to change and modify any code in your repository! And they'll be able to view your repository if it's set to Private. However, collaborators can **not** view or change any Settings on your repository, so you're not at risk of them deleting your repo or locking you out.
+
+### Removing Collaborators
+
+To remove a collaborator, simply go to the list of collaborators on your repository and click the red trashcan beside the collaborator's name.
+
+<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
+
+GitHub will pop up a dialog asking you to confirm you want to remove this collaborator. Click the "Remove" button, and the collaborator will be removed.
+
+<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
