@@ -10,21 +10,21 @@ Let's say you wanted to edit the layout of your comic pages, perhaps to do somet
 
 To do this, first create a templates folder in `/your_content/themes/default/`.
 
-Go to [comic\_git\_engine's templates folder](https://github.com/comic-git/comic_git_engine/tree/1.0/templates) and find the file you want to change. For comic pages it's `comic.tpl`, for the archive page it's `archive.tpl`, and so on. Open the dropdown for the full list of templates if you aren't sure which one you need.
+Go to [comic\_git\_engine's templates folder](https://github.com/comic-git/comic_git_engine/tree/latest/templates) and find the file you want to change. For comic pages it's `comic.tpl`, for the archive page it's `archive.tpl`, and so on. Open the dropdown for the full list of templates if you aren't sure which one you need.
 
 <details>
 
 <summary>Available templates</summary>
 
-* [404.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/404.tpl) is the layout of the "404 Not Found" page that appears if someone tries to access a page on your site that doesn't exist.
-* [archive.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/archive.tpl) is the layout of the Archives page.
-* [base.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/base.tpl) is the base template which all the other templates use. If something you want to change is present across the entire site, it's probably in here.
-* [comic.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/comic.tpl) is the layout of the individual comic pages.
-* [index.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/index.tpl) is the layout of the home page. Edit this file for a more powerful way to update your than with `home page.txt`, including being able to use Jinja variables. See also [List of Values Available to Jinja2 Templates](../expert-editing/other-expert-tips.md#list-of-values-available-to-jinja2-templates)
-* [infinite\_scroll.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/infinite_scroll.tpl) is the layout for the infinite scroll comics page.
-* [latest.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/latest.tpl) is the layout for the latest comic page. This differs slightly from the individual comic pages in that comic\_git will always update this one to show the most recent (by post date) comic.
-* [md\_page.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/md_page.tpl) is the layout for any .md (Markdown) files present on the site.
-* [tagged.tpl](https://github.com/comic-git/comic_git_engine/blob/master/templates/tagged.tpl) is the layout of the page that displays all comic pages a clicked character or tag appears in.
+* [404.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/404.tpl) is the layout of the "404 Not Found" page that appears if someone tries to access a page on your site that doesn't exist.
+* [archive.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/archive.tpl) is the layout of the Archives page.
+* [base.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/base.tpl) is the base template which all the other templates use. If something you want to change is present across the entire site, it's probably in here.
+* [comic.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/comic.tpl) is the layout of the individual comic pages.
+* [index.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/index.tpl) is the layout of the home page. Edit this file for a more powerful way to update your than with `home page.txt`, including being able to use Jinja variables. See also [List of Values Available to Jinja2 Templates](../expert-editing/other-expert-tips.md#list-of-values-available-to-jinja2-templates)
+* [infinite\_scroll.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/infinite_scroll.tpl) is the layout for the infinite scroll comics page.
+* [latest.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/latest.tpl) is the layout for the latest comic page. This differs slightly from the individual comic pages in that comic\_git will always update this one to show the most recent (by post date) comic.
+* [md\_page.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/md_page.tpl) is the layout for any .md (Markdown) files present on the site.
+* [tagged.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/tagged.tpl) is the layout of the page that displays all comic pages a clicked character or tag appears in.
 
 </details>
 
