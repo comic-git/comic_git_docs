@@ -10,7 +10,7 @@ Let's say you wanted to edit the layout of your comic pages, perhaps to do somet
 
 To do this, first create a templates folder in `/your_content/themes/default/`.
 
-Go to [comic\_git\_engine's templates folder](https://github.com/comic-git/comic_git_engine/tree/master/templates) and find the file you want to change. For comic pages it's `comic.tpl`, for the archive page it's `archive.tpl`, and so on. Open the dropdown for the full list of templates if you aren't sure which one you need.
+Go to [comic\_git\_engine's templates folder](https://github.com/comic-git/comic_git_engine/tree/1.0/templates) and find the file you want to change. For comic pages it's `comic.tpl`, for the archive page it's `archive.tpl`, and so on. Open the dropdown for the full list of templates if you aren't sure which one you need.
 
 <details>
 
