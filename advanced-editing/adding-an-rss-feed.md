@@ -45,9 +45,12 @@ If you use [Extra Comics](extra-comics.md), the rest of this page covers the add
 
 ## Advanced: RSS feeds for Extra Comics
 
-By default, every Extra Comic that has RSS enabled gets its own feed file.
+Extra Comics inherit the main comic's RSS settings unless you override them in that Extra Comic's own `comic_info.ini` file.
 
-Extra Comics also inherit the main comic's RSS settings unless you override them in that Extra Comic's own `comic_info.ini` file.
+For each Extra Comic with RSS enabled, there are two possible outcomes:
+
+* by default, it gets its own feed file
+* if `Combine with Main RSS Feed = True`, its posts appear in the main comic's root `feed.xml` instead
 
 {% hint style="info" %}
 These advanced RSS options may not yet appear in your default `comic_info.ini` file. That is normal. You can add them manually if you need them.
@@ -73,14 +76,14 @@ If you do not add that line, the Extra Comic will inherit the main comic's `Buil
 
 ### Include an Extra Comic in the main feed
 
-If you want Extra Comics to also appear in the main comic's root `feed.xml` by default, add this to the main comic's `comic_info.ini` file:
+If you want Extra Comics to appear in the main comic's root `feed.xml` by default instead of getting their own feed files, add this to the main comic's `comic_info.ini` file:
 
 ```ini
 [RSS Feed]
 Combine with Main RSS Feed = True
 ```
 
-Extra Comics will inherit that setting unless they override it in their own `comic_info.ini` file.
+Extra Comics will inherit that setting unless they override it in their own `comic_info.ini` files.
 
 If you want to control one Extra Comic individually, add this to that Extra Comic's `comic_info.ini` file:
 
@@ -145,6 +148,8 @@ The available format values are:
 
 * `{comic_title}`
 * `{page_title}`
+
+If `RSS title format` is not set for a comic, that comic's RSS post titles will simply use their normal page titles.
 
 If the main comic defines `RSS title format`, Extra Comics will inherit that setting unless they override it in their own `comic_info.ini` files.
 
