@@ -16,7 +16,7 @@ The `[RSS Feed]` section supports the following options:
 | `Image height`               | `integer` | `36`                             | The height of the image from the `Image` option above, in pixels. This helps define the displayed size of the feed's channel image in RSS readers that use it.                                                                                 |
 | `Newest first`               | `boolean` | `False`                          | Reverses the order of the RSS items so the newest comic pages appear first in the feed output.                                                                                                                                                 |
 | `Combine with Main RSS Feed` | `boolean` | `False`                          | Advanced option. If `True`, that Extra Comic's posts appear in the main comic's root `feed.xml` instead of getting their own separate feed file. If set on the main comic, it becomes the default for Extra Comics.                            |
-| `RSS title format`           | `string`  | none                             | Advanced option. Changes how page titles appear in the RSS feed. Supports `{comic_title}` and `{page_title}`.                                                                                                                                  |
+| `RSS title format`           | `string`  | none                             | Advanced option. Changes how that comic's page titles appear in RSS feeds. Supports `{comic_title}` and `{page_title}`. Extra Comics inherit this setting from the main comic unless they override it.                                         |
 
 ### Edit your comic_info.ini file
 
@@ -116,19 +116,19 @@ stories/bonus/feed.xml
 
 If you want to add links to those extra feed files manually so readers can subscribe to each comic separately, see [Changing the Links Bar for your Extra Comic](extra-comics.md#changing-the-links-bar-for-your-extra-comic).
 
-### Titles inside the main feed
+### Titles in RSS feeds
 
-Posts in the main comic's root feed keep their normal page titles by default.
+RSS post titles keep their normal page titles by default.
 
 Many creators will want to change the title format so readers can immediately tell which comic an update came from.
 
-To do that, add an `RSS title format` to the main comic's `[RSS Feed]` section:
+To do that, add an `RSS title format` to a comic's `[RSS Feed]` section:
 
 ```ini
 RSS title format = {comic_title}: {page_title}
 ```
 
-With that setting, titles in the main comic's root feed might look like this:
+With that setting, titles in RSS feeds might look like this:
 
 ```text
 Main Comic: Page 12
@@ -146,8 +146,13 @@ The available format values are:
 * `{comic_title}`
 * `{page_title}`
 
-{% hint style="warning" %}
-This title formatting only affects the main comic's root feed. On an Extra Comic's own feed, each feed already belongs to a single comic.
-{% endhint %}
+If the main comic defines `RSS title format`, Extra Comics will inherit that setting unless they override it in their own `comic_info.ini` files.
+
+This works the same way in both types of feeds:
+
+* a comic's own feed
+* the main comic's root feed, if that Extra Comic is combined into it
+
+In other words, the title format follows the comic that owns the post, not the feed file where that post appears.
 
 If you are still setting up your Extra Comic itself, including its own `comic_info.ini` and Links Bar, see [Extra Comics](extra-comics.md).
