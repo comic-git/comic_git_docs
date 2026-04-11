@@ -20,13 +20,15 @@ Once the comic is set up, open up the `comic_info.ini` file. Under [\[Comic Sett
 
 <figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory_to_comic_info.png" alt=""><figcaption></figcaption></figure>
 
-You may also want to add a link to your extra comic from the links bar. Under [\[Links Bar\]](../basic-editing/editing-your-comic-info.md#links-bar), add a line `<Name of comic> = <name of comic folder>`. The below image shows the example `My Side Story = sidestory`.
+You may also want to add a link to your extra comic from the Links bar. Under [\[Links Bar\]](../basic-editing/editing-your-comic-info.md#links-bar), add a line pointing to one of that comic's pages. The below image shows the example `My Side Story = /sidestory/comic/001/`.
 
 <figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/add_sidestory_link.png" alt=""><figcaption></figcaption></figure>
 
 And you're done! Push your changes to GitHub, and your extra comic will be available to browse!
 
-To start with, the only pages published for your extra comic are the comic pages themselves. No home page, no archive page, etc. That means when you link to your extra comic, you'll want to link directly to the comic pages. So, for example, linking to the first page in the extra comic in the images above would be `/sidestory/comic/001` or `http://<your username>.github.io/<your repo name>/sidestory/comic/001/#comic-page`.
+To start with, the only pages published for your extra comic are the comic pages themselves. No home page, no archive page, etc. That means when you link to your extra comic, you'll want to link directly to one of the comic pages. So, for example, linking to the first page in the extra comic in the images above would be `/sidestory/comic/001/` or `http://<your username>.github.io/<your repo name>/sidestory/comic/001/#comic-page`.
+
+If you want your Extra Comic to have its own RSS behavior, such as its own feed file or being included in the main comic's RSS feed, see [Adding an RSS Feed](adding-an-rss-feed.md#advanced-rss-feeds-for-extra-comics).
 
 ### Adding More Web Pages to your Extra Comic
 
@@ -50,11 +52,15 @@ You may have noticed at this point that the Links Bar above your comic but below
 
 All links are relative to your `your_content` folder, so to link to pages in your extra comic, you will need to start the link with the extra comic's directory name. Using the `sidestory` example, your main comic's archive would be `/archive/` while your extra comic's archive would be `/sidestory/archive/`.
 
+This is also where you would add a link to an Extra Comic's RSS feed if you want readers to be able to subscribe to that Extra Comic separately. For more on that, see [Adding an RSS Feed](adding-an-rss-feed.md#where-feed-files-are-created).
+
 ### Changing your Extra Comic's Settings
 
 By default, your extra comics inherit all the settings from your main comic. This includes all the settings found in the `comic_info.ini` file, like whether or not to use thumbnails for your archive page, the date formats, and your Google Analytics ID.
 
 If you want to change any of these values for your extra comic, you just need to add that line to your extra comic's `comic_info.ini` file.
+
+This also applies to RSS settings. Extra Comics inherit the main comic's RSS settings by default, but you can override them per Extra Comic. You can also decide whether an Extra Comic should be included in the main comic's RSS feed. For more on that, see [Adding an RSS Feed](adding-an-rss-feed.md#advanced-rss-feeds-for-extra-comics).
 
 <figure><img src="https://raw.githubusercontent.com/ryanvilbrandt/comic_git/docs/docs/img/extra_features/sidestory_comic_info_archive_setting.png" alt=""><figcaption></figcaption></figure>
 

@@ -417,6 +417,8 @@ When set to `False` and a thumbnail already exists in the comic page's folder, c
 
 This section is covered in [Adding an RSS Feed](../advanced-editing/adding-an-rss-feed.md). If you don't need to create an RSS feed, you can leave this section alone.
 
+Advanced RSS options, including RSS feeds for [Extra Comics](../advanced-editing/extra-comics.md), are also described there.
+
 ## \[Transcripts]
 
 <details>
