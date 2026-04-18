@@ -56,7 +56,7 @@ To use this feature, you will want to update your `.github/workflows/main.yaml` 
 ```
 jobs:
   call-build-site:
-    uses: comic-git/comic_git_engine/.github/workflows/build_site.yaml@v1
+    uses: comic-git/comic_git_engine/.github/workflows/build_site.yaml@v1.1
     with:
       INPUTS: |
         TZ: PST8PDT

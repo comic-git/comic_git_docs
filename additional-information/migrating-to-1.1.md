@@ -57,6 +57,10 @@ If you run engine scripts directly on your own computer, some important file pat
 
 Update any custom notes, scripts, shortcuts, or external tooling that still points to the old paths.
 
+Also note that local builds now write the finished site into `build` by default unless you explicitly override `OUTPUT_DIR`.
+
+Version 1.1 also expects your repo to contain a `your_content/site_root/` folder. If that folder is missing, create it and move any files in your repository root directory to that folder that need to show up at the root directory on your site. Common files that need to live there are `favicon.ico`, `.nojekyll`, and `CNAME`.
+
 Common path updates:
 
 * `comic_git_engine\scripts\build_site.py` is now `comic_git_engine\src\build\build_site.py`
@@ -67,8 +71,7 @@ If you build locally and use [Code Hooks](../expert-editing/code-hooks.md) with 
 
 ```text
 python -m pip install -r comic_git_engine\requirements.txt
-python comic_git_engine\src\scripts\make_requirements_hooks_file.py
-python -m pip install -r comic_git_engine\requirements_hooks.txt
+python -m pip install -r your_content\themes\<theme>\scripts\requirements.txt
 python comic_git_engine\src\build\build_site.py
 ```
 

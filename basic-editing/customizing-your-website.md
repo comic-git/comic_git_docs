@@ -97,10 +97,10 @@ Look at the tab for this webpage in your browser right now. You see that star wi
 
 comic\_git comes with a favicon already created and configured. It's recommended that you replace this with your own favicon. To create a favicon, you can use an online favicon generator, like [this one](https://www.favicon-generator.org/). You will want to create or pick a square image. You can resize this image yourself down to 16x16, or let the website do it for you.
 
-Once the favicon is generated, make sure it's named `favicon.ico` and replace the file of the same name with that one in the root directory of your website. Then, you're done!
+Once the favicon is generated, make sure it's named `favicon.ico` and put it in `your_content/site_root/`. If that folder does not exist yet, create it first. When comic\_git builds your site, everything in `your_content/site_root/` is copied to the root of the finished website.
 
 {% hint style="info" %}
-The favicon is the only piece of customizable content found outside the `your_content` folder.
+You can also use `your_content/site_root/` for any other files that need to live at the root of your finished site, such as `CNAME`, `robots.txt`, `ads.txt`, or `site.webmanifest`.
 {% endhint %}
 
 ## Changing the Navigation Icons
