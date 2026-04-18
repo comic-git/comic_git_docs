@@ -175,10 +175,12 @@ That means:
 For example, if you want to add a title to the Latest page that will show up in previews, you can do so by adding a value for `og:title`:
 
 ```json
+  ...
   "latest": {
     "_inherits": "comic",
     "og:title": "Read the latest page"
   }
+  ...
 ```
 
 ## How preview images work
@@ -211,6 +213,26 @@ So an Extra Comic can:
 - fall back to engine defaults if neither file exists
 
 This makes it easy to share one main Social Media Preview config across your site while still overriding individual Extra Comics when needed.
+
+## Per-comic-page overrides
+
+You also have the option of providing a `social_media.json` file to override the behavior of specific comic pages. Just place a `social_media.json` file, using the same format as always, in the comic folder itself.
+
+For example, if you want the Social Media Preview of comic page 005 to show the special preview image you prepared that's stored in `your_content/images/chocolate_starfish.tiff`, create the file `your_content/comics/005/social_media.json` and give it the contents:
+
+```json
+{
+  "comic": {
+    "og:type": "article",
+    "og:site_name": "_comic_name",
+    "og:title": "_title",
+    "og:description": "_post_text",
+    "og:url": "_url",
+    "og:image": "your_content/images/chocolate_starfish.tiff",
+    "og:image:alt": "_alt_text"
+  }
+}
+```
 
 ## How to check your results
 
