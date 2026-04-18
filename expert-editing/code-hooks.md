@@ -108,4 +108,4 @@ When you're done, click the "Add secret" button, and the secret will be added to
 
 You can now add more secrets if you want. From this page, you can also edit or delete existing secrets. Note that you can **not** view secrets that you've saved here. If you need those secrets for anything else, make sure to save a copy separately.
 
-This page also lets you set up Environment Secrets or Variables that can be used in a similar way. How do use those is beyond the scope of this document.
+This page also lets you set up Environment Secrets or Variables that can be used similarly. How to use those features is beyond the scope of this document.
