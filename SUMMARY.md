@@ -45,6 +45,7 @@
 * [FAQ](additional-information/faq.md)
 * [Troubleshooting](additional-information/troubleshooting.md)
 * [Migrating to 1.0](additional-information/migrating-to-1.0.md)
+* [Migrating to 1.1](additional-information/migrating-to-1.1.md)
 
 ***
 
