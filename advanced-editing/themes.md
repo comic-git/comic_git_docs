@@ -25,6 +25,7 @@ Go to [comic\_git\_engine's templates folder](https://github.com/comic-git/comic
 * [latest.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/latest.tpl) is the layout for the latest comic page. This differs slightly from the individual comic pages in that comic\_git will always update this one to show the most recent (by post date) comic.
 * [md\_page.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/md_page.tpl) is the layout for any .md (Markdown) files present on the site.
 * [tagged.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/tagged.tpl) is the layout of the page that displays all comic pages a clicked character or tag appears in.
+* [webring.tpl](https://github.com/comic-git/comic_git_engine/tree/latest/templates/webring.tpl) is the layout of the [Webring](../expert-editing/webring.md) block, including both the Previous / Home / Next version and the full member list version.
 
 </details>
 

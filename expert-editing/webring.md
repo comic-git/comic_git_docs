@@ -270,6 +270,100 @@ your_content/webring.json
 
 This mode exists only to make local development easier. Even in local mode, the `url` and `image` values inside `webring.json` should still be absolute URLs.
 
+## Customizing the look with CSS
+
+If you want to change how your webring looks without changing its HTML layout, you can target the CSS classes used by the default `webring.tpl` template.
+
+The webring uses one of two layouts:
+
+* a Previous / Home / Next layout
+* a full members list layout when `Show all members = True`
+
+The HTML structure looks like this:
+
+```text
+nav.webring
+├── h2.webring-header          (only if `label` is defined)
+│
+├── when `Show all members = True`
+│   ├── div.webring-members
+│   │   └── div.webring-member  (one per member)
+│   │       └── a.webring-link
+│   │           └── img.webring-img
+│   │
+│   └── if `home` is defined
+│       ├── div.webring-home
+│       │   └── a.webring-link
+│       │       └── img.webring-img
+│       └── div.webring-label
+│           └── a.webring-link
+│
+└── when `Show all members = False`
+    └── div.webring-links
+        ├── div.webring-prev
+        │   └── a.webring-link
+        │       └── img.webring-img
+        ├── div.webring-home     (if `home` is defined)
+        │   └── a.webring-link
+        │       └── img.webring-img
+        ├── div.webring-next
+        │   └── a.webring-link
+        │       └── img.webring-img
+        ├── div.webring-label
+        │   └── a.webring-link   ("Previous")
+        ├── div.webring-label    (for `home`, if defined)
+        │   └── a.webring-link
+        └── div.webring-label
+            └── a.webring-link   ("Next")
+```
+
+{% hint style="info" %}
+The default template also inserts a plain blank `<div>` in the Previous / Home / Next layout when `home` is not defined, so the spacing still works. That blank element does not have a CSS class.
+{% endhint %}
+
+### CSS classes used by the default webring
+
+| CSS class          | Purpose                                                                                                                                                   |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `.webring`         | The outer `<nav>` element for the entire webring. This is the easiest place to set margins, borders, padding, background colors, or overall layout rules. |
+| `.webring-header`  | The `<h2>` element used for the optional webring heading when the JSON payload defines `label`.                                                           |
+| `.webring-members` | The container used when `Show all members = True`.                                                                                                        |
+| `.webring-member`  | The wrapper for each member inside the full members list.                                                                                                 |
+| `.webring-links`   | The container used for the Previous / Home / Next layout.                                                                                                 |
+| `.webring-prev`    | The visual area for the previous comic link.                                                                                                              |
+| `.webring-home`    | The visual area for the optional webring home link. This class appears in both layouts.                                                                   |
+| `.webring-next`    | The visual area for the next comic link.                                                                                                                  |
+| `.webring-label`   | The text-label rows underneath the link images in the Previous / Home / Next layout, and the home label in the full members layout.                       |
+| `.webring-link`    | The `<a>` element used for all webring links. Use this to control link color, hover styles, underlines, and other anchor styling.                         |
+| `.webring-img`     | The `<img>` element used when a webring entry provides an image. Use this to control image size, borders, spacing, or hover effects.                      |
+
+## Customizing the layout with a Theme
+
+If CSS is not enough, you can replace the default webring template completely.
+
+To do that, create your own Theme and add a custom `webring.tpl` file in that Theme's `templates` folder. comic_git will use your themed template instead of the default one in `comic_git_engine`.
+
+See [Themes](../advanced-editing/themes.md) for the full process for overriding template files.
+
+If you want to edit `webring.tpl`, the most important Jinja variables are:
+
+* `enable_webring`
+* `webring_label`
+* `webring_home`
+* `show_all_members`
+* `webring_members`
+* `webring_prev`
+* `webring_next`
+
+For the full list of Jinja variables available to templates, including the webring variables above, see [Other Expert Tips](other-expert-tips.md#list-of-values-available-to-jinja2-templates).
+
+When changing the template, keep in mind:
+
+* `webring_members` is only used when `Show all members = True`
+* `webring_prev` and `webring_next` are only used when `Show all members = False`
+* `webring_home` may be missing entirely
+* a member may have an `image`, or may only have a text `name`
+
 ## Troubleshooting
 
 ### The webring does not appear at all

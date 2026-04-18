@@ -15,7 +15,7 @@ The recommended steps for building and deploying comic\_git to another web servi
 
 After comic\_git's scripts are run, your website is nothing more than HTML, CSS, and a little Javascript, so any basic web server will be able to host it.
 
-## Uploading to Neocities with GitHub Actions
+## Uploading to Neocities
 
 If you want to host your site on Neocities, comic\_git can also deploy there through GitHub Actions. This is not a different publishing workflow from the user's perspective. You will still upload your changes to GitHub normally so that the Action can run. The difference is that the finished site will be deployed to Neocities instead of GitHub Pages.
 
