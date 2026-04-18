@@ -27,6 +27,7 @@
 * [Themes](advanced-editing/themes.md)
 * [Extra Comics](advanced-editing/extra-comics.md)
 * [Adding An RSS Feed](advanced-editing/adding-an-rss-feed.md)
+* [Social Media Previews](advanced-editing/social-media-previews.md)
 * [Extra Features](advanced-editing/extra-features.md)
 
 ## Expert Editing
@@ -48,3 +49,4 @@
 ***
 
 * [Contributors](contributors.md)
+

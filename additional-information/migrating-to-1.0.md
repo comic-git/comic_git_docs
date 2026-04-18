@@ -90,5 +90,5 @@ Some [code hooks](https://comic-git.gitbook.io/documentation/other-expert-tips#c
 
 This section describes changes that don't fall into any of the other sections describes above.
 
-1. Your social media preview image is now required by default to be 200px by 200px. If you've changed these values in your own custom templates, you can ignore this.
-2. Various changes and fixes have been made to the Javascript and CSS files that were in `src`, and are now in `comic_git_engine`. If you have made changes to any of these files, I recommend checking out the [current version in comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/1.0) and recreating those files with your changes in your [Theme](../advanced-editing/themes.md) directory.
+1. Social Media Preview setup now assumes a default `preview_image.png` workflow for general pages. If you use a preview image that is not 200px by 200px, set matching `og:image:width` and `og:image:height` values in `your_content/social_media.json`. See [Social Media Previews](../advanced-editing/social-media-previews.md) for the current behavior and setup details.
+2. Various changes and fixes have been made to the JavaScript and CSS files that were in `src`, and are now in `comic_git_engine`. If you have made changes to any of these files, I recommend checking out the [current version in comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/1.0) and recreating those files with your changes in your [Theme](../advanced-editing/themes.md) directory.

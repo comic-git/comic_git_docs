@@ -55,7 +55,7 @@ Whatever name or credit you wish to give for the creation of your comic. It can 
 * Required
 * Value: `string`: your description
 
-A short, one-sentence description of your web comic. This will show up in your [RSS feed](../advanced-editing/extra-features.md#adding-an-rss-feed) and [social media previews](../advanced-editing/extra-features.md#adding-social-media-previews).
+A short, one-sentence description of your web comic. This will show up in your [RSS feed](../advanced-editing/extra-features.md#adding-an-rss-feed) and [social media previews](../advanced-editing/social-media-previews.md).
 
 </details>
 
@@ -131,7 +131,7 @@ All timezones found in the TZ Identifier column on the [TZ database time zones W
 * Value: `string`: URL of domain
 * Default: none
 
-If you are building your website locally, and you haven't configured a custom domain, you must set this so that comic\_git knows what domain to use to build the URL to link to your comic, for the purposes of things like your RSS feed and your social media preview links. For more details, see [Building your Website on your own PC](../expert-editing/other-expert-tips.md#building-your-website-on-your-own-pc).
+If you are building your website locally, and you haven't configured a custom domain, you must set this so that comic\_git knows what domain to use to build the URL to link to your comic, for the purposes of things like your RSS feed and your social media preview links. For more details, see [Building Your Website On Your Own PC](../expert-editing/building-your-website-on-your-own-pc.md).
 
 This option should include your website's entire domain, subdomain, and top-level domain. Do not include the slash at the end. You may include the "http://" or "https://" if you wish.
 
@@ -147,7 +147,7 @@ Examples: `https://ryanvilbrandt.github.io`, `www.tamberlanecomic.com`
 * Value: `string`: name of GitHub repo
 * Default: none
 
-If you're building your website locally and you have not set a custom domain, you must set this to the name of your GitHub repository. This allows most of the links on your website to function properly. For more details, see [Building your Website on your own PC](../expert-editing/building-your-website-on-your-own-pc.md).
+If you're building your website locally, and you have not set a custom domain, you must set this to the name of your GitHub repository. This allows most of the links on your website to function properly. For more details, see [Building your Website on your own PC](../expert-editing/building-your-website-on-your-own-pc.md).
 
 This option should not include leading or trailing slashes.
 
