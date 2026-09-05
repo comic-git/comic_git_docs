@@ -39,12 +39,6 @@ You can change that default image in either of these ways:
 - replace `your_content/images/preview_image.png`
 - set `og:image` in `your_content/social_media.json` to a full image URL
 
-{% hint style="info" %}
-**Screenshot placeholder**
-
-Capture `social-media-previews-01-preview-image-location.png`: show the repository tree with `your_content/images/preview_image.png` visible.
-{% endhint %}
-
 ## How to customize Social Media Previews
 
 If you want more control, create this file:
@@ -54,12 +48,6 @@ your_content/social_media.json
 ```
 
 comic_git will load that file and use it to customize the Social Media Preview metadata for that comic.
-
-{% hint style="info" %}
-**Screenshot placeholder**
-
-Capture `social-media-previews-02-social-media-json-location.png`: show the repository tree with `your_content/social_media.json` visible.
-{% endhint %}
 
 The file must be valid JSON.
 
@@ -108,12 +96,6 @@ The built-in defaults use `base`, `comic`, and `latest`, so those are the most c
   }
 }
 ```
-
-{% hint style="info" %}
-**Screenshot placeholder**
-
-Capture `social-media-previews-03-social-media-json-example.png`: show an editor open to a simple `your_content/social_media.json` example.
-{% endhint %}
 
 ## Special values comic_git understands
 
@@ -239,12 +221,6 @@ For example, if you want the Social Media Preview of comic page 005 to show the 
 After your site is built and published, test one of your pages with a preview debugger.
 
 A good option is [Facebook's Sharing Debugger](https://developers.facebook.com/tools/debug/sharing/). Even if your audience does not use Facebook, that tool is useful for checking the Open Graph metadata your page exposes.
-
-{% hint style="info" %}
-**Screenshot placeholder**
-
-Capture `social-media-previews-04-facebook-debugger-example.png`: show a validator or debugger result for a built comic page with preview metadata visible.
-{% endhint %}
 
 Preview cards are often cached by third-party platforms. If you change your metadata and the preview does not update right away, the platform cache may be the reason.
 
