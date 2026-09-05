@@ -425,7 +425,7 @@ Controls the Archive title for an image that does not define its own title. `Pag
 * Required
 * Value: `boolean`: `True` or `False`
 
-If set to `True`, a thumbnail can be generated from the first image of each comic page. The conventional page thumbnail is named `_thumbnail.jpg`. When Archive **List images separately** is `True` and thumbnails are enabled, comic_git can also generate separate thumbnails for later images.
+If set to `True`, a thumbnail can be generated from the first image of each comic page. The conventional page thumbnail is named `_thumbnail.jpg`. When Archive **List images separately** is `True` and thumbnails are enabled, comic_git can also generate separate thumbnails for later images. SVG and EPS comic images cannot be converted into thumbnails automatically; add a JPEG or PNG thumbnail yourself if you want one for those images.
 
 </details>
 
