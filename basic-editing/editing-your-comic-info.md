@@ -8,6 +8,8 @@ If you're setting up comic\_git for the first time and you just want to get star
 
 When setting up comic\_git, there are some critical things you need to do to identify your comic, like give it a name or set up what links go in the Links Bar. comic\_git also supports a few extra features that can be enabled for your project, like automatically generating thumbnails for your comic pages. All these settings can be adjusted in the `comic_info.ini` file in the `your_content` folder.
 
+comic_git also supports `comic_info.toml`. The traditional INI file remains the simplest choice for most users and continues to be fully supported. If you want structured lists or plan to use future CMS tooling, see [TOML Configuration](../advanced-editing/toml-configuration.md). When both files exist, `comic_info.toml` takes precedence as the complete comic configuration.
+
 <figure><img src="../.gitbook/assets/editing01_comic_info.png" alt=""><figcaption></figcaption></figure>
 
 This is a standard [.ini file](https://en.wikipedia.org/wiki/INI_file) that may be familiar to you if you've ever edited config files for other programs. If you haven't seen one before, it's just a text file with a special purpose, and you can edit it in Notepad or whichever text editor you're comfortable with.
@@ -44,7 +46,7 @@ This is the name of your comic. The comic name shows up in the tab every time a 
 * Required
 * Value: `string`: your authorial name
 
-Whatever name or credit you wish to give for the creation of your comic. It can be a single name, a list of names, a sentence, whatever you want. It's currently only used when generating your [RSS Feed](../advanced-editing/extra-features.md#adding-an-rss-feed).
+Whatever name or credit you wish to give for the creation of your comic. It can be a single name, a list of names, a sentence, whatever you want. It's currently used when generating your [RSS Feed](../advanced-editing/adding-an-rss-feed.md).
 
 </details>
 
@@ -70,8 +72,8 @@ A short, one-sentence description of your web comic. This will show up in your [
 
 This is used to determine which version of comic\_git is used to build your site. The possible values are:
 
-* **Version**: By default, this value is set to version `1.0`. Every time your site builds, this pulls the latest iteration of 1.0, such as 1.0.1, 1.0.2, and so on. This is the **recommended** setting to use if you want to get bug fixes automatically without future updates breaking your site. If and when comic\_git is updated to 1.1, you'll need to change this to get the features that may be included with that.
-* **Exact version**: If you have a need to use one particular version, specify it by using the full version number; for example, `1.0.3`. Your site will stay on that version and not receive any future bug fixes or version updates until you edit this again.
+* **Minor version**: Set this to `1.1` to receive compatible 1.1 patch releases such as 1.1.1 and 1.1.2 automatically. This is the **recommended** setting for most users.
+* **Exact version**: To pin one release, use its full version number, such as `1.1.0`. Your site will stay on that version until you edit this value again.
 * `latest`: Your site will always get the latest released version of comic\_git, even if it's an update that could potentially break your site. If you want to automatically keep up with updates as they come out and don't mind fixing your site to adjust for new versions, this is a good option.
 * `master`: Keep up with every single new change to comic\_git, no matter how minor or untested. Only recommended for troubleshooting.
 
@@ -348,7 +350,7 @@ When set to `true`, this will place a navigation bar below the blurb containing 
 * Required
 * Value: `boolean`: `True` or `False`
 
-When this value is `False`, the Archive page will display all the comics in your archive in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When this value is `True`, the Archive page will display all the comics in your archive in a grid of comic thumbnails. When looking for thumbnails, the Archive page looks in each comic directory for a thumbnail image by the name of `_thumbnail.jpg`
+When this value is `False`, the Archive page displays entries in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When it is `True`, the Archive displays a thumbnail grid. In the default page entry mode, each page uses its explicit page thumbnail or the conventional `_thumbnail.jpg`. Image entry mode can resolve or generate a thumbnail for each image.
 
 You can either create your own thumbnails or use comic\_git's built-in thumbnail generation as described in the [\[Image Reprocessing\]](editing-your-comic-info.md#image-reprocessing) section below.
 
@@ -378,6 +380,42 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 
 </details>
 
+<details>
+
+<summary>Entry mode</summary>
+
+* Optional
+* Value: `Pages` or `Images`
+* Default: `Pages`
+
+`Pages` creates one Archive entry for each comic page. `Images` creates a separate Archive entry for every image on a page. Text-only pages can also appear in image mode depending on **Show text-only posts**.
+
+</details>
+
+<details>
+
+<summary>Show text-only posts</summary>
+
+* Optional
+* Value: `boolean`: `True` or `False`
+* Default: `True`
+
+Controls whether pages without comic images appear when **Entry mode** is `Images`. Page mode always includes text-only pages.
+
+</details>
+
+<details>
+
+<summary>Image title fallback</summary>
+
+* Optional
+* Value: `Page title` or `Filename`
+* Default: `Page title`
+
+Controls the Archive title for an image that does not define its own title. `Page title` uses the page title when available; `Filename` uses the image filename without its extension.
+
+</details>
+
 ## \[Image Reprocessing]
 
 <details>
@@ -387,7 +425,7 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 * Required
 * Value: `boolean`: `True` or `False`
 
-If set to `True`, thumbnails will be generated for each comic page. The files will be located in each page directory in `/your_content/comics` named `_thumbnail.jpg`.
+If set to `True`, a thumbnail can be generated from the first image of each comic page. The conventional page thumbnail is named `_thumbnail.jpg`. When Archive **Entry mode** is `Images` and thumbnails are enabled, comic_git can also generate separate thumbnails for later images.
 
 </details>
 
@@ -409,7 +447,7 @@ The size of the thumbnail to be generated. This can be a width/height pair in pi
 * Required
 * Value: `boolean`: `True` or `False`
 
-When set to `False` and a thumbnail already exists in the comic page's folder, comic\_git will not attempt to recreate the thumbnail. When set to `True`, comic\_git will always attempt to generate a thumbnail, assuming creating these files is enabled via one of the options above.
+When set to `False` and a generated thumbnail already exists in the comic page's folder, comic\_git will not recreate it. When set to `True`, comic_git regenerates conventional and automatically named thumbnails when thumbnail creation is enabled. A thumbnail filename explicitly configured for a page or image is user-owned and is never overwritten.
 
 </details>
 

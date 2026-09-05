@@ -294,4 +294,4 @@ The page may be published correctly, but the platform showing the preview may st
 | Extra Comic `your_content/social_media.json` | Extra Comic-specific override file           |
 | Comic thumbnails                             | Default preview images for comic pages       |
 
-If you want to change how metadata is inserted into the page templates themselves, see [Themes](themes.md) and [Other Expert Tips](../expert-editing/other-expert-tips.md#list-of-values-available-to-jinja2-templates).
+If you want to change how metadata is inserted into the page templates themselves, see [Themes](themes.md) and [Template and Hook Data](../expert-editing/template-and-hook-data.md).

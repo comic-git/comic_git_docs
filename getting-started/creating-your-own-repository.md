@@ -26,6 +26,6 @@ As with your username, the name of your repository will show up as part of your 
 <figure><img src="../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Making a new repository</p></figcaption></figure>
 
 4. Once you are satisfied with the settings, click **Create repository**.
-5. GitHub takes a moment to generate the new repository, then displays it. You now have your own comic playground to build how you want!&#x20;
+5. GitHub takes a moment to generate the new repository, then displays it. You now have your own comic playground to build how you want!
 
 <figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Your new repository!</p></figcaption></figure>

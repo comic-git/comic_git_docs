@@ -13,7 +13,7 @@ GitHub Desktop is not strictly required for comic\_git to work. If you have anot
 
     <figure><img src="../.gitbook/assets/client01_download.png" alt="The Download GitHub Desktop page with a red indicator around the Download button."><figcaption><p>Download GitHub Desktop.</p></figcaption></figure>
 2. Once downloaded, run the app. GitHub Desktop will automatically install and launch itself.
-3.  Once GitHub Desktop has launched, the sign-in screen is displayed. Click **Sign in to GitHub**. This opens the login page in your browser window.&#x20;
+3.  Once GitHub Desktop has launched, the sign-in screen is displayed. Click **Sign in to GitHub**. This opens the login page in your browser window.
 
     <figure><img src="../.gitbook/assets/client02_sign_in.png" alt="The splash screen for the GitHub Desktop app with a red indicator around the Sign In button."><figcaption><p>Welcome to GitHub Desktop.</p></figcaption></figure>
 4.  Once signed in, GitHub asks you to authorize GitHub Desktop to access your account information. Click **Authorize**.

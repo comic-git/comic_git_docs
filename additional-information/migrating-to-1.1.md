@@ -8,8 +8,8 @@ For most users, upgrading to 1.1 is mainly:
 
 1. update your `Engine version` to `1.1`
 2. update your GitHub Actions workflow to use the `v1.1` build action
-3. rebuild or republish your site
-4. check whether any advanced customizations need to be adjusted
+3. move website files such as `favicon.ico` and `.nojekyll` from the repository root into `your_content/site_root`
+4. rebuild or republish your site, then check any customizations
 
 ## Basic upgrade steps
 
@@ -29,10 +29,20 @@ Engine version = 1.1
 uses: comic-git/comic_git_engine/.github/workflows/build_site.yaml@v1.1
 ```
 
-5. Rebuild or republish your site normally.
-6. Check your site for any custom workflows, themes, or expert-level setup that may need to be updated.
+5. Move files that need to go at the root-level of your website into the `your_content/site_root/` folder. Create that folder if necessary.
+
+Move only the files that need to appear at the root of the published website into it. Even an uncustomized older comic_git repository normally has `favicon.ico` and `.nojekyll` in the repository root, so move those files to `your_content/site_root/favicon.ico` and `your_content/site_root/.nojekyll`. You may have other files that need to be moved as well, like `CNAME` if you use a custom domain.
+
+{% hint style="warning" %}
+Do **not** move every file or folder from the repository root. Leave repository and build files such as `.gitignore`, `.gitattributes`, `.gitmodules`, `README.md`, `LICENSE`, `.github/`, `comic_git_engine/`, and `your_content/` where they are. If you can see a `.git/` folder, leave that in place too. These items help GitHub and comic_git manage and build your site; they are not files for the published website.
+{% endhint %}
+
+6. Rebuild or republish your site normally.
+7. Check your site for any custom workflows, themes, or expert-level setup that may need to be updated.
 
 If you do **not** use any advanced customizations, that may be all you need to do.
+
+The workflow version and engine version are separate choices. The values above follow compatible 1.1 patch updates. For an exact, reproducible 1.1.0 build, use workflow tag `v1.1.0` together with engine version `1.1.0`.
 
 ***
 
@@ -40,12 +50,17 @@ If you do **not** use any advanced customizations, that may be all you need to d
 
 Version 1.1 adds several end-user features, including:
 
+* optional [TOML Configuration](../advanced-editing/toml-configuration.md) for comic settings and page content
+* structured per-image titles, alt text, and thumbnails on multi-image pages
+* page-based or image-based Archive entries, including text-only page support
 * customizable [Social Media Previews](../advanced-editing/social-media-previews.md)
 * built-in support for deploying to [Neocities](../expert-editing/hosting-comic_git-elsewhere.md#uploading-to-neocities)
 * a documented [Webring](../expert-editing/webring.md) feature
 * more RSS feed options for [Extra Comics](../advanced-editing/adding-an-rss-feed.md)
 
 Most of these are new features, not breaking changes.
+
+Your existing INI and text files remain supported. Moving to TOML is optional and can be done later.
 
 The main migration concerns in 1.1 are for people who use advanced or custom setup.
 
@@ -58,8 +73,6 @@ If you run engine scripts directly on your own computer, some important file pat
 Update any custom notes, scripts, shortcuts, or external tooling that still points to the old paths.
 
 Also note that local builds now write the finished site into `build` by default unless you explicitly override `OUTPUT_DIR`.
-
-Version 1.1 also expects your repo to contain a `your_content/site_root/` folder. If that folder is missing, create it and move any files in your repository root directory to that folder that need to show up at the root directory on your site. Common files that need to live there are `favicon.ico`, `.nojekyll`, and `CNAME`.
 
 Common path updates:
 
@@ -114,6 +127,35 @@ In particular:
 
 See [Social Media Previews](../advanced-editing/social-media-previews.md) for the current setup.
 
+### Custom templates and Code Hooks must use structured page data
+
+Version 1.1 represents every comic page as a structured page object with an ordered list of image objects. Default themes already support this, but custom templates or hooks that depend on 1.0 dictionaries may need changes.
+
+In particular:
+
+* replace template use of `comic_paths` with the `images` list and each image's `web_path`
+* replace page-wide `thumbnail_path` and `escaped_alt_text` with `page.thumbnail_path` and per-image values
+* preserve image order when custom code depends on positional anchors
+* update hook code that expects page dictionaries or the old storyline hook arguments
+
+See [Template and Hook Data](../expert-editing/template-and-hook-data.md) and [Code Hooks](../expert-editing/code-hooks.md).
+
+### Custom page metadata consumers must use the new format
+
+The public `comic/page_info_list.json` file now contains a versioned document with structured pages and images. If you have custom JavaScript or another tool that reads this file, update it to use `schema_version` and the `pages` list. See [Generated Page Metadata](../expert-editing/generated-page-metadata.md) for the current format.
+
+### Archive behavior has new options
+
+The Archive defaults to one entry per page. You can opt into one entry per image with `Entry mode = Images`. In image mode, `Show text-only posts` controls whether pages without images remain listed, and `Image title fallback` controls titles for images without their own title.
+
+Existing sites retain page-based behavior unless they enable the new mode. See the [Archive settings](../basic-editing/editing-your-comic-info.md#archive).
+
+### TOML migration is optional
+
+comic_git can read `comic_info.toml` and page `info.toml` files, and includes a dry-run-first migration command. A TOML file takes complete precedence over its matching legacy file rather than merging values.
+
+Do not delete your legacy files until you have reviewed the TOML and successfully rebuilt your site. See [TOML Configuration](../advanced-editing/toml-configuration.md#migrating-existing-files) for the command and safety steps.
+
 ### Check your site layout on mobile
 
 Version 1.1 includes a number of CSS changes to improve mobile responsiveness.
@@ -149,5 +191,7 @@ After moving to 1.1, it is a good idea to check:
 4. any Neocities workflow you use still matches the current parameters
 5. any Webring setup you use still matches the current documented behavior
 6. any Social Media Preview customization still matches the current docs
+7. custom templates and Code Hooks use the 1.1 page and image objects
+8. any optional TOML migration builds correctly before legacy files are removed
 
 If all of those look correct, your upgrade is probably complete.

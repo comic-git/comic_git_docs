@@ -355,7 +355,7 @@ If you want to edit `webring.tpl`, the most important Jinja variables are:
 * `webring_prev`
 * `webring_next`
 
-For the full list of Jinja variables available to templates, including the webring variables above, see [Other Expert Tips](other-expert-tips.md#list-of-values-available-to-jinja2-templates).
+For the current Jinja values available to templates, see [Template and Hook Data](template-and-hook-data.md).
 
 When changing the template, keep in mind:
 

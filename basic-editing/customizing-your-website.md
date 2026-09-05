@@ -20,12 +20,12 @@ To change the colors of your website, edit the file `your_content/themes/default
 
 Basic (and hopefully easy to understand) settings are pre-defined here, with comments describing what each one does. It is very difficult to actually break your website by changing this file, so feel free to change these values to your heart's content. In the worst case, deleting this file will cause your browser to use its default colors for everything, which won't look too horrible.
 
-If you wish to change more complex things like the spacing between different elements in your website, you can look at the list of CSS files provided by the [comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/master/css). This contains all the style definitions that are less clear-cut or changing them and making them look good takes a lot of trial and error. If you wish to change any of these values, copy them into `stylesheet.css` first, then make changes there. Any values defined in your `stylesheet.css` take precedence over the values in `comic_git_engine`.
+If you wish to change more complex things like the spacing between different elements in your website, you can look at the list of CSS files provided by the [comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/latest/css). This contains all the style definitions that are less clear-cut or changing them and making them look good takes a lot of trial and error. If you wish to change any of these values, copy them into `stylesheet.css` first, then make changes there. Any values defined in your `stylesheet.css` take precedence over the values in `comic_git_engine`.
 
 If you are comfortable with CSS, you do not need to limit yourself to only what's in `stylesheet.css` or the CSS files in comic\_git\_engine. Feel free to add whatever CSS settings you need!
 
 {% hint style="info" %}
-**Adding a lot of new CSS rules?** You can make your life a lot easier by creating files in the `your_content/themes/default/css/` folder named after the template you want to affect, and then adding new CSS rules there. These will automatically be picked up by the correct template when it's rendered.&#x20;
+**Adding a lot of new CSS rules?** You can make your life a lot easier by creating files in the `your_content/themes/default/css/` folder named after the template you want to affect, and then adding new CSS rules there. These will automatically be picked up by the correct template when it's rendered.
 
 For example, if you create a file named `comic.css`, then all comic pages that are rendered will load the CSS in that file. Also, if you create a file named `base.css`, all rendered pages that use the `base.tpl` file provided by comic\_git\_engine will load CSS from that file as well.
 

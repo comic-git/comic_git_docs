@@ -4,7 +4,11 @@ Some parts of comic\_git can be customized simply by editing config files or cre
 
 In short, Code Hooks are Python functions that you can write yourself that, if present when comic\_git builds your site, will be run in the middle of site building logic. They can affect how that script runs, what values are provided to templates when they build, and more.
 
-To add Code Hooks to your build, create a `scripts` folder inside your theme directory (if you're not using a theme, put it in the `default` theme directory). Then, copy the example file from [comic\_git\_engine](https://github.com/comic-git/comic_git_engine/tree/master/extras), `/extras/hooks.py`, into that folder. You can edit the functions in this file to do anything you want, including calling other Python scripts elsewhere in your repository.
+{% hint style="warning" %}
+Page-related hooks receive structured page and image objects. See [Template and Hook Data](template-and-hook-data.md) for the available fields.
+{% endhint %}
+
+To add Code Hooks to your build, create a `scripts` folder inside your theme directory (if you're not using a theme, put it in the `default` theme directory), then copy [comic_git_engine's example `hooks.py`](https://github.com/comic-git/comic_git_engine/blob/latest/extras/hooks.py) into it. The example includes every supported hook; keep only the functions you need, using the signatures below. Your functions can also call other Python scripts elsewhere in your repository.
 
 {% hint style="danger" %}
 **Do Not Change The Working Directory**
@@ -14,15 +18,40 @@ In comic\_git, the working directory is the repository root. Please don't change
 
 ### List of available hooks
 
-| Hook                          | Description |
-|-------------------------------|-------------|
-| preprocess                    | Runs immediately after the main comic's `comic_info.ini` file is loaded. Can be used to do any setup before the comic starts to build. |
-| extra_page_info_processing    | Runs on every `info.ini` file that's processed, allowing you to do further custom processing to the page info. If you return any non-null value, it will use that in place of the page info that was passed into this hook. |
-| extra_comic_dict_processing   | Runs on every comic data dict that's processed, allowing you to do further custom processing to the dict. If you return any non-null value, it will use that in place of the comic data dict that was passed into this hook. |
-| extra_get_storylines_processing | Use this hook to do further processing on the `storylines` variable, which is used primarily to build the Archive page. This is useful if you wanted to make your archive more complex, like breaking your comic up into Volumes and Chapters instead of just Storylines. |
-| extra_global_values           | Returns a dictionary that will be added to the global values sent to all templates when they're built. For example, if you've created a new template which programmatically displays a list of your patrons, you'll need to hook in a new variable. This is where you'd add that variable in. |
-| build_other_pages             | This function is called after all other HTML files are built. You can use this function to build whatever additional HTML files you may want, using the `utils.write_to_template()` function.<br><br>It's generally recommended that you use the Pages section of your `comic_info.ini` file to add new pages to your site. However, if you're building pages dynamically, such as separate cast pages for each character, this is where you will do it. |
-| postprocess                   | Runs at the very end of the comic_git build process. Can be used to do any miscellaneous cleanup you might need. |
+| Hook                            | Description |
+|---------------------------------|-------------|
+| preprocess                      | Receives the resolved main comic configuration immediately after it is loaded. TOML configuration is normalized to the same `RawConfigParser` interface used for INI. |
+| extra_page_info_processing      | Receives `comic_folder`, `comic_info`, `page_path`, and one normalized `ComicPage`. Return a replacement page or `None` to keep it. |
+| extra_comic_dict_processing     | Receives `comic_folder`, `comic_info`, and one enriched `ComicPage` after navigation and post content are resolved. The historical hook name is unchanged. |
+| extra_get_storylines_processing | Receives `comic_info`, the full `list[ComicPage]`, and the grouped Archive entries. Return replacement storyline groups or `None`. This hook does not receive `comic_folder`. |
+| extra_global_values             | Receives `comic_folder`, `comic_info`, and `list[ComicPage]`. Return a dictionary of extra global template values. Engine-owned values such as `tagged_pages_enabled` may be calculated afterward. |
+| build_other_pages               | Receives `comic_folder`, `comic_info`, and `list[ComicPage]` after standard HTML is built. Use it for dynamic pages that cannot be expressed through the Pages configuration. |
+| postprocess                     | Receives the main comic configuration, the main `list[ComicPage]`, and final global values at the end of the build. |
+
+The corresponding function signatures are:
+
+```python
+def preprocess(comic_info):
+    pass
+
+def extra_page_info_processing(comic_folder, comic_info, page_path, page):
+    return page
+
+def extra_comic_dict_processing(comic_folder, comic_info, page):
+    return page
+
+def extra_get_storylines_processing(comic_info, pages, storylines):
+    return storylines
+
+def extra_global_values(comic_folder, comic_info, pages):
+    return {}
+
+def build_other_pages(comic_folder, comic_info, pages):
+    pass
+
+def postprocess(comic_info, pages, global_values):
+    pass
+```
 
 {% hint style="info" %}
 **Additional hooks**
@@ -34,7 +63,7 @@ Do you have ideas for other code hooks you'd like to see added to comic\_git? Pl
 
 If you're writing additional code for comic\_git, you will likely want to make use of Python's extensive third-party library options. And you can do that! But you will need to do a little more setup.
 
-For any `hooks.py` script that makes use of additional third-party libraries above and beyond what comic\_git already uses, you'll need to create a `requirements.txt` file in the same folder. The package name for each third-party library you need should be added on a separate line in this file. For example, you can see the packages included in the base requirements file at [comic\_git\_engine's](https://github.com/comic-git/comic_git_engine/blob/master/scripts/requirements.txt) `/scripts/requirements.txt`:
+For any `hooks.py` script that makes use of additional third-party libraries above and beyond what comic\_git already uses, you'll need to create a `requirements.txt` file in the same folder. The package name for each third-party library you need should be added on a separate line in this file. For example, see [comic\_git\_engine's base requirements file](https://github.com/comic-git/comic_git_engine/blob/latest/requirements.txt):
 
 ```
 Jinja2

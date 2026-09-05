@@ -24,6 +24,7 @@
 ## Advanced Editing
 
 * [Advanced Editing and the comic\_git Engine](advanced-editing/advanced-editing-and-the-comic_git-engine.md)
+* [TOML Configuration](advanced-editing/toml-configuration.md)
 * [Themes](advanced-editing/themes.md)
 * [Extra Comics](advanced-editing/extra-comics.md)
 * [Adding An RSS Feed](advanced-editing/adding-an-rss-feed.md)
@@ -38,6 +39,8 @@
 * [Hosting comic\_git Elsewhere](expert-editing/hosting-comic_git-elsewhere.md)
 * [Webring](expert-editing/webring.md)
 * [Code Hooks](expert-editing/code-hooks.md)
+* [Template and Hook Data](expert-editing/template-and-hook-data.md)
+* [Generated Page Metadata](expert-editing/generated-page-metadata.md)
 * [Other Expert Tips](expert-editing/other-expert-tips.md)
 
 ## Additional Information

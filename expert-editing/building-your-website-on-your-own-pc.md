@@ -10,7 +10,7 @@ Fortunately, it's possible to build your website locally without pushing to GitH
 
 The main brain of the comic\_git workflow is a Python script that is run whenever you push a change to GitHub, so to build your website locally, you will need to run that script.
 
-First, [download the most recent version of Python](https://www.python.org/downloads/) from the Python website.&#x20;
+First, [download the most recent version of Python](https://www.python.org/downloads/) from the Python website.
 
 {% hint style="warning" %}
 comic\_git requires Python 3.12 or greater.
@@ -55,20 +55,20 @@ To work on GitHub, comic\_git is split into two repositories: your personal cont
 
 In a terminal window, navigate to your base repo directory. This is the directory which contains `your_content`, `.github`, and so on. We'll assume it's `D:\GitHub\comic_git` for these instructions.
 
-Type the following command:&#x20;
+Type the following command:
 
 ```
 git submodule add -b "[engine version]" -f https://github.com/comic-git/comic_git_engine
 ```
 
-&#x20;In that command line, replace `[engine version]` with the same value as the [Engine version](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#engine-version) listed in `comic_info.ini`.
+In that command line, replace `[engine version]` with the same value as the [Engine version](https://comic-git.gitbook.io/documentation/basic-editing/editing-your-comic-info#engine-version) listed in `comic_info.ini`.
 
 This installs comic\_git\_engine as a **submodule** of your personal repo.
 
 {% hint style="info" %}
 When building your site locally, you'll use the local version of comic\_git\_engine, which may not update when the live repo updates. You can manually update it to the newest version with the command `git submodule update --remote`.
 
-If you ever want to use a different version of the engine, you can switch it by going into your `comic_git_engine` directory and running the command `git checkout version` where `version` is something like `master` or `1.0`.&#x20;
+If you ever want to use a different version of the engine, you can switch it by going into your `comic_git_engine` directory and running `git checkout <version>`, where `<version>` is a branch or release tag such as `latest`.
 {% endhint %}
 
 ### Install the required libraries
@@ -95,9 +95,15 @@ python -m pip install -r your_content\themes\<theme>\scripts\requirements.txt
 
 If you use different themes for your main comic and any Extra Comics, repeat this for each theme that has its own `scripts/requirements.txt` file.
 
-### Update your comic\_info.ini
+### Provide your website address locally
 
-There is some necessary information GitHub provides to comic\_git that is not available on your local machine. You will need to provide this info in the `comic_info.ini` file.
+There is some necessary information GitHub provides to comic\_git that is not available automatically on your local machine. The cleanest option is to set `GITHUB_REPOSITORY` in the terminal before building:
+
+```powershell
+$env:GITHUB_REPOSITORY='username/repo_name'
+```
+
+You can instead provide the domain and subdirectory in `comic_info.ini`:
 
 Edit your `comic_info.ini` file to add two new options at the bottom of the \[Comic Settings] section.
 
@@ -110,11 +116,11 @@ Comic subdirectory = repo_name
 
 `username` should be your GitHub username, and `repo_name` should be the name of the GitHub repo you created. However, if you set up your GitHub Pages to serve from a custom domain, replace everything in `Comic domain` with that and leave `Comic subdirectory` blank.
 
+For `comic_info.toml`, the equivalent values are `site.comic_domain` and `site.comic_subdirectory`. See [TOML Configuration](../advanced-editing/toml-configuration.md).
+
 ### Run the build\_site.py script
 
-Once your local setup is ready, you can build your site directly on your own PC with:
-
-Before you do, make sure your repo contains a `your_content/site_root/` folder. In 1.1, comic\_git expects that folder to exist even if it is empty.
+Once your local setup is ready, you can build your site directly on your own PC. Before you do, make sure your repo contains a `your_content/site_root/` folder. comic\_git expects that folder to exist even if it is empty.
 
 ```
 python comic_git_engine\src\build\build_site.py
@@ -161,12 +167,40 @@ python comic_git_engine\src\build\build_site.py
 You should run the build script again any time you change:
 
 * `comic_info.ini`
+* `comic_info.toml`
 * any page `info.ini` file
+* any page `info.toml` file
 * any `.tpl` template
 * any Python script used by your build
 * your comic page folders or page files
 
+If you want to convert existing INI and page text files to TOML, use the dry-run-first process in [TOML Configuration](../advanced-editing/toml-configuration.md#migrating-existing-files).
+
 If you only change CSS or JavaScript files, you usually do not need to rebuild. In most cases, refreshing your browser is enough.
+
+### Auto-rebuilding preview server
+
+For theme and content work, comic_git includes a preview server that rebuilds when supported source files change. Install its optional watcher once:
+
+```powershell
+python -m pip install watchdog
+```
+
+Then run this from your comic_git repository root:
+
+```powershell
+python comic_git_engine\src\scripts\dev_server.py
+```
+
+The command prints the local URL to open and watches changes to TOML, INI, text, Markdown, HTML, and template files. Press Ctrl+C to stop it.
+
+To include future-dated pages in a local preview without deleting their source folders, use:
+
+```powershell
+python comic_git_engine\src\scripts\dev_server.py --publish-all-comics
+```
+
+Do **not** use `--delete-scheduled-posts` for an ordinary local preview.
 
 {% hint style="warning" %}
 **Generated HTML files are temporary build output**
@@ -241,7 +275,7 @@ To stop the web server, go into the command prompt window where you ran the comm
 
 Putting `comic_git` at the end of the URL above is necessary because the web server will use the directory that you launch it from as the URL root. Meaning, it will serve all the folders and files it finds in that directory when you go to `http://localhost:8000`. To have it display your website correctly, the generated site files need to be inside a folder whose name matches your `Comic subdirectory` setting.
 
-The default setup for GitHub Pages is to serve your website from `https://<username>.github.io/<repo_name>`, rather than from `https://<username>.github.io/` . Because of that, comic\_git builds all its links in your website (including the ones to CSS and Javascript files necessary to run the site) by prepending whatever value you put in your "Comic subdirectory" config option above to all links. If it didn't, then your website wouldn't load any CSS properly, and all links to pages within the site would be broken!
+The default setup for GitHub Pages is to serve your website from `https://<username>.github.io/<repo_name>`, rather than from `https://<username>.github.io/` . Because of that, comic\_git builds all its links in your website (including the ones to CSS and JavaScript files necessary to run the site) by prepending whatever value you put in your "Comic subdirectory" config option above to all links. If it didn't, then your website wouldn't load any CSS properly, and all links to pages within the site would be broken!
 
 If you're hosting directly from the root of your domain (e.g., `https://www.tamberlanecomic.com`), and your "Comic subdirectory" config option is blank, then you do not need this in-place preview workflow at all. You can simply serve the default `build` folder directly as described above.
 {% endhint %}

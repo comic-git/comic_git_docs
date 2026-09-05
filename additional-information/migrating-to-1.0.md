@@ -53,21 +53,21 @@ If you have heavily customized your website (e.g., by making a [Theme](../advanc
 
 This is the list of changes to the names of HTML elements and Jinja variables. Update these in any custom templates you may have.
 
-1. `#page-title` is now `#post-title`&#x20;
+1. `#page-title` is now `#post-title`
 2. The following attributes for each `page` object have changed. These attributes are used by default in the comic and archive templates.
-   1. `page_title` -> `_title`&#x20;
-   2. `post_date` -> `_post_date`&#x20;
+   1. `page_title` -> `_title`
+   2. `post_date` -> `_post_date`
    3. `storyline` -> `_storyline`
-   4. `characters` -> `_characters`&#x20;
+   4. `characters` -> `_characters`
    5. `alt_text` -> `escaped_alt_text`
       1. This one is not strictly required, but this way nonstandard characters in your alt text will render properly.
-3. Comic pages now support a list of comic images, arranged in alphabetical order. `comic_path`  as a single filepath has been replaced by `comic_paths` as a list of filepaths. If you plan to only ever have one comic image per page, you can replace any use of `comic_path` in your templates with `comic_path[0]`. Otherwise, you should use a for loop to iterate through all the images properly. See the [comic.tpl file in comic\_git\_engine](https://github.com/comic-git/comic_git_engine/blob/master/templates/comic.tpl#L26) for an example of how to do that.
+3. Comic pages now support a list of comic images, arranged in alphabetical order. `comic_path`  as a single filepath has been replaced by `comic_paths` as a list of filepaths. If you plan to only ever have one comic image per page, you can replace any use of `comic_path` in your templates with `comic_path[0]`. Otherwise, you should use a for loop to iterate through all the images properly. See the [comic.tpl file in comic\_git\_engine](https://github.com/comic-git/comic_git_engine/blob/latest/templates/comic.tpl#L26) for an example of how to do that.
 4. The following IDs have become classes:
    1. `comic-image`
-   2. `navigation-bar`&#x20;
+   2. `navigation-bar`
 5. Anchors to sections on the Archives page now have `archive-section-` prepended to them. E.g., `#archive-section-chapter-3`.
 6. All references to files in your `src` directory should now either point to files in `comic_git_engine` or you should move those files to your [Theme](../advanced-editing/themes.md) directory.
-   1. For example, script elements that load the module `/src/js/infinite_scroll.js` should instead load `/comic_git_engine/js/infinite_scroll.js`&#x20;
+   1. For example, script elements that load the module `/src/js/infinite_scroll.js` should instead load `/comic_git_engine/js/infinite_scroll.js`
 
 ### Comic Info Changes
 
@@ -80,7 +80,7 @@ This is a list of changes to your [comic\_info.ini file](../basic-editing/editin
 
 Some [code hooks](https://comic-git.gitbook.io/documentation/other-expert-tips#code-hooks) will require an update if you have them defined in your hooks.py file.
 
-1.  `postprocess` now takes three arguments:&#x20;
+1.  `postprocess` now takes three arguments:
 
     ```
     comic_info, comic_data_dicts, global_values

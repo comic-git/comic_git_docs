@@ -26,7 +26,7 @@ You may also want to add a link to your extra comic from the Links bar. Under [\
 
 And you're done! Push your changes to GitHub, and your extra comic will be available to browse!
 
-To start with, the only pages published for your extra comic are the comic pages themselves. No home page, no archive page, etc. That means when you link to your extra comic, you'll want to link directly to one of the comic pages. So, for example, linking to the first page in the extra comic in the images above would be `/sidestory/comic/001/` or `http://<your username>.github.io/<your repo name>/sidestory/comic/001/#comic-page`.
+To start with, the only pages published for your extra comic are the comic pages themselves. No home page, no archive page, etc. That means when you link to your extra comic, you'll want to link directly to one of the comic pages. So, for example, linking to the first page in the extra comic in the images above would be `/sidestory/comic/001/` or `https://<your username>.github.io/<your repo name>/sidestory/comic/001/#comic-image-1`.
 
 If you want your Extra Comic to have its own RSS behavior, such as its own feed file or being included in the main comic's RSS feed, see [Adding an RSS Feed](adding-an-rss-feed.md#advanced-rss-feeds-for-extra-comics).
 
@@ -57,6 +57,8 @@ This is also where you would add a link to an Extra Comic's RSS feed if you want
 ### Changing your Extra Comic's Settings
 
 By default, your extra comics inherit all the settings from your main comic. This includes all the settings found in the `comic_info.ini` file, like whether or not to use thumbnails for your archive page, the date formats, and your Google Analytics ID.
+
+An Extra Comic may use `comic_info.toml` instead. If both formats exist in that Extra Comic folder, TOML is its complete override source; missing settings still inherit from the main comic. See [TOML Configuration](toml-configuration.md).
 
 If you want to change any of these values for your extra comic, you just need to add that line to your extra comic's `comic_info.ini` file.
 

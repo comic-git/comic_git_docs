@@ -3,7 +3,7 @@
 {% hint style="warning" %}
 **Read This First**
 
-These pages walk you through the first steps of setting your own webcomic up with comic\_git and are intended to be read and completed in order.&#x20;
+These pages walk you through the first steps of setting your own webcomic up with comic\_git and are intended to be read and completed in order.
 
 The steps described in the Getting Started section also **must** be completed before any other section, so please be sure to start at the beginning.
 {% endhint %}
