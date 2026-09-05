@@ -433,8 +433,9 @@ If set to `True`, a thumbnail can be generated from the first image of each comi
 
 <summary>Thumbnail size</summary>
 
-* Required
+* Optional
 * Value: `string`: see below
+* Default: `10%`
 
 The size of the thumbnail to be generated. This can be a width/height pair in pixels like `100, 36`, a percentage of the size of the original image like `10%`, a set height in pixels (`100h`), or a set width in pixels (`100w`). For the latter two options, comic\_git will keep the aspect ratio of the original image the same, adjusting to fit just your defined height or width.
 
@@ -444,8 +445,9 @@ The size of the thumbnail to be generated. This can be a width/height pair in pi
 
 <summary>Overwrite existing images</summary>
 
-* Required
+* Optional
 * Value: `boolean`: `True` or `False`
+* Default: `False`
 
 When set to `False` and a generated thumbnail already exists in the comic page's folder, comic\_git will not recreate it. When set to `True`, comic_git regenerates conventional and automatically named thumbnails when thumbnail creation is enabled. A thumbnail filename explicitly configured for a page or image is user-owned and is never overwritten.
 
