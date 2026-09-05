@@ -435,7 +435,7 @@ If set to `True`, a thumbnail can be generated from the first image of each comi
 
 * Optional
 * Value: `string`: see below
-* Default: `10%`
+* Default: `100w`
 
 The size of the thumbnail to be generated. This can be a width/height pair in pixels like `100, 36`, a percentage of the size of the original image like `10%`, a set height in pixels (`100h`), or a set width in pixels (`100w`). For the latter two options, comic\_git will keep the aspect ratio of the original image the same, adjusting to fit just your defined height or width.
 
