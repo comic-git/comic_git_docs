@@ -19,7 +19,7 @@ Setting up your webring in comic_git is really simple, and only requires two ste
 If someone else already created the webring JSON file, and you only need to connect your own comic_git site to it, you can skip ahead to [updating your comic_info.ini](webring.md#update-your-comic_infoini).
 {% endhint %}
 
-Upload a `webring.json` file to somewhere out on the publicly accessible internet. It could be Dropbox link, a file on another website, or even hosted from your own comic_git site. But it should be an absolute URL, meaning it should start with `https://`.  
+Upload a `webring.json` file to somewhere out on the publicly accessible internet. It could be Dropbox link, a file on another website, or even hosted from your own comic_git site. But it should be an absolute URL, meaning it should start with `https://`.
 
 This gives not only you but every website on that webring access to the same webring data.
 

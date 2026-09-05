@@ -53,4 +53,3 @@
 ***
 
 * [Contributors](contributors.md)
-
