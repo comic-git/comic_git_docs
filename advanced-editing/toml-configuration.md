@@ -30,7 +30,7 @@ timezone = "America/Los_Angeles"
 
 [archive]
 use_thumbnails = true
-entry_mode = "pages"
+list_images_separately = false
 
 [[links]]
 name = "Archive"
@@ -48,7 +48,7 @@ The supported tables correspond to the sections documented in [Editing your Comi
 | `[engine]`           | `version`                                                                                                                                     |
 | `[comic]`            | `name`, `author`, `description`                                                                                                               |
 | `[site]`             | `theme`, `banner_image`, `date_format`, `timezone`, `comic_domain`, `comic_subdirectory`, `extra_comics`, `on_comic_click`, `markdown_extras` |
-| `[archive]`          | `date_format`, `use_thumbnails`, `show_uncategorized_comics`, `show_text_only_posts`, `entry_mode`, `image_title_fallback`                    |
+| `[archive]`          | `date_format`, `use_thumbnails`, `show_uncategorized_comics`, `show_text_only_posts`, `list_images_separately`, `image_title_fallback`         |
 | `[navigation]`       | `use_images`, `above_comic`, `below_comic`, `below_blurb`                                                                                     |
 | `[transcripts]`      | `enabled`, `load_from_comic_folder`, `folder`, `default_language`                                                                             |
 | `[image_processing]` | `create_thumbnails`, `overwrite_existing_images`, `thumbnail_size`                                                                            |
@@ -104,7 +104,8 @@ filename = "page-2.png"
 
 Important differences from `info.ini` pages:
 
-* `post_date` must use `YYYY-MM-DD`.
+* `post_date` accepts an ISO date or timestamp. You can use a quoted value such as `"2026-09-04T14:30:00-07:00"`, or TOML's unquoted date and datetime values.
+* A timestamp without a timezone uses the comic's configured timezone. A timestamp with `Z` or an offset represents that exact time and is converted to the comic's timezone for display.
 * Every image must be listed in an ordered `[[images]]` table. TOML pages do not auto-discover images.
 * An image's optional `title`, `alt_text`, and `thumbnail` override page-level fallbacks.
 * Inline `post_text`, `[transcripts]`, and `[social_media]` replace that page's `post.txt`, transcript files, and `social_media.json`.

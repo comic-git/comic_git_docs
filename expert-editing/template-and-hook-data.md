@@ -11,7 +11,7 @@ Comic templates receive a `page` object and an `images` list. Common values are:
 | `page.page_name`                                                     | The comic page folder name and URL identifier |
 | `page.url`                                                           | The published URL path for the page           |
 | `page.title`                                                         | The resolved page title                       |
-| `page.post_date`                                                     | The source date in `YYYY-MM-DD` form          |
+| `page.post_date`                                                     | The normalized ISO date or datetime           |
 | `page.display_post_date`                                             | The date formatted for the comic page         |
 | `page.archive_post_date`                                             | The date formatted for the archive            |
 | `page.images` or `images`                                            | The ordered list of image objects             |
@@ -55,7 +55,7 @@ A simple image loop looks like this:
 
 `storylines` is grouped by storyline name, with each item represented by an archive-entry object. Archive entries provide `page_name`, `page_url`, `post_date`, `title`, `thumbnail_path`, optional `image`, and optional `image_index`.
 
-In page archive mode there is one entry per page. In image archive mode there is one entry per image, while an included text-only page still has one entry without an image.
+When `list_images_separately` is false, there is one Archive entry per page. When it is true, there is one entry per image, while an included text-only page still has one entry without an image.
 
 ## Global template values
 

@@ -64,10 +64,12 @@ If this option isn't present, comic\_git uses the filename (minus the extension)
 <summary>Post date</summary>
 
 * Required
-* Value: `string`: date comic is posted, matching date format
+* Value: `string`: date and optional time when the comic is posted
 * Example: `November 27, 2019`
 
-The date and/or time your comic is posted. This should match the format defined in your `comic_info.ini` file, as described in [Editing your Comic Info](editing-your-comic-info.md#date-format). If you have not changed that option in your `comic_info.ini`, just use the same format already in the file.
+The date and/or time your comic is posted. The simplest choice is to match the format defined in your `comic_info.ini`, as described in [Editing your Comic Info](editing-your-comic-info.md#date-format). If you have not changed that option, just use the same format already in the file.
+
+You can also use a standard date like `2026-09-04` or a timestamp like `2026-09-04T14:30:00`. A timestamp without a timezone uses the **Timezone** from your comic settings. To specify the timezone as part of the timestamp, add `Z` for UTC or an offset, such as `2026-09-04T14:30:00-07:00`.
 
 {% hint style="warning" %}
 If you're using the default date format, don't forget the comma after the day!

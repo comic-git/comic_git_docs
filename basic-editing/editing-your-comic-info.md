@@ -90,10 +90,10 @@ Version releases are tracked on [comic\_git\_engine's Releases](https://github.c
 * Required
 * Value: `string`: date format using [Python %-substitutions](https://docs.python.org/3/library/time.html#time.strftime)
 
-This is the date format that all your comic Post dates will be in. The default format accepts dates written like `July 20, 1969`. You can change the format to any you prefer.
+This controls how dates are normally written in your page files and how comic\_git displays them. The default format accepts dates written like `July 20, 1969`. You can change the format to any you prefer.
 
 {% hint style="warning" %}
-Be aware that you need to manually type in the date when adding a comic Post, and that date **must** match the format specified here. The format is specified here so that comic\_git knows how to order your comics chronologically based on the dates in each Post.
+When adding a comic Post, the simplest choice is to match the format specified here. comic\_git also accepts standard dates such as `1969-07-20` and timestamps such as `1969-07-20T20:17:00Z`. It uses the date and time to put your comics in chronological order.
 {% endhint %}
 
 {% hint style="info" %}
@@ -350,7 +350,7 @@ When set to `true`, this will place a navigation bar below the blurb containing 
 * Required
 * Value: `boolean`: `True` or `False`
 
-When this value is `False`, the Archive page displays entries in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When it is `True`, the Archive displays a thumbnail grid. In the default page entry mode, each page uses its explicit page thumbnail or the conventional `_thumbnail.jpg`. Image entry mode can resolve or generate a thumbnail for each image.
+When this value is `False`, the Archive page displays entries in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When it is `True`, the Archive displays a thumbnail grid. When images are not listed separately, each page uses its explicit page thumbnail or the conventional `_thumbnail.jpg`. When images are listed separately, comic\_git can resolve or generate a thumbnail for each image.
 
 You can either create your own thumbnails or use comic\_git's built-in thumbnail generation as described in the [\[Image Reprocessing\]](editing-your-comic-info.md#image-reprocessing) section below.
 
@@ -382,13 +382,13 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 
 <details>
 
-<summary>Entry mode</summary>
+<summary>List images separately</summary>
 
 * Optional
-* Value: `Pages` or `Images`
-* Default: `Pages`
+* Value: `boolean`: `True` or `False`
+* Default: `False`
 
-`Pages` creates one Archive entry for each comic page. `Images` creates a separate Archive entry for every image on a page. Text-only pages can also appear in image mode depending on **Show text-only posts**.
+When this is `False`, the Archive has one entry for each comic page. Set it to `True` to give every image on a page its own Archive entry. **Show text-only posts** controls whether pages without images are also included when this option is `True`.
 
 </details>
 
@@ -400,7 +400,7 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 * Value: `boolean`: `True` or `False`
 * Default: `True`
 
-Controls whether pages without comic images appear when **Entry mode** is `Images`. Page mode always includes text-only pages.
+Controls whether pages without comic images appear when **List images separately** is `True`. When images are not listed separately, text-only pages are always included.
 
 </details>
 
@@ -425,7 +425,7 @@ Controls the Archive title for an image that does not define its own title. `Pag
 * Required
 * Value: `boolean`: `True` or `False`
 
-If set to `True`, a thumbnail can be generated from the first image of each comic page. The conventional page thumbnail is named `_thumbnail.jpg`. When Archive **Entry mode** is `Images` and thumbnails are enabled, comic_git can also generate separate thumbnails for later images.
+If set to `True`, a thumbnail can be generated from the first image of each comic page. The conventional page thumbnail is named `_thumbnail.jpg`. When Archive **List images separately** is `True` and thumbnails are enabled, comic_git can also generate separate thumbnails for later images.
 
 </details>
 

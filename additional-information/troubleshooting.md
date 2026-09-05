@@ -67,7 +67,7 @@ After you're done troubleshooting, you can remove the `COMIC_GIT_LOG_LEVEL` line
 
 #### TOML configuration errors
 
-When a `comic_info.toml` or page `info.toml` file exists, comic_git uses it instead of the matching INI file. An error naming an unsupported TOML key usually means a setting is misspelled or is in the wrong table. Page `post_date` must use `YYYY-MM-DD`, and page `images` must be an ordered list of `[[images]]` tables.
+When a `comic_info.toml` or page `info.toml` file exists, comic_git uses it instead of the matching INI file. An error naming an unsupported TOML key usually means a setting is misspelled or is in the wrong table. Page `post_date` must be an ISO date or timestamp, and page `images` must be an ordered list of `[[images]]` tables.
 
 See [TOML Configuration](../advanced-editing/toml-configuration.md) for examples and migration safety steps. If you have not intentionally migrated a page, check whether an unfinished TOML file is taking precedence over the legacy files you expected comic_git to read.
 

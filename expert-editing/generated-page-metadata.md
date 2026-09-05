@@ -22,7 +22,7 @@ The top level contains:
 | `scheduled_post_count`     | Number of future-dated pages omitted from this build |
 | `pages`                    | Published pages in chronological order               |
 
-Each page includes its stable comic/page ID, page-folder name, URL, resolved title, ISO post date, optional thumbnail URL, storyline, characters, tags, transcript languages, ordered images, and public custom `extra` values.
+Each page includes its stable comic/page ID, page-folder name, URL, resolved title, ISO post date or timestamp, optional thumbnail URL, storyline, characters, tags, transcript languages, ordered images, and public custom `extra` values.
 
 Each image includes:
 

@@ -146,7 +146,7 @@ The public `comic/page_info_list.json` file now contains a versioned document wi
 
 ### Archive behavior has new options
 
-The Archive defaults to one entry per page. You can opt into one entry per image with `Entry mode = Images`. In image mode, `Show text-only posts` controls whether pages without images remain listed, and `Image title fallback` controls titles for images without their own title.
+The Archive defaults to one entry per page. You can opt into one entry per image with `List images separately = True`. When images are listed separately, `Show text-only posts` controls whether pages without images remain listed, and `Image title fallback` controls titles for images without their own title.
 
 Existing sites retain page-based behavior unless they enable the new mode. See the [Archive settings](../basic-editing/editing-your-comic-info.md#archive).
 
