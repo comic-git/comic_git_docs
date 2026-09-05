@@ -519,10 +519,12 @@ Both this option and **Load transcripts from comic folder** can be set, so you c
 <summary>Tracking ID</summary>
 
 * Optional
-* Value: `string`: your Google Analytics tracking ID
+* Value: `string`: your Google Analytics 4 tag ID
 * Default: none
 
-If you have set up a [Google Analytics](https://analytics.google.com) for your comic, you can put the Tracking ID here (for example, UA-123456789-0) and comic\_git will automatically insert the analytics tracking code on all pages of your website.
+This option is retained for sites already using comic\_git's Google Analytics integration. When set, comic\_git immediately loads the Google tag on every page. It does not provide a consent banner or another way for visitors to accept, decline, or later change their analytics choice.
+
+Do not enable this option unless you have separately provided the [privacy disclosures and consent behavior](https://developers.google.com/tag-platform/security/concepts/consent-mode) appropriate for your site and its visitors. [Universal Analytics](https://support.google.com/analytics/answer/10089681) IDs beginning with `UA-` no longer collect data; current Google Analytics 4 IDs normally begin with `G-`.
 
 </details>
 

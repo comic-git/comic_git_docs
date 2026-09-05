@@ -56,7 +56,7 @@ This is also where you would add a link to an Extra Comic's RSS feed if you want
 
 ### Changing your Extra Comic's Settings
 
-By default, your extra comics inherit all the settings from your main comic. This includes all the settings found in the `comic_info.ini` file, like whether or not to use thumbnails for your archive page, the date formats, and your Google Analytics ID.
+By default, your extra comics inherit all the settings from your main comic. This includes settings found in the `comic_info.ini` file, such as whether to use thumbnails for your archive page and how dates are formatted.
 
 An Extra Comic may use `comic_info.toml` instead. If both formats exist in that Extra Comic folder, TOML is its complete override source; missing settings still inherit from the main comic. See [TOML Configuration](toml-configuration.md).
 
