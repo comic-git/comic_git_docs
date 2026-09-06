@@ -39,6 +39,38 @@ configparser.NoOptionError: No option 'Comic name' in section: 'Comic Info'
 
 This is called a "Traceback" and it looks very intimidating, but the only part you should concern yourself with are the last two lines. This explains the error the script is running into, and hints at what you can do to fix it. I've provided a few common errors, their most common causes, and the recommended fix.
 
+#### Changing how much build logging you see
+
+comic\_git normally shows `INFO`-level build logs. This is the best default for most GitHub Actions runs: it shows the major build steps and useful warnings without filling the log with internal details.
+
+If you're troubleshooting a confusing build problem, you can change the log level by passing `COMIC_GIT_LOG_LEVEL` through the `INPUTS` section of your `.github/workflows/main.yaml` file:
+
+```
+jobs:
+  call-build-site:
+    uses: comic-git/comic_git_engine/.github/workflows/build_site.yaml@v1.1
+    with:
+      INPUTS: |
+        COMIC_GIT_LOG_LEVEL: DEBUG
+```
+
+Useful values are:
+
+| Log level | When to use it |
+|-----------|----------------|
+| `DEBUG`   | Use this when you're actively troubleshooting and need extra internal details, such as page metadata, template search paths, or hook-related setup. |
+| `INFO`    | The default. Use this for normal builds and most troubleshooting. |
+| `WARNING` | Use this if you only want to see things that may need attention, such as skipped files or risky build conditions. |
+| `ERROR`   | Use this when you only want build errors. This is usually too quiet for troubleshooting. |
+
+After you're done troubleshooting, you can remove the `COMIC_GIT_LOG_LEVEL` line or set it back to `INFO`.
+
+#### TOML configuration errors
+
+When a `comic_info.toml` or page `info.toml` file exists, comic_git uses it instead of the matching INI file. An error naming an unsupported TOML key usually means a setting is misspelled or is in the wrong table. Page `post_date` must be an ISO date or timestamp, and page `images` must be an ordered list of `[[images]]` tables.
+
+See [TOML Configuration](../advanced-editing/toml-configuration.md) for examples and migration safety steps. If you have not intentionally migrated a page, check whether an unfinished TOML file is taking precedence over the legacy files you expected comic_git to read.
+
 <table><thead><tr><th valign="top">Error</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top">configparser.NoOptionError: No option '&#x3C;option>' in section: '&#x3C;section>'</td><td valign="top">This usually means you've accidentally deleted a line when updating your <code>comic_info.ini</code> file. Check the Editing Your Comic Info page and make sure you have all the necessary options set.</td></tr><tr><td valign="top">KeyError: '&#x3C;key>'</td><td valign="top">This is usually caused by the same issue as the above, though instead the missing option is in one of the <code>info.ini</code> files for a particular comic. Check the Adding Comic Pages page and make sure you have all the necessary options set.</td></tr><tr><td valign="top">ValueError: Not a boolean: &#x3C;value></td><td valign="top">In this case, you've set a value that should only be <code>True</code> or <code>False</code> to something else. Search your config files for the string shown in &#x3C;value> in the given error, and fix that.</td></tr><tr><td valign="top">configparser.ParsingError: Source contains parsing errors: '&#x3C;text>'<br>    [line #]: '&#x3C;text>'</td><td valign="top">You've fat-fingered something in one of your config files, usually in the space between two config sections. Check your config files for any accidental changes.</td></tr><tr><td valign="top">ValueError: time data '&#x3C;date>' does not match format '&#x3C;format string>'</td><td valign="top">You've likely pushed a comic update with a Post date that doesn't match the <code>Date format</code> option in your comic_info.ini. Or, you made a change to the same option that doesn't match one of your comic's Post dates. Either fix the format string, or fix the Post date for the comic page that's having issues.</td></tr><tr><td valign="top">ValueError: unconverted data remains: &#x3C;text></td><td valign="top">Same as above.</td></tr><tr><td valign="top">FileNotFoundError: [Errno 2] No such file or directory: 'your_content/comics/&#x3C;page name>/&#x3C;filename>'</td><td valign="top">You've either provided an incorrect Filename in one of your <code>info.ini</code> files, or forgotten to copy the comic file into that folder.</td></tr></tbody></table>
 
 ### Check if GitHub Pages Has Deployed

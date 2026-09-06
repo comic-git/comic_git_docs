@@ -44,7 +44,7 @@ You now have two different URLs to keep track of: Your GitHub repository URL and
 
 **Example:**
 
-* GitHub account name: **comicgitdemo**&#x20;
+* GitHub account name: **comicgitdemo**
 * Repository name: **bestcomic**
 * GitHub repository URL: https://github.com/**comicgitdemo**/**bestcomic**
 * GitHub Pages URL: https://**comicgitdemo**.github.io/**bestcomic**

@@ -8,6 +8,8 @@ If you're setting up comic\_git for the first time and you just want to get star
 
 When setting up comic\_git, there are some critical things you need to do to identify your comic, like give it a name or set up what links go in the Links Bar. comic\_git also supports a few extra features that can be enabled for your project, like automatically generating thumbnails for your comic pages. All these settings can be adjusted in the `comic_info.ini` file in the `your_content` folder.
 
+comic_git also supports `comic_info.toml`. The traditional INI file remains the simplest choice for most users and continues to be fully supported. If you want structured lists or plan to use future CMS tooling, see [TOML Configuration](../advanced-editing/toml-configuration.md). When both files exist, `comic_info.toml` takes precedence as the complete comic configuration.
+
 <figure><img src="../.gitbook/assets/editing01_comic_info.png" alt=""><figcaption></figcaption></figure>
 
 This is a standard [.ini file](https://en.wikipedia.org/wiki/INI_file) that may be familiar to you if you've ever edited config files for other programs. If you haven't seen one before, it's just a text file with a special purpose, and you can edit it in Notepad or whichever text editor you're comfortable with.
@@ -44,7 +46,7 @@ This is the name of your comic. The comic name shows up in the tab every time a 
 * Required
 * Value: `string`: your authorial name
 
-Whatever name or credit you wish to give for the creation of your comic. It can be a single name, a list of names, a sentence, whatever you want. It's currently only used when generating your [RSS Feed](../advanced-editing/extra-features.md#adding-an-rss-feed).
+Whatever name or credit you wish to give for the creation of your comic. It can be a single name, a list of names, a sentence, whatever you want. It's currently used when generating your [RSS Feed](../advanced-editing/adding-an-rss-feed.md).
 
 </details>
 
@@ -55,7 +57,7 @@ Whatever name or credit you wish to give for the creation of your comic. It can 
 * Required
 * Value: `string`: your description
 
-A short, one-sentence description of your web comic. This will show up in your [RSS feed](../advanced-editing/extra-features.md#adding-an-rss-feed) and [social media previews](../advanced-editing/extra-features.md#adding-social-media-previews).
+A short, one-sentence description of your web comic. This will show up in your [RSS feed](../advanced-editing/extra-features.md#adding-an-rss-feed) and [social media previews](../advanced-editing/social-media-previews.md).
 
 </details>
 
@@ -70,8 +72,8 @@ A short, one-sentence description of your web comic. This will show up in your [
 
 This is used to determine which version of comic\_git is used to build your site. The possible values are:
 
-* **Version**: By default, this value is set to version `1.0`. Every time your site builds, this pulls the latest iteration of 1.0, such as 1.0.1, 1.0.2, and so on. This is the **recommended** setting to use if you want to get bug fixes automatically without future updates breaking your site. If and when comic\_git is updated to 1.1, you'll need to change this to get the features that may be included with that.
-* **Exact version**: If you have a need to use one particular version, specify it by using the full version number; for example, `1.0.3`. Your site will stay on that version and not receive any future bug fixes or version updates until you edit this again.
+* **Minor version**: Set this to `1.1` to receive compatible 1.1 patch releases such as 1.1.1 and 1.1.2 automatically. This is the **recommended** setting for most users.
+* **Exact version**: To pin one release, use its full version number, such as `1.1.0`. Your site will stay on that version until you edit this value again.
 * `latest`: Your site will always get the latest released version of comic\_git, even if it's an update that could potentially break your site. If you want to automatically keep up with updates as they come out and don't mind fixing your site to adjust for new versions, this is a good option.
 * `master`: Keep up with every single new change to comic\_git, no matter how minor or untested. Only recommended for troubleshooting.
 
@@ -88,10 +90,10 @@ Version releases are tracked on [comic\_git\_engine's Releases](https://github.c
 * Required
 * Value: `string`: date format using [Python %-substitutions](https://docs.python.org/3/library/time.html#time.strftime)
 
-This is the date format that all your comic Post dates will be in. The default format accepts dates written like `July 20, 1969`. You can change the format to any you prefer.
+This controls how dates are normally written in your page files and how comic\_git displays them. The default format accepts dates written like `July 20, 1969`. You can change the format to any you prefer.
 
 {% hint style="warning" %}
-Be aware that you need to manually type in the date when adding a comic Post, and that date **must** match the format specified here. The format is specified here so that comic\_git knows how to order your comics chronologically based on the dates in each Post.
+When adding a comic Post, the simplest choice is to match the format specified here. comic\_git also accepts standard dates such as `1969-07-20` and timestamps such as `1969-07-20T20:17:00Z`. It uses the date and time to put your comics in chronological order.
 {% endhint %}
 
 {% hint style="info" %}
@@ -131,7 +133,7 @@ All timezones found in the TZ Identifier column on the [TZ database time zones W
 * Value: `string`: URL of domain
 * Default: none
 
-If you are building your website locally, and you haven't configured a custom domain, you must set this so that comic\_git knows what domain to use to build the URL to link to your comic, for the purposes of things like your RSS feed and your social media preview links. For more details, see [Building your Website on your own PC](../expert-editing/other-expert-tips.md#building-your-website-on-your-own-pc).
+If you are building your website locally, and you haven't configured a custom domain, you must set this so that comic\_git knows what domain to use to build the URL to link to your comic, for the purposes of things like your RSS feed and your social media preview links. For more details, see [Building Your Website On Your Own PC](../expert-editing/building-your-website-on-your-own-pc.md).
 
 This option should include your website's entire domain, subdomain, and top-level domain. Do not include the slash at the end. You may include the "http://" or "https://" if you wish.
 
@@ -147,7 +149,7 @@ Examples: `https://ryanvilbrandt.github.io`, `www.tamberlanecomic.com`
 * Value: `string`: name of GitHub repo
 * Default: none
 
-If you're building your website locally and you have not set a custom domain, you must set this to the name of your GitHub repository. This allows most of the links on your website to function properly. For more details, see [Building your Website on your own PC](../expert-editing/building-your-website-on-your-own-pc.md).
+If you're building your website locally, and you have not set a custom domain, you must set this to the name of your GitHub repository. This allows most of the links on your website to function properly. For more details, see [Building your Website on your own PC](../expert-editing/building-your-website-on-your-own-pc.md).
 
 This option should not include leading or trailing slashes.
 
@@ -348,7 +350,7 @@ When set to `true`, this will place a navigation bar below the blurb containing 
 * Required
 * Value: `boolean`: `True` or `False`
 
-When this value is `False`, the Archive page will display all the comics in your archive in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When this value is `True`, the Archive page will display all the comics in your archive in a grid of comic thumbnails. When looking for thumbnails, the Archive page looks in each comic directory for a thumbnail image by the name of `_thumbnail.jpg`
+When this value is `False`, the Archive page displays entries in an [unordered list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul), broken up by storyline. When it is `True`, the Archive displays a thumbnail grid. When images are not listed separately, each page uses its explicit page thumbnail or the conventional `_thumbnail.jpg`. When images are listed separately, comic\_git can resolve or generate a thumbnail for each image.
 
 You can either create your own thumbnails or use comic\_git's built-in thumbnail generation as described in the [\[Image Reprocessing\]](editing-your-comic-info.md#image-reprocessing) section below.
 
@@ -378,6 +380,42 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 
 </details>
 
+<details>
+
+<summary>List images separately</summary>
+
+* Optional
+* Value: `boolean`: `True` or `False`
+* Default: `False`
+
+When this is `False`, the Archive has one entry for each comic page. Set it to `True` to give every image on a page its own Archive entry. **Show text-only posts** controls whether pages without images are also included when this option is `True`.
+
+</details>
+
+<details>
+
+<summary>Show text-only posts</summary>
+
+* Optional
+* Value: `boolean`: `True` or `False`
+* Default: `True`
+
+Controls whether pages without comic images appear when **List images separately** is `True`. When images are not listed separately, text-only pages are always included.
+
+</details>
+
+<details>
+
+<summary>Image title fallback</summary>
+
+* Optional
+* Value: `Page title` or `Filename`
+* Default: `Page title`
+
+Controls the Archive title for an image that does not define its own title. `Page title` uses the page title when available; `Filename` uses the image filename without its extension.
+
+</details>
+
 ## \[Image Reprocessing]
 
 <details>
@@ -387,7 +425,7 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 * Required
 * Value: `boolean`: `True` or `False`
 
-If set to `True`, thumbnails will be generated for each comic page. The files will be located in each page directory in `/your_content/comics` named `_thumbnail.jpg`.
+If set to `True`, a thumbnail can be generated from the first image of each comic page. The conventional page thumbnail is named `_thumbnail.jpg`. When Archive **List images separately** is `True` and thumbnails are enabled, comic_git can also generate separate thumbnails for later images. SVG and EPS comic images cannot be converted into thumbnails automatically; add a JPEG or PNG thumbnail yourself if you want one for those images.
 
 </details>
 
@@ -395,8 +433,9 @@ If set to `True`, thumbnails will be generated for each comic page. The files wi
 
 <summary>Thumbnail size</summary>
 
-* Required
+* Optional
 * Value: `string`: see below
+* Default: `100w`
 
 The size of the thumbnail to be generated. This can be a width/height pair in pixels like `100, 36`, a percentage of the size of the original image like `10%`, a set height in pixels (`100h`), or a set width in pixels (`100w`). For the latter two options, comic\_git will keep the aspect ratio of the original image the same, adjusting to fit just your defined height or width.
 
@@ -406,16 +445,19 @@ The size of the thumbnail to be generated. This can be a width/height pair in pi
 
 <summary>Overwrite existing images</summary>
 
-* Required
+* Optional
 * Value: `boolean`: `True` or `False`
+* Default: `False`
 
-When set to `False` and a thumbnail already exists in the comic page's folder, comic\_git will not attempt to recreate the thumbnail. When set to `True`, comic\_git will always attempt to generate a thumbnail, assuming creating these files is enabled via one of the options above.
+When set to `False` and a generated thumbnail already exists in the comic page's folder, comic\_git will not recreate it. When set to `True`, comic_git regenerates conventional and automatically named thumbnails when thumbnail creation is enabled. A thumbnail filename explicitly configured for a page or image is user-owned and is never overwritten.
 
 </details>
 
 ## \[RSS Feed]
 
 This section is covered in [Adding an RSS Feed](../advanced-editing/adding-an-rss-feed.md). If you don't need to create an RSS feed, you can leave this section alone.
+
+Advanced RSS options, including RSS feeds for [Extra Comics](../advanced-editing/extra-comics.md), are also described there.
 
 ## \[Transcripts]
 
@@ -477,10 +519,12 @@ Both this option and **Load transcripts from comic folder** can be set, so you c
 <summary>Tracking ID</summary>
 
 * Optional
-* Value: `string`: your Google Analytics tracking ID
+* Value: `string`: your Google Analytics 4 tag ID
 * Default: none
 
-If you have set up a [Google Analytics](https://analytics.google.com) for your comic, you can put the Tracking ID here (for example, UA-123456789-0) and comic\_git will automatically insert the analytics tracking code on all pages of your website.
+This option is retained for sites already using comic\_git's Google Analytics integration. When set, comic\_git immediately loads the Google tag on every page. It does not provide a consent banner or another way for visitors to accept, decline, or later change their analytics choice.
+
+Do not enable this option unless you have separately provided the [privacy disclosures and consent behavior](https://developers.google.com/tag-platform/security/concepts/consent-mode) appropriate for your site and its visitors. [Universal Analytics](https://support.google.com/analytics/answer/10089681) IDs beginning with `UA-` no longer collect data; current Google Analytics 4 IDs normally begin with `G-`.
 
 </details>
 

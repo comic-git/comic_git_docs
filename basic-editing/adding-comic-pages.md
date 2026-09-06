@@ -10,7 +10,7 @@ Open the `comics` directory. When you created your own comic\_git repository in 
 
 You can rename this page's folder to whatever you want, but be aware that it will show up in the URL for that page. E.g. **https://\[username].github.io/\[repo name]/comic/Page 1/**
 
-Open the new directory you've created, and you should see a few files: `English.txt`,  `info.ini`, `post.txt`, and an image file.
+Open the new directory you've created, and you should see a few files: `English.txt`, `info.ini`, `post.txt`, and an image file. These files are the traditional page format and remain fully supported. You can optionally replace them with one `info.toml` file as described in [TOML Configuration](../advanced-editing/toml-configuration.md#comic-pages).
 
 <figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
@@ -18,7 +18,7 @@ Open the new directory you've created, and you should see a few files: `English.
 
 First things first, delete the existing image file and copy whatever image file you want to use for your comic in its place. The name of your comic image file can be anything you want, even the same name as other comic image files in other folders. However, keep in mind that comic\_git will use the name of your comic image as the title for that page, unless you specify otherwise (see the **Page Info** section for more info).
 
-When building your website, comic\_git will search through your comic folders for any image files in the same folder and add them to the web page for that folder. The images will be shown vertically in alphabetical order, according to their filenames.
+For an `info.ini` page, comic\_git searches the page folder for image files and displays them vertically in alphabetical filename order. You can override that order with `Filenames` or with structured image sections. TOML pages list every image explicitly and do not use auto-discovery.
 
 Files with any of the following extensions are considered image files: `jpg`, `jpeg`, `png`, `tif`, `tiff`, `gif`, `bmp`, `webp`, `webv`, `svg`, `eps`
 
@@ -55,7 +55,7 @@ Edit the values in this file to match the comic you are uploading.
 
 The title of this particular comic page.  The page title shows up in the tab every time a page from your website is loaded along with the comic name (for example, **Page 1** - comic\_git Example). It also appears in the info box below the comic on the page itself.
 
-If this option isn't present in the info.ini file, comic\_git will use the filename (minus the extension) of the first image in the list of image files for this comic. See `Filenames` below.
+If this option isn't present, comic\_git uses the filename (minus the extension) of the first image. A text-only page falls back to its page-folder name.
 
 </details>
 
@@ -64,10 +64,12 @@ If this option isn't present in the info.ini file, comic\_git will use the filen
 <summary>Post date</summary>
 
 * Required
-* Value: `string`: date comic is posted, matching date format
+* Value: `string`: date and optional time when the comic is posted
 * Example: `November 27, 2019`
 
-The date and/or time your comic is posted. This should match the format defined in your `comic_info.ini` file, as described in [Editing your Comic Info](editing-your-comic-info.md#date-format). If you have not changed that option in your `comic_info.ini`, just use the same format already in the file.
+The date and/or time your comic is posted. The simplest choice is to match the format defined in your `comic_info.ini`, as described in [Editing your Comic Info](editing-your-comic-info.md#date-format). If you have not changed that option, just use the same format already in the file.
+
+You can also use a standard date like `2026-09-04` or a timestamp like `2026-09-04T14:30:00`. A timestamp without a timezone uses the **Timezone** from your comic settings. To specify the timezone as part of the timestamp, add `Z` for UTC or an offset, such as `2026-09-04T14:30:00-07:00`.
 
 {% hint style="warning" %}
 If you're using the default date format, don't forget the comma after the day!
@@ -97,6 +99,40 @@ The filenames are case sensitive, so be sure to write them in exactly as the fil
 
 </details>
 
+### Structured image settings
+
+An INI page can give each image its own title, alt text, and thumbnail. Add one section per image after the normal page fields:
+
+```ini
+Post date = September 4, 2026
+Title = Chapter One
+Alt text = Fallback alt text for this page
+
+[Image opening]
+Filename = page-1.png
+Title = Opening panel
+Alt text = Alice opens a blue door.
+Thumbnail = page-1-thumbnail.jpg
+
+[Image closing]
+Filename = page-2.png
+```
+
+The text after `Image` is only a label to keep the sections distinct. Image sections appear in file order, and each one requires `Filename`. Do not combine `[Image <label>]` sections with page-level `Filename` or `Filenames`.
+
+Per-image `Title`, `Alt text`, and `Thumbnail` are optional. Missing image alt text uses the page's `Alt text`; missing image titles use the Archive fallback configured in `comic_info.ini`; missing thumbnails use normal thumbnail resolution and generation.
+
+<details>
+
+<summary>Thumbnail</summary>
+
+* Optional
+* Value: `string`: filename relative to the page folder
+
+Sets an explicit thumbnail for the whole page. In the default page-based Archive this is the thumbnail for that page. Explicit thumbnail files are never overwritten by automatic thumbnail generation.
+
+</details>
+
 <details>
 
 <summary>Alt text</summary>
@@ -105,7 +141,7 @@ The filenames are case sensitive, so be sure to write them in exactly as the fil
 * Value: `string`: alt text
 * Example: `Tamberlane, can you sign "ongoing trauma"?`
 
-The text that should show up when the user hovers their mouse over the comic image. This is typically a place used to put fun little comments from the author, or additional jokes. It can also be useful to accessibility tools, like screen readers.
+The default alt text for images on this page. This is used by accessibility tools such as screen readers and may also appear in social-media preview metadata. A structured image can override it with its own `Alt text`.
 
 </details>
 
@@ -117,7 +153,7 @@ The text that should show up when the user hovers their mouse over the comic ima
 * Value: `string`: storyline to attach this page to
 * Example: `Chapter 1`
 
-The name of the current chapter, book, section, or whatever else you use to separate out different parts of your webcomic. This is used when building the Archive page and Infinite Scroll page. If this option is blank, this page will count as not having a storyline and won't show up on the Archive page.
+The name of the current chapter, book, section, or whatever else you use to separate out different parts of your webcomic. This is used when building the Archive and Infinite Scroll pages. If it is blank, the page appears under `Uncategorized` by default; **Show Uncategorized comics** can hide that group.
 
 </details>
 
@@ -129,7 +165,7 @@ The name of the current chapter, book, section, or whatever else you use to sepa
 * Value: `string`: list of comic characters separated by commas
 * Example: `Alice, Bob, Eve`
 
-A comma-separated list of characters on this page. Any character names here will turn into a hyperlink which links to a list of pages with that character in them.
+A comma-separated list of characters on this page. If the `tagged` page is configured, the default comic template links each name to its generated listing. Otherwise the names are shown as plain text.
 
 </details>
 
@@ -141,19 +177,19 @@ A comma-separated list of characters on this page. Any character names here will
 * Value: `string`: list of tags separated by commas
 * Example: `Tag 1, Tag 2, Tag 3`
 
-A comma-separated list of non-character tags. Any tags here will turn into a hyperlink which links to a list of pages with that tag attached to them.
+A comma-separated list of non-character tags. If the `tagged` page is configured, the default comic template links each tag to its generated listing. Otherwise tags are shown as plain text.
 
 {% hint style="danger" %}
 **Invalid Tag Names**
 
 Due to the way comic\_git generates pages for tags and characters, there are some limitations on what characters you can use in your tags and character lists in the info.ini file. Please avoid using any of the following: `\ / : * ? " < > |`
 
-You can however include unicode in your info.ini files. If you look around, you can find some good unicode options to take the place of those characters if you need them. For example, `?` is a unicode version of the standard question mark which won't have the same issues as the standard question mark in a tag name.
+You can however include unicode in your info.ini files. If you look around, you can find some good unicode options to take the place of those characters if you need them. For example, `？` is a thick version of the standard question mark which won't have the same issues as the standard question mark in a tag name.
 {% endhint %}
 
 </details>
 
-When you're done, save and close `info.ini`.
+When you're done, save and close `info.ini`. If you use `info.toml`, save the equivalent page data there instead; comic_git will ignore `info.ini` and the page-local legacy text sources for that page.
 
 ## News Post
 

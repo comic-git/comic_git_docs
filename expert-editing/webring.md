@@ -1,29 +1,46 @@
 # Webring
 
-Do you remember [webrings](https://fanlore.org/wiki/Webring)? It seemed like every Geocities page had one, back in the day. Do you want some of that nostalgia back? Well, good news, comic\_git supports them!
+Do you remember [webrings](https://fanlore.org/wiki/Webring)? It seemed like every Geocities page had one, back in the day. If you want that same kind of shared navigation between comics, comic_git supports it.
 
-To set up a webring, you'll be working with a JSON file. Don't worry if that sounds intimidating, JSON files are just text files with a specific format, like the INI files you've already been working with.
+A comic_git webring is driven by a JSON file that lists all the comics in the ring. Each comic_git site fetches that same JSON file, figures out where its own comic is in the list, and then renders either:
 
-The first thing you'll need is to create a JSON file that's accessible on the public internet somewhere. This file will contain the information for all the sites on the webring, and each site using it will need to access it. See the [JSON File](webring.md#json-file) section below for how to set that up.
-
-Then, you'll need to add a `[Webring]`  section to your `comic_info.ini` file, and add some config options to it. See the [Config Options](webring.md#config-options) section below for more info on that.
-
-After that, just build your website and you should see your webring showing up at the bottom of each page on your website!
+- Previous / Home / Next navigation
+- a full list of all webring members
 
 <div><figure><img src="../.gitbook/assets/image.png" alt=""><figcaption><p>Default layout with Home</p></figcaption></figure> <figure><img src="../.gitbook/assets/image (1).png" alt=""><figcaption><p>"Show all members" with Home</p></figcaption></figure> <figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>Default layout without Home</p></figcaption></figure> <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>"Show all members" without Home</p></figcaption></figure></div>
 
+## How it works
+
+Setting up your webring in comic_git is really simple, and only requires two steps.
+
+### Upload webring.json
+
+{% hint style="info" %}
+If someone else already created the webring JSON file, and you only need to connect your own comic_git site to it, you can skip ahead to [updating your comic_info.ini](webring.md#update-your-comic_infoini).
+{% endhint %}
+
+Upload a `webring.json` file to somewhere out on the publicly accessible internet. It could be Dropbox link, a file on another website, or even hosted from your own comic_git site. But it should be an absolute URL, meaning it should start with `https://`.
+
+This gives not only you but every website on that webring access to the same webring data.
+
+The format for this file is in the [JSON File](webring.md#json-file) section below.
+
+### Update your comic_info.ini
+
+Update your `comic_info.ini` file per the [Config Options](webring.md#config-options) section below.
+
 ## JSON File
 
-The JSON file will contain all the information needed for a site to build its own webring layout. Its structure is important, so make sure to follow the schema defined below.
+The JSON file contains the information needed for each site on the webring to build its own webring layout, all using the same data. Its structure matters, so follow the schema below. Also, all URLs in the JSON file should be absolute URLs, meaning they should start with `https://`.
 
-**Important Note:** If someone else has already created this file and you're just trying to enable the webring on your own comic\_git site, you can skip this section and go right to [Config Options](webring.md#config-options) below.
+### Top-level fields
 
 <details>
 
 <summary>version</summary>
 
 * Required
-* Value: `number`: 1
+* Value: `number`: `1`
 
 </details>
 
@@ -32,10 +49,10 @@ The JSON file will contain all the information needed for a site to build its ow
 <summary>label</summary>
 
 * Optional
-* Value: `string`&#x20;
+* Value: `string`
 * Default: empty string
 
-The name of the header above the webring on the user's site.&#x20;
+The heading shown above the webring on the site.
 
 </details>
 
@@ -44,10 +61,10 @@ The name of the header above the webring on the user's site.&#x20;
 <summary>home</summary>
 
 * Optional
-* Value: `dictionary`&#x20;
+* Value: `dictionary`
 * Default: none
 
-If defined, a link to the webring homepage will be included in the webring layout. Must follow the schema of the [Comic dictionary](webring.md#comic-dictionary) below.
+If defined, a link to the webring homepage will appear in the webring layout. This uses the same structure as the [Comic dictionary](webring.md#comic-dictionary) below, except that it does not need an `id`.
 
 </details>
 
@@ -58,9 +75,9 @@ If defined, a link to the webring homepage will be included in the webring layou
 * Required
 * Value: `list` of dictionaries
 
-A list of all the comics in the webring. Each item in the list must be a dictionary matching the [Comic dictionary](webring.md#comic-dictionary) schema below. The order of the dictionaries in the list defines what comic is the "previous" and "next" links for a given comic.
+A list of all comics in the webring. Each item must match the [Comic dictionary](webring.md#comic-dictionary) schema below.
 
-The list wraps around, so if we take the [Example Payload](webring.md#example-payload) below, for Clara's Cliffside, the "Previous" comic would be Bertrand's Barn and the "Next" comic would be Albert's Atrium.
+The order of this list defines the Previous and Next links for each comic. The list wraps around, so the first and last members connect to each other.
 
 </details>
 
@@ -71,11 +88,11 @@ The list wraps around, so if we take the [Example Payload](webring.md#example-pa
 <summary>id</summary>
 
 * Required
-* Value: `string`&#x20;
+* Value: `string`
 
-Any string uniquely identifying the given comic. It does not have to match the name of the comic. It will be used by a user when setting his [Config Options](webring.md#config-options), so that comic\_git can identify what the "Previous" and "Next" comics will be.
+A unique ID for the comic. This is the value comic_git uses to identify your comic inside the webring member list.
 
-This value is **not** required when defining the dictionary for the `home` entry.
+This value is **not** required for the `home` entry.
 
 </details>
 
@@ -84,10 +101,10 @@ This value is **not** required when defining the dictionary for the `home` entry
 <summary>name</summary>
 
 * Optional
-* Value: `string`&#x20;
+* Value: `string`
 * Default: empty string
 
-The name of the comic as displayed on the website. May not be displayed if `image` is defined.
+The name of the comic as displayed on the website. If an `image` is defined, the image may be shown instead of the text name.
 
 </details>
 
@@ -96,9 +113,9 @@ The name of the comic as displayed on the website. May not be displayed if `imag
 <summary>url</summary>
 
 * Required
-* Value: `string` : URL
+* Value: `string`: absolute URL
 
-The URL linking to the homepage of the given comic.
+The homepage URL for the comic.
 
 </details>
 
@@ -106,11 +123,11 @@ The URL linking to the homepage of the given comic.
 
 <summary>image</summary>
 
-* Optional:
-* Value: `string` : URL of an image file
+* Optional
+* Value: `string`: absolute URL of an image file
 * Default: none
 
-If defined, the given image will be displayed as a link to the given comic.
+If defined, the image is displayed as a link to the comic.
 
 </details>
 
@@ -156,9 +173,9 @@ If defined, the given image will be displayed as a link to the given comic.
 
 * Optional
 * Value: `boolean`: `True` or `False`
-* Default: `False`&#x20;
+* Default: `False`
 
-If True, enables the webring feature. If False, all other options in this section are ignored.
+If `True`, enables the webring feature. If `False`, all other options in this section are ignored.
 
 </details>
 
@@ -166,12 +183,18 @@ If True, enables the webring feature. If False, all other options in this sectio
 
 <summary>Endpoint</summary>
 
-* Required if "Enable webring" is True
-* Value: `string`&#x20;
+* Required if `Enable webring` is `True`
+* Value: `string`
 
-The URL to the JSON file containing the webring data. See [JSON File](webring.md#json-file) below.
+The location of the webring JSON data.
 
-This can be a URL to a file on another website (e.g. `https://my.webring.com/webring.json`) or to a file on your own site (e.g. `/your_content/webring.json`).
+In normal use, this should be an absolute URL to a remotely hosted `webring.json` file, such as:
+
+```text
+https://my.webring.com/webring.json
+```
+
+For local development, see [Local Development](webring.md#local-development).
 
 </details>
 
@@ -179,11 +202,15 @@ This can be a URL to a file on another website (e.g. `https://my.webring.com/web
 
 <summary>Webring ID</summary>
 
-* Required if "Enable webring" is True
+* Required if `Enable webring` is `True`
+* Value: `string`
 
-- Value: `string`&#x20;
+A unique ID for your comic, matching the `id` field of your comic's entry in the webring JSON.
 
-A unique ID for your comic, as defined in `id` field of the webring data returned by the Endpoint. This is needed to know where your comic is in the list of comics in the webring.
+comic_git uses this value to:
+
+- determine your Previous and Next neighbors in the webring
+- identify your own comic when `Exclude own comic from members = True`
 
 </details>
 
@@ -192,10 +219,10 @@ A unique ID for your comic, as defined in `id` field of the webring data returne
 <summary>Show all members</summary>
 
 * Optional
-* Value: `boolean`: `True` or `False`&#x20;
+* Value: `boolean`: `True` or `False`
 * Default: `False`
 
-If True, instead of the webring displaying a Previous and Next link, it will display all webring members at once in a list.
+If `True`, the webring displays all members at once instead of rendering Previous and Next links.
 
 </details>
 
@@ -204,16 +231,18 @@ If True, instead of the webring displaying a Previous and Next link, it will dis
 <summary>Exclude own comic from members</summary>
 
 * Optional
-* Value: `boolean`&#x20;
+* Value: `boolean`: `True` or `False`
 * Default: `False`
 
-By default, the "Show all members" option will include your own comic in that list. If you set this option to True, your comic won't show up in the list of webring members.
+If `True`, your own comic will be removed from the member list shown when `Show all members = True`.
+
+This relies on `Webring ID`, so make sure your `Webring ID` exactly matches your member entry's `id`.
 
 </details>
 
 ### Example
 
-```
+```ini
 [Webring]
 Enable webring = True
 Endpoint = https://my.webring.com/webring.json
@@ -222,3 +251,153 @@ Show all members = True
 Exclude own comic from members = True
 ```
 
+## Local Development
+
+If you want to test a webring locally before you have a real hosted endpoint ready, comic_git supports a special local-development mode.
+
+Set:
+
+```ini
+[Webring]
+Endpoint = local
+```
+
+When `Endpoint = local`, comic_git reads this file directly from your host repo at:
+
+```text
+your_content/webring.json
+```
+
+This mode exists only to make local development easier. Even in local mode, the `url` and `image` values inside `webring.json` should still be absolute URLs.
+
+## Customizing the look with CSS
+
+If you want to change how your webring looks without changing its HTML layout, you can target the CSS classes used by the default `webring.tpl` template.
+
+The webring uses one of two layouts:
+
+* a Previous / Home / Next layout
+* a full members list layout when `Show all members = True`
+
+The HTML structure looks like this:
+
+```text
+nav.webring
+├── h2.webring-header          (only if `label` is defined)
+│
+├── when `Show all members = True`
+│   ├── div.webring-members
+│   │   └── div.webring-member  (one per member)
+│   │       └── a.webring-link
+│   │           └── img.webring-img
+│   │
+│   └── if `home` is defined
+│       ├── div.webring-home
+│       │   └── a.webring-link
+│       │       └── img.webring-img
+│       └── div.webring-label
+│           └── a.webring-link
+│
+└── when `Show all members = False`
+    └── div.webring-links
+        ├── div.webring-prev
+        │   └── a.webring-link
+        │       └── img.webring-img
+        ├── div.webring-home     (if `home` is defined)
+        │   └── a.webring-link
+        │       └── img.webring-img
+        ├── div.webring-next
+        │   └── a.webring-link
+        │       └── img.webring-img
+        ├── div.webring-label
+        │   └── a.webring-link   ("Previous")
+        ├── div.webring-label    (for `home`, if defined)
+        │   └── a.webring-link
+        └── div.webring-label
+            └── a.webring-link   ("Next")
+```
+
+{% hint style="info" %}
+The default template also inserts a plain blank `<div>` in the Previous / Home / Next layout when `home` is not defined, so the spacing still works. That blank element does not have a CSS class.
+{% endhint %}
+
+### CSS classes used by the default webring
+
+| CSS class          | Purpose                                                                                                                                                   |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `.webring`         | The outer `<nav>` element for the entire webring. This is the easiest place to set margins, borders, padding, background colors, or overall layout rules. |
+| `.webring-header`  | The `<h2>` element used for the optional webring heading when the JSON payload defines `label`.                                                           |
+| `.webring-members` | The container used when `Show all members = True`.                                                                                                        |
+| `.webring-member`  | The wrapper for each member inside the full members list.                                                                                                 |
+| `.webring-links`   | The container used for the Previous / Home / Next layout.                                                                                                 |
+| `.webring-prev`    | The visual area for the previous comic link.                                                                                                              |
+| `.webring-home`    | The visual area for the optional webring home link. This class appears in both layouts.                                                                   |
+| `.webring-next`    | The visual area for the next comic link.                                                                                                                  |
+| `.webring-label`   | The text-label rows underneath the link images in the Previous / Home / Next layout, and the home label in the full members layout.                       |
+| `.webring-link`    | The `<a>` element used for all webring links. Use this to control link color, hover styles, underlines, and other anchor styling.                         |
+| `.webring-img`     | The `<img>` element used when a webring entry provides an image. Use this to control image size, borders, spacing, or hover effects.                      |
+
+## Customizing the layout with a Theme
+
+If CSS is not enough, you can replace the default webring template completely.
+
+To do that, create your own Theme and add a custom `webring.tpl` file in that Theme's `templates` folder. comic_git will use your themed template instead of the default one in `comic_git_engine`.
+
+See [Themes](../advanced-editing/themes.md) for the full process for overriding template files.
+
+If you want to edit `webring.tpl`, the most important Jinja variables are:
+
+* `enable_webring`
+* `webring_label`
+* `webring_home`
+* `show_all_members`
+* `webring_members`
+* `webring_prev`
+* `webring_next`
+
+For the current Jinja values available to templates, see [Template and Hook Data](template-and-hook-data.md).
+
+When changing the template, keep in mind:
+
+* `webring_members` is only used when `Show all members = True`
+* `webring_prev` and `webring_next` are only used when `Show all members = False`
+* `webring_home` may be missing entirely
+* a member may have an `image`, or may only have a text `name`
+
+## Troubleshooting
+
+### The webring does not appear at all
+
+Check these first:
+
+- is `Enable webring = True`
+- is `Endpoint` defined
+- does the build log show a webring-related error
+
+### The build says it could not load the webring data
+
+Check that:
+
+- the endpoint URL is correct and publicly accessible
+- if you are using `Endpoint = local`, `your_content/webring.json` exists in the host repo
+- the JSON file is valid JSON
+
+### The build says `Webring ID` is missing
+
+`Webring ID` is required whenever the webring feature is enabled.
+
+### The build says it could not find your `Webring ID`
+
+Make sure your configured `Webring ID` exactly matches one member `id` in the JSON file.
+
+Matching is exact, including capitalization and punctuation.
+
+### `Exclude own comic from members` does not seem to work
+
+That option relies on `Webring ID`. If your `Webring ID` does not exactly match your member entry's `id`, comic_git will not know which member is your own comic.
+
+### Previous and Next are not the sites you expected
+
+Previous and Next follow the order of entries in the `members` list.
+
+The list wraps around from first to last and from last to first.

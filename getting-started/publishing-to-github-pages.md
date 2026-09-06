@@ -6,16 +6,16 @@ The repository you created on the previous page is where the files for your comi
 Even if you've only just created your repository from the previous page, the repo comes with some default text and images as a demonstration. Feel free to publish after creating to see how it works!
 {% endhint %}
 
-1.  In your repository, go to the **Settings** tab.&#x20;
+1.  In your repository, go to the **Settings** tab.
 
     <figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption><p>Click the Settings option</p></figcaption></figure>
-2.  In the sidebar, click **Pages**.&#x20;
+2.  In the sidebar, click **Pages**.
 
     <figure><img src="../.gitbook/assets/image (21).png" alt=""><figcaption><p>Go to Pages</p></figcaption></figure>
-3.  Under **Source**, select **GitHub Actions** from the dropdown.&#x20;
+3.  Under **Source**, select **GitHub Actions** from the dropdown.
 
     <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>Select GitHub Actions</p></figcaption></figure>
-4.  Click **Save**. Once you do, GitHub will automatically publish your repository to GitHub Pages!&#x20;
+4.  Click **Save**. Once you do, GitHub will automatically publish your repository to GitHub Pages!
 
     <figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption><p>Success!</p></figcaption></figure>
 
