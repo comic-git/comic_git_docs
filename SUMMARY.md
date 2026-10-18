@@ -37,6 +37,7 @@
 * [Changing Your Website URL](expert-editing/changing-your-website-url.md)
 * [Building Your Website On Your Own PC](expert-editing/building-your-website-on-your-own-pc.md)
 * [Hosting comic\_git Elsewhere](expert-editing/hosting-comic_git-elsewhere.md)
+* [Publishing with SFTP](expert-editing/publishing-with-sftp.md)
 * [Webring](expert-editing/webring.md)
 * [Code Hooks](expert-editing/code-hooks.md)
 * [Template and Hook Data](expert-editing/template-and-hook-data.md)

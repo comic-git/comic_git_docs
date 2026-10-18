@@ -22,6 +22,14 @@ The safest manual deployment process is:
 
 After comic\_git's scripts are run, your built website is nothing more than HTML, CSS, and a little JavaScript, so any basic web server will be able to host it.
 
+## Automatic SFTP publishing
+
+For hosting accounts that support SFTP, including DreamHost, see
+[Publishing with SFTP](publishing-with-sftp.md). The guide covers password-based
+setup, optional SSH keys, website URL configuration, automatic cleanup, and
+hidden files. SFTP deployment is planned for version 1.1.1; use it after that
+release is published.
+
 ## Uploading to Neocities
 
 If you want to host your site on Neocities, comic\_git can also deploy there through GitHub Actions. This is not a different publishing workflow from the user's perspective. You will still upload your changes to GitHub normally so that the Action can run. The difference is that the finished site will be deployed to Neocities instead of GitHub Pages.

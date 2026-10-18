@@ -38,6 +38,14 @@ To change it:
 
     <figure><img src="../.gitbook/assets/change_repo02_rename.png" alt=""><figcaption></figcaption></figure>
 
+## Hosting outside GitHub Pages
+
+For an SFTP-hosted website, configure DNS and HTTPS with your web host, then set
+both the comic domain and comic subdirectory in your comic configuration.
+Follow [Publishing with SFTP](publishing-with-sftp.md#2-set-your-website-url) for
+INI and TOML examples. The GitHub Pages DNS instructions below do not apply to
+an SFTP-hosted site.
+
 ## Moving to a Custom Domain
 
 At some point, you will likely want to host your comic from a custom domain, so your readers don't have to keep going to your github.io URL. Fortunately, GitHub Pages supports this!
