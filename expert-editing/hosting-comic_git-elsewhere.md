@@ -234,9 +234,9 @@ Replace the password mapping in the workflow's `secrets:` section:
       SFTP_KNOWN_HOSTS: ${{ secrets.SFTP_KNOWN_HOSTS }}
 ```
 
-Pass exactly one of `SFTP_PASSWORD` or `SFTP_PRIVATE_KEY`. Keep LF line endings in
-the key when copying or uploading it from Windows; CRLF conversion can make
-OpenSSH reject an otherwise correct key. Never commit the private key.
+Pass exactly one of `SFTP_PASSWORD` or `SFTP_PRIVATE_KEY`. The deploy runner
+accepts LF and Windows CRLF line endings and adds a final newline if needed.
+Never commit the private key.
 
 ### Troubleshooting
 
