@@ -1,6 +1,6 @@
 # TOML Configuration
 
-> **New in 1.1.0**
+> **Added in 1.1.0**
 
 comic_git supports TOML files as an alternative to the traditional INI and text files. TOML is optional: existing `comic_info.ini`, page `info.ini`, `post.txt`, transcript, and `social_media.json` files continue to work.
 

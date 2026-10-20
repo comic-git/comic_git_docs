@@ -380,8 +380,6 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 
 </details>
 
-> **New in 1.1.0**
-
 <details>
 
 <summary>List images separately</summary>
@@ -389,6 +387,8 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 * Optional
 * Value: `boolean`: `True` or `False`
 * Default: `False`
+
+> **Added in 1.1.0**
 
 When this is `False`, the Archive has one entry for each comic page. Set it to `True` to give every image on a page its own Archive entry. **Show text-only posts** controls whether pages without images are also included when this option is `True`.
 
@@ -402,6 +402,8 @@ When this is `False`, the Archive has one entry for each comic page. Set it to `
 * Value: `boolean`: `True` or `False`
 * Default: `True`
 
+> **Added in 1.1.0**
+
 Controls whether pages without comic images appear when **List images separately** is `True`. When images are not listed separately, text-only pages are always included.
 
 </details>
@@ -413,6 +415,8 @@ Controls whether pages without comic images appear when **List images separately
 * Optional
 * Value: `Page title` or `Filename`
 * Default: `Page title`
+
+> **Added in 1.1.0**
 
 Controls the Archive title for an image that does not define its own title. `Page title` uses the page title when available; `Filename` uses the image filename without its extension.
 

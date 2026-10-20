@@ -180,7 +180,7 @@ If you only change CSS or JavaScript files, you usually do not need to rebuild. 
 
 ### Auto-rebuilding preview server
 
-> **New in 1.1.0**
+> **Added in 1.1.0**
 
 For theme and content work, comic_git includes a preview server that rebuilds when supported source files change. Install its optional watcher once:
 

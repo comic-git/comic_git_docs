@@ -101,7 +101,7 @@ The filenames are case sensitive, so be sure to write them in exactly as the fil
 
 ### Structured image settings
 
-> **New in 1.1.0**
+> **Added in 1.1.0**
 
 An INI page can give each image its own title, alt text, and thumbnail. Add one section per image after the normal page fields:
 

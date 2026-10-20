@@ -41,7 +41,7 @@ This is called a "Traceback" and it looks very intimidating, but the only part y
 
 #### Changing how much build logging you see
 
-> **New in 1.1.0**
+> **Added in 1.1.0**
 
 comic\_git normally shows `INFO`-level build logs. This is the best default for most GitHub Actions runs: it shows the major build steps and useful warnings without filling the log with internal details.
 
