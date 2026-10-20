@@ -32,11 +32,6 @@ SFTP lets GitHub upload your finished comic to a hosting account such as DreamHo
 You still edit your comic and push changes to GitHub as usual; GitHub builds the
 site and uploads it for you. You do not need to install an upload program locally.
 
-{% hint style="info" %}
-This guide is prepared for **comic_git 1.1.1**, which has not been released yet.
-Wait for that release before using the version references below.
-{% endhint %}
-
 ### 1. Prepare your hosting account
 
 Create a hosted website or subdomain with your provider and enable HTTPS. You
@@ -99,7 +94,7 @@ not do that for you, and it generates HTTPS absolute URLs. Do not use the
 GitHub Pages DNS records when your site is hosted elsewhere.
 
 Both selectors must support SFTP: the workflow reference in step 4 and the engine
-version here. After 1.1.1 is released, `v1.1` and `1.1` receive 1.1 patch updates.
+version here. Starting with 1.1.1, `v1.1` and `1.1` receive 1.1 patch updates.
 To pin exactly this release instead, use workflow `v1.1.1` and engine `1.1.1`.
 
 ### 3. Add GitHub Secrets
