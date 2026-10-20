@@ -40,8 +40,6 @@ To change it:
 
 ## Hosting outside GitHub Pages
 
-> **New in 1.1.1**
-
 For both [SFTP](hosting-comic_git-elsewhere.md#sftp) and
 [Neocities](hosting-comic_git-elsewhere.md#neocities), set the comic domain and
 comic subdirectory explicitly. Selecting a deployment target does not update

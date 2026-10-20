@@ -268,8 +268,6 @@ Before setting this up, you should have:
 
 ### Set your website URL
 
-> **New in 1.1.1**
-
 Set the comic domain to your published Neocities domain, such as
 `mycomic.neocities.org`, and leave the comic subdirectory empty when publishing
 at the site root. Follow [Hosting outside GitHub Pages](changing-your-website-url.md#hosting-outside-github-pages)

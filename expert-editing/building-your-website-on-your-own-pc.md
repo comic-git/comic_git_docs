@@ -97,8 +97,6 @@ If you use different themes for your main comic and any Extra Comics, repeat thi
 
 ### Provide your website address locally
 
-> **New in 1.1.0**
-
 There is some necessary information GitHub provides to comic\_git that is not available automatically on your local machine. The cleanest option is to set `GITHUB_REPOSITORY` in the terminal before building:
 
 ```powershell
@@ -239,8 +237,6 @@ By default, comic\_git builds your generated site into the `build` folder. That 
 
 ### If `Comic subdirectory` is blank
 
-> **New in 1.1.0**
-
 If your site is hosted directly at the root of your domain, and `Comic subdirectory` is blank in `comic_info.ini`, you can preview the default `build` folder directly.
 
 Navigate to your repo directory and run:
@@ -254,8 +250,6 @@ Serving HTTP on :: port 8000 (http://[::]:8000/) ...
 Then open [http://localhost:8000](http://localhost:8000/) or [http://127.0.0.1:8000](http://127.0.0.1:8000/) in your browser.
 
 ### If `Comic subdirectory` is set
-
-> **New in 1.1.0**
 
 If your site uses a non-empty `Comic subdirectory` (the usual GitHub Pages setup), the generated links expect your site to live at a URL like `https://username.github.io/repo_name/`. Because of that, serving the `build` folder directly from `http://localhost:8000/` will not match the URLs comic\_git generated.
 

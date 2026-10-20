@@ -274,8 +274,6 @@ This mode exists only to make local development easier. Even in local mode, the 
 
 ## Customizing the look with CSS
 
-> **New in 1.1.0**
-
 If you want to change how your webring looks without changing its HTML layout, you can target the CSS classes used by the default `webring.tpl` template.
 
 The webring uses one of two layouts:
@@ -343,8 +341,6 @@ The default template also inserts a plain blank `<div>` in the Previous / Home /
 
 ## Customizing the layout with a Theme
 
-> **New in 1.1.0**
-
 If CSS is not enough, you can replace the default webring template completely.
 
 To do that, create your own Theme and add a custom `webring.tpl` file in that Theme's `templates` folder. comic_git will use your themed template instead of the default one in `comic_git_engine`.
@@ -371,8 +367,6 @@ When changing the template, keep in mind:
 * a member may have an `image`, or may only have a text `name`
 
 ## Troubleshooting
-
-> **New in 1.1.0**
 
 ### The webring does not appear at all
 

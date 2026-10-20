@@ -4,8 +4,6 @@ Many readers prefer to follow webcomics through an RSS feed. comic_git can build
 
 ## RSS Feed options
 
-> **New in 1.1.0**
-
 The `[RSS Feed]` section supports the following options:
 
 | Option                       | Data type | Default                          | Notes                                                                                                                                                                                                                                          |
