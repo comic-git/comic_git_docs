@@ -1,5 +1,7 @@
 # Migrating to 1.1
 
+> **New in 1.1.0**
+
 If your comic\_git site is already working, and you are happy with it, you do **not** have to move to 1.1 right away.
 
 However, if you want the new features and fixes in 1.1, this upgrade should be much simpler than the move to 1.0.

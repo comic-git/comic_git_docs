@@ -28,6 +28,8 @@ After comic\_git's scripts are run, your built website is nothing more than HTML
 
 ## SFTP
 
+> **New in 1.1.1**
+
 SFTP lets GitHub upload your finished comic to a hosting account such as DreamHost.
 You still edit your comic and push changes to GitHub as usual; GitHub builds the
 site and uploads it for you. You do not need to install an upload program locally.
@@ -252,6 +254,8 @@ file-transfer client installed automatically on GitHub's runner.
 
 ## Neocities
 
+> **New in 1.1.0**
+
 If you want to host your site on Neocities, comic\_git can also deploy there through GitHub Actions. This is not a different publishing workflow from the user's perspective. You will still upload your changes to GitHub normally so that the Action can run. The difference is that the finished site will be deployed to Neocities instead of GitHub Pages.
 
 ### What you need before starting
@@ -263,6 +267,8 @@ Before setting this up, you should have:
 * a Neocities API token
 
 ### Set your website URL
+
+> **New in 1.1.1**
 
 Set the comic domain to your published Neocities domain, such as
 `mycomic.neocities.org`, and leave the comic subdirectory empty when publishing

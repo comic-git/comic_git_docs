@@ -1,5 +1,7 @@
 # Social Media Previews
 
+> **New in 1.1.0**
+
 When someone shares one of your comic pages on a social platform, chat app, or forum, that site may generate a preview card with a title, description, and image. comic_git supports this automatically by generating [Open Graph](https://ogp.me/) metadata when your site is built.
 
 You do **not** need to configure everything by hand to get started. comic_git already provides sensible defaults, and you can customize them when you need more control.

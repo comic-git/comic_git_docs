@@ -41,6 +41,8 @@ This is called a "Traceback" and it looks very intimidating, but the only part y
 
 #### Changing how much build logging you see
 
+> **New in 1.1.0**
+
 comic\_git normally shows `INFO`-level build logs. This is the best default for most GitHub Actions runs: it shows the major build steps and useful warnings without filling the log with internal details.
 
 If you're troubleshooting a confusing build problem, you can change the log level by passing `COMIC_GIT_LOG_LEVEL` through the `INPUTS` section of your `.github/workflows/main.yaml` file:
@@ -66,6 +68,8 @@ Useful values are:
 After you're done troubleshooting, you can remove the `COMIC_GIT_LOG_LEVEL` line or set it back to `INFO`.
 
 #### TOML configuration errors
+
+> **New in 1.1.0**
 
 When a `comic_info.toml` or page `info.toml` file exists, comic_git uses it instead of the matching INI file. An error naming an unsupported TOML key usually means a setting is misspelled or is in the wrong table. Page `post_date` must be an ISO date or timestamp, and page `images` must be an ordered list of `[[images]]` tables.
 

@@ -4,6 +4,8 @@ Many readers prefer to follow webcomics through an RSS feed. comic_git can build
 
 ## RSS Feed options
 
+> **New in 1.1.0**
+
 The `[RSS Feed]` section supports the following options:
 
 | Option                       | Data type | Default                          | Notes                                                                                                                                                                                                                                          |
@@ -44,6 +46,8 @@ Once RSS is enabled, the feed file will be created the next time you build or up
 If you use [Extra Comics](extra-comics.md), the rest of this page covers the additional RSS behavior available for them.
 
 ## Advanced: RSS feeds for Extra Comics
+
+> **New in 1.1.0**
 
 Extra Comics inherit the main comic's RSS settings unless you override them in that Extra Comic's own `comic_info.ini` file.
 

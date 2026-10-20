@@ -380,6 +380,8 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 
 </details>
 
+> **New in 1.1.0**
+
 <details>
 
 <summary>List images separately</summary>
