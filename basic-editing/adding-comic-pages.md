@@ -184,6 +184,8 @@ A comma-separated list of non-character tags. If the `tagged` page is configured
 {% hint style="danger" %}
 **Invalid Tag Names**
 
+Starting in 1.1.1, invalid tag and character paths stop the build with the offending value and source file. Names cannot be `.` or `..`, contain path separators or the characters below, contain control characters, or end in a dot or space. Names are never silently renamed.
+
 Due to the way comic\_git generates pages for tags and characters, there are some limitations on what characters you can use in your tags and character lists in the info.ini file. Please avoid using any of the following: `\ / : * ? " < > |`
 
 You can however include unicode in your info.ini files. If you look around, you can find some good unicode options to take the place of those characters if you need them. For example, `？` is a thick version of the standard question mark which won't have the same issues as the standard question mark in a tag name.

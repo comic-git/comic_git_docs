@@ -196,6 +196,24 @@ python comic_git_engine\src\scripts\dev_server.py
 
 The command prints the local URL to open and watches changes to TOML, INI, text, Markdown, HTML, and template files. Press Ctrl+C to stop it.
 
+> **Changed in 1.1.1**
+
+The preview listens only on your own computer by default. It requires a separate
+output folder (normally `build`); use `--output-dir build` if you previously used
+an empty output directory. Repository-root preview is refused. Hidden paths,
+directory listings, and links that resolve outside the preview folder are not served.
+
+To deliberately share the preview with another device on your network, use:
+
+```powershell
+python comic_git_engine\src\scripts\dev_server.py --listen 0.0.0.0
+```
+
+Open your computer's LAN address on port 8000 from that device. Anyone who can
+reach this port can read the preview, including unpublished assets copied into
+it. Share only on a trusted network, and stop the server when finished.
+
+
 To include future-dated pages in a local preview without deleting their source folders, use:
 
 ```powershell

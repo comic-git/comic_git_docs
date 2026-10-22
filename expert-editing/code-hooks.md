@@ -74,6 +74,17 @@ pytz
 
 Any requirements you provide in any themes used by your main comic or extra comics will be auto-magically loaded and installed when the GitHub action is run, before the site is built. If you are not using a theme that contains a `requirements.txt` file, that file will not be loaded and the packages within it will not be installed.
 
+> **Changed in 1.1.1**
+
+Engine dependencies are pinned to reviewed versions. The deployment workflow
+installs hook requirements with those versions as constraints. A hook dependency
+that requires an incompatible version causes an installation error rather than
+silently replacing an engine dependency. Choose a compatible hook package version;
+do not remove the engine constraints to work around the error. Pin your own hook
+dependencies as well when reproducible builds matter. Theme hooks and their
+packages execute Python code during the build, so install only code you trust.
+
+
 ### Passing Input Data to Code Hooks
 
 You will sometimes have configuration data that you want to pass to your code hooks that doesn't make sense to include in the code itself. The most common use case is sensitive data that shouldn't be present in code in plain text, like API keys or Discord webhooks. comic\_git provides a way to pass this kind of data into your code hook code easily and securely.
