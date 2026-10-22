@@ -536,4 +536,4 @@ Do not enable this option unless you have separately provided the [privacy discl
 
 ## \[Webring]
 
-This section is covered in [Webring](../expert-editing/webring.md), and decides how to add a webring to your website. This is an optional section.
+This section is covered in [Webring](../advanced-editing/webring.md), and decides how to add a webring to your website. This is an optional section.

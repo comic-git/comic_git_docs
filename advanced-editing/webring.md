@@ -413,7 +413,7 @@ If CSS is not enough, you can replace the default webring template completely.
 
 To do that, create your own Theme and add a custom `webring.tpl` file in that Theme's `templates` folder. comic_git will use your themed template instead of the default one in `comic_git_engine`.
 
-See [Themes](../advanced-editing/themes.md) for the full process for overriding template files.
+See [Themes](themes.md) for the full process for overriding template files.
 
 If you want to edit `webring.tpl`, the most important Jinja variables are:
 
@@ -425,7 +425,7 @@ If you want to edit `webring.tpl`, the most important Jinja variables are:
 * `webring_prev`
 * `webring_next`
 
-For the current Jinja values available to templates, see [Template and Hook Data](template-and-hook-data.md).
+For the current Jinja values available to templates, see [Template and Hook Data](../expert-editing/template-and-hook-data.md).
 
 When changing the template, keep in mind:
 
