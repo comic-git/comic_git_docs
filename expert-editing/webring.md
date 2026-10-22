@@ -253,6 +253,8 @@ Exclude own comic from members = True
 
 ## Local Development
 
+> **Added in 1.1.0**
+
 If you want to test a webring locally before you have a real hosted endpoint ready, comic_git supports a special local-development mode.
 
 Set:

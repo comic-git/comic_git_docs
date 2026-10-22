@@ -180,6 +180,8 @@ If a comic page has no thumbnail, and you do not override `og:image`, the metada
 
 ## Extra Comics
 
+> **Changed in 1.1.0**
+
 Extra Comics follow a specific fallback order.
 
 When comic_git looks for Social Media Preview settings for an Extra Comic, it checks:
