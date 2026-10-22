@@ -251,7 +251,77 @@ Show all members = True
 Exclude own comic from members = True
 ```
 
+## Display safety and build failures
+
+> **Added in 1.1.1**
+
+The site owner chooses how to display text from the webring. The JSON endpoint
+cannot turn on Markdown or HTML for your site. Add these options to your existing
+`[Webring]` section:
+
+```ini
+Text mode = text
+On error = abort
+```
+
+For TOML, use your existing `[webring]` table:
+
+```toml
+text_mode = "text"
+on_error = "abort"
+```
+
+| Text mode | Result |
+| --- | --- |
+| `text` (default) | Display names and the heading as literal text, escaping HTML. |
+| `markdown` | Parse Markdown and sanitize the result to inline emphasis, bold, code, strikethrough HTML, and line breaks. Links, images, block markup, styles, and attributes are not retained in labels. |
+| `unsafe_html` | Insert names and the heading as trusted HTML. Only enable this for a source you trust to execute scripts on your website. |
+
+For example, `**Our Comics**` becomes bold in Markdown mode. The standard Markdown
+parser is used without extras; the allowed HTML tags are `em`, `strong`, `b`, `i`,
+`code`, `s`, `del`, and `br`. Names already appear inside navigation links, so a
+Markdown link in a name does not create another link. Use the JSON `url` field
+for the destination. Image titles display the original name as escaped text.
+
+{% hint style="warning" %}
+`unsafe_html` gives the webring source control over HTML on your site, including
+scripts. A source you trust today could change owners or be compromised later.
+The build logs a warning each time this mode is used. Use `text` or `markdown`
+unless you deliberately accept that trust. This option does not permit unsafe
+schemes in the separate `url` and `image` fields: those still require absolute
+HTTP(S) URLs without credentials, whitespace, or backslashes.
+{% endhint %}
+
+By default, a missing endpoint, invalid response, or failed request aborts the
+build. This preserves the previous deployed site rather than publishing a site
+with a missing webring. Set `On error = omit` (`on_error = "omit"` in TOML) only
+if you prefer the build to continue without the entire webring, with a warning
+in the build log. Invalid option names/values and missing required configuration
+still fail. Each new build fetches the endpoint again; there is no cached fallback.
+
+Responses are limited to 1 MiB, including local JSON files. Remote requests use
+a 10-second socket timeout and a 20-second deadline checked between body reads.
+A read already in progress can run until its socket timeout. Transient network
+failures and HTTP 408, 429, 500, 502, 503, and 504 receive one retry. Invalid JSON,
+invalid member data, and other HTTP errors are not retried. Member IDs must be
+unique, and the members list must not be empty.
+
+### Existing custom webring templates
+
+The default template scopes autoescaping to the webring; ordinary posts and other
+site templates retain their existing rendering behavior. A custom `webring.tpl`
+overrides that protection and must be updated separately: wrap its HTML in
+`{% autoescape true %}` / `{% endautoescape %}`. Use `member.name_html` (or
+`webring_home.name_html`, `webring_prev.name_html`, `webring_next.name_html`) for
+visible names. These values follow the owner's selected text mode. Continue using
+`.name` for attributes such as `title`, and keep those attributes quoted. Do not
+apply `safe` to raw external fields. `webring_label` already follows the selected
+mode. Custom templates inserting data into JavaScript or CSS need appropriate
+encoding for those contexts as well.
+
 ## Local Development
+
+> **Added in 1.1.0**
 
 If you want to test a webring locally before you have a real hosted endpoint ready, comic_git supports a special local-development mode.
 
@@ -343,7 +413,7 @@ If CSS is not enough, you can replace the default webring template completely.
 
 To do that, create your own Theme and add a custom `webring.tpl` file in that Theme's `templates` folder. comic_git will use your themed template instead of the default one in `comic_git_engine`.
 
-See [Themes](../advanced-editing/themes.md) for the full process for overriding template files.
+See [Themes](themes.md) for the full process for overriding template files.
 
 If you want to edit `webring.tpl`, the most important Jinja variables are:
 
@@ -355,7 +425,7 @@ If you want to edit `webring.tpl`, the most important Jinja variables are:
 * `webring_prev`
 * `webring_next`
 
-For the current Jinja values available to templates, see [Template and Hook Data](template-and-hook-data.md).
+For the current Jinja values available to templates, see [Template and Hook Data](../expert-editing/template-and-hook-data.md).
 
 When changing the template, keep in mind:
 

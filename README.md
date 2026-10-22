@@ -1,7 +1,3 @@
----
-layout: landing
----
-
 # Home
 
 <figure><img src=".gitbook/assets/Comic_Git logo.png" alt=""><figcaption></figcaption></figure>

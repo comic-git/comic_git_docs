@@ -1,5 +1,7 @@
 # Template and Hook Data
 
+> **Changed in 1.1.0**
+
 comic_git uses structured page and image objects when rendering Jinja templates and calling page-related Code Hooks. Default templates and simple CSS-only themes do not need to work with these objects directly.
 
 ## Page data

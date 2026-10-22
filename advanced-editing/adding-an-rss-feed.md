@@ -45,6 +45,8 @@ If you use [Extra Comics](extra-comics.md), the rest of this page covers the add
 
 ## Advanced: RSS feeds for Extra Comics
 
+> **Added in 1.1.0**
+
 Extra Comics inherit the main comic's RSS settings unless you override them in that Extra Comic's own `comic_info.ini` file.
 
 For each Extra Comic with RSS enabled, there are two possible outcomes:

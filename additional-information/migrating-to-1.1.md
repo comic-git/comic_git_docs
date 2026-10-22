@@ -55,7 +55,7 @@ Version 1.1 adds several end-user features, including:
 * page-based or image-based Archive entries, including text-only page support
 * customizable [Social Media Previews](../advanced-editing/social-media-previews.md)
 * built-in support for deploying to [Neocities](../expert-editing/hosting-comic_git-elsewhere.md#uploading-to-neocities)
-* a documented [Webring](../expert-editing/webring.md) feature
+* a documented [Webring](../advanced-editing/webring.md) feature
 * more RSS feed options for [Extra Comics](../advanced-editing/adding-an-rss-feed.md)
 
 Most of these are new features, not breaking changes.
@@ -122,7 +122,7 @@ In particular:
 * local testing should use `Endpoint = local`
 * settings like `Exclude own comic from members` depend on `Webring ID` matching your member `id` exactly
 
-See [Webring](../expert-editing/webring.md) for the current setup.
+See [Webring](../advanced-editing/webring.md) for the current setup.
 
 ### Social Media Preview setup should be reviewed
 

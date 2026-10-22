@@ -38,6 +38,45 @@ To change it:
 
     <figure><img src="../.gitbook/assets/change_repo02_rename.png" alt=""><figcaption></figcaption></figure>
 
+## Hosting outside GitHub Pages
+
+For both [SFTP](hosting-comic_git-elsewhere.md#sftp) and
+[Neocities](hosting-comic_git-elsewhere.md#neocities), set the comic domain and
+comic subdirectory explicitly. Selecting a deployment target does not update
+these values. Otherwise, a GitHub Actions build can still generate URLs for your
+GitHub Pages address.
+
+Use the domain where readers visit your comic, not the SFTP server address or
+your GitHub repository name. For example, a Neocities site at
+`https://mycomic.neocities.org/` needs these values in the existing section of
+`your_content/comic_info.ini`:
+
+```ini
+[Comic Settings]
+Comic domain = mycomic.neocities.org
+Comic subdirectory =
+```
+
+For TOML, edit the existing `[site]` table in `your_content/comic_info.toml`:
+
+```toml
+[site]
+comic_domain = "mycomic.neocities.org"
+comic_subdirectory = ""
+```
+
+For an SFTP site at `https://comic.example.com/`, use `comic.example.com` and
+the same empty subdirectory. If your comic is published at
+`https://example.com/comic/`, use `example.com` and `comic` instead. These settings
+control generated links; they do not move uploaded files or configure the server.
+
+Use your site's published HTTPS address. For a custom domain, follow your hosting
+provider's instructions for DNS and HTTPS; on Neocities, follow its custom-domain
+setup if that option is available for your account. Using the supplied
+`mycomic.neocities.org` address does not require setting up your own DNS records.
+The GitHub Pages DNS records, Pages settings, and `CNAME` file instructions below
+are for GitHub Pages hosting, not SFTP or Neocities.
+
 ## Moving to a Custom Domain
 
 At some point, you will likely want to host your comic from a custom domain, so your readers don't have to keep going to your github.io URL. Fortunately, GitHub Pages supports this!
