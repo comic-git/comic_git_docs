@@ -97,8 +97,13 @@ If you see a recent GitHub Pages deployment on this page but your website hasn't
 
 Here are instructions on how to do that in [Firefox](https://support.mozilla.org/en-US/kb/how-clear-firefox-cache), [Chrome](https://support.google.com/accounts/answer/32050), [Internet Explorer](https://support.microsoft.com/en-us/help/17438/windows-internet-explorer-view-delete-browsing-history), and [Microsoft Edge](https://support.microsoft.com/en-us/help/10607/microsoft-edge-view-delete-browser-history).
 
-## Check Your Published Branch
+## Check Your Pages Source and Build Branch
 
-If you've doublechecked everything in the above section, verified that your website is building properly, and verified that the GitHub Pages deployment has completed, but you're still not seeing your website, it may be that you've published the wrong branch. It's especially likely this is what's happened if you're seeing comic\_git's README file when you load your website rather than a webpage.
+If you see your repository's README instead of your comic website, check that
+your repository's **Settings → Pages → Build and deployment → Source** is set to
+**GitHub Actions**, as described in [Publishing to GitHub Pages](../getting-started/publishing-to-github-pages.md).
+The workflow uploads the generated site from its build directory; Pages should
+not serve the repository files directly.
 
-Go through the steps in Publishing to GitHub Pages and doublecheck that you're publishing to the `master` branch and not the `working` branch.
+Also check that `.github/workflows/main.yaml` runs on the branch where you push
+your comic changes, and that its latest build and Pages deployment jobs succeeded.

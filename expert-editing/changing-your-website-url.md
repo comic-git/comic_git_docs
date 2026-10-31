@@ -125,7 +125,10 @@ The page will reload with a blue banner that says `Custom domain "<domain name>"
 
 ### Create a CNAME file in your Repository
 
-In your repository, create a new file called `CNAME` with no extension. In the file, add only a single line with your new domain, e.g. `www.bestcomic.com`
+In your repository, create `your_content/site_root/CNAME` with no extension. If
+`site_root` does not exist yet, create it first. In the `CNAME` file, add only a
+single line with your new domain, e.g. `www.bestcomic.com`. Files in `site_root`
+are copied to the root of the finished website when comic\_git builds it.
 
 <details>
 
@@ -137,7 +140,8 @@ First, open File Explorer and go to the View tab, and check the box "File name e
 
 <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-Then, go to your repository. Right-click anywhere in the background of the folder, and go to New > Text Document.
+Then, go to `your_content/site_root` in your repository. Right-click anywhere
+in the background of that folder, and go to New > Text Document.
 
 <figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
@@ -147,7 +151,7 @@ Select the whole filename, including the `.txt` extension, and replace it with `
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-The CNAME file has now been created, and it should look like below.
+The CNAME file has now been created in `site_root`, and it should look like below.
 
 <figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
