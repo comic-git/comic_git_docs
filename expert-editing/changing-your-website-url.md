@@ -38,6 +38,45 @@ To change it:
 
     <figure><img src="../.gitbook/assets/change_repo02_rename.png" alt=""><figcaption></figcaption></figure>
 
+## Hosting outside GitHub Pages
+
+For both [SFTP](hosting-comic_git-elsewhere.md#sftp) and
+[Neocities](hosting-comic_git-elsewhere.md#neocities), set the comic domain and
+comic subdirectory explicitly. Selecting a deployment target does not update
+these values. Otherwise, a GitHub Actions build can still generate URLs for your
+GitHub Pages address.
+
+Use the domain where readers visit your comic, not the SFTP server address or
+your GitHub repository name. For example, a Neocities site at
+`https://mycomic.neocities.org/` needs these values in the existing section of
+`your_content/comic_info.ini`:
+
+```ini
+[Comic Settings]
+Comic domain = mycomic.neocities.org
+Comic subdirectory =
+```
+
+For TOML, edit the existing `[site]` table in `your_content/comic_info.toml`:
+
+```toml
+[site]
+comic_domain = "mycomic.neocities.org"
+comic_subdirectory = ""
+```
+
+For an SFTP site at `https://comic.example.com/`, use `comic.example.com` and
+the same empty subdirectory. If your comic is published at
+`https://example.com/comic/`, use `example.com` and `comic` instead. These settings
+control generated links; they do not move uploaded files or configure the server.
+
+Use your site's published HTTPS address. For a custom domain, follow your hosting
+provider's instructions for DNS and HTTPS; on Neocities, follow its custom-domain
+setup if that option is available for your account. Using the supplied
+`mycomic.neocities.org` address does not require setting up your own DNS records.
+The GitHub Pages DNS records, Pages settings, and `CNAME` file instructions below
+are for GitHub Pages hosting, not SFTP or Neocities.
+
 ## Moving to a Custom Domain
 
 At some point, you will likely want to host your comic from a custom domain, so your readers don't have to keep going to your github.io URL. Fortunately, GitHub Pages supports this!
@@ -86,7 +125,10 @@ The page will reload with a blue banner that says `Custom domain "<domain name>"
 
 ### Create a CNAME file in your Repository
 
-In your repository, create a new file called `CNAME` with no extension. In the file, add only a single line with your new domain, e.g. `www.bestcomic.com`
+In your repository, create `your_content/site_root/CNAME` with no extension. If
+`site_root` does not exist yet, create it first. In the `CNAME` file, add only a
+single line with your new domain, e.g. `www.bestcomic.com`. Files in `site_root`
+are copied to the root of the finished website when comic\_git builds it.
 
 <details>
 
@@ -98,7 +140,8 @@ First, open File Explorer and go to the View tab, and check the box "File name e
 
 <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
 
-Then, go to your repository. Right-click anywhere in the background of the folder, and go to New > Text Document.
+Then, go to `your_content/site_root` in your repository. Right-click anywhere
+in the background of that folder, and go to New > Text Document.
 
 <figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
 
@@ -108,7 +151,7 @@ Select the whole filename, including the `.txt` extension, and replace it with `
 
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
-The CNAME file has now been created, and it should look like below.
+The CNAME file has now been created in `site_root`, and it should look like below.
 
 <figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 

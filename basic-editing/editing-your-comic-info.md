@@ -388,6 +388,8 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 * Value: `boolean`: `True` or `False`
 * Default: `False`
 
+> **Added in 1.1.0**
+
 When this is `False`, the Archive has one entry for each comic page. Set it to `True` to give every image on a page its own Archive entry. **Show text-only posts** controls whether pages without images are also included when this option is `True`.
 
 </details>
@@ -400,6 +402,8 @@ When this is `False`, the Archive has one entry for each comic page. Set it to `
 * Value: `boolean`: `True` or `False`
 * Default: `True`
 
+> **Added in 1.1.0**
+
 Controls whether pages without comic images appear when **List images separately** is `True`. When images are not listed separately, text-only pages are always included.
 
 </details>
@@ -411,6 +415,8 @@ Controls whether pages without comic images appear when **List images separately
 * Optional
 * Value: `Page title` or `Filename`
 * Default: `Page title`
+
+> **Added in 1.1.0**
 
 Controls the Archive title for an image that does not define its own title. `Page title` uses the page title when available; `Filename` uses the image filename without its extension.
 
@@ -530,4 +536,4 @@ Do not enable this option unless you have separately provided the [privacy discl
 
 ## \[Webring]
 
-This section is covered in [Webring](../expert-editing/webring.md), and decides how to add a webring to your website. This is an optional section.
+This section is covered in [Webring](../advanced-editing/webring.md), and decides how to add a webring to your website. This is an optional section.

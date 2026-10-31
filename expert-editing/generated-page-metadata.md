@@ -1,5 +1,7 @@
 # Generated Page Metadata
 
+> **Changed in 1.1.0**
+
 comic_git publishes structured page information for client-side features and external tools. The main comic writes:
 
 ```text

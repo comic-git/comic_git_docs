@@ -15,7 +15,8 @@ Even if you've only just created your repository from the previous page, the rep
 3.  Under **Source**, select **GitHub Actions** from the dropdown.
 
     <figure><img src="../.gitbook/assets/image (22).png" alt=""><figcaption><p>Select GitHub Actions</p></figcaption></figure>
-4.  Click **Save**. Once you do, GitHub will automatically publish your repository to GitHub Pages!
+4.  Click **Save**. GitHub Actions will build your website from the repository
+    and publish the generated site to GitHub Pages.
 
     <figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption><p>Success!</p></figcaption></figure>
 

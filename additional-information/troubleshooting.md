@@ -22,6 +22,10 @@ Then click on **build (3.8)** to view the logs for that Action.
 
 Each GitHub Action is broken into many different steps, each of which can succeed or fail, as marked by the green checkmark or red X next to each one.
 
+If a build fails while checking `CHECKOUT_EXCLUDE_PATHS`, `ARTIFACT_RETENTION_DAYS`,
+or `OUTPUT_DIR`, see [GitHub Actions Build Options](../expert-editing/github-actions-build-options.md)
+for the accepted values.
+
 <figure><img src="../.gitbook/assets/troubleshooting04.png" alt=""><figcaption></figcaption></figure>
 
 The most common step that breaks is the _Run python build script_ step, and you can view the logs for that step by clicking on it. A failed step will have an error in it like this:
@@ -40,6 +44,8 @@ configparser.NoOptionError: No option 'Comic name' in section: 'Comic Info'
 This is called a "Traceback" and it looks very intimidating, but the only part you should concern yourself with are the last two lines. This explains the error the script is running into, and hints at what you can do to fix it. I've provided a few common errors, their most common causes, and the recommended fix.
 
 #### Changing how much build logging you see
+
+> **Added in 1.1.0**
 
 comic\_git normally shows `INFO`-level build logs. This is the best default for most GitHub Actions runs: it shows the major build steps and useful warnings without filling the log with internal details.
 
@@ -91,8 +97,13 @@ If you see a recent GitHub Pages deployment on this page but your website hasn't
 
 Here are instructions on how to do that in [Firefox](https://support.mozilla.org/en-US/kb/how-clear-firefox-cache), [Chrome](https://support.google.com/accounts/answer/32050), [Internet Explorer](https://support.microsoft.com/en-us/help/17438/windows-internet-explorer-view-delete-browsing-history), and [Microsoft Edge](https://support.microsoft.com/en-us/help/10607/microsoft-edge-view-delete-browser-history).
 
-## Check Your Published Branch
+## Check Your Pages Source and Build Branch
 
-If you've doublechecked everything in the above section, verified that your website is building properly, and verified that the GitHub Pages deployment has completed, but you're still not seeing your website, it may be that you've published the wrong branch. It's especially likely this is what's happened if you're seeing comic\_git's README file when you load your website rather than a webpage.
+If you see your repository's README instead of your comic website, check that
+your repository's **Settings → Pages → Build and deployment → Source** is set to
+**GitHub Actions**, as described in [Publishing to GitHub Pages](../getting-started/publishing-to-github-pages.md).
+The workflow uploads the generated site from its build directory; Pages should
+not serve the repository files directly.
 
-Go through the steps in Publishing to GitHub Pages and doublecheck that you're publishing to the `master` branch and not the `working` branch.
+Also check that `.github/workflows/main.yaml` runs on the branch where you push
+your comic changes, and that its latest build and Pages deployment jobs succeeded.
