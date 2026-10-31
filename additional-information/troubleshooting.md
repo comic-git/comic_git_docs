@@ -22,6 +22,10 @@ Then click on **build (3.8)** to view the logs for that Action.
 
 Each GitHub Action is broken into many different steps, each of which can succeed or fail, as marked by the green checkmark or red X next to each one.
 
+If a build fails while checking `CHECKOUT_EXCLUDE_PATHS`, `ARTIFACT_RETENTION_DAYS`,
+or `OUTPUT_DIR`, see [GitHub Actions Build Options](../expert-editing/github-actions-build-options.md)
+for the accepted values.
+
 <figure><img src="../.gitbook/assets/troubleshooting04.png" alt=""><figcaption></figcaption></figure>
 
 The most common step that breaks is the _Run python build script_ step, and you can view the logs for that step by clicking on it. A failed step will have an error in it like this:

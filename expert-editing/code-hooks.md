@@ -113,6 +113,9 @@ Each variable must be on its own line, and the "key" (e.g. `GOOGLE_SPREADSHEET`)
 
 This same `INPUTS` section can also be used for comic\_git build settings that are controlled through environment variables. For example, if you're troubleshooting a build, you can set `COMIC_GIT_LOG_LEVEL` here to change how much detail appears in the GitHub Actions logs. See [Troubleshooting](../additional-information/troubleshooting.md#changing-how-much-build-logging-you-see) for the available log levels.
 
+For workflow inputs that control checkout, artifact retention, and the output
+directory, see [GitHub Actions Build Options](github-actions-build-options.md).
+
 To reference these environment variables in your code, you just need to use the `os.getenv()` function, like so:
 
 ```

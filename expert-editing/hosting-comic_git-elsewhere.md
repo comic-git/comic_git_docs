@@ -8,6 +8,10 @@ GitHub. This is useful if you already have hosting or have
 [exceeded GitHub Pages' usage limits](https://docs.github.com/en/github/working-with-github-pages/about-github-pages#usage-limits).
 You can also build and upload your website manually, as described below.
 
+For workflow settings shared by these deployment targets, including checkout
+exclusions, artifact retention, and the output directory, see
+[GitHub Actions Build Options](github-actions-build-options.md).
+
 Moving GitHub Pages to another website is as simple as running the [website building script locally on your own PC](building-your-website-on-your-own-pc.md) and then uploading those files to your web host via whatever method they prefer. The most common method will be SFTP, which your web host's documentation will hopefully help you get set up.
 
 The default staged build copies `your_content` into `build`. Future-dated pages do not get HTML pages, but their source images can still be present in that copied folder unless deployment mode removes them first.

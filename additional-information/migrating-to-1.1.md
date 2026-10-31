@@ -44,6 +44,9 @@ If you do **not** use any advanced customizations, that may be all you need to d
 
 The workflow version and engine version are separate choices. The values above follow compatible 1.1 patch updates. For an exact, reproducible 1.1.0 build, use workflow tag `v1.1.0` together with engine version `1.1.0`.
 
+If you customize your GitHub Actions build, see [GitHub Actions Build Options](../expert-editing/github-actions-build-options.md)
+for settings added or changed in 1.1.1.
+
 ***
 
 ## What changed in 1.1?

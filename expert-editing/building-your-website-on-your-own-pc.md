@@ -162,6 +162,10 @@ If you specifically want comic\_git to write the generated HTML files directly i
 $env:OUTPUT_DIR=''
 python comic_git_engine\src\build\build_site.py
 ```
+
+GitHub Actions builds require a separate output directory. See
+[GitHub Actions Build Options](github-actions-build-options.md#output-directory-in-github-actions)
+for the workflow rule.
 {% endhint %}
 
 You should run the build script again any time you change:
