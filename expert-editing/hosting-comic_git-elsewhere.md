@@ -312,7 +312,10 @@ the explicit SFTP hidden-path allowlist after copying and postprocess hooks.
 
 For local deployment, pass `--verbose` to `deploy_sftp.py` to see
 SSH negotiation, the authentication method attempted, and any methods the
-server advertises. The log includes the server and login name.
+server advertises. The log includes the server and login name. If the same
+password works in an interactive SFTP client, check the `SFTP_PASSWORD` value
+your terminal or IDE actually passes to the script. Update any saved IDE run
+configuration that still supplies the old password after a reset.
 
 | Symptom | What to check |
 | --- | --- |

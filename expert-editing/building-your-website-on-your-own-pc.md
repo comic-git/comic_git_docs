@@ -190,8 +190,9 @@ and the equivalent directories of configured Extra Comics. Missing metadata or
 required values skip a folder with a message; malformed values fail the build.
 Text-only pages remain supported. Files directly inside `comics` are omitted:
 put shared assets elsewhere, such as `your_content/images`. Other supporting
-content is copied at its existing paths. Source symlinks/junctions are unsupported
-in this mode.
+content is copied at its existing paths. Python's `__pycache__` directories are
+skipped when copying files, including from themes and `site_root`. Source
+symlinks/junctions are unsupported in this mode.
 
 The same selected pages supply HTML, JSON, navigation, RSS, and copied comic
 folders. After a page is rescheduled into the future, the next selective build
