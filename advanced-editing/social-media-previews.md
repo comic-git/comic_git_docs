@@ -110,7 +110,7 @@ Inside `social_media.json`, comic_git recognizes the following placeholder value
 | `_preview_image`     | `your_content/images/preview_image.png`  |
 | `_thumbnail`         | The thumbnail for the current comic page |
 | `_post_text`         | The current page's post text             |
-| `_alt_text`          | The current page's alt text              |
+| `_alt_text`          | Resolved screen-reader text for the first image on the page |
 
 You can also use ordinary text or URLs directly. A value does **not** need to be a placeholder.
 

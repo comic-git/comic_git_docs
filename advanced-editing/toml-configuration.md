@@ -106,7 +106,8 @@ Use `info.toml` inside a comic page folder instead of that page's `info.ini`. A 
 ```toml
 post_date = "2026-09-04"
 title = "Chapter One"
-alt_text = "Page-level alt text used as an image fallback."
+alt_text = "Page-level hover text."
+screen_reader_text = "Default accessible description for this page."
 storyline = "Book 1"
 characters = ["Alice", "Bob"]
 tags = ["mystery", "rain"]
@@ -126,7 +127,8 @@ Panel one: Alice opens the door.
 [[images]]
 filename = "page-1.png"
 title = "Opening panel"
-alt_text = "Alice opens a blue door."
+alt_text = "What is behind the door?"
+screen_reader_text = "Alice opens a blue door."
 thumbnail = "page-1-thumbnail.jpg"
 
 [[images]]
@@ -138,7 +140,7 @@ Important differences from `info.ini` pages:
 * `post_date` accepts an ISO date or timestamp. You can use a quoted value such as `"2026-09-04T14:30:00-07:00"`, or TOML's unquoted date and datetime values.
 * A timestamp without a timezone uses the comic's configured timezone. A timestamp with `Z` or an offset represents that exact time and is converted to the comic's timezone for display.
 * Every image must be listed in an ordered `[[images]]` table. TOML pages do not auto-discover images.
-* An image's optional `title`, `alt_text`, and `thumbnail` override page-level fallbacks.
+* An image's title, hover text (alt_text), screen_reader_text, and thumbnail are optional. Screen-reader text resolves from the image value, the page value, then the image's resolved hover text.
 * Inline `post_text`, `[transcripts]`, and `[social_media]` replace that page's `post.txt`, transcript files, and `social_media.json`.
 * Custom template or hook values belong in `[extra]`. Keys beginning with `!` are intentionally not migrated into public page data.
 

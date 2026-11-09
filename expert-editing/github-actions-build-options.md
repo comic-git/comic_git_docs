@@ -6,6 +6,15 @@ These optional settings apply to the reusable build workflow at `@v1.1.1` or a
 later compatible reference. Add them under `with:` in the `call-build-site` job
 of your repository's `.github/workflows/main.yaml`.
 
+## Caller submodules
+
+The workflow checks out the engine separately using the comic's Engine version.
+Other caller submodules that are included in checkout are updated to the branch
+configured in .gitmodules, or the submodule remote's default branch if none is
+configured. A normal Git submodule checkout uses the commit recorded by the
+caller. This workflow fetches the remote branch tip to preserve existing
+deployment behavior.
+
 ## Opt into selective content copying
 
 With engine 1.1.1 or later, enable
