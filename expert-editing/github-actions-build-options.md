@@ -9,11 +9,12 @@ of your repository's `.github/workflows/main.yaml`.
 ## Caller submodules
 
 The workflow checks out the engine separately using the comic's Engine version.
-Other caller submodules that are included in checkout are updated to the branch
+Other caller submodules are updated to the branch
 configured in .gitmodules, or the submodule remote's default branch if none is
 configured. A normal Git submodule checkout uses the commit recorded by the
 caller. This workflow fetches the remote branch tip to preserve existing
-deployment behavior.
+deployment behavior. A submodule under a directory omitted by sparse checkout
+can still be initialized by this step.
 
 ## Opt into selective content copying
 
@@ -61,23 +62,14 @@ wildcards, absolute paths, and paths outside the repository. It also keeps
 repository; the engine is checked out separately.
 
 Check that your comic config, images, transcripts, themes, Code Hooks, and any
-other build inputs remain available. An excluded directory is absent from the
-build runner even if a hook tries to read it. Leave this setting empty unless
+other build inputs remain available. Files tracked directly by the caller under
+excluded directories are unavailable to hooks. Leave this setting empty unless
 checkout transfer is a meaningful part of your build time.
 
-## Keep deployment artifacts longer
+## Deployment artifact retention
 
-`ARTIFACT_RETENTION_DAYS` defaults to `1`. You can set it to an integer from
-`1` through `90`, subject to your repository or organization's maximum:
-
-```yaml
-    with:
-      ARTIFACT_RETENTION_DAYS: "7"
-```
-
-Choose a longer retention period if an environment approval may be delayed or
-you expect to retry a deployment job. Once its artifact expires, rerun the
-complete workflow to rebuild the site.
+The workflow keeps deployment artifacts for one day. After an artifact expires,
+rerun the complete workflow to rebuild and deploy the site.
 
 ## Output directory in GitHub Actions
 

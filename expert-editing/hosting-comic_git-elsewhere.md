@@ -290,9 +290,8 @@ and use the `[hostname]:port` form in the host-key line.
 The command enables selective copying and builds from your actual repository into
 a temporary output directory. Your preview build stays in place. Scheduled source
 folders remain intact; thumbnail generation can create or update source cache
-files. Scheduled pages and their assets are omitted from the upload unless you
-explicitly pass `--publish-all-comics`, which uploads future pages too. Source
-symlinks/junctions are unsupported. Theme hooks run from your real repository and
+files. The upload omits scheduled pages and their assets. Source symlinks and
+junctions are unsupported. Theme hooks run from your real repository and
 can read other host-owned inputs.
 
 The local command uses the same hidden-path allowlist and remote exclusions as
@@ -300,8 +299,7 @@ GitHub Actions. Set `SFTP_HIDDEN_PATHS` and `SFTP_EXCLUDE_PATHS` as newline-sepa
 environment variables when needed. Cleanup is on by default. Keep
 `SFTP_CLEAN=false` to retain server files that are absent from the build.
 
-SFTP's explicit hidden-path allowlist takes precedence over the selective mode's
-`Include hidden files` setting. List intentional exceptions in `SFTP_HIDDEN_PATHS`.
+List intentional hidden-file exceptions in `SFTP_HIDDEN_PATHS`.
 
 The local command always enables selective copying, even if the main config
 sets it to false. Hosted SFTP builds keep the existing copying default unless
@@ -329,8 +327,9 @@ configuration that still supplies the old password after a reset.
 
 Deployments update files in place. A failed transfer can leave a partly updated
 site; correct the error and rerun the workflow. Publication is not atomic and
-does not provide automatic rollback. The workflow uses `lftp`, a command-line
-file-transfer client installed automatically on GitHub's runner.
+does not provide automatic rollback. GitHub Actions downloads the finished site
+and uses the same Python SFTP uploader as the local command. The deploy job
+installs its dependencies and receives the SFTP secrets at upload time.
 
 ## Neocities
 

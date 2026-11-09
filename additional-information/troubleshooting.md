@@ -22,8 +22,7 @@ Then click on **build (3.8)** to view the logs for that Action.
 
 Each GitHub Action is broken into many different steps, each of which can succeed or fail, as marked by the green checkmark or red X next to each one.
 
-If a build fails while checking `CHECKOUT_EXCLUDE_PATHS`, `ARTIFACT_RETENTION_DAYS`,
-or `OUTPUT_DIR`, see [GitHub Actions Build Options](../expert-editing/github-actions-build-options.md)
+If a build fails while checking `CHECKOUT_EXCLUDE_PATHS` or `OUTPUT_DIR`, see [GitHub Actions Build Options](../expert-editing/github-actions-build-options.md)
 for the accepted values.
 
 <figure><img src="../.gitbook/assets/troubleshooting04.png" alt=""><figcaption></figcaption></figure>
@@ -85,7 +84,7 @@ become a page. The following messages help explain missing content:
 
 | Message or symptom | What to check |
 | --- | --- |
-| `Skipping incomplete page` | Add the missing required value, such as `Post date` / `post_date` or an explicitly declared image filename. Missing optional titles and valid text-only pages still use normal defaults. |
+| Missing required post date or image filename | Add the missing required value, such as `Post date` / `post_date` or an explicitly declared image filename. Missing optional titles and valid text-only pages still use normal defaults. |
 | Invalid date, malformed TOML/INI, or missing referenced file | Correct the value or path named in the error. Malformed input fails the build even when another required value is missing. |
 | `Included hidden path does not exist in the build` | Use an exact final-output path. Root files copied from `site_root` use paths such as `.htaccess`. The entry cannot restore an unpublished page or a loose file under `comics`. |
 | An image or thumbnail would be excluded by the hidden-path policy | Rename it or explicitly permit its final output path. The build refuses to render a reference that filtering would remove. |

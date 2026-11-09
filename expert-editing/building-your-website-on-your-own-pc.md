@@ -186,8 +186,8 @@ you want future pages and their assets included. A separate output folder is
 required; `build` is the default.
 
 Selective copying includes only eligible page folders under `your_content/comics`
-and the equivalent directories of configured Extra Comics. Missing metadata or
-required values skip a folder with a message; malformed values fail the build.
+and the equivalent directories of configured Extra Comics. Folders without metadata are skipped. Missing required values and malformed
+metadata fail the build.
 Text-only pages remain supported. Files directly inside `comics` are omitted:
 put shared assets elsewhere, such as `your_content/images`. Other supporting
 content is copied at its existing paths. Python's `__pycache__` directories are
@@ -222,8 +222,7 @@ For a selective preview that includes scheduled pages, run:
 python comic_git_engine\src\scripts\dev_server.py --selective-copy --publish-all-comics
 ```
 
-Dotfiles and dot-directories are excluded by default in selective mode. To include
-them all, add `Include hidden files = true` in `[Build]`. For narrower exceptions, use `--hidden-paths`
+Dotfiles and dot-directories are excluded by default in selective mode. For exceptions, use `--hidden-paths`
 with newline-separated final output paths, or configure:
 
 ```ini
@@ -237,8 +236,7 @@ Indent each continuation line, as shown with four spaces above. The INI parser
 joins those lines into the same `Hidden paths` value; keep the option name itself
 unindented.
 
-An explicit `Hidden paths` setting takes precedence over `Include hidden files`;
-an empty value excludes all hidden output. A command-line `--hidden-paths` argument takes
+An empty `Hidden paths` value excludes all hidden output. A command-line `--hidden-paths` argument takes
 precedence over the configured list. `.htaccess` permits the root file copied from
 `site_root`, not its separate duplicate under `your_content/site_root`.
 Underscore names such as `_thumbnail.jpg` are ordinary files. A missing listed
@@ -246,11 +244,10 @@ path fails the build. Explicit comic image/thumbnail references to excluded
 hidden files also fail rather than creating broken links. Preview HTTP serving
 still denies hidden paths even when they are included in output.
 
-If a page folder itself begins with a dot, include-all permits it when its
-metadata and schedule are valid. An exact allowlist must cover both its asset
+If a page folder itself begins with a dot, the allowlist must cover both its asset
 directory and generated HTML directory, for example
 `your_content/comics/.draft` and `comic/.draft`. Allowing a hidden file never
-restores an incomplete or future-dated page, or a loose file directly under
+publishes a future-dated page, or a loose file directly under
 `comics`.
 
 ### Auto-rebuilding preview server

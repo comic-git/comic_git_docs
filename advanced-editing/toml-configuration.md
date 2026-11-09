@@ -48,7 +48,7 @@ The supported tables correspond to the sections documented in [Editing your Comi
 | TOML table           | Supported keys                                                                                                                                |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | `[engine]`           | `version`                                                                                                                                     |
-| `[build]`            | `selective_copy`, `include_hidden_files`, `hidden_paths` (main configuration only)                                                             |
+| `[build]`            | `selective_copy`, `hidden_paths` (main configuration only)                                                             |
 | `[comic]`            | `name`, `author`, `description`                                                                                                               |
 | `[site]`             | `theme`, `banner_image`, `date_format`, `timezone`, `comic_domain`, `comic_subdirectory`, `extra_comics`, `on_comic_click`, `markdown_extras` |
 | `[archive]`          | `date_format`, `use_thumbnails`, `show_uncategorized_comics`, `show_text_only_posts`, `list_images_separately`, `image_title_fallback`         |
@@ -85,8 +85,7 @@ The supported keys match the [INI Build section](../basic-editing/editing-your-c
 | Key | Value and behavior |
 | --- | --- |
 | `selective_copy` | Boolean; defaults to `false`. `--selective-copy` and `--no-selective-copy` override it for one local build. |
-| `include_hidden_files` | Boolean; defaults to `false` in selective mode. Set `true` to include all dotfiles and dot-directories. |
-| `hidden_paths` | Array of exact final-output paths. When supplied, it overrides include-all; `[]` excludes all hidden output. |
+| `hidden_paths` | Array of exact final-output paths. `[]` excludes all hidden output. |
 
 For example, if `your_content/site_root/.htaccess` exists, add
 `hidden_paths = [".htaccess"]` to the same `[build]` table to keep its root copy.

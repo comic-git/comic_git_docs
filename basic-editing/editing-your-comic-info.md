@@ -255,8 +255,7 @@ Selective copy = true
 | Option | Default | Purpose |
 | --- | --- | --- |
 | `Selective copy` | `false` | Copy only eligible comic page folders while preserving scheduled source folders. Supporting content outside the managed `comics` directories is still copied. |
-| `Include hidden files` | `false` in selective mode | Include dotfiles and dot-directories when set to `true`. Underscore names such as `_thumbnail.jpg` are ordinary files. |
-| `Hidden paths` | Omitted | List exact hidden output paths, one per indented line, to keep specific exceptions. This list takes precedence over `Include hidden files`; an explicit empty value excludes all hidden output. Listed paths must exist in the finished build. |
+| `Hidden paths` | Omitted | List exact hidden output paths, one per indented line, to keep specific exceptions. An explicit empty value excludes all hidden output. Listed paths must exist in the finished build. |
 
 Existing builds keep their current copying behavior unless you opt in. Generated
 thumbnails remain in source folders so you can commit and reuse them. See
