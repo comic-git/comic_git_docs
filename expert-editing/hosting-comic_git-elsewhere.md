@@ -14,18 +14,24 @@ exclusions, artifact retention, and the output directory, see
 
 Moving GitHub Pages to another website is as simple as running the [website building script locally on your own PC](building-your-website-on-your-own-pc.md) and then uploading those files to your web host via whatever method they prefer. The most common method will be SFTP, which your web host's documentation will hopefully help you get set up.
 
-The default staged build copies `your_content` into `build`. Future-dated pages do not get HTML pages, but their source images can still be present in that copied folder unless deployment mode removes them first.
+Without selective copying, the staged build copies all of `your_content` into
+`build`. Future-dated pages have no generated HTML, but their source images can
+still be in the copied content unless the legacy deletion flag removes them first.
 
-The safest manual deployment process is:
+With engine 1.1.1 or later, use selective copying for a manual deployment build:
 
-1. Commit and push everything you want to preserve.
-2. Make a fresh, disposable clone or copy of the repository for the deployment build.
-3. In that disposable copy, run `python comic_git_engine\src\build\build_site.py --delete-scheduled-posts`.
-4. Upload the contents of its `build` folder to your web server.
-5. Delete the disposable copy when you are finished.
+1. Run `python comic_git_engine\src\build\build_site.py --selective-copy` from your comic repository.
+2. Check the finished `build` folder, including any required hidden-file exceptions.
+3. Upload the contents of `build` to your web server.
+
+Future page folders remain in source; generated thumbnails may be added or updated
+there for reuse. See [Selective copying](building-your-website-on-your-own-pc.md#selective-copying)
+for configuration, eligibility, hidden files, and the distinction from legacy copying.
 
 {% hint style="danger" %}
-`--delete-scheduled-posts` deletes future-dated comic page folders from the checkout where it runs. Do **not** run it in your normal working copy. The GitHub-hosted deployment workflow is safe because its checkout is temporary.
+In legacy mode, `--delete-scheduled-posts` deletes future-dated comic page folders
+from the checkout where it runs. Use a disposable checkout for that older deployment
+process. Selective mode does not delete those folders, even if the flag is also supplied.
 {% endhint %}
 
 After comic\_git's scripts are run, your built website is nothing more than HTML, CSS, and a little JavaScript, so any basic web server will be able to host it.
@@ -35,8 +41,19 @@ After comic\_git's scripts are run, your built website is nothing more than HTML
 > **Added in 1.1.1**
 
 SFTP lets GitHub upload your finished comic to a hosting account such as DreamHost.
-You still edit your comic and push changes to GitHub as usual; GitHub builds the
-site and uploads it for you. You do not need to install an upload program locally.
+GitHub can build and upload your site after each push. You can also
+[build and deploy from your own computer](#deploy-from-your-computer).
+
+### Back up the target directory
+
+{% hint style="warning" %}
+**Before your first SFTP deployment, download a backup of the entire target
+directory, including hidden files.** By default, comic_git overwrites existing
+files at matching paths and deletes files in the target directory that are absent
+from the new build. This applies to GitHub Actions and local deployments.
+Use a dedicated website directory. Setting `SFTP_CLEAN=false` keeps files
+absent from the build, while files at matching paths are still overwritten.
+{% endhint %}
 
 ### 1. Prepare your hosting account
 
@@ -57,13 +74,6 @@ directory, **not** `/home/username`. SFTP-only access is sufficient: comic_git
 does not need a remote shell. See DreamHost's [connection details](https://help.dreamhost.com/hc/en-us/articles/115000675027-FTP-overview-and-credentials)
 and [website directory guide](https://help.dreamhost.com/hc/en-us/articles/214920778-Where-do-I-upload-my-files-once-connected-via-FTP).
 
-{% hint style="warning" %}
-comic_git owns the destination directory. By default, each deployment removes
-files there that are absent from the new build. Use a dedicated website directory,
-and keep backups of anything you need before your first deployment. Files outside
-that directory are not part of the deployment.
-{% endhint %}
-
 SFTP is different from FTP and FTPS. Your host must support SFTP. The destination
 must already exist and the SFTP user must be able to write and delete files there.
 comic_git will not create a missing destination directory.
@@ -77,17 +87,6 @@ Edit the existing `[Comic Settings]` section of `your_content/comic_info.ini`:
 Engine version = 1.1
 Comic domain = comic.example.com
 Comic subdirectory =
-```
-
-For TOML, edit the matching existing tables instead:
-
-```toml
-[engine]
-version = "1.1"
-
-[site]
-comic_domain = "comic.example.com"
-comic_subdirectory = ""
 ```
 
 An empty subdirectory means `https://comic.example.com/`. For a site at
@@ -200,8 +199,10 @@ that output path:
 ```
 
 Each line is an exact path relative to the built website root. An included
-directory includes its contents. Do not use `your_content/site_root/` prefixes,
-wildcards, or `..`. Include only files your host needs; `.nojekyll` is generally
+directory includes its contents. For a file copied to the root from `site_root`,
+use `.htaccess`, not `your_content/site_root/.htaccess`; those are separate output
+locations. Paths elsewhere in the built site use their full output-relative
+location. Do not use wildcards or `..`. Include only files your host needs; `.nojekyll` is generally
 unnecessary outside GitHub Pages. Entries must exist in the completed output.
 
 #### Preserve files managed by the host
@@ -239,7 +240,79 @@ Pass exactly one of `SFTP_PASSWORD` or `SFTP_PRIVATE_KEY`. The deploy runner
 accepts LF and Windows CRLF line endings and adds a final newline if needed.
 Never commit the private key.
 
+### Deploy from your computer
+
+[Back up the target directory](#back-up-the-target-directory) before the first run.
+
+Use this command when you want to build and publish the contents of your local
+checkout in one step. Follow the [local build setup](building-your-website-on-your-own-pc.md)
+and install the optional SFTP dependencies in your Python environment. This
+works in a native Windows, macOS, or Linux Python environment. Run these
+commands from the comic repository with your local build environment active.
+
+```sh
+python -m pip install -r comic_git_engine/requirements_sftp.txt
+```
+
+From your comic repository, set your connection details in the terminal and run
+the deployment command. Replace the example hostname, directory, and username
+with the values from your host. Save the full [verified OpenSSH host-key line](#verify-the-server-identity)
+for that hostname as `dreamhost-known-hosts` in your home directory.
+
+**Windows PowerShell**
+
+```powershell
+$env:SFTP_HOST = 'server.example.com'
+$env:SFTP_REMOTE_DIR = '/home/comicartist/comic.example.com'
+$env:SFTP_USERNAME = 'comicartist'
+$env:SFTP_KNOWN_HOSTS = Get-Content -Raw -LiteralPath (Join-Path $HOME 'dreamhost-known-hosts')
+$env:SFTP_CLEAN = 'false'
+python comic_git_engine/src/scripts/deploy_sftp.py
+```
+
+**macOS and Linux**
+
+```sh
+export SFTP_HOST=server.example.com
+export SFTP_REMOTE_DIR=/home/comicartist/comic.example.com
+export SFTP_USERNAME=comicartist
+export SFTP_KNOWN_HOSTS="$(cat "$HOME/dreamhost-known-hosts")"
+export SFTP_CLEAN=false
+python comic_git_engine/src/scripts/deploy_sftp.py
+```
+
+In an interactive terminal, the command prompts for your password when no
+credentials are set. For automation, supply `SFTP_PASSWORD` or `SFTP_PRIVATE_KEY`
+through the environment. For key authentication, supply the complete unencrypted
+OpenSSH private key. If your server uses a port other than 22, set `SFTP_PORT`
+and use the `[hostname]:port` form in the host-key line.
+
+The command enables selective copying and builds from your actual repository into
+a temporary output directory. Your preview build stays in place. Scheduled source
+folders remain intact; thumbnail generation can create or update source cache
+files. Scheduled pages and their assets are omitted from the upload unless you
+explicitly pass `--publish-all-comics`, which uploads future pages too. Source
+symlinks/junctions are unsupported. Theme hooks run from your real repository and
+can read other host-owned inputs.
+
+The local command uses the same hidden-path allowlist and remote exclusions as
+GitHub Actions. Set `SFTP_HIDDEN_PATHS` and `SFTP_EXCLUDE_PATHS` as newline-separated
+environment variables when needed. Cleanup is on by default. Keep
+`SFTP_CLEAN=false` to retain server files that are absent from the build.
+
+SFTP's explicit hidden-path allowlist takes precedence over the selective mode's
+`Include hidden files` setting. List intentional exceptions in `SFTP_HIDDEN_PATHS`.
+
+The local command always enables selective copying, even if the main config
+sets it to false. Hosted SFTP builds keep the existing copying default unless
+you set `Selective copy = true` in the main `comic_info.ini` file's `[Build]` section. Both apply
+the explicit SFTP hidden-path allowlist after copying and postprocess hooks.
+
 ### Troubleshooting
+
+For local deployment, pass `--verbose` to `deploy_sftp.py` to see
+SSH negotiation, the authentication method attempted, and any methods the
+server advertises. The log includes the server and login name.
 
 | Symptom | What to check |
 | --- | --- |

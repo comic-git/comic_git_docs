@@ -32,7 +32,12 @@ Each image includes:
 * `url`
 * resolved `title`
 * resolved `alt_text`
+* resolved `screen_reader_text`
 * optional `thumbnail_url`
+
+The legacy `alt_text` value supplies the image's hover description; the
+`screen_reader_text` value supplies its accessible text alternative and inherits
+`alt_text` when omitted.
 
 Image array order is the public ordering contract. Internal image IDs and HTML anchors are not published. If an integration needs a standalone-page image fragment, derive `#comic-image-1`, `#comic-image-2`, and so on from the one-based image position.
 
@@ -40,7 +45,19 @@ Image array order is the public ordering contract. Internal image IDs and HTML a
 
 Legacy page-info keys that begin with `!` are omitted from public metadata. For example, `!Editor note = redraw later` can remain in the source file without being written to `page_info_list.json`.
 
-This prefix is a lightweight publication filter, not encryption. Keep real secrets outside page source files and pass sensitive Code Hook values through GitHub Secrets.
+The prefix filters this JSON document only. Both legacy and selective copying
+can publish the original `info.ini` or `info.toml` from a selected page folder,
+including values omitted from JSON. It does not make source notes private.
+Keep secrets outside page source files and pass sensitive Code Hook values
+through GitHub Secrets.
+
+## Selective publication
+
+The optional [selective copying mode](building-your-website-on-your-own-pc.md#selective-copying)
+uses the same eligible pages for this JSON, generated HTML, RSS, and copied comic
+folders. `--publish-all-comics` includes scheduled pages and their assets. The
+JSON schema remains version `1`; folder selection does not introduce a new
+metadata format.
 
 ## Schema
 

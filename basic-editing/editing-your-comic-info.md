@@ -239,6 +239,32 @@ Note that not all settings are currently supported. For example, settings that r
 
 </details>
 
+## \[Build]
+
+> **Added in 1.1.1**
+
+This optional section controls how source content is copied into the finished
+site. Put it in the main `your_content/comic_info.ini`; its settings apply to the
+whole site, including configured Extra Comics.
+
+```ini
+[Build]
+Selective copy = true
+```
+
+| Option | Default | Purpose |
+| --- | --- | --- |
+| `Selective copy` | `false` | Copy only eligible comic page folders while preserving scheduled source folders. Supporting content outside the managed `comics` directories is still copied. |
+| `Include hidden files` | `false` in selective mode | Include dotfiles and dot-directories when set to `true`. Underscore names such as `_thumbnail.jpg` are ordinary files. |
+| `Hidden paths` | Omitted | List exact hidden output paths, one per indented line, to keep specific exceptions. This list takes precedence over `Include hidden files`; an explicit empty value excludes all hidden output. Listed paths must exist in the finished build. |
+
+Existing builds keep their current copying behavior unless you opt in. Generated
+thumbnails remain in source folders so you can commit and reuse them. See
+[Selective copying](../expert-editing/building-your-website-on-your-own-pc.md#selective-copying)
+for page eligibility, hidden-path examples, and one-build command-line overrides.
+The equivalent TOML keys are documented under
+[Optional build policy](../advanced-editing/toml-configuration.md#optional-build-policy-111).
+
 ## \[Pages]
 
 This is a special section without pre-defined options. This section tells comic\_git what extra web pages beyond the standard comic pages to build.

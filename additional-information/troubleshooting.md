@@ -77,6 +77,26 @@ When a `comic_info.toml` or page `info.toml` file exists, comic_git uses it inst
 
 See [TOML Configuration](../advanced-editing/toml-configuration.md) for examples and migration safety steps. If you have not intentionally migrated a page, check whether an unfinished TOML file is taking precedence over the legacy files you expected comic_git to read.
 
+#### Selective copying messages
+
+When [selective copying](../expert-editing/building-your-website-on-your-own-pc.md#selective-copying)
+is enabled, a folder needs valid required metadata and an eligible post date to
+become a page. The following messages help explain missing content:
+
+| Message or symptom | What to check |
+| --- | --- |
+| `Skipping incomplete page` | Add the missing required value, such as `Post date` / `post_date` or an explicitly declared image filename. Missing optional titles and valid text-only pages still use normal defaults. |
+| Invalid date, malformed TOML/INI, or missing referenced file | Correct the value or path named in the error. Malformed input fails the build even when another required value is missing. |
+| `Included hidden path does not exist in the build` | Use an exact final-output path. Root files copied from `site_root` use paths such as `.htaccess`. The entry cannot restore an unpublished page or a loose file under `comics`. |
+| An image or thumbnail would be excluded by the hidden-path policy | Rename it or explicitly permit its final output path. The build refuses to render a reference that filtering would remove. |
+| Separate output directory required | Leave the default `build` setting or choose another generated-output directory outside the source and engine trees. |
+| Unsupported symlink/junction or link outside `your_content` | Put a regular file or directory in the source tree; selective copying does not follow source link aliases. |
+| Loose file directly under `comics` is absent | Move shared assets into another `your_content` directory or into a valid selected page folder. Loose files are intentionally omitted. |
+
+Native local SFTP always uses selective copying. See
+[SFTP troubleshooting](../expert-editing/hosting-comic_git-elsewhere.md#troubleshooting)
+for transfer and authentication errors.
+
 <table><thead><tr><th valign="top">Error</th><th valign="top">Description</th></tr></thead><tbody><tr><td valign="top">configparser.NoOptionError: No option '&#x3C;option>' in section: '&#x3C;section>'</td><td valign="top">This usually means you've accidentally deleted a line when updating your <code>comic_info.ini</code> file. Check the Editing Your Comic Info page and make sure you have all the necessary options set.</td></tr><tr><td valign="top">KeyError: '&#x3C;key>'</td><td valign="top">This is usually caused by the same issue as the above, though instead the missing option is in one of the <code>info.ini</code> files for a particular comic. Check the Adding Comic Pages page and make sure you have all the necessary options set.</td></tr><tr><td valign="top">ValueError: Not a boolean: &#x3C;value></td><td valign="top">In this case, you've set a value that should only be <code>True</code> or <code>False</code> to something else. Search your config files for the string shown in &#x3C;value> in the given error, and fix that.</td></tr><tr><td valign="top">configparser.ParsingError: Source contains parsing errors: '&#x3C;text>'<br>    [line #]: '&#x3C;text>'</td><td valign="top">You've fat-fingered something in one of your config files, usually in the space between two config sections. Check your config files for any accidental changes.</td></tr><tr><td valign="top">ValueError: time data '&#x3C;date>' does not match format '&#x3C;format string>'</td><td valign="top">You've likely pushed a comic update with a Post date that doesn't match the <code>Date format</code> option in your comic_info.ini. Or, you made a change to the same option that doesn't match one of your comic's Post dates. Either fix the format string, or fix the Post date for the comic page that's having issues.</td></tr><tr><td valign="top">ValueError: unconverted data remains: &#x3C;text></td><td valign="top">Same as above.</td></tr><tr><td valign="top">FileNotFoundError: [Errno 2] No such file or directory: 'your_content/comics/&#x3C;page name>/&#x3C;filename>'</td><td valign="top">You've either provided an incorrect Filename in one of your <code>info.ini</code> files, or forgotten to copy the comic file into that folder.</td></tr></tbody></table>
 
 ### Check if GitHub Pages Has Deployed

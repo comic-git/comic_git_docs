@@ -116,8 +116,6 @@ Comic subdirectory = repo_name
 
 `username` should be your GitHub username, and `repo_name` should be the name of the GitHub repo you created. However, if you set up your GitHub Pages to serve from a custom domain, replace everything in `Comic domain` with that and leave `Comic subdirectory` blank.
 
-For `comic_info.toml`, the equivalent values are `site.comic_domain` and `site.comic_subdirectory`. See [TOML Configuration](../advanced-editing/toml-configuration.md).
-
 ### Run the build\_site.py script
 
 Once your local setup is ready, you can build your site directly on your own PC. Before you do, make sure your repo contains a `your_content/site_root/` folder. comic\_git expects that folder to exist even if it is empty.
@@ -141,7 +139,8 @@ When the script finishes, look in `build` for the generated site files. In most 
 
 * preview in a browser
 * inspect while testing template changes
-* upload if you are hosting somewhere other than GitHub Pages
+* upload if you are hosting somewhere other than GitHub Pages, after choosing the
+  [selective copying](#selective-copying) mode described below
 
 Leave `OUTPUT_DIR` unset to use the default `build` folder. If your site uses a
 GitHub Pages project URL such as `https://username.github.io/repo_name/`, the
@@ -168,7 +167,90 @@ You should run the build script again any time you change:
 
 If you want to convert existing INI and page text files to TOML, use the dry-run-first process in [TOML Configuration](../advanced-editing/toml-configuration.md#migrating-existing-files).
 
-If you only change CSS or JavaScript files, you usually do not need to rebuild. In most cases, refreshing your browser is enough.
+When editing source CSS or JavaScript, rebuild so the changed files are copied
+into your output folder, then refresh the browser. The preview watcher currently
+watches the source types listed below; CSS and JavaScript edits need a manual rebuild.
+
+### Selective copying
+
+> **Added in 1.1.1**
+
+To build public comic content without deleting future-dated source folders, use:
+
+```text
+python comic_git_engine\src\build\build_site.py --selective-copy
+```
+
+You can use the same option with `dev_server.py`. Add `--publish-all-comics` when
+you want future pages and their assets included. A separate output folder is
+required; `build` is the default.
+
+Selective copying includes only eligible page folders under `your_content/comics`
+and the equivalent directories of configured Extra Comics. Missing metadata or
+required values skip a folder with a message; malformed values fail the build.
+Text-only pages remain supported. Files directly inside `comics` are omitted:
+put shared assets elsewhere, such as `your_content/images`. Other supporting
+content is copied at its existing paths. Source symlinks/junctions are unsupported
+in this mode.
+
+The same selected pages supply HTML, JSON, navigation, RSS, and copied comic
+folders. After a page is rescheduled into the future, the next selective build
+removes its generated output while leaving its source folder and cached
+thumbnails in place. `--delete-scheduled-posts` never deletes source folders in
+selective mode; legacy builds still retain that flag's destructive behavior.
+
+Thumbnail generation still writes into source page folders. You can commit those
+thumbnails to reuse them in later builds; the existing overwrite setting applies.
+Page configuration and other ordinary source files inside selected folders are
+still copied, so this mode does not make private notes in those files secret.
+
+Enable the mode persistently in your main `comic_info.ini`:
+
+```ini
+[Build]
+Selective copy = true
+```
+
+`--no-selective-copy` overrides `Selective copy = true` for one build. Existing
+builds remain unchanged unless you opt in. TOML users can find the corresponding
+settings in the [TOML configuration table](../advanced-editing/toml-configuration.md#comic-settings).
+
+For a selective preview that includes scheduled pages, run:
+
+```text
+python comic_git_engine\src\scripts\dev_server.py --selective-copy --publish-all-comics
+```
+
+Dotfiles and dot-directories are excluded by default in selective mode. To include
+them all, add `Include hidden files = true` in `[Build]`. For narrower exceptions, use `--hidden-paths`
+with newline-separated final output paths, or configure:
+
+```ini
+[Build]
+Selective copy = true
+Hidden paths = .htaccess
+    your_content/assets/.public-data
+```
+
+Indent each continuation line, as shown with four spaces above. The INI parser
+joins those lines into the same `Hidden paths` value; keep the option name itself
+unindented.
+
+An explicit `Hidden paths` setting takes precedence over `Include hidden files`;
+an empty value excludes all hidden output. A command-line `--hidden-paths` argument takes
+precedence over the configured list. `.htaccess` permits the root file copied from
+`site_root`, not its separate duplicate under `your_content/site_root`.
+Underscore names such as `_thumbnail.jpg` are ordinary files. A missing listed
+path fails the build. Explicit comic image/thumbnail references to excluded
+hidden files also fail rather than creating broken links. Preview HTTP serving
+still denies hidden paths even when they are included in output.
+
+If a page folder itself begins with a dot, include-all permits it when its
+metadata and schedule are valid. An exact allowlist must cover both its asset
+directory and generated HTML directory, for example
+`your_content/comics/.draft` and `comic/.draft`. Allowing a hidden file never
+restores an incomplete or future-dated page, or a loose file directly under
+`comics`.
 
 ### Auto-rebuilding preview server
 
@@ -228,9 +310,10 @@ If you want to change how a page is generated, edit your existing [Theme](../adv
 {% hint style="info" %}
 **Deleting auto-generated files**
 
-With the default setup, all of your generated local site files live in `build`.
+With the default output setting, your generated site lives in `build`.
 If you want to clear them out, you can delete that folder and rebuild it later.
-If you built into a different folder, clear that output folder instead.
+If you built into a different folder, clear that output folder instead. Generated
+thumbnail caches under `your_content` are separate and remain available for reuse.
 {% endhint %}
 
 ## Viewing your Website on your own PC
@@ -243,8 +326,7 @@ that directory to the path in your generated links:
 ### GitHub Pages project site: serve from the repository root
 
 For a site at `https://username.github.io/repo_name/`, set
-`Comic subdirectory = repo_name` in `comic_info.ini` (or
-`comic_subdirectory = "repo_name"` under `[site]` in `comic_info.toml`). If you let
+`Comic subdirectory = repo_name` in `comic_info.ini`. If you let
 `GITHUB_REPOSITORY=username/repo_name` supply the address instead, comic\_git
 uses the repository name as the subdirectory. Replace `repo_name` below with
 your actual repository name.
@@ -274,8 +356,7 @@ the terminal to stop the server.
 ### Custom domain or root site: serve from `build`
 
 If your site is at the root of a custom domain, such as
-`https://www.example.com/`, set `Comic subdirectory` to an empty value (or
-`comic_subdirectory = ""` under `[site]` in TOML). Set the comic domain explicitly as
+`https://www.example.com/`, set `Comic subdirectory` to an empty value. Set the comic domain explicitly as
 described in [Changing Your Website URL](changing-your-website-url.md). The same
 local preview steps apply to a GitHub Pages user site at
 `https://username.github.io/` with an empty comic subdirectory.

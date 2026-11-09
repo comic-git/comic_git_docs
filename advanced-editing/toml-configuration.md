@@ -48,6 +48,7 @@ The supported tables correspond to the sections documented in [Editing your Comi
 | TOML table           | Supported keys                                                                                                                                |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | `[engine]`           | `version`                                                                                                                                     |
+| `[build]`            | `selective_copy`, `include_hidden_files`, `hidden_paths` (main configuration only)                                                             |
 | `[comic]`            | `name`, `author`, `description`                                                                                                               |
 | `[site]`             | `theme`, `banner_image`, `date_format`, `timezone`, `comic_domain`, `comic_subdirectory`, `extra_comics`, `on_comic_click`, `markdown_extras` |
 | `[archive]`          | `date_format`, `use_thumbnails`, `show_uncategorized_comics`, `show_text_only_posts`, `list_images_separately`, `image_title_fallback`         |
@@ -56,7 +57,7 @@ The supported tables correspond to the sections documented in [Editing your Comi
 | `[image_processing]` | `create_thumbnails`, `overwrite_existing_images`, `thumbnail_size`                                                                            |
 | `[analytics]`        | `google_analytics_id`                                                                                                                         |
 | `[rss]`              | `build`, `newest_first`, `language`, `image`, `image_width`, `image_height`, `title_format`, `channel_description`, `combine_with_main`       |
-| `[webring]`          | `enabled`, `endpoint`, `id`, `show_all_members`, `exclude_own_comic_from_members`                                                             |
+| `[webring]`          | `enabled`, `endpoint`, `id`, `show_all_members`, `exclude_own_comic_from_members`, `text_mode`, `on_error`                                    |
 | `[[links]]`          | `name` or `image_url`, `url`, `open_in_new_tab`                                                                                               |
 | `[[pages]]`          | `template_name`, `title`                                                                                                                      |
 
@@ -69,6 +70,34 @@ The migration tool preserves uncommon legacy settings that do not have a first-c
 {% hint style="info" %}
 Site-wide social-media settings remain in `your_content/social_media.json`. The `[social_media]` example below is supported inside a page's `info.toml`; it is not currently accepted in `comic_info.toml`.
 {% endhint %}
+
+### Optional build policy (1.1.1)
+
+To opt the whole site into selective copying, add this table to the main config:
+
+```toml
+[build]
+selective_copy = true
+```
+
+The supported keys match the [INI Build section](../basic-editing/editing-your-comic-info.md#build):
+
+| Key | Value and behavior |
+| --- | --- |
+| `selective_copy` | Boolean; defaults to `false`. `--selective-copy` and `--no-selective-copy` override it for one local build. |
+| `include_hidden_files` | Boolean; defaults to `false` in selective mode. Set `true` to include all dotfiles and dot-directories. |
+| `hidden_paths` | Array of exact final-output paths. When supplied, it overrides include-all; `[]` excludes all hidden output. |
+
+For example, if `your_content/site_root/.htaccess` exists, add
+`hidden_paths = [".htaccess"]` to the same `[build]` table to keep its root copy.
+Use an array, not a multiline string; commas inside path names stay part of the
+path. The command-line `--hidden-paths` argument takes precedence over this list.
+SFTP's explicit allowlist still controls its hidden output.
+
+These settings are site-wide, not Extra Comic overrides. See
+[Selective copying](../expert-editing/building-your-website-on-your-own-pc.md#selective-copying)
+for page-folder rules, thumbnail caching, and hidden-page exceptions. Omitted
+settings keep existing build behavior; adding TOML does not opt in automatically.
 
 ## Comic pages
 

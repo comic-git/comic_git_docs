@@ -6,6 +6,30 @@ These optional settings apply to the reusable build workflow at `@v1.1.1` or a
 later compatible reference. Add them under `with:` in the `call-build-site` job
 of your repository's `.github/workflows/main.yaml`.
 
+## Opt into selective content copying
+
+With engine 1.1.1 or later, enable
+[selective copying](building-your-website-on-your-own-pc.md#selective-copying)
+in the main comic configuration. No additional workflow input is required:
+
+```ini
+[Build]
+Selective copy = true
+```
+
+Existing hosted builds, including SFTP, keep legacy copying unless the config opts in. Native local
+`deploy_sftp.py` enables selective copying automatically.
+
+The mode suppresses scheduled-source deletion even when the workflow supplies
+`--delete-scheduled-posts`. Thumbnail generation still writes source caches in
+the disposable Actions checkout; it does not commit those files back to your
+repository. You can generate and commit thumbnails locally for future reuse.
+
+Hidden exceptions affect the built output but do not change GitHub Pages or
+Neocities artifact dotfile handling. SFTP's explicit allowlist still controls
+its hidden output. This mode changes content staging, not checkout exclusions:
+keep all inputs the builder and hooks need available during checkout.
+
 ## Skip unused source directories during checkout
 
 If your repository contains large directories that the build never reads, list
@@ -55,7 +79,7 @@ also means `build`; `OUTPUT_DIR: .` and other paths resolving to the checkout
 root are rejected. Set `OUTPUT_DIR` to a separate directory if you need a
 different location. This rule applies to GitHub Actions builds. The local
 Python build script still supports an explicitly empty `OUTPUT_DIR` for
-advanced in-place builds.
+legacy in-place builds; selective copying requires separate output locally too.
 
 The build uploads the generated directory for the chosen deployment target.
 GitHub Pages and Neocities omit dot-prefixed files from their site artifacts.

@@ -3,6 +3,16 @@
 Write for people using the newest comic_git release. Clear, accurate instructions
 matter more than preserving every older workflow or labeling every edit.
 
+## Configuration guidance
+
+Give end-user configuration instructions using `comic_info.ini` section and
+option names, with INI examples. Keep TOML equivalents and examples in the
+configuration table and reference at `advanced-editing/toml-configuration.md`
+instead of repeating TOML alternatives in feature guides. TOML users are expected
+to consult that reference, or the CMS when available, for the corresponding edits.
+
+## Version notes
+
 When a feature or behavior depends on a particular release, consider a small,
 unobtrusive version note at the narrowest useful scope. Use wording that matches
 the change, such as `> **Added in 1.1.1**` for a new capability or
