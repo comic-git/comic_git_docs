@@ -116,8 +116,6 @@ Comic subdirectory = repo_name
 
 `username` should be your GitHub username, and `repo_name` should be the name of the GitHub repo you created. However, if you set up your GitHub Pages to serve from a custom domain, replace everything in `Comic domain` with that and leave `Comic subdirectory` blank.
 
-For `comic_info.toml`, the equivalent values are `site.comic_domain` and `site.comic_subdirectory`. See [TOML Configuration](../advanced-editing/toml-configuration.md).
-
 ### Run the build\_site.py script
 
 Once your local setup is ready, you can build your site directly on your own PC. Before you do, make sure your repo contains a `your_content/site_root/` folder. comic\_git expects that folder to exist even if it is empty.
@@ -141,28 +139,21 @@ When the script finishes, look in `build` for the generated site files. In most 
 
 * preview in a browser
 * inspect while testing template changes
-* upload if you are hosting somewhere other than GitHub Pages
+* upload if you are hosting somewhere other than GitHub Pages, after choosing the
+  [selective copying](#selective-copying) mode described below
 
-{% hint style="info" %}
-**Using a different output folder**
+Leave `OUTPUT_DIR` unset to use the default `build` folder. If your site uses a
+GitHub Pages project URL such as `https://username.github.io/repo_name/`, the
+simple HTTP server instructions below show how to rebuild into a folder named
+`repo_name` so the local URL has the same path.
 
-If you want comic\_git to build somewhere other than `build`, use the `--output-dir` argument.
+For the hosted workflow's output setting, see
+[GitHub Actions Build Options](github-actions-build-options.md#output-directory-in-github-actions).
 
-For example, if you want the generated site to go into a folder called `preview_site`:
-
-```
-python comic_git_engine\src\build\build_site.py --output-dir preview_site
-```
-
-This is especially useful when you want the output folder name to match your `Comic subdirectory` for local browser testing.
-
-If you specifically want comic\_git to write the generated HTML files directly into the repo root instead of a separate folder, you can still set `OUTPUT_DIR` to an empty value before you run the build script. That older environment-variable approach is mainly useful for advanced cases.
-
-```powershell
-$env:OUTPUT_DIR=''
-python comic_git_engine\src\build\build_site.py
-```
-{% endhint %}
+These folders contain generated files. Add `/build/` and, if you use the project
+site preview below, `/repo_name/` to your repository's `.gitignore` (replacing
+`repo_name` with your actual repository name) so GitHub Desktop does not offer
+to commit them.
 
 You should run the build script again any time you change:
 
@@ -176,9 +167,92 @@ You should run the build script again any time you change:
 
 If you want to convert existing INI and page text files to TOML, use the dry-run-first process in [TOML Configuration](../advanced-editing/toml-configuration.md#migrating-existing-files).
 
-If you only change CSS or JavaScript files, you usually do not need to rebuild. In most cases, refreshing your browser is enough.
+When editing source CSS or JavaScript, rebuild so the changed files are copied
+into your output folder, then refresh the browser. The preview watcher currently
+watches the source types listed below; CSS and JavaScript edits need a manual rebuild.
+
+### Selective copying
+
+> **Added in 1.1.1**
+
+To build public comic content without deleting future-dated source folders, use:
+
+```text
+python comic_git_engine\src\build\build_site.py --selective-copy
+```
+
+You can use the same option with `dev_server.py`. Add `--publish-all-comics` when
+you want future pages and their assets included. A separate output folder is
+required; `build` is the default.
+
+Selective copying includes only eligible page folders under `your_content/comics`
+and the equivalent directories of configured Extra Comics. Folders without metadata are skipped. Missing required values and malformed
+metadata fail the build.
+Text-only pages remain supported. Files directly inside `comics` are omitted:
+put shared assets elsewhere, such as `your_content/images`. Other supporting
+content is copied at its existing paths. Python's `__pycache__` directories are
+skipped when copying files, including from themes and `site_root`. Source
+symlinks/junctions are unsupported in this mode.
+
+The same selected pages supply HTML, JSON, navigation, RSS, and copied comic
+folders. After a page is rescheduled into the future, the next selective build
+removes its generated output while leaving its source folder and cached
+thumbnails in place. `--delete-scheduled-posts` never deletes source folders in
+selective mode; legacy builds still retain that flag's destructive behavior.
+
+Thumbnail generation still writes into source page folders. You can commit those
+thumbnails to reuse them in later builds; the existing overwrite setting applies.
+Page configuration and other ordinary source files inside selected folders are
+still copied, so this mode does not make private notes in those files secret.
+
+Enable the mode persistently in your main `comic_info.ini`:
+
+```ini
+[Build]
+Selective copy = true
+```
+
+`--no-selective-copy` overrides `Selective copy = true` for one build. Existing
+builds remain unchanged unless you opt in. TOML users can find the corresponding
+settings in the [TOML configuration table](../advanced-editing/toml-configuration.md#comic-settings).
+
+For a selective preview that includes scheduled pages, run:
+
+```text
+python comic_git_engine\src\scripts\dev_server.py --selective-copy --publish-all-comics
+```
+
+Dotfiles and dot-directories are excluded by default in selective mode. For exceptions, use `--hidden-paths`
+with newline-separated final output paths, or configure:
+
+```ini
+[Build]
+Selective copy = true
+Hidden paths = .htaccess
+    your_content/assets/.public-data
+```
+
+Indent each continuation line, as shown with four spaces above. The INI parser
+joins those lines into the same `Hidden paths` value; keep the option name itself
+unindented.
+
+An empty `Hidden paths` value excludes all hidden output. A command-line `--hidden-paths` argument takes
+precedence over the configured list. `.htaccess` permits the root file copied from
+`site_root`, not its separate duplicate under `your_content/site_root`.
+Underscore names such as `_thumbnail.jpg` are ordinary files. A missing listed
+path fails the build. Explicit comic image/thumbnail references to excluded
+hidden files also fail rather than creating broken links. Preview HTTP serving
+still denies hidden paths even when they are included in output.
+
+If a page folder itself begins with a dot, the allowlist must cover both its asset
+directory and generated HTML directory, for example
+`your_content/comics/.draft` and `comic/.draft`. Allowing a hidden file never
+publishes a future-dated page, or a loose file directly under
+`comics`.
 
 ### Auto-rebuilding preview server
+
+> **Added in 1.1.0**
 
 For theme and content work, comic_git includes a preview server that rebuilds when supported source files change. Install its optional watcher once:
 
@@ -194,6 +268,25 @@ python comic_git_engine\src\scripts\dev_server.py
 
 The command prints the local URL to open and watches changes to TOML, INI, text, Markdown, HTML, and template files. Press Ctrl+C to stop it.
 
+> **Changed in 1.1.1**
+
+The preview listens only on your own computer by default. It requires a separate
+output folder (`build` by default). It handles a configured comic subdirectory
+in the URL itself, so you do not need to rename the output folder for this
+preview server. Repository-root preview is refused. Hidden paths, directory
+listings, and links that resolve outside the preview folder are not served.
+
+To deliberately share the preview with another device on your network, use:
+
+```powershell
+python comic_git_engine\src\scripts\dev_server.py --listen 0.0.0.0
+```
+
+Open your computer's LAN address on port 8000 from that device. Anyone who can
+reach this port can read the preview, including unpublished assets copied into
+it. Share only on a trusted network, and stop the server when finished.
+
+
 To include future-dated pages in a local preview without deleting their source folders, use:
 
 ```powershell
@@ -205,7 +298,9 @@ Do **not** use `--delete-scheduled-posts` for an ordinary local preview.
 {% hint style="warning" %}
 **Generated HTML files are temporary build output**
 
-With the default `build` workflow, editing generated HTML files is less risky than it used to be because those files live in their own folder. But they are still temporary build output, and your changes will be overwritten the next time you rebuild.
+Generated HTML files live in the output folder (`build` by default). They are
+temporary build output, and your changes will be overwritten the next time you
+rebuild.
 
 If you want to change how a page is generated, edit your existing [Theme](../advanced-editing/themes.md) instead.
 {% endhint %}
@@ -213,69 +308,64 @@ If you want to change how a page is generated, edit your existing [Theme](../adv
 {% hint style="info" %}
 **Deleting auto-generated files**
 
-With the default setup, all of your generated local site files live in `build`. If you want to clear them out, you can simply delete that folder and rebuild it later.
-
-If you are using a custom output folder, delete that folder instead.
-
-If you are using the old in-place build behavior described above, the helper script below is useful because it removes the generated HTML files from your repo root for you.
-
-```
-python comic_git_engine\src\scripts\delete_autogenerated_files.py
-```
+With the default output setting, your generated site lives in `build`.
+If you want to clear them out, you can delete that folder and rebuild it later.
+If you built into a different folder, clear that output folder instead. Generated
+thumbnail caches under `your_content` are separate and remain available for reuse.
 {% endhint %}
 
 ## Viewing your Website on your own PC
 
 You've learned how to build your website on your local PC. However, you also need to be able to view your website. While you can open the individual HTML files, this doesn't replicate a full server environment.
 
-By default, comic\_git builds your generated site into the `build` folder. That means:
+The simple HTTP server serves files relative to the directory you give it. Match
+that directory to the path in your generated links:
 
-* If you just want to inspect the generated files or upload them somewhere else, use the contents of `build`.
-* If you want to run a simple local web server, the exact instructions depend on whether your `Comic subdirectory` is blank.
+### GitHub Pages project site: serve from the repository root
 
-### If `Comic subdirectory` is blank
+For a site at `https://username.github.io/repo_name/`, set
+`Comic subdirectory = repo_name` in `comic_info.ini`. If you let
+`GITHUB_REPOSITORY=username/repo_name` supply the address instead, comic\_git
+uses the repository name as the subdirectory. Replace `repo_name` below with
+your actual repository name.
 
-If your site is hosted directly at the root of your domain, and `Comic subdirectory` is blank in `comic_info.ini`, you can preview the default `build` folder directly.
+From the repository root, build into a **separate folder named after the
+repository**:
 
-Navigate to your repo directory and run:
-
-```
-D:\GitHub\comic_git> cd build
-D:\GitHub\comic_git\build> python -m http.server 8000
-Serving HTTP on :: port 8000 (http://[::]:8000/) ...
-```
-
-Then open [http://localhost:8000](http://localhost:8000/) or [http://127.0.0.1:8000](http://127.0.0.1:8000/) in your browser.
-
-### If `Comic subdirectory` is set
-
-If your site uses a non-empty `Comic subdirectory` (the usual GitHub Pages setup), the generated links expect your site to live at a URL like `https://username.github.io/repo_name/`. Because of that, serving the `build` folder directly from `http://localhost:8000/` will not match the URLs comic\_git generated.
-
-For a local browser preview in this case, set `--output-dir` to the same value as `Comic subdirectory`, then rebuild your site. For example, if `Comic subdirectory = comic_git`, run:
-
-```
-python comic_git_engine\src\build\build_site.py --output-dir comic_git
+```text
+python comic_git_engine\src\build\build_site.py --output-dir repo_name
 ```
 
-This will create a folder in your repo with the same name as your configured subdirectory, which makes the local URL structure match what comic\_git generated.
+The build replaces that folder each time it runs, so use it only for generated
+site files.
 
-Then start the web server from your repo root:
+Then, from that same repository root, start the HTTP server:
 
+```text
+python -m http.server 8000 --bind 127.0.0.1
 ```
-D:\GitHub\comic_git> python -m http.server 8000
-Serving HTTP on :: port 8000 (http://[::]:8000/) ...
+
+Open `http://localhost:8000/repo_name/` in your browser. The server uses the
+repository root as `/`, so the generated `repo_name` folder appears at
+`/repo_name/`, matching the path GitHub Pages uses. Serving the generated folder
+itself at `/` would break links that begin with `/repo_name/`. Press Ctrl+C in
+the terminal to stop the server.
+
+### Custom domain or root site: serve from `build`
+
+If your site is at the root of a custom domain, such as
+`https://www.example.com/`, set `Comic subdirectory` to an empty value. Set the comic domain explicitly as
+described in [Changing Your Website URL](changing-your-website-url.md). The same
+local preview steps apply to a GitHub Pages user site at
+`https://username.github.io/` with an empty comic subdirectory.
+
+Use the default build command from above; it writes the generated site to
+`build`. From your repository root, serve that folder:
+
+```text
+python -m http.server 8000 --directory build --bind 127.0.0.1
 ```
 
-Once this appears, open your web browser and go to either [http://localhost:8000/comic\_git](http://localhost:8000/comic_git) or [http://127.0.0.1:8000/comic\_git](http://127.0.0.1:8000/comic_git) (Replace `comic_git` in the URL with the name of the folder your repository is in). You should see your site pop up exactly as if it's been published to the web!
-
-To stop the web server, go into the command prompt window where you ran the command above and hit Ctrl+C.
-
-{% hint style="info" %}
-**Why the URL needs to include your repo's folder name**
-
-Putting `comic_git` at the end of the URL above is necessary because the web server will use the directory that you launch it from as the URL root. Meaning, it will serve all the folders and files it finds in that directory when you go to `http://localhost:8000`. To have it display your website correctly, the generated site files need to be inside a folder whose name matches your `Comic subdirectory` setting.
-
-The default setup for GitHub Pages is to serve your website from `https://<username>.github.io/<repo_name>`, rather than from `https://<username>.github.io/` . Because of that, comic\_git builds all its links in your website (including the ones to CSS and JavaScript files necessary to run the site) by prepending whatever value you put in your "Comic subdirectory" config option above to all links. If it didn't, then your website wouldn't load any CSS properly, and all links to pages within the site would be broken!
-
-If you're hosting directly from the root of your domain (e.g., `https://www.tamberlanecomic.com`), and your "Comic subdirectory" config option is blank, then you do not need this in-place preview workflow at all. You can simply serve the default `build` folder directly as described above.
-{% endhint %}
+Open `http://localhost:8000/` in your browser. You do not need to rename the
+build folder because these sites have no subdirectory in their URLs. Press
+Ctrl+C in the terminal to stop the server.

@@ -44,6 +44,9 @@ If you do **not** use any advanced customizations, that may be all you need to d
 
 The workflow version and engine version are separate choices. The values above follow compatible 1.1 patch updates. For an exact, reproducible 1.1.0 build, use workflow tag `v1.1.0` together with engine version `1.1.0`.
 
+If you customize your GitHub Actions build, see [GitHub Actions Build Options](../expert-editing/github-actions-build-options.md)
+for settings added or changed in 1.1.1.
+
 ***
 
 ## What changed in 1.1?
@@ -55,7 +58,7 @@ Version 1.1 adds several end-user features, including:
 * page-based or image-based Archive entries, including text-only page support
 * customizable [Social Media Previews](../advanced-editing/social-media-previews.md)
 * built-in support for deploying to [Neocities](../expert-editing/hosting-comic_git-elsewhere.md#uploading-to-neocities)
-* a documented [Webring](../expert-editing/webring.md) feature
+* a documented [Webring](../advanced-editing/webring.md) feature
 * more RSS feed options for [Extra Comics](../advanced-editing/adding-an-rss-feed.md)
 
 Most of these are new features, not breaking changes.
@@ -122,7 +125,7 @@ In particular:
 * local testing should use `Endpoint = local`
 * settings like `Exclude own comic from members` depend on `Webring ID` matching your member `id` exactly
 
-See [Webring](../expert-editing/webring.md) for the current setup.
+See [Webring](../advanced-editing/webring.md) for the current setup.
 
 ### Social Media Preview setup should be reviewed
 
