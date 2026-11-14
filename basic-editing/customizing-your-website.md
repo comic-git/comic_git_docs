@@ -105,12 +105,19 @@ You can also use `your_content/site_root/` for any other files that need to live
 
 ## Changing the Navigation Icons
 
-By default, comic\_git uses icons for the First, Previous, Next, and Latest comic links on every comic page. You can disable these icons in your `comic_info.ini` and just use text links instead, or you can replace these icons with your own images.
+The default theme shows First, Previous, Next, and Latest as text. To use icons, set [Use images](editing-your-comic-info.md#use-images) to `True` in `your_content/comic_info.ini`.
 
-Just replace any of the images in `your_content/images/navigation_icons/` with ones you want, and they will be used when building the comic pages.
+```ini
+[Navigation Bar]
+Use images = True
+```
 
-* Make sure to provide both "enabled" and "disabled" images. The "enabled" images will be used when the links can be clicked, and the "disabled" images will be used when they cannot, like when you're at the first or last comic in the list.
-* The new images must be named the same as the default images, including uppercase letters. Those filenames are:
+If `[Navigation Bar]` already exists, add or update `Use images` in that section. Set it to `False` to show text again.
+
+The starter repository includes icons in `your_content/images/navigation_icons/`. To use your own images, replace the bundled PNGs and keep the exact filenames, including capitalization. Replace both variants of each icon you customize. On the first comic page, First and Previous use their `_Disabled` images. On the last comic page, Next and Latest use theirs.
+
+The theme looks for these filenames.
+
   * `Icon_First.png`
   * `Icon_First_Disabled.png`
   * `Icon_Latest.png`
