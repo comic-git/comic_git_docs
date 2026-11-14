@@ -74,6 +74,17 @@ pytz
 
 Any requirements you provide in any themes used by your main comic or extra comics will be auto-magically loaded and installed when the GitHub action is run, before the site is built. If you are not using a theme that contains a `requirements.txt` file, that file will not be loaded and the packages within it will not be installed.
 
+> **Changed in 1.1.1**
+
+Engine dependencies are pinned to reviewed versions. The deployment workflow
+installs hook requirements with those versions as constraints. A hook dependency
+that requires an incompatible version causes an installation error rather than
+silently replacing an engine dependency. Choose a compatible hook package version;
+do not remove the engine constraints to work around the error. Pin your own hook
+dependencies as well when reproducible builds matter. Theme hooks and their
+packages execute Python code during the build, so install only code you trust.
+
+
 ### Passing Input Data to Code Hooks
 
 You will sometimes have configuration data that you want to pass to your code hooks that doesn't make sense to include in the code itself. The most common use case is sensitive data that shouldn't be present in code in plain text, like API keys or Discord webhooks. comic\_git provides a way to pass this kind of data into your code hook code easily and securely.
@@ -101,6 +112,9 @@ When the `build_site.py` Python script runs, this will cause four new environmen
 Each variable must be on its own line, and the "key" (e.g. `GOOGLE_SPREADSHEET`) must be separated from the "value" (e.g., `abcde12345`) by a colon (`:`). Any leading or trailing whitespace will be stripped from both the key and the value when they're parsed into environment variables.
 
 This same `INPUTS` section can also be used for comic\_git build settings that are controlled through environment variables. For example, if you're troubleshooting a build, you can set `COMIC_GIT_LOG_LEVEL` here to change how much detail appears in the GitHub Actions logs. See [Troubleshooting](../additional-information/troubleshooting.md#changing-how-much-build-logging-you-see) for the available log levels.
+
+For workflow inputs that control checkout, artifact retention, and the output
+directory, see [GitHub Actions Build Options](github-actions-build-options.md).
 
 To reference these environment variables in your code, you just need to use the `os.getenv()` function, like so:
 

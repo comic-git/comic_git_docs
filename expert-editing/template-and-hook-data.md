@@ -1,5 +1,7 @@
 # Template and Hook Data
 
+> **Changed in 1.1.0**
+
 comic_git uses structured page and image objects when rendering Jinja templates and calling page-related Code Hooks. Default templates and simple CSS-only themes do not need to work with these objects directly.
 
 ## Page data
@@ -39,7 +41,8 @@ Each item in `images` provides:
 | `image.filename`       | Filename relative to the page folder                         |
 | `image.web_path`       | Image path within the site; prepend `base_dir` in a template |
 | `image.title`          | Resolved image title                                         |
-| `image.alt_text`       | Resolved image alt text                                      |
+| `image.alt_text`       | Resolved hover text                                          |
+| `image.screen_reader_text` | Resolved accessible description for the HTML alt attribute |
 | `image.thumbnail_path` | Resolved image thumbnail, or `None`                          |
 
 Image order is authoritative. Standalone comic pages use `#comic-image-1`, `#comic-image-2`, and so on. Infinite Scroll uses `#<page-name>_01`, `#<page-name>_02`, and so on.
@@ -49,7 +52,7 @@ A simple image loop looks like this:
 ```jinja2
 {% for image in images %}
 <div class="comic-image-container" id="comic-image-{{ loop.index }}">
-    <img class="comic-image" src="{{ base_dir }}/{{ image.web_path | e }}" alt="{{ image.alt_text | e }}">
+    <img class="comic-image" src="{{ base_dir }}/{{ image.web_path | e }}" title="{{ image.alt_text | e }}" alt="{{ image.screen_reader_text | e }}">
 </div>
 {% endfor %}
 ```

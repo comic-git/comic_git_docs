@@ -239,6 +239,31 @@ Note that not all settings are currently supported. For example, settings that r
 
 </details>
 
+## \[Build]
+
+> **Added in 1.1.1**
+
+This optional section controls how source content is copied into the finished
+site. Put it in the main `your_content/comic_info.ini`; its settings apply to the
+whole site, including configured Extra Comics.
+
+```ini
+[Build]
+Selective copy = true
+```
+
+| Option | Default | Purpose |
+| --- | --- | --- |
+| `Selective copy` | `false` | Copy only eligible comic page folders while preserving scheduled source folders. Supporting content outside the managed `comics` directories is still copied. |
+| `Hidden paths` | Omitted | List exact hidden output paths, one per indented line, to keep specific exceptions. An explicit empty value excludes all hidden output. Listed paths must exist in the finished build. |
+
+Existing builds keep their current copying behavior unless you opt in. Generated
+thumbnails remain in source folders so you can commit and reuse them. See
+[Selective copying](../expert-editing/building-your-website-on-your-own-pc.md#selective-copying)
+for page eligibility, hidden-path examples, and one-build command-line overrides.
+The equivalent TOML keys are documented under
+[Optional build policy](../advanced-editing/toml-configuration.md#optional-build-policy-111).
+
 ## \[Pages]
 
 This is a special section without pre-defined options. This section tells comic\_git what extra web pages beyond the standard comic pages to build.
@@ -388,6 +413,8 @@ By default, if you don't give a comic page a `Storyline` value in its `info.ini`
 * Value: `boolean`: `True` or `False`
 * Default: `False`
 
+> **Added in 1.1.0**
+
 When this is `False`, the Archive has one entry for each comic page. Set it to `True` to give every image on a page its own Archive entry. **Show text-only posts** controls whether pages without images are also included when this option is `True`.
 
 </details>
@@ -400,6 +427,8 @@ When this is `False`, the Archive has one entry for each comic page. Set it to `
 * Value: `boolean`: `True` or `False`
 * Default: `True`
 
+> **Added in 1.1.0**
+
 Controls whether pages without comic images appear when **List images separately** is `True`. When images are not listed separately, text-only pages are always included.
 
 </details>
@@ -411,6 +440,8 @@ Controls whether pages without comic images appear when **List images separately
 * Optional
 * Value: `Page title` or `Filename`
 * Default: `Page title`
+
+> **Added in 1.1.0**
 
 Controls the Archive title for an image that does not define its own title. `Page title` uses the page title when available; `Filename` uses the image filename without its extension.
 
@@ -530,4 +561,4 @@ Do not enable this option unless you have separately provided the [privacy discl
 
 ## \[Webring]
 
-This section is covered in [Webring](../expert-editing/webring.md), and decides how to add a webring to your website. This is an optional section.
+This section is covered in [Webring](../advanced-editing/webring.md), and decides how to add a webring to your website. This is an optional section.

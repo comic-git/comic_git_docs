@@ -1,5 +1,7 @@
 # TOML Configuration
 
+> **Added in 1.1.0**
+
 comic_git supports TOML files as an alternative to the traditional INI and text files. TOML is optional: existing `comic_info.ini`, page `info.ini`, `post.txt`, transcript, and `social_media.json` files continue to work.
 
 TOML is useful when you want structured lists, per-image settings, or one self-contained file per comic or page. It is also the content format that future CMS work will build on.
@@ -46,6 +48,7 @@ The supported tables correspond to the sections documented in [Editing your Comi
 | TOML table           | Supported keys                                                                                                                                |
 |----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
 | `[engine]`           | `version`                                                                                                                                     |
+| `[build]`            | `selective_copy`, `hidden_paths` (main configuration only)                                                             |
 | `[comic]`            | `name`, `author`, `description`                                                                                                               |
 | `[site]`             | `theme`, `banner_image`, `date_format`, `timezone`, `comic_domain`, `comic_subdirectory`, `extra_comics`, `on_comic_click`, `markdown_extras` |
 | `[archive]`          | `date_format`, `use_thumbnails`, `show_uncategorized_comics`, `show_text_only_posts`, `list_images_separately`, `image_title_fallback`         |
@@ -54,7 +57,7 @@ The supported tables correspond to the sections documented in [Editing your Comi
 | `[image_processing]` | `create_thumbnails`, `overwrite_existing_images`, `thumbnail_size`                                                                            |
 | `[analytics]`        | `google_analytics_id`                                                                                                                         |
 | `[rss]`              | `build`, `newest_first`, `language`, `image`, `image_width`, `image_height`, `title_format`, `channel_description`, `combine_with_main`       |
-| `[webring]`          | `enabled`, `endpoint`, `id`, `show_all_members`, `exclude_own_comic_from_members`                                                             |
+| `[webring]`          | `enabled`, `endpoint`, `id`, `show_all_members`, `exclude_own_comic_from_members`, `text_mode`, `on_error`                                    |
 | `[[links]]`          | `name` or `image_url`, `url`, `open_in_new_tab`                                                                                               |
 | `[[pages]]`          | `template_name`, `title`                                                                                                                      |
 
@@ -68,6 +71,33 @@ The migration tool preserves uncommon legacy settings that do not have a first-c
 Site-wide social-media settings remain in `your_content/social_media.json`. The `[social_media]` example below is supported inside a page's `info.toml`; it is not currently accepted in `comic_info.toml`.
 {% endhint %}
 
+### Optional build policy (1.1.1)
+
+To opt the whole site into selective copying, add this table to the main config:
+
+```toml
+[build]
+selective_copy = true
+```
+
+The supported keys match the [INI Build section](../basic-editing/editing-your-comic-info.md#build):
+
+| Key | Value and behavior |
+| --- | --- |
+| `selective_copy` | Boolean; defaults to `false`. `--selective-copy` and `--no-selective-copy` override it for one local build. |
+| `hidden_paths` | Array of exact final-output paths. `[]` excludes all hidden output. |
+
+For example, if `your_content/site_root/.htaccess` exists, add
+`hidden_paths = [".htaccess"]` to the same `[build]` table to keep its root copy.
+Use an array, not a multiline string; commas inside path names stay part of the
+path. The command-line `--hidden-paths` argument takes precedence over this list.
+SFTP's explicit allowlist still controls its hidden output.
+
+These settings are site-wide, not Extra Comic overrides. See
+[Selective copying](../expert-editing/building-your-website-on-your-own-pc.md#selective-copying)
+for page-folder rules, thumbnail caching, and hidden-page exceptions. Omitted
+settings keep existing build behavior; adding TOML does not opt in automatically.
+
 ## Comic pages
 
 Use `info.toml` inside a comic page folder instead of that page's `info.ini`. A TOML page can contain its post, transcripts, social-media overrides, and ordered images in one file:
@@ -75,7 +105,8 @@ Use `info.toml` inside a comic page folder instead of that page's `info.ini`. A 
 ```toml
 post_date = "2026-09-04"
 title = "Chapter One"
-alt_text = "Page-level alt text used as an image fallback."
+alt_text = "Page-level hover text."
+screen_reader_text = "Default accessible description for this page."
 storyline = "Book 1"
 characters = ["Alice", "Bob"]
 tags = ["mystery", "rain"]
@@ -95,7 +126,8 @@ Panel one: Alice opens the door.
 [[images]]
 filename = "page-1.png"
 title = "Opening panel"
-alt_text = "Alice opens a blue door."
+alt_text = "What is behind the door?"
+screen_reader_text = "Alice opens a blue door."
 thumbnail = "page-1-thumbnail.jpg"
 
 [[images]]
@@ -107,7 +139,7 @@ Important differences from `info.ini` pages:
 * `post_date` accepts an ISO date or timestamp. You can use a quoted value such as `"2026-09-04T14:30:00-07:00"`, or TOML's unquoted date and datetime values.
 * A timestamp without a timezone uses the comic's configured timezone. A timestamp with `Z` or an offset represents that exact time and is converted to the comic's timezone for display.
 * Every image must be listed in an ordered `[[images]]` table. TOML pages do not auto-discover images.
-* An image's optional `title`, `alt_text`, and `thumbnail` override page-level fallbacks.
+* An image's title, hover text (alt_text), screen_reader_text, and thumbnail are optional. Screen-reader text resolves from the image value, the page value, then the image's resolved hover text.
 * Inline `post_text`, `[transcripts]`, and `[social_media]` replace that page's `post.txt`, transcript files, and `social_media.json`.
 * Custom template or hook values belong in `[extra]`. Keys beginning with `!` are intentionally not migrated into public page data.
 

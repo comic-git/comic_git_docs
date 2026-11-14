@@ -48,6 +48,12 @@ For both archive sections and infinite scroll links, be sure to set `width` and 
 
 ## Scheduled Posts
 
+For local builds and manual uploads, use
+[selective copying](building-your-website-on-your-own-pc.md#selective-copying)
+to omit scheduled page folders from output without deleting their sources.
+`--publish-all-comics` deliberately includes those pages for preview. This does
+not hide files committed to a public GitHub repository.
+
 If you set the Post Date for a comic page for a future date or time (according to the Timezone you have set in your `comic_info.ini` file), comic\_git will not create that page when you push your changes to GitHub. However, the comic data (image file, `info.ini` file, etc.) are not gone, and when comic\_git runs for the first time on the date provided, the comic will be published then.
 
 By default, comic\_git reruns every morning at 8:00 AM UTC to publish any comic posts that may have been scheduled previously. That is either 12:00 am midnight or 1:00 am Pacific Time, depending on Daylight Savings Time. If you wish to change this update schedule, you can do so by updating the following line in your `.github/workflows/main.yaml` file:

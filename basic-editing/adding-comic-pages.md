@@ -101,7 +101,9 @@ The filenames are case sensitive, so be sure to write them in exactly as the fil
 
 ### Structured image settings
 
-An INI page can give each image its own title, alt text, and thumbnail. Add one section per image after the normal page fields:
+> **Added in 1.1.0**
+
+An INI page can give each image its own title, hover text, screen-reader text, and thumbnail. Add one section per image after the normal page fields:
 
 ```ini
 Post date = September 4, 2026
@@ -111,7 +113,8 @@ Alt text = Fallback alt text for this page
 [Image opening]
 Filename = page-1.png
 Title = Opening panel
-Alt text = Alice opens a blue door.
+Alt text = What's behind the door?
+Screen reader text = Alice opens a blue door.
 Thumbnail = page-1-thumbnail.jpg
 
 [Image closing]
@@ -120,7 +123,7 @@ Filename = page-2.png
 
 The text after `Image` is only a label to keep the sections distinct. Image sections appear in file order, and each one requires `Filename`. Do not combine `[Image <label>]` sections with page-level `Filename` or `Filenames`.
 
-Per-image `Title`, `Alt text`, and `Thumbnail` are optional. Missing image alt text uses the page's `Alt text`; missing image titles use the Archive fallback configured in `comic_info.ini`; missing thumbnails use normal thumbnail resolution and generation.
+All four per-image settings are optional. Missing hover text uses the page's Alt text. Missing titles use the Archive fallback in comic_info.ini. Missing thumbnails use normal thumbnail resolution and generation. See the Screen reader text setting below for its fallback order.
 
 <details>
 
@@ -141,7 +144,16 @@ Sets an explicit thumbnail for the whole page. In the default page-based Archive
 * Value: `string`: alt text
 * Example: `Tamberlane, can you sign "ongoing trauma"?`
 
-The default alt text for images on this page. This is used by accessibility tools such as screen readers and may also appear in social-media preview metadata. A structured image can override it with its own `Alt text`.
+The default hover text for images on this page. A structured image can override it with its own Alt text. The resolved hover text also supplies the accessible description when Screen reader text is omitted at both levels.
+
+</details>
+
+<details>
+<summary>Screen reader text</summary>
+
+> **Added in 1.1.1**
+
+Use this setting for an accessible description separate from the hover text. comic_git uses the per-image value first, then the page-level value, then the image's resolved Alt text. Set an explicit empty value when an image is decorative and should have an empty HTML alt attribute.
 
 </details>
 
@@ -181,6 +193,8 @@ A comma-separated list of non-character tags. If the `tagged` page is configured
 
 {% hint style="danger" %}
 **Invalid Tag Names**
+
+Starting in 1.1.1, invalid tag and character paths stop the build with the offending value and source file. Names cannot be `.` or `..`, contain path separators or the characters below, contain control characters, or end in a dot or space. Names are never silently renamed.
 
 Due to the way comic\_git generates pages for tags and characters, there are some limitations on what characters you can use in your tags and character lists in the info.ini file. Please avoid using any of the following: `\ / : * ? " < > |`
 

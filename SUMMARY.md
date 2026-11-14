@@ -29,6 +29,7 @@
 * [Extra Comics](advanced-editing/extra-comics.md)
 * [Adding An RSS Feed](advanced-editing/adding-an-rss-feed.md)
 * [Social Media Previews](advanced-editing/social-media-previews.md)
+* [Webring](advanced-editing/webring.md)
 * [Extra Features](advanced-editing/extra-features.md)
 
 ## Expert Editing
@@ -36,8 +37,8 @@
 * [Expert Editing](expert-editing/expert-editing.md)
 * [Changing Your Website URL](expert-editing/changing-your-website-url.md)
 * [Building Your Website On Your Own PC](expert-editing/building-your-website-on-your-own-pc.md)
+* [GitHub Actions Build Options](expert-editing/github-actions-build-options.md)
 * [Hosting comic\_git Elsewhere](expert-editing/hosting-comic_git-elsewhere.md)
-* [Webring](expert-editing/webring.md)
 * [Code Hooks](expert-editing/code-hooks.md)
 * [Template and Hook Data](expert-editing/template-and-hook-data.md)
 * [Generated Page Metadata](expert-editing/generated-page-metadata.md)
